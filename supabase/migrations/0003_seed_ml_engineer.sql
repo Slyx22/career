@@ -1,16 +1,29 @@
 -- Seed data mirroring the Phase 1 in-code taxonomy
--- (python-engine/app/nlp/taxonomy.py) and career model
--- (python-engine/app/scoring/career_model.py).
+-- (python-engine/app/nlp/taxonomy.py) and career models
+-- (python-engine/app/data/career_models/*.json).
 --
 -- This lets a future Supabase-backed store read the same data the local
 -- SQLite/in-code version uses today. Until app/db/supabase_store.py is
 -- implemented and STORAGE_BACKEND=supabase is set, the Python engine
--- keeps using its in-code taxonomy/career model directly and this table
+-- keeps reading its JSON career model files directly and this table
 -- data is unused - it's provided for forward compatibility only.
+--
+-- NOTE: this file currently only seeds the ML Engineer skill taxonomy in
+-- full. Data Scientist, Software Engineer, and English Teacher exist as
+-- real, working career models in python-engine/app/data/career_models/
+-- (see the README's "Careers & O*NET sourcing" section) but haven't been
+-- backported into this SQL seed yet - do that when you actually implement
+-- app/db/supabase_store.py, using the JSON files as the source of truth.
 
 insert into careers (name, slug, description) values
     ('ML Engineer', 'ml-engineer',
-     'Builds, trains, deploys and maintains machine learning systems in production, spanning data preparation, modeling, and MLOps.')
+     'Builds, trains, deploys and maintains machine learning systems in production, spanning data preparation, modeling, and MLOps.'),
+    ('Data Scientist', 'data-scientist',
+     'Extracts insight from data using statistics, programming, and machine learning, and communicates findings to drive decisions.'),
+    ('Software Engineer', 'software-engineer',
+     'Designs, builds, tests, and maintains software systems and applications.'),
+    ('English Teacher', 'english-teacher',
+     'Teaches English language, literature, grammar, and composition to students, typically at the secondary school level.')
 on conflict (slug) do nothing;
 
 insert into skills (name, slug, category, aliases) values

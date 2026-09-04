@@ -68,20 +68,28 @@ required to run it locally.
 
 ---
 
-## 2. What's built (Phase 1 scope)
+## 2. What's built (Phase 1 + Phase 2 accounts scaffold)
 
 - Landing page with the required headline/CTA, no fake testimonials/stats.
-- Analysis form: first name, surname, target career (ML Engineer),
-  CV upload (PDF or DOCX).
+- Analysis form: first name, surname, target career, CV upload (PDF or DOCX).
+- **Four careers today** - ML Engineer, Data Scientist, Software Engineer,
+  and English Teacher - each mapped to a real O*NET-SOC occupation code
+  (see "Careers & O*NET sourcing" below). Adding another career is a
+  matter of dropping a new JSON file into
+  `python-engine/app/data/career_models/` - no code changes required.
 - Python engine:
   - CV text extraction (PyMuPDF for PDF, python-docx for DOCX) with
     light section detection (experience / education / projects / skills).
-  - A canonical, alias-aware skill taxonomy (`app/nlp/taxonomy.py`) — the
-    frontend never hard-codes skill names.
+  - A canonical, alias-aware skill taxonomy (`app/nlp/taxonomy.py`) - the
+    frontend never hard-codes skill names. Covers both tech skills
+    (Python, Docker, Kubernetes, ...) and education skills (lesson
+    planning, classroom management, differentiated instruction, ...) to
+    support non-tech careers like English Teacher.
   - Evidence-aware skill extraction (`app/nlp/skill_extractor.py`):
-    presence, evidence strength, depth (mentioned vs. demonstrated), and
-    recency (from years found near each mention), not just keyword
-    matching.
+    presence, evidence strength, depth (mentioned vs. actually
+    demonstrated - scoped to the sentence containing the mention, not a
+    fixed character window, so evidence from one sentence can't leak
+    into an unrelated neighbouring mention), and recency.
   - An explainable scoring engine (`app/scoring/scorer.py`) combining
     coverage × evidence × depth × recency × career importance/frequency
     into a 0–100 score, with a per-skill breakdown.
@@ -92,15 +100,24 @@ required to run it locally.
     content.
 - Next.js frontend wired to all of the above: results page with strengths
   / gaps / skill bars / recommendations, certificate page with
-  print/download, and a `/verify/[certificateId]` page.
+  print/download, and a `/verify/[certificateId]` page. The career
+  dropdown is populated live from `/api/careers`, so it reflects
+  whatever careers exist in the data directory.
+- **Clerk authentication, wired in but optional** (see "Integrating
+  Clerk" below) - a `/dashboard` route is protected and ready for
+  Phase 2 "save your results" features, while the core CV → score →
+  certificate flow works with zero setup and no account required.
 - Supabase-ready SQL migrations (`supabase/migrations/`) with RLS
   policies, mirroring the local SQLite schema.
 - Netlify-ready frontend config (`frontend/netlify.toml`) and a
   Python `Dockerfile` for independent deployment later — neither is
   used to deploy anything now.
-- Automated tests for the Python engine (scoring across a strong /
-  beginner / transitioning CV, extraction failures, validation errors,
-  certificate creation/verification, and the full API flow).
+- Automated tests: 29 passing tests covering scoring across a strong /
+  beginner / transitioning / career-changer CV, messy real-world CV
+  formatting, the sentence-scoping evidence fix, the O*NET data loader,
+  and a full English Teacher CV run end-to-end.
+- `.github/workflows/ci.yml` - GitHub Actions CI that runs the backend
+  test suite and the frontend type-check/build on every push and PR.
 
 ### Explicitly out of scope for Phase 1
 
@@ -205,7 +222,115 @@ No secrets are hard-coded anywhere in the codebase.
 
 ---
 
-## 5. Configuring Supabase later
+## 5. Careers & O*NET sourcing
+
+Each career lives in its own file: `python-engine/app/data/career_models/<slug>.json`.
+
+| Career | Slug | O*NET-SOC code | Match quality |
+|---|---|---|---|
+| ML Engineer | `ml-engineer` | 15-1221.00 (Computer and Information Research Scientists) | Closest available - O*NET has no distinct "ML Engineer" title yet |
+| Data Scientist | `data-scientist` | 15-2051.00 (Data Scientists) | Exact match |
+| Software Engineer | `software-engineer` | 15-1252.00 (Software Developers) | Exact match |
+| English Teacher | `english-teacher` | 25-2031.00 (Secondary School Teachers) | "English Teacher" is O*NET's own listed sample job title for this broader occupation |
+
+Every skill weight in these files carries a `source` tag so nothing is
+silently presented as more verified than it is:
+
+- `"onet_hot_technologies"` - a **real** percentage of employer job
+  postings mentioning that skill for this occupation, pulled from
+  O*NET's public Hot Technologies report (Lightcast job-postings data).
+  This is genuine market data, not an estimate.
+- `"onet_api"` - a real numeric Importance score (0-100) from the
+  authenticated O*NET Web Services API, via `scripts/onet_sync.py`.
+- `"onet_technology_list_only"` - the skill is confirmed relevant by
+  O*NET's technology list, but no numeric score is available yet.
+- `"benchmark_estimate"` - **not yet sourced from anywhere verified.**
+  An initial estimate seeded by the product team. The API response
+  labels these clearly (`onet_source` / `weight_source` fields) so the
+  frontend never presents them as verified statistics.
+
+### Adding another career
+
+1. Find its O*NET-SOC code at https://www.onetonline.org (search by job title).
+2. Either:
+   - **Manual (quick, less precise):** copy an existing file in
+     `app/data/career_models/`, update `slug`/`name`/`description`/`onet`,
+     and hand-write skill weights (mark them `"benchmark_estimate"`
+     honestly if you're guessing).
+   - **Scripted (slower, real numbers):** get free O*NET Web Services
+     credentials (https://services.onetcenter.org/developer/signup) and run:
+     ```bash
+     cd python-engine
+     export ONET_USERNAME=... ONET_PASSWORD=...
+     python3 -m scripts.onet_sync --soc-code <code> --career-slug <slug> --career-name "..."
+     ```
+3. Add any missing skills to `app/nlp/taxonomy.py` first if the career
+   needs vocabulary that isn't covered yet (see the `Education` category
+   added for English Teacher as an example of extending into a
+   non-tech domain).
+4. Restart the Python engine - `list_careers()` picks up new files
+   automatically, and the frontend's career dropdown (`/api/careers`) reflects
+   it immediately, no frontend code changes needed.
+
+## 6. Integrating Clerk
+
+Clerk (`@clerk/nextjs`) is already installed and wired into the code -
+turning it on is two environment variables, not a code change.
+
+1. Create a free account at https://dashboard.clerk.com and create an application.
+2. Copy your **Publishable key** and **Secret key** from the Clerk dashboard.
+3. Add them to `frontend/.env.local`:
+   ```
+   NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_...
+   CLERK_SECRET_KEY=sk_test_...
+   ```
+4. Restart `npm run dev`. That's it:
+   - `components/AuthProvider.tsx` now wraps the app in `ClerkProvider`.
+   - The header shows a real Sign in button (`components/AuthSection.tsx`).
+   - `middleware.ts` starts protecting `/dashboard` - visiting it while
+     signed out redirects to Clerk's sign-in flow automatically.
+   - `/dashboard` (`app/dashboard/page.tsx`) shows the signed-in user's
+     name as a working example of a protected page.
+
+**What's intentionally NOT built yet** (real Phase 2 work, not just
+config): linking a signed-in user's Clerk user ID to their saved
+analyses/certificates in Supabase. The database side is ready for this -
+`supabase/migrations/0001_initial_schema.sql` already has a nullable
+`analyses.user_id` column referencing `auth.users(id)` for exactly this
+purpose - but the actual "save my results" write path isn't implemented.
+`app/dashboard/page.tsx` is the wired-up entry point to build it from.
+
+Until you set the two env vars above, none of this activates: the app
+builds, runs, and serves the full CV → score → certificate flow exactly
+as if Clerk weren't installed at all (see `lib/clerk.ts`).
+
+## 7. Pushing this repository to GitHub
+
+This project is already a git repository with an initial commit. To push
+it to your own GitHub account:
+
+```bash
+# 1. Create a new, empty repository on github.com (don't initialize it
+#    with a README/license - this repo already has one).
+
+# 2. From the project root:
+git remote add origin https://github.com/<your-username>/<your-repo>.git
+git branch -M main
+git push -u origin main
+```
+
+Once pushed, `.github/workflows/ci.yml` runs automatically on every push
+and pull request: it installs the Python engine's dependencies and runs
+the full test suite, and separately type-checks and builds the frontend
+(with no Clerk/Supabase/AI keys configured, proving the app builds
+cleanly without them). No secrets or deployment credentials are needed
+for CI to pass - it only tests and builds, it doesn't deploy anything.
+
+Connecting this GitHub repo to Netlify (step 9 below) is what actually
+deploys the frontend - pushing to GitHub by itself does not deploy or
+launch anything.
+
+## 8. Configuring Supabase later
 
 1. Create a Supabase project.
 2. Run the SQL in `supabase/migrations/` in order (via the SQL editor or
@@ -219,23 +344,23 @@ No secrets are hard-coded anywhere in the codebase.
    frontend only once you build the optional "create an account to save
    your results" feature — the core flow doesn't require it.
 
-## 6. Configuring Netlify later
+## 9. Configuring Netlify later
 
 1. Connect this repository to a new Netlify site.
 2. Netlify will read `frontend/netlify.toml` (base directory, build
    command, and the `@netlify/plugin-nextjs` plugin) automatically.
 3. Set `PYTHON_API_URL` in the Netlify site's environment variables to
-   point at wherever you deploy the Python engine (step 7).
+   point at wherever you deploy the Python engine (step 10).
 4. Trigger a deploy from Netlify. Nothing in this repo deploys itself.
 
-## 7. Deploying the Python engine later
+## 10. Deploying the Python engine later
 
 `python-engine/Dockerfile` builds a container exposing port 8000. Deploy
 it to any container host you like (Fly.io, Render, Cloud Run, ECS, etc.).
 Set `ALLOWED_ORIGINS` to your deployed frontend's URL and
 `PUBLIC_VERIFY_URL_BASE` to your public domain once you have one.
 
-## 8. Optional AI API
+## 11. Optional AI API
 
 Phase 1 works fully without any AI API key. If you later want more
 natural-language recommendations, wire an AI API call into
@@ -245,7 +370,7 @@ the score must keep coming from the Python engine, never the LLM.
 
 ---
 
-## 9. Repository layout
+## 12. Repository layout
 
 ```
 career-readiness-analyzer/
@@ -273,15 +398,17 @@ career-readiness-analyzer/
 
 ---
 
-## 10. Launch checklist (when you're ready)
+## 13. Launch checklist (when you're ready)
 
 - [ ] Create Supabase project, run `supabase/migrations/*.sql`.
 - [ ] Implement `app/db/supabase_store.py`, set `STORAGE_BACKEND=supabase`.
 - [ ] Deploy `python-engine` (Docker) somewhere with a stable URL.
 - [ ] Set `PUBLIC_VERIFY_URL_BASE` / `ALLOWED_ORIGINS` on the deployed engine.
-- [ ] Connect this repo to Netlify; set `PYTHON_API_URL` there.
+- [ ] Push this repo to GitHub (see section 7), connect it to Netlify; set `PYTHON_API_URL` there.
 - [ ] Point your domain at Netlify.
+- [ ] (Optional) Create a Clerk account and set the two Clerk env vars (see section 6) to turn on accounts.
 - [ ] (Optional) Configure an AI API key for nicer recommendation phrasing.
+- [ ] (Optional) Get free O*NET Web Services credentials and run `scripts/onet_sync.py` for each career to replace remaining benchmark estimates with real numeric scores.
 
 This project does not perform any of the above automatically — every step
 here is something you trigger yourself when ready.
