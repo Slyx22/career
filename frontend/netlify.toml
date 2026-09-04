@@ -1,0 +1,10 @@
+# Netlify build configuration. This file makes the repo Netlify-ready but
+# nothing is deployed automatically - deployment only happens once you
+# connect this repo to a Netlify site yourself.
+[build]
+  base = "frontend"
+  command = "npm run build"
+  publish = ".next"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"

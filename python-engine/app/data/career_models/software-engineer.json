@@ -1,0 +1,36 @@
+{
+  "slug": "software-engineer",
+  "name": "Software Engineer",
+  "description": "Designs, builds, tests, and maintains software systems and applications.",
+
+  "onet": {
+    "soc_code": "15-1252.00",
+    "occupation_title": "Software Developers",
+    "note": "O*NET's 'Software Developers' is an exact, direct match for the general Software Engineer role (not an approximation, unlike ML Engineer). market_frequency for onet_confirmed skills below is the real percentage of employer job postings mentioning that skill for this occupation, per O*NET's Hot Technologies report (Lightcast job-postings data, Jan-Dec 2025) - this is the most concrete market data in this codebase so far.",
+    "source_url": "https://www.onetonline.org/link/hot_tech/15-1252.00",
+    "last_synced": null,
+    "sync_method": "manual_public_lookup",
+    "note_on_numeric_scores": "market_frequency for onet_confirmed=true skills is real (see note above). market_importance is still a benchmark estimate - O*NET's Hot Technologies report gives frequency, not importance. Run scripts/onet_sync.py with your own free O*NET Web Services credentials to pull real numeric Importance scores too."
+  },
+
+  "skills": [
+    { "skill_slug": "python",                       "market_frequency": 0.29, "market_importance": 0.75, "source": "onet_hot_technologies", "onet_confirmed": true },
+    { "skill_slug": "aws",                          "market_frequency": 0.26, "market_importance": 0.65, "source": "onet_hot_technologies", "onet_confirmed": true },
+    { "skill_slug": "java",                         "market_frequency": 0.25, "market_importance": 0.75, "source": "onet_hot_technologies", "onet_confirmed": true },
+    { "skill_slug": "sql",                          "market_frequency": 0.24, "market_importance": 0.65, "source": "onet_hot_technologies", "onet_confirmed": true },
+    { "skill_slug": "javascript",                   "market_frequency": 0.20, "market_importance": 0.70, "source": "onet_hot_technologies", "onet_confirmed": true },
+    { "skill_slug": "kubernetes",                   "market_frequency": 0.14, "market_importance": 0.55, "source": "onet_hot_technologies", "onet_confirmed": true },
+    { "skill_slug": "git",                          "market_frequency": 0.14, "market_importance": 0.70, "source": "onet_hot_technologies", "onet_confirmed": true },
+    { "skill_slug": "docker",                       "market_frequency": 0.13, "market_importance": 0.60, "source": "onet_hot_technologies", "onet_confirmed": true },
+    { "skill_slug": "typescript",                   "market_frequency": 0.08, "market_importance": 0.55, "source": "onet_hot_technologies", "onet_confirmed": true },
+    { "skill_slug": "postgresql",                   "market_frequency": 0.06, "market_importance": 0.45, "source": "onet_hot_technologies", "onet_confirmed": true },
+    { "skill_slug": "mongodb",                      "market_frequency": 0.04, "market_importance": 0.35, "source": "onet_hot_technologies", "onet_confirmed": true },
+    { "skill_slug": "rest_apis",                    "market_frequency": 0.55, "market_importance": 0.70, "source": "benchmark_estimate", "onet_confirmed": false },
+    { "skill_slug": "data_structures_algorithms",   "market_frequency": 0.70, "market_importance": 0.90, "source": "benchmark_estimate", "onet_confirmed": false },
+    { "skill_slug": "object_oriented_design",       "market_frequency": 0.60, "market_importance": 0.75, "source": "benchmark_estimate", "onet_confirmed": false },
+    { "skill_slug": "system_design",                "market_frequency": 0.45, "market_importance": 0.85, "source": "benchmark_estimate", "onet_confirmed": false },
+    { "skill_slug": "unit_testing",                 "market_frequency": 0.55, "market_importance": 0.70, "source": "benchmark_estimate", "onet_confirmed": false },
+    { "skill_slug": "cicd",                         "market_frequency": 0.40, "market_importance": 0.60, "source": "benchmark_estimate", "onet_confirmed": false },
+    { "skill_slug": "agile_scrum",                  "market_frequency": 0.55, "market_importance": 0.55, "source": "benchmark_estimate", "onet_confirmed": false }
+  ]
+}

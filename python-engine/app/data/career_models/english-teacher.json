@@ -1,0 +1,31 @@
+{
+  "slug": "english-teacher",
+  "name": "English Teacher",
+  "description": "Teaches English language, literature, grammar, and composition to students, typically at the secondary school level.",
+
+  "onet": {
+    "soc_code": "25-2031.00",
+    "occupation_title": "Secondary School Teachers, Except Special and Career/Technical Education",
+    "note": "O*NET does not break this occupation down by subject; 'English Teacher' is listed explicitly by O*NET as a sample reported job title under this broader Secondary School Teacher occupation, so figures here reflect general secondary teaching, not English-specific data.",
+    "source_url": "https://www.onetonline.org/link/summary/25-2031.00",
+    "last_synced": null,
+    "sync_method": "manual_public_lookup",
+    "note_on_numeric_scores": "Seeded from public O*NET OnLine lookup. Run scripts/onet_sync.py with your own free O*NET Web Services credentials to pull real numeric Importance scores and replace the estimated weights below."
+  },
+
+  "skills": [
+    { "skill_slug": "lesson_planning",              "market_frequency": 0.90, "market_importance": 0.90, "source": "benchmark_estimate", "onet_confirmed": false },
+    { "skill_slug": "classroom_management",         "market_frequency": 0.85, "market_importance": 0.90, "source": "benchmark_estimate", "onet_confirmed": false },
+    { "skill_slug": "curriculum_development",       "market_frequency": 0.60, "market_importance": 0.70, "source": "benchmark_estimate", "onet_confirmed": false },
+    { "skill_slug": "differentiated_instruction",   "market_frequency": 0.55, "market_importance": 0.65, "source": "benchmark_estimate", "onet_confirmed": false },
+    { "skill_slug": "literacy_instruction",         "market_frequency": 0.65, "market_importance": 0.75, "source": "benchmark_estimate", "onet_confirmed": false },
+    { "skill_slug": "grammar_composition",          "market_frequency": 0.60, "market_importance": 0.75, "source": "benchmark_estimate", "onet_confirmed": false },
+    { "skill_slug": "literature_analysis",          "market_frequency": 0.50, "market_importance": 0.65, "source": "benchmark_estimate", "onet_confirmed": false },
+    { "skill_slug": "assessment_design",            "market_frequency": 0.70, "market_importance": 0.75, "source": "benchmark_estimate", "onet_confirmed": false },
+    { "skill_slug": "educational_technology",       "market_frequency": 0.55, "market_importance": 0.55, "source": "benchmark_estimate", "onet_confirmed": false },
+    { "skill_slug": "parent_communication",         "market_frequency": 0.50, "market_importance": 0.55, "source": "benchmark_estimate", "onet_confirmed": false },
+    { "skill_slug": "esl_instruction",              "market_frequency": 0.30, "market_importance": 0.45, "source": "benchmark_estimate", "onet_confirmed": false },
+    { "skill_slug": "special_needs_accommodation",  "market_frequency": 0.40, "market_importance": 0.55, "source": "benchmark_estimate", "onet_confirmed": false },
+    { "skill_slug": "public_speaking",              "market_frequency": 0.75, "market_importance": 0.70, "source": "benchmark_estimate", "onet_confirmed": true }
+  ]
+}

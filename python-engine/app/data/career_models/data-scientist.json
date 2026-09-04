@@ -1,0 +1,44 @@
+{
+  "slug": "data-scientist",
+  "name": "Data Scientist",
+  "description": "Extracts insight from data using statistics, programming, and machine learning, and communicates findings to drive decisions.",
+
+  "onet": {
+    "soc_code": "15-2051.00",
+    "occupation_title": "Data Scientists",
+    "note": "This is an exact, direct O*NET-SOC occupation match for 'Data Scientist' (not an approximation, unlike ML Engineer). market_frequency for onet_confirmed skills below is the real percentage of employer job postings mentioning that skill for this occupation, per O*NET's Hot Technologies report (Lightcast job-postings data, Jan-Dec 2025).",
+    "source_url": "https://www.onetonline.org/link/hot_tech/15-2051.00",
+    "last_synced": null,
+    "sync_method": "manual_public_lookup",
+    "note_on_numeric_scores": "market_frequency for onet_confirmed=true skills is real job-posting frequency data (see note above). market_importance is still a benchmark estimate. Run scripts/onet_sync.py with your own free O*NET Web Services credentials to pull real numeric Importance scores too."
+  },
+
+  "skills": [
+    { "skill_slug": "python",               "market_frequency": 0.66, "market_importance": 0.95, "source": "onet_hot_technologies", "onet_confirmed": true },
+    { "skill_slug": "sql",                  "market_frequency": 0.51, "market_importance": 0.85, "source": "onet_hot_technologies", "onet_confirmed": true },
+    { "skill_slug": "data_visualization",   "market_frequency": 0.22, "market_importance": 0.70, "source": "onet_hot_technologies", "onet_confirmed": true },
+    { "skill_slug": "aws",                  "market_frequency": 0.17, "market_importance": 0.50, "source": "onet_hot_technologies", "onet_confirmed": true },
+    { "skill_slug": "azure",                "market_frequency": 0.13, "market_importance": 0.40, "source": "onet_hot_technologies", "onet_confirmed": true },
+    { "skill_slug": "tensorflow",           "market_frequency": 0.11, "market_importance": 0.40, "source": "onet_hot_technologies", "onet_confirmed": true },
+    { "skill_slug": "pytorch",              "market_frequency": 0.10, "market_importance": 0.40, "source": "onet_hot_technologies", "onet_confirmed": true },
+    { "skill_slug": "git",                  "market_frequency": 0.05, "market_importance": 0.50, "source": "onet_hot_technologies", "onet_confirmed": true },
+    { "skill_slug": "docker",               "market_frequency": 0.03, "market_importance": 0.35, "source": "onet_hot_technologies", "onet_confirmed": true },
+    { "skill_slug": "javascript",           "market_frequency": 0.03, "market_importance": 0.15, "source": "onet_hot_technologies", "onet_confirmed": true },
+    { "skill_slug": "kubernetes",           "market_frequency": 0.02, "market_importance": 0.25, "source": "onet_hot_technologies", "onet_confirmed": true },
+    { "skill_slug": "postgresql",           "market_frequency": 0.01, "market_importance": 0.30, "source": "onet_hot_technologies", "onet_confirmed": true },
+    { "skill_slug": "mongodb",              "market_frequency": 0.01, "market_importance": 0.20, "source": "onet_hot_technologies", "onet_confirmed": true },
+    { "skill_slug": "statistics",           "market_frequency": 0.75, "market_importance": 0.90, "source": "benchmark_estimate", "onet_confirmed": false },
+    { "skill_slug": "probability",          "market_frequency": 0.55, "market_importance": 0.65, "source": "benchmark_estimate", "onet_confirmed": false },
+    { "skill_slug": "hypothesis_testing",   "market_frequency": 0.50, "market_importance": 0.65, "source": "benchmark_estimate", "onet_confirmed": false },
+    { "skill_slug": "pandas",               "market_frequency": 0.78, "market_importance": 0.80, "source": "benchmark_estimate", "onet_confirmed": false },
+    { "skill_slug": "numpy",                "market_frequency": 0.65, "market_importance": 0.65, "source": "benchmark_estimate", "onet_confirmed": false },
+    { "skill_slug": "scikit_learn",         "market_frequency": 0.60, "market_importance": 0.70, "source": "benchmark_estimate", "onet_confirmed": false },
+    { "skill_slug": "machine_learning",     "market_frequency": 0.75, "market_importance": 0.85, "source": "benchmark_estimate", "onet_confirmed": false },
+    { "skill_slug": "data_preprocessing",   "market_frequency": 0.70, "market_importance": 0.80, "source": "benchmark_estimate", "onet_confirmed": false },
+    { "skill_slug": "data_pipelines",       "market_frequency": 0.45, "market_importance": 0.60, "source": "benchmark_estimate", "onet_confirmed": false },
+    { "skill_slug": "feature_engineering",  "market_frequency": 0.45, "market_importance": 0.65, "source": "benchmark_estimate", "onet_confirmed": false },
+    { "skill_slug": "model_evaluation",     "market_frequency": 0.55, "market_importance": 0.70, "source": "benchmark_estimate", "onet_confirmed": false },
+    { "skill_slug": "gcp",                  "market_frequency": 0.15, "market_importance": 0.35, "source": "benchmark_estimate", "onet_confirmed": false },
+    { "skill_slug": "deep_learning",        "market_frequency": 0.30, "market_importance": 0.45, "source": "benchmark_estimate", "onet_confirmed": false }
+  ]
+}
