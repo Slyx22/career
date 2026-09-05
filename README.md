@@ -257,8 +257,25 @@ silently presented as more verified than it is:
      `app/data/career_models/`, update `slug`/`name`/`description`/`onet`,
      and hand-write skill weights (mark them `"benchmark_estimate"`
      honestly if you're guessing).
-   - **Scripted (slower, real numbers):** get free O*NET Web Services
-     credentials (https://services.onetcenter.org/developer/signup) and run:
+   - **Bulk database (recommended, real numbers, no signup):** download
+     O*NET's free full database zip - no API credentials needed at all:
+     1. Go to https://www.onetcenter.org/database.html#individual-files
+     2. Under "Text Format", download the latest zip (e.g. `db_29_1_text.zip`).
+     3. Unzip it somewhere, e.g. `~/Downloads/db_29_1_text/`.
+     4. Run:
+        ```bash
+        cd python-engine
+        python3 -m scripts.onet_bulk_import --db-dir ~/Downloads/db_29_1_text --list-occupations
+        python3 -m scripts.onet_bulk_import \
+          --db-dir ~/Downloads/db_29_1_text \
+          --soc-code <code> --career-slug <slug> --career-name "..."
+        ```
+     This writes real, numeric Importance scores straight from the
+     official database - no rate limits, no credentials, and you can run
+     it once per career for as many careers as you want.
+   - **Scripted API (slower, one career at a time, needs free signup):**
+     get free O*NET Web Services credentials
+     (https://services.onetcenter.org/developer/signup) and run:
      ```bash
      cd python-engine
      export ONET_USERNAME=... ONET_PASSWORD=...
