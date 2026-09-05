@@ -15,7 +15,7 @@ the swap is mechanical.
 from __future__ import annotations
 
 from abc import ABC, abstractmethod
-from typing import Any, Dict, Optional
+from typing import Any, Dict, List, Optional
 
 
 class Repository(ABC):
@@ -34,3 +34,8 @@ class Repository(ABC):
     @abstractmethod
     def get_certificate(self, certificate_id: str) -> Optional[Dict[str, Any]]:
         ...
+
+    @abstractmethod
+    def list_certificates_for_user(self, clerk_user_id: str) -> List[Dict[str, Any]]:
+        """List all certificates issued to a given signed-in (Clerk) user,
+        most recent first. Powers the /dashboard 'my certificates' view."""

@@ -308,20 +308,53 @@ turning it on is two environment variables, not a code change.
      signed out redirects to Clerk's sign-in flow automatically.
    - `/dashboard` (`app/dashboard/page.tsx`) shows the signed-in user's
      name as a working example of a protected page.
+   - **Certificate generation now requires a free account.** Analysis
+     stays completely open with no sign-in; only clicking "Generate My
+     Certificate" checks your Clerk session
+     (`app/api/certificate/route.ts`) and prompts you to sign up/sign in
+     first if needed (`components/GenerateCertificateButton.tsx`). Set
+     `REQUIRE_ACCOUNT_FOR_CERTIFICATE=true` in the Python engine's `.env`
+     too for a defense-in-depth check on that side as well.
 
 **What's intentionally NOT built yet** (real Phase 2 work, not just
-config): linking a signed-in user's Clerk user ID to their saved
-analyses/certificates in Supabase. The database side is ready for this -
-`supabase/migrations/0001_initial_schema.sql` already has a nullable
-`analyses.user_id` column referencing `auth.users(id)` for exactly this
-purpose - but the actual "save my results" write path isn't implemented.
-`app/dashboard/page.tsx` is the wired-up entry point to build it from.
+config): a full "my saved analyses" history page. The database side is
+ready - `supabase/migrations/0001_initial_schema.sql` has a
+`clerk_user_id` column on both `analyses` and `certificates`, and the
+Python engine already stores/retrieves certificates by `clerk_user_id`
+(`GET /api/certificates?clerk_user_id=...`) - but `/dashboard` only shows
+your name today, not a certificate list yet. That's a short follow-up
+from here, not a redesign.
 
 Until you set the two env vars above, none of this activates: the app
 builds, runs, and serves the full CV → score → certificate flow exactly
-as if Clerk weren't installed at all (see `lib/clerk.ts`).
+as if Clerk weren't installed at all (see `lib/clerk.ts`), with no
+sign-up required anywhere.
 
-## 7. Pushing this repository to GitHub
+**A note on secrets:** never paste your `CLERK_SECRET_KEY` (or any
+secret key) into a chat tool, ticket, or anywhere outside your own
+`.env.local` file (which is already git-ignored). If a secret key is
+ever exposed somewhere it shouldn't be, roll it from the Clerk dashboard
+- generating a new one immediately invalidates the old one.
+
+## 7. Terms of Service & Privacy Policy
+
+`app/terms/page.tsx` and `app/privacy/page.tsx` contain a drafted Terms
+of Service and Privacy Policy, written to reflect what this specific
+application actually collects and does (CV upload, free certificate
+generation requiring a Clerk account, public certificate verification,
+no ads, no data sale). **These are templates, not legal advice** - they
+say so directly on the page. Before launching for real:
+
+1. Replace every `[bracketed placeholder]` (company name, contact email, retention policy, age threshold, etc.).
+2. Have a lawyer review both pages - particularly for South Africa's
+   POPIA if your users are there, and any other jurisdiction (e.g. GDPR)
+   your users are in.
+3. Update Section 5 of the Privacy Policy once you've picked and connected
+   a real database provider (Supabase or otherwise).
+
+Both pages are linked from the site footer.
+
+## 8. Pushing this repository to GitHub
 
 This project is already a git repository with an initial commit. To push
 it to your own GitHub account:
@@ -343,11 +376,11 @@ the full test suite, and separately type-checks and builds the frontend
 cleanly without them). No secrets or deployment credentials are needed
 for CI to pass - it only tests and builds, it doesn't deploy anything.
 
-Connecting this GitHub repo to Netlify (step 9 below) is what actually
+Connecting this GitHub repo to Netlify (step 10 below) is what actually
 deploys the frontend - pushing to GitHub by itself does not deploy or
 launch anything.
 
-## 8. Configuring Supabase later
+## 9. Configuring Supabase later
 
 1. Create a Supabase project.
 2. Run the SQL in `supabase/migrations/` in order (via the SQL editor or
@@ -361,23 +394,23 @@ launch anything.
    frontend only once you build the optional "create an account to save
    your results" feature — the core flow doesn't require it.
 
-## 9. Configuring Netlify later
+## 10. Configuring Netlify later
 
 1. Connect this repository to a new Netlify site.
 2. Netlify will read `frontend/netlify.toml` (base directory, build
    command, and the `@netlify/plugin-nextjs` plugin) automatically.
 3. Set `PYTHON_API_URL` in the Netlify site's environment variables to
-   point at wherever you deploy the Python engine (step 10).
+   point at wherever you deploy the Python engine (step 11).
 4. Trigger a deploy from Netlify. Nothing in this repo deploys itself.
 
-## 10. Deploying the Python engine later
+## 11. Deploying the Python engine later
 
 `python-engine/Dockerfile` builds a container exposing port 8000. Deploy
 it to any container host you like (Fly.io, Render, Cloud Run, ECS, etc.).
 Set `ALLOWED_ORIGINS` to your deployed frontend's URL and
 `PUBLIC_VERIFY_URL_BASE` to your public domain once you have one.
 
-## 11. Optional AI API
+## 12. Optional AI API
 
 Phase 1 works fully without any AI API key. If you later want more
 natural-language recommendations, wire an AI API call into
@@ -387,7 +420,7 @@ the score must keep coming from the Python engine, never the LLM.
 
 ---
 
-## 12. Repository layout
+## 13. Repository layout
 
 ```
 career-readiness-analyzer/
@@ -415,17 +448,19 @@ career-readiness-analyzer/
 
 ---
 
-## 13. Launch checklist (when you're ready)
+## 14. Launch checklist (when you're ready)
 
 - [ ] Create Supabase project, run `supabase/migrations/*.sql`.
 - [ ] Implement `app/db/supabase_store.py`, set `STORAGE_BACKEND=supabase`.
 - [ ] Deploy `python-engine` (Docker) somewhere with a stable URL.
 - [ ] Set `PUBLIC_VERIFY_URL_BASE` / `ALLOWED_ORIGINS` on the deployed engine.
-- [ ] Push this repo to GitHub (see section 7), connect it to Netlify; set `PYTHON_API_URL` there.
+- [ ] Push this repo to GitHub (see section 8), connect it to Netlify; set `PYTHON_API_URL` there.
 - [ ] Point your domain at Netlify.
-- [ ] (Optional) Create a Clerk account and set the two Clerk env vars (see section 6) to turn on accounts.
+- [ ] Set your Clerk env vars (see section 6) - certificates require an account, so this is not optional once you're live.
+- [ ] Set `REQUIRE_ACCOUNT_FOR_CERTIFICATE=true` on the deployed Python engine.
+- [ ] Fill in the `[bracketed placeholders]` in `app/terms/page.tsx` and `app/privacy/page.tsx`, and have a lawyer review both (see section 7).
 - [ ] (Optional) Configure an AI API key for nicer recommendation phrasing.
-- [ ] (Optional) Get free O*NET Web Services credentials and run `scripts/onet_sync.py` for each career to replace remaining benchmark estimates with real numeric scores.
+- [ ] (Optional) Get free O*NET Web Services credentials and run `scripts/onet_sync.py`, or download the bulk database and run `scripts/onet_bulk_import.py` (see section 5), for each career to replace remaining benchmark estimates with real numeric scores.
 
 This project does not perform any of the above automatically — every step
 here is something you trigger yourself when ready.

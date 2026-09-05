@@ -45,6 +45,15 @@ class CertificateRequest(BaseModel):
     analysis_id: str = Field(..., min_length=1)
     first_name: str = Field(..., min_length=1)
     surname: str = Field(..., min_length=1)
+    clerk_user_id: Optional[str] = Field(
+        default=None,
+        description=(
+            "The signed-in user's Clerk user id, set by the Next.js server "
+            "after verifying the session - never sent by the browser "
+            "directly. Certificates are free but require an account; see "
+            "REQUIRE_ACCOUNT_FOR_CERTIFICATE."
+        ),
+    )
 
 
 class CertificateResponse(BaseModel):
@@ -65,6 +74,10 @@ class CertificateVerifyResponse(BaseModel):
     career: Optional[str] = None
     score: Optional[int] = None
     issued_at: Optional[str] = None
+
+
+class CertificateListResponse(BaseModel):
+    certificates: List[CertificateResponse]
 
 
 class ErrorResponse(BaseModel):

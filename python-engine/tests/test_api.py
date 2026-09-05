@@ -119,3 +119,70 @@ def test_certificate_requires_existing_analysis():
         json={"analysis_id": "does-not-exist", "first_name": "John", "surname": "Smith"},
     )
     assert resp.status_code == 404
+
+
+def test_get_missing_analysis_returns_404_not_unhandled_exception():
+    """Regression test: get_analysis_response raises AnalysisError for a
+    missing analysis - the route must catch it and return a clean 404,
+    not let it propagate as an unhandled 500."""
+    resp = client.get("/api/analysis/does-not-exist")
+    assert resp.status_code == 404
+    assert "not found" in resp.json()["detail"].lower()
+
+
+def test_certificate_stores_and_lists_by_clerk_user_id():
+    """
+    Certificates are free but tied to an account once Clerk is connected
+    (see frontend/app/api/certificate/route.ts for the actual sign-in
+    gate - that's enforced at the Next.js layer, not here). The Python
+    engine just needs to correctly store and retrieve by clerk_user_id
+    when the Next.js layer supplies one.
+    """
+    file_bytes = _make_docx_bytes(STRONG_CV_TEXT)
+    analyze_resp = client.post(
+        "/api/analyze",
+        data={"first_name": "Ada", "surname": "Lovelace", "career": "ml-engineer"},
+        files={"file": ("cv.docx", file_bytes, "application/vnd.openxmlformats-officedocument.wordprocessingml.document")},
+    )
+    analysis = analyze_resp.json()
+
+    cert_resp = client.post(
+        "/api/certificate",
+        json={
+            "analysis_id": analysis["analysis_id"],
+            "first_name": "Ada",
+            "surname": "Lovelace",
+            "clerk_user_id": "user_test_12345",
+        },
+    )
+    assert cert_resp.status_code == 200
+    cert = cert_resp.json()
+
+    list_resp = client.get("/api/certificates", params={"clerk_user_id": "user_test_12345"})
+    assert list_resp.status_code == 200
+    certs = list_resp.json()["certificates"]
+    assert any(c["certificate_id"] == cert["certificate_id"] for c in certs)
+
+    # A different (or no) user id should not see this certificate.
+    other_resp = client.get("/api/certificates", params={"clerk_user_id": "user_someone_else"})
+    assert other_resp.status_code == 200
+    assert all(c["certificate_id"] != cert["certificate_id"] for c in other_resp.json()["certificates"])
+
+
+def test_certificate_without_clerk_user_id_still_works_by_default():
+    """Local dev / Clerk-not-configured behavior must be unaffected:
+    certificates can still be created with no clerk_user_id unless
+    REQUIRE_ACCOUNT_FOR_CERTIFICATE is explicitly turned on."""
+    file_bytes = _make_docx_bytes(STRONG_CV_TEXT)
+    analyze_resp = client.post(
+        "/api/analyze",
+        data={"first_name": "Grace", "surname": "Hopper", "career": "ml-engineer"},
+        files={"file": ("cv.docx", file_bytes, "application/vnd.openxmlformats-officedocument.wordprocessingml.document")},
+    )
+    analysis = analyze_resp.json()
+
+    cert_resp = client.post(
+        "/api/certificate",
+        json={"analysis_id": analysis["analysis_id"], "first_name": "Grace", "surname": "Hopper"},
+    )
+    assert cert_resp.status_code == 200

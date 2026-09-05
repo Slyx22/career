@@ -58,11 +58,16 @@ create table if not exists analyses (
     surname     text not null,
     career_id   uuid not null references careers(id),
     score       integer not null check (score between 0 and 100),
-    -- user_id is nullable: analysis does not require authentication
-    -- (build spec section 24). Link it up once a user creates an account.
-    user_id     uuid references auth.users(id),
+    -- clerk_user_id is nullable: analysis does not require authentication
+    -- (build spec section 24). Identity here is Clerk's user id (a
+    -- string like "user_2abc...", not a Supabase Auth uuid) since this
+    -- app uses Clerk, not Supabase Auth, for accounts - see the
+    -- README's "Integrating Clerk" section.
+    clerk_user_id text,
     created_at  timestamptz not null default now()
 );
+
+create index if not exists idx_analyses_clerk_user_id on analyses (clerk_user_id);
 
 -- ---------------------------------------------------------------------
 -- analysis_skills (per-skill scoring detail, for the skill breakdown UI)
@@ -90,8 +95,16 @@ create table if not exists certificates (
     surname        text not null,
     career         text not null,
     score          integer not null check (score between 0 and 100),
+    -- Certificate generation requires a signed-in (free) account once
+    -- Clerk is connected - see build spec change: "certificates require
+    -- sign-up, free of charge". clerk_user_id is the Clerk user id of
+    -- whoever generated this certificate. It's still nullable here so
+    -- local development without Clerk configured keeps working (see
+    -- frontend/app/api/certificate/route.ts for the enforcement logic).
+    clerk_user_id  text,
     issued_at      timestamptz not null default now()
 );
 
 create index if not exists idx_certificates_certificate_id on certificates (certificate_id);
+create index if not exists idx_certificates_clerk_user_id on certificates (clerk_user_id);
 create index if not exists idx_analyses_created_at on analyses (created_at desc);

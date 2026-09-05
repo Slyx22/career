@@ -224,3 +224,57 @@ def test_sync_career_model_parses_mocked_onet_responses(tmp_path, monkeypatch):
         written = json.load(f)
     assert written["onet"]["soc_code"] == "15-1221.00"
     assert written["onet"]["sync_method"] == "onet_web_services_api"
+
+
+def test_require_account_for_certificate_flag_rejects_missing_clerk_user_id(monkeypatch):
+    """
+    Unit test for the Python-side defense-in-depth check (the real gate
+    lives in the Next.js layer, see frontend/app/api/certificate/route.ts).
+    When REQUIRE_ACCOUNT_FOR_CERTIFICATE=true, certificate creation must
+    be refused without a clerk_user_id.
+    """
+    from app.db.local_store import LocalStore
+    from app.services.certificate_service import CertificateError, create_certificate
+    from app.services.analysis_service import run_analysis
+    import tempfile
+    import os as _os
+
+    monkeypatch.setenv("REQUIRE_ACCOUNT_FOR_CERTIFICATE", "true")
+    store = LocalStore(db_path=_os.path.join(tempfile.gettempdir(), "test_require_account.db"))
+
+    cv_bytes = (
+        b"Test User\nML Engineer\nBuilt and deployed models using Python and Docker.\n"
+    )
+    # Use extract_from_text via run_analysis's underlying pipeline by
+    # writing a minimal text-like docx isn't necessary here - just build
+    # an analysis record directly through the service using a .docx.
+    from docx import Document
+    import io as _io
+
+    doc = Document()
+    doc.add_paragraph("Built and deployed models using Python and Docker.")
+    buf = _io.BytesIO()
+    doc.save(buf)
+
+    analysis = run_analysis(
+        store=store,
+        filename="cv.docx",
+        file_bytes=buf.getvalue(),
+        first_name="Test",
+        surname="User",
+        career_slug="ml-engineer",
+    )
+
+    try:
+        create_certificate(
+            store=store, analysis_id=analysis.analysis_id, first_name="Test", surname="User", clerk_user_id=None
+        )
+        assert False, "expected CertificateError to be raised"
+    except CertificateError as exc:
+        assert exc.status_code == 401
+
+    # With a clerk_user_id supplied, it should succeed.
+    result = create_certificate(
+        store=store, analysis_id=analysis.analysis_id, first_name="Test", surname="User", clerk_user_id="user_abc"
+    )
+    assert result.certificate_id.startswith("CR-")

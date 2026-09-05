@@ -5,7 +5,7 @@ import os
 import secrets
 import string
 from datetime import datetime, timezone
-from typing import Optional
+from typing import List, Optional
 
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import landscape, A4
@@ -30,8 +30,23 @@ def _generate_certificate_id() -> str:
     return f"CR-{suffix}"
 
 
+def _account_required_for_certificates() -> bool:
+    """
+    Certificates are free but require a signed-in account (per product
+    decision - see README "Certificates require a free account"). The
+    primary enforcement lives in the Next.js layer (frontend/app/api/
+    certificate/route.ts), which knows the caller's real Clerk session.
+    This is a defense-in-depth secondary check: if this env var is set,
+    the Python engine will also refuse to issue a certificate with no
+    clerk_user_id, even if something bypassed the Next.js layer.
+    Defaults to off so local development without Clerk configured keeps
+    working exactly as before.
+    """
+    return os.environ.get("REQUIRE_ACCOUNT_FOR_CERTIFICATE", "false").lower() == "true"
+
+
 def create_certificate(
-    *, store: Repository, analysis_id: str, first_name: str, surname: str
+    *, store: Repository, analysis_id: str, first_name: str, surname: str, clerk_user_id: Optional[str] = None
 ) -> CertificateResponse:
     analysis = store.get_analysis(analysis_id)
     if not analysis:
@@ -41,6 +56,12 @@ def create_certificate(
     surname = (surname or "").strip()
     if not first_name or not surname:
         raise CertificateError("First name and surname are required to generate a certificate.")
+
+    if _account_required_for_certificates() and not clerk_user_id:
+        raise CertificateError(
+            "A free account is required to generate a certificate. Please sign up or sign in first.",
+            status_code=401,
+        )
 
     career = analysis["payload"].get("career_name") or analysis["career"]
     score = analysis["score"]
@@ -63,6 +84,7 @@ def create_certificate(
             "surname": surname,
             "career": career,
             "score": score,
+            "clerk_user_id": clerk_user_id,
             "issued_at": issued_at,
         }
     )
@@ -94,6 +116,23 @@ def verify_certificate(*, store: Repository, certificate_id: str) -> Certificate
         score=cert["score"],
         issued_at=cert["issued_at"],
     )
+
+
+def list_certificates_for_user(*, store: Repository, clerk_user_id: str) -> List[CertificateResponse]:
+    verify_base = os.environ.get("PUBLIC_VERIFY_BASE_PATH", "/verify")
+    certs = store.list_certificates_for_user(clerk_user_id)
+    return [
+        CertificateResponse(
+            certificate_id=c["certificate_id"],
+            first_name=c["first_name"],
+            surname=c["surname"],
+            career=c["career"],
+            score=c["score"],
+            issued_at=c["issued_at"],
+            verify_path=f"{verify_base}/{c['certificate_id']}",
+        )
+        for c in certs
+    ]
 
 
 def render_certificate_pdf(*, store: Repository, certificate_id: str) -> Optional[bytes]:
