@@ -74,7 +74,55 @@ def _build_pattern(skill: Skill) -> re.Pattern:
 
 _SKILL_PATTERNS = {s.slug: _build_pattern(s) for s in SKILL_TAXONOMY}
 
-SENTENCE_SPLIT = re.compile(r"(?<=[.!?\n])\s+")
+SENTENCE_SPLIT = re.compile(r"(?<=[.!?])\s+|\n+")
+
+# Explicit self-rated proficiency levels, as commonly written in CVs like
+# "Python - Moderate" or "SQL: Beginner". This is a very common real-world
+# CV pattern (skills listed with a self-declared level) that plain
+# verb-based evidence detection completely misses - a bullet like
+# "SQL - BEGINNER" contains no verb at all, so without this explicit
+# check it would default to the neutral 0.5 depth score, the same as a
+# bare skill mention with no self-assessment at all.
+PROFICIENCY_LEVELS = {
+    "beginner": 0.20,
+    "basic": 0.25,
+    "novice": 0.20,
+    "moderate": 0.45,
+    "average": 0.45,
+    "intermediate": 0.55,
+    "competent": 0.60,
+    "good": 0.65,
+    "proficient": 0.75,
+    "very good": 0.80,
+    "advanced": 0.85,
+    "excellent": 0.90,
+    "expert": 0.95,
+}
+# Sorted longest-first so "very good" matches before "good" would.
+_PROFICIENCY_PATTERN = re.compile(
+    r"[-:–—]\s*(" + "|".join(re.escape(k) for k in sorted(PROFICIENCY_LEVELS, key=len, reverse=True)) + r")\b",
+    re.IGNORECASE,
+)
+
+
+def _detect_explicit_proficiency(text: str, match_end: int, window: int = 30) -> Optional[float]:
+    """
+    Looks just after a skill mention (e.g. right after "SQL" in
+    "SQL - BEGINNER") for an explicit self-rated proficiency level, and
+    returns the corresponding depth score if found. This is treated as
+    stronger signal than the verb-based heuristic, since it's the
+    person's own direct claim about their level, not an inference from
+    phrasing.
+    """
+    snippet = text[match_end:match_end + window]
+    m = _PROFICIENCY_PATTERN.match(snippet.lstrip() if snippet[:1] in " \t" else snippet)
+    if not m:
+        # Also allow a little leading whitespace before the dash.
+        stripped = snippet.lstrip(" \t")
+        m = _PROFICIENCY_PATTERN.match(stripped)
+    if not m:
+        return None
+    return PROFICIENCY_LEVELS[m.group(1).lower()]
 
 
 def _sentence_spans(text: str) -> List[tuple]:
@@ -173,12 +221,22 @@ def extract_skill_evidence(cv: ExtractedCV) -> Dict[str, SkillEvidence]:
 
         best_combined = 0.0
         depth_values = []
+        explicit_level_values = []
         recency_values = []
 
         for m in matches[:8]:  # cap for performance/no runaway CVs
             context = _sentence_context(text, sentence_spans, m.start(), m.end())
             scores = _score_context(context)
-            depth_values.append(scores["depth"])
+            depth_for_mention = scores["depth"]
+
+            explicit_level = _detect_explicit_proficiency(text, m.end())
+            if explicit_level is not None:
+                # A direct "Skill - Level" self-rating is more reliable
+                # than an inferred verb-based guess for this mention.
+                depth_for_mention = explicit_level
+                explicit_level_values.append(explicit_level)
+
+            depth_values.append(depth_for_mention)
 
             local_years = extract_years_mentioned(context)
             years_for_recency = local_years or doc_years
@@ -192,13 +250,15 @@ def extract_skill_evidence(cv: ExtractedCV) -> Dict[str, SkillEvidence]:
                     section_weight = SECTION_WEIGHT.get(section_name, 0.55)
                     break
 
-            combined = (0.5 * scores["depth"] + 0.5 * section_weight)
+            combined = (0.5 * depth_for_mention + 0.5 * section_weight)
             if combined > best_combined:
                 best_combined = combined
                 if len(evidence.snippets) < 2:
                     evidence.snippets.append(context)
 
-        evidence.depth_score = max(depth_values) if depth_values else 0.5
+        evidence.depth_score = max(explicit_level_values) if explicit_level_values else (
+            max(depth_values) if depth_values else 0.5
+        )
         evidence.recency_score = max(recency_values) if recency_values else 0.6
 
         # Evidence score blends: presence baseline + mention frequency +

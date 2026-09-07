@@ -89,7 +89,12 @@ required to run it locally.
     presence, evidence strength, depth (mentioned vs. actually
     demonstrated - scoped to the sentence containing the mention, not a
     fixed character window, so evidence from one sentence can't leak
-    into an unrelated neighbouring mention), and recency.
+    into an unrelated neighbouring mention), and recency. Sentence
+    splitting correctly handles bullet-list CVs (lines separated by a
+    single newline, no punctuation - very common in real resumes), and
+    explicit self-rated proficiency ("Python - Moderate", "SQL:
+    Beginner") is detected and takes priority over a vaguer mention
+    elsewhere in the same CV.
   - An explainable scoring engine (`app/scoring/scorer.py`) combining
     coverage × evidence × depth × recency × career importance/frequency
     into a 0–100 score, with a per-skill breakdown.
@@ -306,24 +311,17 @@ turning it on is two environment variables, not a code change.
    - The header shows a real Sign in button (`components/AuthSection.tsx`).
    - `middleware.ts` starts protecting `/dashboard` - visiting it while
      signed out redirects to Clerk's sign-in flow automatically.
-   - `/dashboard` (`app/dashboard/page.tsx`) shows the signed-in user's
-     name as a working example of a protected page.
-   - **Certificate generation now requires a free account.** Analysis
-     stays completely open with no sign-in; only clicking "Generate My
+   - `/dashboard` (`app/dashboard/page.tsx`) lists every certificate the
+     signed-in user has generated, via `GET /api/certificates`
+     (`app/api/certificates/route.ts`, which uses the caller's own
+     verified Clerk session - never a client-supplied user id).
+   - **Certificate generation requires a free account.** Analysis stays
+     completely open with no sign-in; only clicking "Generate My
      Certificate" checks your Clerk session
      (`app/api/certificate/route.ts`) and prompts you to sign up/sign in
      first if needed (`components/GenerateCertificateButton.tsx`). Set
      `REQUIRE_ACCOUNT_FOR_CERTIFICATE=true` in the Python engine's `.env`
      too for a defense-in-depth check on that side as well.
-
-**What's intentionally NOT built yet** (real Phase 2 work, not just
-config): a full "my saved analyses" history page. The database side is
-ready - `supabase/migrations/0001_initial_schema.sql` has a
-`clerk_user_id` column on both `analyses` and `certificates`, and the
-Python engine already stores/retrieves certificates by `clerk_user_id`
-(`GET /api/certificates?clerk_user_id=...`) - but `/dashboard` only shows
-your name today, not a certificate list yet. That's a short follow-up
-from here, not a redesign.
 
 Until you set the two env vars above, none of this activates: the app
 builds, runs, and serves the full CV → score → certificate flow exactly

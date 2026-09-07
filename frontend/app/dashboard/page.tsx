@@ -1,6 +1,18 @@
+import Link from "next/link";
 import { isClerkConfigured } from "@/lib/clerk";
+import { getPythonApiUrl } from "@/lib/config";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+
+type Certificate = {
+  certificate_id: string;
+  first_name: string;
+  surname: string;
+  career: string;
+  score: number;
+  issued_at: string;
+  verify_path: string;
+};
 
 /**
  * This route is where "sign in to save your certificates / track
@@ -8,12 +20,6 @@ import { Footer } from "@/components/Footer";
  * features) lives. It's wired into middleware.ts as a protected route:
  * once Clerk is configured, visiting /dashboard while signed out
  * redirects to sign-in automatically - no extra code needed here.
- *
- * What's NOT built yet: actually linking a signed-in user's Clerk user
- * id to their saved analyses/certificates in Supabase. That's real
- * Phase 2 work (see README "Integrating Clerk" for the concrete next
- * steps) - this page is the wired-up entry point for it, not the
- * finished feature.
  */
 export default async function DashboardPage() {
   if (!isClerkConfigured) {
@@ -37,6 +43,26 @@ export default async function DashboardPage() {
   const { currentUser } = await import("@clerk/nextjs/server");
   const user = await currentUser();
 
+  let certificates: Certificate[] = [];
+  let loadError: string | null = null;
+
+  if (user) {
+    try {
+      const res = await fetch(
+        `${getPythonApiUrl()}/api/certificates?clerk_user_id=${encodeURIComponent(user.id)}`,
+        { cache: "no-store" }
+      );
+      if (res.ok) {
+        const data = await res.json();
+        certificates = data.certificates ?? [];
+      } else {
+        loadError = "Could not load your certificates right now.";
+      }
+    } catch {
+      loadError = "The analysis engine is unavailable right now.";
+    }
+  }
+
   return (
     <div className="min-h-screen bg-paper">
       <Header />
@@ -45,13 +71,55 @@ export default async function DashboardPage() {
           Welcome{user?.firstName ? `, ${user.firstName}` : ""}
         </h1>
         <p className="mt-3 font-body text-slate">
-          This is the entry point for saved results and certificate history.
-          Linking your saved analyses/certificates to your account is a Phase
-          2 feature - the auth and route protection are wired up; the
-          Supabase-side linking (see <code className="text-sm">analyses.user_id</code>{" "}
-          in <code className="text-sm">supabase/migrations/</code>) is the next
-          piece to build.
+          Certificates you&apos;ve generated while signed in show up here.
         </p>
+
+        <div className="mt-8">
+          {loadError && (
+            <p className="rounded border border-brass bg-brass/10 px-3 py-2 font-body text-sm text-brass-dark">
+              {loadError}
+            </p>
+          )}
+
+          {!loadError && certificates.length === 0 && (
+            <div className="rounded border border-line bg-white px-5 py-6 font-body text-sm text-slate">
+              No certificates yet.{" "}
+              <Link href="/analyze" className="underline hover:text-ink">
+                Run an analysis
+              </Link>{" "}
+              to generate your first one.
+            </div>
+          )}
+
+          {!loadError && certificates.length > 0 && (
+            <ul className="flex flex-col gap-3">
+              {certificates.map((cert) => (
+                <li
+                  key={cert.certificate_id}
+                  className="flex items-center justify-between rounded border border-line bg-white px-5 py-4"
+                >
+                  <div>
+                    <p className="font-body text-sm font-medium text-ink">{cert.career}</p>
+                    <p className="font-body text-xs text-slate">
+                      {cert.score}/100 · {new Date(cert.issued_at).toLocaleDateString("en-US", {
+                        day: "numeric",
+                        month: "long",
+                        year: "numeric",
+                      })}{" "}
+                      · {cert.certificate_id}
+                    </p>
+                  </div>
+                  <Link
+                    href={`/certificate/${cert.certificate_id}`}
+                    className="focus-ring rounded border border-line px-4 py-2 font-body text-xs font-medium text-ink hover:border-slate"
+                  >
+                    View
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
       </main>
       <Footer />
     </div>
