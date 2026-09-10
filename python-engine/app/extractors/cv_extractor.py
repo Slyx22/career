@@ -93,7 +93,22 @@ def extract_from_docx(file_bytes: bytes) -> ExtractedCV:
     except Exception as exc:  # noqa: BLE001
         raise CVExtractionError(f"Could not open DOCX: {exc}") from exc
 
-    lines = [p.text for p in document.paragraphs]
+    lines = []
+
+    # Extract text from paragraphs
+    for p in document.paragraphs:
+        if p.text.strip():
+            lines.append(p.text)
+
+    # Extract text from tables (many CVs use table layouts)
+    for table in document.tables:
+        for row in table.rows:
+            for cell in row.cells:
+                # Each cell can contain multiple paragraphs
+                cell_text = cell.text.strip()
+                if cell_text:
+                    lines.append(cell_text)
+
     raw_text = "\n".join(lines)
 
     if not raw_text.strip():
