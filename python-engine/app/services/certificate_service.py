@@ -226,9 +226,9 @@ def render_certificate_pdf(*, store: Repository, certificate_id: str) -> Optiona
     if signature_path.exists():
         try:
             sig_img = ImageReader(str(signature_path))
-            img_width = 35 * mm
-            img_height = 18 * mm
-            c.drawImage(sig_img, width * 0.7 - img_width/2, 55*mm,
+            img_width = 50 * mm
+            img_height = 25 * mm
+            c.drawImage(sig_img, width * 0.7 - img_width/2, 53*mm,
                        width=img_width, height=img_height,
                        mask='auto', preserveAspectRatio=True)
         except Exception:
@@ -246,6 +246,9 @@ def render_certificate_pdf(*, store: Repository, certificate_id: str) -> Optiona
     c.setFont("Helvetica-Oblique", 10)
     c.setFillColor(colors.HexColor("#334155"))
     c.drawCentredString(width * 0.7, 46 * mm, "S.R.")
+    c.setFont("Helvetica", 8)
+    c.setFillColor(colors.HexColor("#475569"))
+    c.drawCentredString(width * 0.7, 42 * mm, "Founder & Chief AI Officer")
 
     # Bottom info
     c.setFont("Helvetica", 8)
