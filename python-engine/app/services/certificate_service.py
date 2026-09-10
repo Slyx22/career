@@ -11,6 +11,8 @@ from reportlab.lib import colors
 from reportlab.lib.pagesizes import landscape, A4
 from reportlab.lib.units import mm
 from reportlab.pdfgen import canvas
+from reportlab.lib.utils import ImageReader
+from pathlib import Path
 
 from app.db.interface import Repository
 from app.models.schemas import CertificateResponse, CertificateVerifyResponse
@@ -145,57 +147,130 @@ def render_certificate_pdf(*, store: Repository, certificate_id: str) -> Optiona
     c = canvas.Canvas(buffer, pagesize=page_size)
     width, height = page_size
 
-    # Border
-    c.setStrokeColor(colors.HexColor("#1E293B"))
-    c.setLineWidth(3)
-    c.rect(15 * mm, 15 * mm, width - 30 * mm, height - 30 * mm)
-    c.setLineWidth(0.75)
-    c.rect(19 * mm, 19 * mm, width - 38 * mm, height - 38 * mm)
+    # Elegant border with gradient feel (double border)
+    c.setStrokeColor(colors.HexColor("#B8801F"))  # Brass color
+    c.setLineWidth(4)
+    c.rect(12 * mm, 12 * mm, width - 24 * mm, height - 24 * mm)
+
+    c.setStrokeColor(colors.HexColor("#E8D4A7"))  # Light brass
+    c.setLineWidth(1)
+    c.rect(16 * mm, 16 * mm, width - 32 * mm, height - 32 * mm)
 
     center_x = width / 2
 
-    c.setFont("Helvetica", 12)
-    c.setFillColor(colors.HexColor("#475569"))
-    c.drawCentredString(center_x, height - 40 * mm, "CAREER READINESS CERTIFICATE")
-
-    full_name = f"{cert['first_name']} {cert['surname']}".upper()
-    c.setFont("Helvetica-Bold", 30)
-    c.setFillColor(colors.HexColor("#0F172A"))
-    c.drawCentredString(center_x, height - 60 * mm, full_name)
-
-    c.setFont("Helvetica", 16)
-    c.setFillColor(colors.HexColor("#334155"))
-    c.drawCentredString(center_x, height - 72 * mm, cert["career"].upper())
-
+    # Header with decorative line
     c.setFont("Helvetica", 11)
-    c.drawCentredString(center_x, height - 88 * mm, "Career Readiness Score")
-    c.setFont("Helvetica-Bold", 26)
-    c.setFillColor(colors.HexColor("#2563EB"))
-    c.drawCentredString(center_x, height - 100 * mm, f"{cert['score']} / 100")
+    c.setFillColor(colors.HexColor("#B8801F"))
+    c.drawCentredString(center_x, height - 35 * mm, "CERTIFICATE OF ACHIEVEMENT")
 
-    issued_dt = datetime.fromisoformat(cert["issued_at"])
-    issued_str = issued_dt.strftime("%-d %B %Y") if os.name != "nt" else issued_dt.strftime("%d %B %Y")
+    # Decorative line under header
+    c.setStrokeColor(colors.HexColor("#B8801F"))
+    c.setLineWidth(0.5)
+    c.line(center_x - 40 * mm, height - 38 * mm, center_x + 40 * mm, height - 38 * mm)
 
-    c.setFont("Helvetica", 10)
+    # "This certifies that"
+    c.setFont("Helvetica-Oblique", 12)
     c.setFillColor(colors.HexColor("#475569"))
-    c.drawCentredString(center_x, 40 * mm, f"Assessment completed: {issued_str}")
-    c.drawCentredString(center_x, 34 * mm, f"Certificate ID: {cert['certificate_id']}")
+    c.drawCentredString(center_x, height - 50 * mm, "This certifies that")
+
+    # Name (larger, more prominent)
+    full_name = f"{cert['first_name']} {cert['surname']}"
+    c.setFont("Helvetica-Bold", 32)
+    c.setFillColor(colors.HexColor("#0F172A"))
+    c.drawCentredString(center_x, height - 65 * mm, full_name)
+
+    # Decorative underline for name
+    name_width = c.stringWidth(full_name, "Helvetica-Bold", 32)
+    c.setStrokeColor(colors.HexColor("#B8801F"))
+    c.setLineWidth(0.5)
+    c.line(center_x - name_width/2 - 5*mm, height - 68*mm,
+           center_x + name_width/2 + 5*mm, height - 68*mm)
+
+    # Achievement text
+    c.setFont("Helvetica", 13)
+    c.setFillColor(colors.HexColor("#334155"))
+    c.drawCentredString(center_x, height - 80 * mm, "has successfully demonstrated career readiness for")
+
+    # Career (prominent)
+    c.setFont("Helvetica-Bold", 18)
+    c.setFillColor(colors.HexColor("#B8801F"))
+    c.drawCentredString(center_x, height - 92 * mm, cert["career"])
+
+    # Score box (Udemy-style)
+    c.setFont("Helvetica", 11)
+    c.setFillColor(colors.HexColor("#475569"))
+    c.drawCentredString(center_x, height - 108 * mm, "Career Readiness Score")
+
+    c.setFont("Helvetica-Bold", 28)
+    c.setFillColor(colors.HexColor("#B8801F"))
+    c.drawCentredString(center_x, height - 122 * mm, f"{cert['score']}/100")
+
+    # Signature section
+    issued_dt = datetime.fromisoformat(cert["issued_at"])
+    issued_str = issued_dt.strftime("%-d %B %Y") if os.name != "nt" else issued_dt.strftime("%d %B %Y").lstrip("0")
+
+    # Try to load signature
+    signature_path = Path(__file__).resolve().parent.parent.parent.parent / "frontend" / "public" / "images" / "signature.png"
+
+    # Left side: Date
+    c.setFont("Helvetica", 9)
+    c.setFillColor(colors.HexColor("#475569"))
+    c.drawCentredString(width * 0.3, 48 * mm, issued_str)
+    c.setStrokeColor(colors.HexColor("#CBD5E1"))
+    c.setLineWidth(0.5)
+    c.line(width * 0.3 - 30*mm, 50*mm, width * 0.3 + 30*mm, 50*mm)
+    c.setFont("Helvetica", 8)
+    c.drawCentredString(width * 0.3, 42 * mm, "Date of Completion")
+
+    # Right side: Signature
+    if signature_path.exists():
+        try:
+            # Draw signature with proper scaling
+            sig_img = ImageReader(str(signature_path))
+            img_width = 30 * mm
+            img_height = 15 * mm
+            c.drawImage(sig_img, width * 0.7 - img_width/2, 52*mm,
+                       width=img_width, height=img_height,
+                       mask='auto', preserveAspectRatio=True)
+        except Exception as e:
+            # Fallback if signature can't be loaded
+            c.setFont("Helvetica-Oblique", 14)
+            c.drawCentredString(width * 0.7, 58 * mm, "S.R.")
+    else:
+        # Fallback signature
+        c.setFont("Helvetica-Oblique", 14)
+        c.drawCentredString(width * 0.7, 58 * mm, "S.R.")
+
+    c.setStrokeColor(colors.HexColor("#CBD5E1"))
+    c.setLineWidth(0.5)
+    c.line(width * 0.7 - 30*mm, 50*mm, width * 0.7 + 30*mm, 50*mm)
+
+    c.setFont("Helvetica-Bold", 9)
+    c.setFillColor(colors.HexColor("#0F172A"))
+    c.drawCentredString(width * 0.7, 44 * mm, "Obakeng Mokgoshi")
+    c.setFont("Helvetica", 8)
+    c.setFillColor(colors.HexColor("#475569"))
+    c.drawCentredString(width * 0.7, 39 * mm, "Founder & Chief AI Officer")
+
+    # Bottom info
+    c.setFont("Helvetica", 8)
+    c.setFillColor(colors.HexColor("#64748B"))
+    c.drawCentredString(center_x, 28 * mm, f"Certificate ID: {cert['certificate_id']}")
 
     verify_base = os.environ.get("PUBLIC_VERIFY_URL_BASE", "")
     verify_line = (
         f"Verify at: {verify_base}/verify/{cert['certificate_id']}"
         if verify_base
-        else f"Verify at: /verify/{cert['certificate_id']}"
+        else f"Verify authenticity at: /verify/{cert['certificate_id']}"
     )
-    c.drawCentredString(center_x, 28 * mm, verify_line)
+    c.drawCentredString(center_x, 24 * mm, verify_line)
 
-    c.setFont("Helvetica-Oblique", 8)
+    c.setFont("Helvetica-Oblique", 7)
     c.setFillColor(colors.HexColor("#94A3B8"))
     c.drawCentredString(
         center_x,
-        22 * mm,
-        "This certificate confirms completion of a Career Readiness Assessment. "
-        "It is not a professional accreditation or certification.",
+        19 * mm,
+        "This certificate confirms completion of a Career Readiness Assessment and is not a professional accreditation.",
     )
 
     c.showPage()
