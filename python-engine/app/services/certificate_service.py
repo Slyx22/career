@@ -212,45 +212,40 @@ def render_certificate_pdf(*, store: Repository, certificate_id: str) -> Optiona
     # Try to load signature
     signature_path = Path(__file__).resolve().parent.parent.parent.parent / "frontend" / "public" / "images" / "signature.png"
 
-    # Left side: Date
+    # Left side: Date — aligned directly on decorative line
     c.setFont("Helvetica", 9)
     c.setFillColor(colors.HexColor("#475569"))
-    c.drawCentredString(width * 0.3, 48 * mm, issued_str)
+    c.drawCentredString(width * 0.3, 55 * mm, issued_str)
     c.setStrokeColor(colors.HexColor("#CBD5E1"))
     c.setLineWidth(0.5)
-    c.line(width * 0.3 - 30*mm, 50*mm, width * 0.3 + 30*mm, 50*mm)
+    c.line(width * 0.3 - 30*mm, 52*mm, width * 0.3 + 30*mm, 52*mm)
     c.setFont("Helvetica", 8)
-    c.drawCentredString(width * 0.3, 42 * mm, "Date of Completion")
+    c.drawCentredString(width * 0.3, 46 * mm, "Date of Completion")
 
-    # Right side: Signature
+    # Right side: Signature + initials only (professional, no full name)
     if signature_path.exists():
         try:
-            # Draw signature with proper scaling
             sig_img = ImageReader(str(signature_path))
-            img_width = 30 * mm
-            img_height = 15 * mm
-            c.drawImage(sig_img, width * 0.7 - img_width/2, 52*mm,
+            img_width = 35 * mm
+            img_height = 18 * mm
+            c.drawImage(sig_img, width * 0.7 - img_width/2, 55*mm,
                        width=img_width, height=img_height,
                        mask='auto', preserveAspectRatio=True)
-        except Exception as e:
-            # Fallback if signature can't be loaded
-            c.setFont("Helvetica-Oblique", 14)
+        except Exception:
+            # Fallback if image can't load
+            c.setFont("Helvetica-Oblique", 16)
             c.drawCentredString(width * 0.7, 58 * mm, "S.R.")
     else:
-        # Fallback signature
-        c.setFont("Helvetica-Oblique", 14)
+        c.setFont("Helvetica-Oblique", 16)
         c.drawCentredString(width * 0.7, 58 * mm, "S.R.")
 
+    # Signature decorative line and initials only (no full name below)
     c.setStrokeColor(colors.HexColor("#CBD5E1"))
     c.setLineWidth(0.5)
-    c.line(width * 0.7 - 30*mm, 50*mm, width * 0.7 + 30*mm, 50*mm)
-
-    c.setFont("Helvetica-Bold", 9)
-    c.setFillColor(colors.HexColor("#0F172A"))
-    c.drawCentredString(width * 0.7, 44 * mm, "Obakeng Mokgoshi")
-    c.setFont("Helvetica", 8)
-    c.setFillColor(colors.HexColor("#475569"))
-    c.drawCentredString(width * 0.7, 39 * mm, "Founder & Chief AI Officer")
+    c.line(width * 0.7 - 30*mm, 52*mm, width * 0.7 + 30*mm, 52*mm)
+    c.setFont("Helvetica-Oblique", 10)
+    c.setFillColor(colors.HexColor("#334155"))
+    c.drawCentredString(width * 0.7, 46 * mm, "S.R.")
 
     # Bottom info
     c.setFont("Helvetica", 8)
