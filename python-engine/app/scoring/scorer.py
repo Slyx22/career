@@ -85,6 +85,11 @@ def score_career_readiness(
         frequency_weight = weight.market_frequency
         combined_weight = (0.6 * importance_weight) + (0.4 * frequency_weight)
 
+        # Irrelevant skills (low market importance) contribute 0 — prevents
+        # unrelated skills (e.g., Python in non-ML career) from inflating score.
+        if importance_weight < 0.1:
+            skill_final = 0.0
+
         weighted_sum += skill_final * combined_weight
         weight_total += combined_weight
 
