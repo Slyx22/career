@@ -1,0 +1,78 @@
+{
+  "slug": "sawing-machine-setters-operators-and-tenders-wood",
+  "name": "Sawing Machine Setters, Operators, and Tenders, Wood",
+  "description": "Set up, operate, or tend wood sawing machines. May operate computer numerically controlled (CNC) equipment. Includes lead sawyers.",
+  "onet": {
+    "soc_code": "51-7041.00",
+    "occupation_title": "Sawing Machine Setters, Operators, and Tenders, Wood",
+    "note": "Imported from O*NET 31.0 Database.",
+    "source_url": "https://www.onetonline.org/link/summary/51-7041.00",
+    "last_synced": "2026-09-08T19:21:53.557648+00:00",
+    "sync_method": "onet_bulk_database"
+  },
+  "skills": [
+    {
+      "skill_slug": "literacy_instruction",
+      "market_frequency": 0.405,
+      "market_importance": 0.405,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true
+    },
+    {
+      "skill_slug": "grammar_composition",
+      "market_frequency": 0.095,
+      "market_importance": 0.095,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true
+    },
+    {
+      "skill_slug": "public_speaking",
+      "market_frequency": 0.28,
+      "market_importance": 0.28,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true
+    },
+    {
+      "skill_slug": "model_monitoring",
+      "market_frequency": 0.47,
+      "market_importance": 0.47,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true
+    },
+    {
+      "skill_slug": "python",
+      "market_frequency": 0.5,
+      "market_importance": 0.5,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true
+    },
+    {
+      "skill_slug": "system_design",
+      "market_frequency": 0.157,
+      "market_importance": 0.157,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true
+    },
+    {
+      "skill_slug": "esl_instruction",
+      "market_frequency": 0.145,
+      "market_importance": 0.145,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true
+    },
+    {
+      "skill_slug": "typescript",
+      "market_frequency": 0.5,
+      "market_importance": 0.5,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true
+    },
+    {
+      "skill_slug": "data_visualization",
+      "market_frequency": 0.53,
+      "market_importance": 0.53,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true
+    }
+  ]
+}

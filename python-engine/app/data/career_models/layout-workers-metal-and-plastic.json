@@ -1,0 +1,78 @@
+{
+  "slug": "layout-workers-metal-and-plastic",
+  "name": "Layout Workers, Metal and Plastic",
+  "description": "Lay out reference points and dimensions on metal or plastic stock or workpieces, such as sheets, plates, tubes, structural shapes, castings, or machine parts, for further processing. Includes shipfitters.",
+  "onet": {
+    "soc_code": "51-4192.00",
+    "occupation_title": "Layout Workers, Metal and Plastic",
+    "note": "Imported from O*NET 31.0 Database.",
+    "source_url": "https://www.onetonline.org/link/summary/51-4192.00",
+    "last_synced": "2026-09-08T19:21:53.557648+00:00",
+    "sync_method": "onet_bulk_database"
+  },
+  "skills": [
+    {
+      "skill_slug": "literacy_instruction",
+      "market_frequency": 0.47,
+      "market_importance": 0.47,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true
+    },
+    {
+      "skill_slug": "grammar_composition",
+      "market_frequency": 0.47,
+      "market_importance": 0.47,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true
+    },
+    {
+      "skill_slug": "public_speaking",
+      "market_frequency": 0.375,
+      "market_importance": 0.375,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true
+    },
+    {
+      "skill_slug": "model_monitoring",
+      "market_frequency": 0.5,
+      "market_importance": 0.5,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true
+    },
+    {
+      "skill_slug": "python",
+      "market_frequency": 0.5,
+      "market_importance": 0.5,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true
+    },
+    {
+      "skill_slug": "system_design",
+      "market_frequency": 0.887,
+      "market_importance": 0.887,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true
+    },
+    {
+      "skill_slug": "esl_instruction",
+      "market_frequency": 0.677,
+      "market_importance": 0.677,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true
+    },
+    {
+      "skill_slug": "typescript",
+      "market_frequency": 0.5,
+      "market_importance": 0.5,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true
+    },
+    {
+      "skill_slug": "data_visualization",
+      "market_frequency": 0.72,
+      "market_importance": 0.72,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true
+    }
+  ]
+}

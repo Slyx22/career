@@ -1,0 +1,78 @@
+{
+  "slug": "farmworkers-farm-ranch-and-aquacultural-animals",
+  "name": "Farmworkers, Farm, Ranch, and Aquacultural Animals",
+  "description": "Attend to live farm, ranch, open range or aquacultural animals that may include cattle, sheep, swine, goats, horses and other equines, poultry, rabbits, finfish, shellfish, and bees. Attend to animals produced for animal products, such as meat, fur, skins, feathers, eggs, milk, and honey. Duties may include feeding, watering, herding, grazing, milking, castrating, branding, de-beaking, weighing, catching, and loading animals. May maintain records on animals; examine animals to detect diseases and injuries; assist in birth deliveries; and administer medications, vaccinations, or insecticides as appropriate. May clean and maintain animal housing areas. Includes workers who shear wool from sheep and collect eggs in hatcheries.",
+  "onet": {
+    "soc_code": "45-2093.00",
+    "occupation_title": "Farmworkers, Farm, Ranch, and Aquacultural Animals",
+    "note": "Imported from O*NET 31.0 Database.",
+    "source_url": "https://www.onetonline.org/link/summary/45-2093.00",
+    "last_synced": "2026-09-08T19:21:53.557648+00:00",
+    "sync_method": "onet_bulk_database"
+  },
+  "skills": [
+    {
+      "skill_slug": "literacy_instruction",
+      "market_frequency": 0.438,
+      "market_importance": 0.438,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true
+    },
+    {
+      "skill_slug": "grammar_composition",
+      "market_frequency": 0.438,
+      "market_importance": 0.438,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true
+    },
+    {
+      "skill_slug": "public_speaking",
+      "market_frequency": 0.47,
+      "market_importance": 0.47,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true
+    },
+    {
+      "skill_slug": "model_monitoring",
+      "market_frequency": 0.562,
+      "market_importance": 0.562,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true
+    },
+    {
+      "skill_slug": "python",
+      "market_frequency": 0.5,
+      "market_importance": 0.5,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true
+    },
+    {
+      "skill_slug": "system_design",
+      "market_frequency": 0.267,
+      "market_importance": 0.267,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true
+    },
+    {
+      "skill_slug": "esl_instruction",
+      "market_frequency": 0.51,
+      "market_importance": 0.51,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true
+    },
+    {
+      "skill_slug": "typescript",
+      "market_frequency": 0.5,
+      "market_importance": 0.5,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true
+    },
+    {
+      "skill_slug": "data_visualization",
+      "market_frequency": 0.438,
+      "market_importance": 0.438,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true
+    }
+  ]
+}

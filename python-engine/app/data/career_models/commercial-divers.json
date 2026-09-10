@@ -1,0 +1,78 @@
+{
+  "slug": "commercial-divers",
+  "name": "Commercial Divers",
+  "description": "Work below surface of water, using surface-supplied air or scuba equipment to inspect, repair, remove, or install equipment and structures. May use a variety of power and hand tools, such as drills, sledgehammers, torches, and welding equipment. May conduct tests or experiments, rig explosives, or photograph structures or marine life.",
+  "onet": {
+    "soc_code": "49-9092.00",
+    "occupation_title": "Commercial Divers",
+    "note": "Imported from O*NET 31.0 Database.",
+    "source_url": "https://www.onetonline.org/link/summary/49-9092.00",
+    "last_synced": "2026-09-08T19:21:53.557648+00:00",
+    "sync_method": "onet_bulk_database"
+  },
+  "skills": [
+    {
+      "skill_slug": "literacy_instruction",
+      "market_frequency": 0.625,
+      "market_importance": 0.625,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true
+    },
+    {
+      "skill_slug": "grammar_composition",
+      "market_frequency": 0.5,
+      "market_importance": 0.5,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true
+    },
+    {
+      "skill_slug": "public_speaking",
+      "market_frequency": 0.53,
+      "market_importance": 0.53,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true
+    },
+    {
+      "skill_slug": "model_monitoring",
+      "market_frequency": 0.5,
+      "market_importance": 0.5,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true
+    },
+    {
+      "skill_slug": "python",
+      "market_frequency": 0.5,
+      "market_importance": 0.5,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true
+    },
+    {
+      "skill_slug": "system_design",
+      "market_frequency": 0.84,
+      "market_importance": 0.84,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true
+    },
+    {
+      "skill_slug": "esl_instruction",
+      "market_frequency": 0.59,
+      "market_importance": 0.59,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true
+    },
+    {
+      "skill_slug": "typescript",
+      "market_frequency": 0.5,
+      "market_importance": 0.5,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true
+    },
+    {
+      "skill_slug": "data_visualization",
+      "market_frequency": 0.53,
+      "market_importance": 0.53,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true
+    }
+  ]
+}

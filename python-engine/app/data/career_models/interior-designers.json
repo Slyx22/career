@@ -1,0 +1,78 @@
+{
+  "slug": "interior-designers",
+  "name": "Interior Designers",
+  "description": "Plan, design, and furnish the internal space of rooms or buildings. Design interior environments or create physical layouts that are practical, aesthetic, and conducive to the intended purposes. May specialize in a particular field, style, or phase of interior design.",
+  "onet": {
+    "soc_code": "27-1025.00",
+    "occupation_title": "Interior Designers",
+    "note": "Imported from O*NET 31.0 Database.",
+    "source_url": "https://www.onetonline.org/link/summary/27-1025.00",
+    "last_synced": "2026-09-08T19:21:53.557648+00:00",
+    "sync_method": "onet_bulk_database"
+  },
+  "skills": [
+    {
+      "skill_slug": "literacy_instruction",
+      "market_frequency": 0.75,
+      "market_importance": 0.75,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true
+    },
+    {
+      "skill_slug": "grammar_composition",
+      "market_frequency": 0.72,
+      "market_importance": 0.72,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true
+    },
+    {
+      "skill_slug": "public_speaking",
+      "market_frequency": 0.75,
+      "market_importance": 0.75,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true
+    },
+    {
+      "skill_slug": "model_monitoring",
+      "market_frequency": 0.53,
+      "market_importance": 0.53,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true
+    },
+    {
+      "skill_slug": "python",
+      "market_frequency": 0.13,
+      "market_importance": 0.13,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true
+    },
+    {
+      "skill_slug": "system_design",
+      "market_frequency": 1.0,
+      "market_importance": 1.0,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true
+    },
+    {
+      "skill_slug": "esl_instruction",
+      "market_frequency": 0.95,
+      "market_importance": 0.95,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true
+    },
+    {
+      "skill_slug": "typescript",
+      "market_frequency": 0.75,
+      "market_importance": 0.75,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true
+    },
+    {
+      "skill_slug": "data_visualization",
+      "market_frequency": 0.75,
+      "market_importance": 0.75,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true
+    }
+  ]
+}

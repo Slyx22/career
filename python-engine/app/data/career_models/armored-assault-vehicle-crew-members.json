@@ -1,0 +1,14 @@
+{
+  "slug": "armored-assault-vehicle-crew-members",
+  "name": "Armored Assault Vehicle Crew Members",
+  "description": "Operate tanks, light armor, and amphibious assault vehicles during combat situations on land or in aquatic environments. Duties include driving armored vehicles that require specialized training; operating and maintaining targeting and firing systems; operating and maintaining advanced onboard communications and navigation equipment; transporting personnel and equipment in a combat environment; and operating and maintaining auxiliary weapons, including machine guns and grenade launchers.",
+  "onet": {
+    "soc_code": "55-3013.00",
+    "occupation_title": "Armored Assault Vehicle Crew Members",
+    "note": "Imported from O*NET 31.0 Database.",
+    "source_url": "https://www.onetonline.org/link/summary/55-3013.00",
+    "last_synced": "2026-09-08T19:21:53.557648+00:00",
+    "sync_method": "onet_bulk_database"
+  },
+  "skills": []
+}

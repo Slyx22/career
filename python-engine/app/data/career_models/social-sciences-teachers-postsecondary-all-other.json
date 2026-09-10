@@ -1,0 +1,14 @@
+{
+  "slug": "social-sciences-teachers-postsecondary-all-other",
+  "name": "Social Sciences Teachers, Postsecondary, All Other",
+  "description": "All postsecondary social sciences teachers not listed separately.",
+  "onet": {
+    "soc_code": "25-1069.00",
+    "occupation_title": "Social Sciences Teachers, Postsecondary, All Other",
+    "note": "Imported from O*NET 31.0 Database.",
+    "source_url": "https://www.onetonline.org/link/summary/25-1069.00",
+    "last_synced": "2026-09-08T19:21:53.557648+00:00",
+    "sync_method": "onet_bulk_database"
+  },
+  "skills": []
+}

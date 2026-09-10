@@ -3,6 +3,7 @@ import { Footer } from "@/components/Footer";
 import { ReadinessGauge } from "@/components/ReadinessGauge";
 import { SkillBar } from "@/components/SkillBar";
 import { GenerateCertificateButton } from "@/components/GenerateCertificateButton";
+import { FeatureInterestSurvey } from "@/components/FeatureInterestSurvey";
 import { fetchAnalysis } from "@/lib/serverApi";
 import { SkillBreakdownItem } from "@/lib/types";
 
@@ -124,6 +125,10 @@ export default async function ResultsPage({
                 </li>
               ))}
             </ol>
+          </div>
+
+          <div className="mt-14">
+            <FeatureInterestSurvey analysisId={analysis.analysis_id} />
           </div>
 
           <p className="mt-10 font-body text-xs text-slate">

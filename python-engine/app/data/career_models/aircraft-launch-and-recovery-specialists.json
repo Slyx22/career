@@ -1,0 +1,14 @@
+{
+  "slug": "aircraft-launch-and-recovery-specialists",
+  "name": "Aircraft Launch and Recovery Specialists",
+  "description": "Operate and maintain catapults, arresting gear, and associated mechanical, hydraulic, and control systems involved primarily in aircraft carrier takeoff and landing operations. Duties include installing and maintaining visual landing aids; testing and maintaining launch and recovery equipment using electric and mechanical test equipment and hand tools; activating airfield arresting systems, such as crash barriers and cables, during emergency landing situations; directing aircraft launch and recovery operations using hand or light signals; and maintaining logs of airplane launches, recoveries, and equipment maintenance.",
+  "onet": {
+    "soc_code": "55-3012.00",
+    "occupation_title": "Aircraft Launch and Recovery Specialists",
+    "note": "Imported from O*NET 31.0 Database.",
+    "source_url": "https://www.onetonline.org/link/summary/55-3012.00",
+    "last_synced": "2026-09-08T19:21:53.557648+00:00",
+    "sync_method": "onet_bulk_database"
+  },
+  "skills": []
+}

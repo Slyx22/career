@@ -1,0 +1,14 @@
+{
+  "slug": "therapists-all-other",
+  "name": "Therapists, All Other",
+  "description": "All therapists not listed separately.",
+  "onet": {
+    "soc_code": "29-1129.00",
+    "occupation_title": "Therapists, All Other",
+    "note": "Imported from O*NET 31.0 Database.",
+    "source_url": "https://www.onetonline.org/link/summary/29-1129.00",
+    "last_synced": "2026-09-08T19:21:53.557648+00:00",
+    "sync_method": "onet_bulk_database"
+  },
+  "skills": []
+}

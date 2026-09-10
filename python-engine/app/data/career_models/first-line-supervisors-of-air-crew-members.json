@@ -1,0 +1,14 @@
+{
+  "slug": "first-line-supervisors-of-air-crew-members",
+  "name": "First-Line Supervisors of Air Crew Members",
+  "description": "Supervise and coordinate the activities of air crew members. Supervisors may also perform the same activities as the workers they supervise.",
+  "onet": {
+    "soc_code": "55-2011.00",
+    "occupation_title": "First-Line Supervisors of Air Crew Members",
+    "note": "Imported from O*NET 31.0 Database.",
+    "source_url": "https://www.onetonline.org/link/summary/55-2011.00",
+    "last_synced": "2026-09-08T19:21:53.557648+00:00",
+    "sync_method": "onet_bulk_database"
+  },
+  "skills": []
+}

@@ -1,0 +1,14 @@
+{
+  "slug": "military-enlisted-tactical-operations-and-airweapons-specialists-and-crew-members-all-other",
+  "name": "Military Enlisted Tactical Operations and Air/Weapons Specialists and Crew Members, All Other",
+  "description": "All military enlisted tactical operations and air/weapons specialists and crewmembers not listed separately.",
+  "onet": {
+    "soc_code": "55-3019.00",
+    "occupation_title": "Military Enlisted Tactical Operations and Air/Weapons Specialists and Crew Members, All Other",
+    "note": "Imported from O*NET 31.0 Database.",
+    "source_url": "https://www.onetonline.org/link/summary/55-3019.00",
+    "last_synced": "2026-09-08T19:21:53.557648+00:00",
+    "sync_method": "onet_bulk_database"
+  },
+  "skills": []
+}

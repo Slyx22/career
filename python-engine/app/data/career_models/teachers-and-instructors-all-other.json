@@ -1,0 +1,14 @@
+{
+  "slug": "teachers-and-instructors-all-other",
+  "name": "Teachers and Instructors, All Other",
+  "description": "All teachers and instructors not listed separately.",
+  "onet": {
+    "soc_code": "25-3099.00",
+    "occupation_title": "Teachers and Instructors, All Other",
+    "note": "Imported from O*NET 31.0 Database.",
+    "source_url": "https://www.onetonline.org/link/summary/25-3099.00",
+    "last_synced": "2026-09-08T19:21:53.557648+00:00",
+    "sync_method": "onet_bulk_database"
+  },
+  "skills": []
+}

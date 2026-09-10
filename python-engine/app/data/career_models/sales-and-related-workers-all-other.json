@@ -1,0 +1,14 @@
+{
+  "slug": "sales-and-related-workers-all-other",
+  "name": "Sales and Related Workers, All Other",
+  "description": "All sales and related workers not listed separately.",
+  "onet": {
+    "soc_code": "41-9099.00",
+    "occupation_title": "Sales and Related Workers, All Other",
+    "note": "Imported from O*NET 31.0 Database.",
+    "source_url": "https://www.onetonline.org/link/summary/41-9099.00",
+    "last_synced": "2026-09-08T19:21:53.557648+00:00",
+    "sync_method": "onet_bulk_database"
+  },
+  "skills": []
+}

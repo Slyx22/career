@@ -1,0 +1,14 @@
+{
+  "slug": "production-workers-all-other",
+  "name": "Production Workers, All Other",
+  "description": "All production workers not listed separately.",
+  "onet": {
+    "soc_code": "51-9199.00",
+    "occupation_title": "Production Workers, All Other",
+    "note": "Imported from O*NET 31.0 Database.",
+    "source_url": "https://www.onetonline.org/link/summary/51-9199.00",
+    "last_synced": "2026-09-08T19:21:53.557648+00:00",
+    "sync_method": "onet_bulk_database"
+  },
+  "skills": []
+}

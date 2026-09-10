@@ -1,0 +1,14 @@
+{
+  "slug": "artillery-and-missile-crew-members",
+  "name": "Artillery and Missile Crew Members",
+  "description": "Target, fire, and maintain weapons used to destroy enemy positions, aircraft, and vessels. Field artillery crew members predominantly use guns, cannons, and howitzers in ground combat operations, while air defense artillery crew members predominantly use missiles and rockets. Naval artillery crew members predominantly use torpedoes and missiles launched from a ship or submarine. Duties include testing, inspecting, and storing ammunition, missiles, and torpedoes; conducting preventive and routine maintenance on weapons and related equipment; establishing and maintaining radio and wire communications; and operating weapons targeting, firing, and launch computer systems.",
+  "onet": {
+    "soc_code": "55-3014.00",
+    "occupation_title": "Artillery and Missile Crew Members",
+    "note": "Imported from O*NET 31.0 Database.",
+    "source_url": "https://www.onetonline.org/link/summary/55-3014.00",
+    "last_synced": "2026-09-08T19:21:53.557648+00:00",
+    "sync_method": "onet_bulk_database"
+  },
+  "skills": []
+}

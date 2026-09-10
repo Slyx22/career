@@ -1,4 +1,7 @@
+﻿"use client";
+
 import Link from "next/link";
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import { isClerkConfigured } from "@/lib/clerk";
 
 /**
@@ -8,7 +11,7 @@ import { isClerkConfigured } from "@/lib/clerk";
  * product works identically either way (see build spec section 24: auth
  * must never block the CV -> score -> certificate flow).
  */
-export async function AuthSection() {
+export function AuthSection() {
   if (!isClerkConfigured) {
     return (
       <span
@@ -19,11 +22,6 @@ export async function AuthSection() {
       </span>
     );
   }
-
-  // Imported dynamically so this module has zero Clerk dependency when
-  // Clerk isn't configured - keeps the "no keys set" path completely
-  // free of any Clerk runtime behaviour.
-  const { SignedIn, SignedOut, SignInButton, UserButton } = await import("@clerk/nextjs");
 
   return (
     <>

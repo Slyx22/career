@@ -1,7 +1,7 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { AuthSection } from "@/components/AuthSection";
 
-export async function Header() {
+export function Header() {
   return (
     <header className="border-b border-line bg-paper/95 backdrop-blur">
       <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-5">

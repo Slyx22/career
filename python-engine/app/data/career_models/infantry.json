@@ -1,0 +1,14 @@
+{
+  "slug": "infantry",
+  "name": "Infantry",
+  "description": "Operate weapons and equipment in ground combat operations. Duties include operating and maintaining weapons, such as rifles, machine guns, mortars, and hand grenades; locating, constructing, and camouflaging infantry positions and equipment; evaluating terrain and recording topographical information; operating and maintaining field communications equipment; assessing need for and directing supporting fire; placing explosives and performing minesweeping activities on land; and participating in basic reconnaissance operations.",
+  "onet": {
+    "soc_code": "55-3016.00",
+    "occupation_title": "Infantry",
+    "note": "Imported from O*NET 31.0 Database.",
+    "source_url": "https://www.onetonline.org/link/summary/55-3016.00",
+    "last_synced": "2026-09-08T19:21:53.557648+00:00",
+    "sync_method": "onet_bulk_database"
+  },
+  "skills": []
+}

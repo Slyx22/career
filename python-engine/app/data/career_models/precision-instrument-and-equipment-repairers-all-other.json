@@ -1,0 +1,14 @@
+{
+  "slug": "precision-instrument-and-equipment-repairers-all-other",
+  "name": "Precision Instrument and Equipment Repairers, All Other",
+  "description": "All precision instrument and equipment repairers not listed separately.",
+  "onet": {
+    "soc_code": "49-9069.00",
+    "occupation_title": "Precision Instrument and Equipment Repairers, All Other",
+    "note": "Imported from O*NET 31.0 Database.",
+    "source_url": "https://www.onetonline.org/link/summary/49-9069.00",
+    "last_synced": "2026-09-08T19:21:53.557648+00:00",
+    "sync_method": "onet_bulk_database"
+  },
+  "skills": []
+}

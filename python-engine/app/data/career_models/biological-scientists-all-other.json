@@ -1,0 +1,14 @@
+{
+  "slug": "biological-scientists-all-other",
+  "name": "Biological Scientists, All Other",
+  "description": "All biological scientists not listed separately.",
+  "onet": {
+    "soc_code": "19-1029.00",
+    "occupation_title": "Biological Scientists, All Other",
+    "note": "Imported from O*NET 31.0 Database.",
+    "source_url": "https://www.onetonline.org/link/summary/19-1029.00",
+    "last_synced": "2026-09-08T19:21:53.557648+00:00",
+    "sync_method": "onet_bulk_database"
+  },
+  "skills": []
+}

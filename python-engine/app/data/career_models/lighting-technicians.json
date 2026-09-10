@@ -1,0 +1,22 @@
+{
+  "slug": "lighting-technicians",
+  "name": "Lighting Technicians",
+  "description": "Set up, maintain, and dismantle light fixtures, lighting control devices, and the associated lighting electrical and rigging equipment used for photography, television, film, video, and live productions. May focus or operate light fixtures, or attach color filters or other lighting accessories.",
+  "onet": {
+    "soc_code": "27-4015.00",
+    "occupation_title": "Lighting Technicians",
+    "note": "Imported from O*NET 31.0 Database.",
+    "source_url": "https://www.onetonline.org/link/summary/27-4015.00",
+    "last_synced": "2026-09-08T19:21:53.557648+00:00",
+    "sync_method": "onet_bulk_database"
+  },
+  "skills": [
+    {
+      "skill_slug": "python",
+      "market_frequency": 0.5,
+      "market_importance": 0.5,
+      "source": "onet_technology_list_only",
+      "onet_confirmed": true
+    }
+  ]
+}

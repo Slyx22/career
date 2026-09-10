@@ -1,0 +1,14 @@
+{
+  "slug": "command-and-control-center-officers",
+  "name": "Command and Control Center Officers",
+  "description": "Manage the operation of communications, detection, and weapons systems essential for controlling air, ground, and naval operations. Duties include managing critical communication links between air, naval, and ground forces; formulating and implementing emergency plans for natural and wartime disasters; coordinating emergency response teams and agencies; evaluating command center information and need for high-level military and government reporting; managing the operation of surveillance and detection systems; providing technical information and advice on capabilities and operational readiness; and directing operation of weapons targeting, firing, and launch computer systems.",
+  "onet": {
+    "soc_code": "55-1015.00",
+    "occupation_title": "Command and Control Center Officers",
+    "note": "Imported from O*NET 31.0 Database.",
+    "source_url": "https://www.onetonline.org/link/summary/55-1015.00",
+    "last_synced": "2026-09-08T19:21:53.557648+00:00",
+    "sync_method": "onet_bulk_database"
+  },
+  "skills": []
+}
