@@ -226,9 +226,9 @@ def render_certificate_pdf(*, store: Repository, certificate_id: str) -> Optiona
     if signature_path.exists():
         try:
             sig_img = ImageReader(str(signature_path))
-            img_width = 65 * mm
-            img_height = 32 * mm
-            c.drawImage(sig_img, width * 0.7 - img_width/2, 50*mm,
+            img_width = 70 * mm
+            img_height = 35 * mm
+            c.drawImage(sig_img, width * 0.7 - img_width/2, 52*mm,
                        width=img_width, height=img_height,
                        mask='auto', preserveAspectRatio=True)
         except Exception:
