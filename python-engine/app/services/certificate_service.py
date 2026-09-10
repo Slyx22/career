@@ -191,10 +191,15 @@ def render_certificate_pdf(*, store: Repository, certificate_id: str) -> Optiona
     c.setFillColor(colors.HexColor("#334155"))
     c.drawCentredString(center_x, height - 80 * mm, "has successfully demonstrated career readiness for")
 
-    # Career (prominent)
-    c.setFont("Helvetica-Bold", 18)
+    # Career (prominent, kept centered, not extending to sig area)
+    c.setFont("Helvetica-Bold", 16)
     c.setFillColor(colors.HexColor("#B8801F"))
-    c.drawCentredString(center_x, height - 92 * mm, cert["career"])
+    career_text = cert["career"]
+    # Truncate very long names to prevent overlap with signature column
+    max_career_chars = 42
+    if len(career_text) > max_career_chars:
+        career_text = career_text[:max_career_chars] + "..."
+    c.drawCentredString(center_x, height - 92 * mm, career_text)
 
     # Score box (Udemy-style)
     c.setFont("Helvetica", 11)

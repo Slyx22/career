@@ -124,7 +124,7 @@ export default function AnalyzePage() {
                 id="career"
                 value={career}
                 onChange={(e) => setCareer(e.target.value)}
-                className="focus-ring mt-1.5 w-full rounded border border-line bg-panel px-3 py-2 font-body text-sm text-ink"
+                className="focus-ring mt-1.5 w-full rounded border border-line bg-panel px-3 py-2 font-body text-sm text-ink max-h-60 overflow-y-auto"
               >
                 {(careers.length > 0
                   ? careers
