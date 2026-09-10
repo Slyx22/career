@@ -87,7 +87,7 @@ def score_career_readiness(
 
         # Irrelevant skills (low market importance) contribute 0 — prevents
         # unrelated skills (e.g., Python in non-ML career) from inflating score.
-        if importance_weight < 0.1:
+        if importance_weight < 0.05:
             skill_final = 0.0
 
         weighted_sum += skill_final * combined_weight
