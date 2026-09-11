@@ -3,39 +3,17 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: light;
+  --color-void: #0a0a0c;
+  --color-ink: #0f1014;
+  --color-paper: #fdfbf7;
+  --color-brass: #b8801f;
 }
 
 body {
-  background-color: #F4F6F4;
-  color: #141A2E;
+  background-color: #0a0a0c;
+  color: #f2efe9;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Calibration-tick rule: a recurring structural device evoking a measuring
-   instrument, used as section dividers instead of plain hairlines. */
-.tick-rule {
-  height: 10px;
-  background-image: repeating-linear-gradient(
-    to right,
-    #D8DCD6 0,
-    #D8DCD6 1px,
-    transparent 1px,
-    transparent 12px
-  );
-  background-position: bottom;
-  background-repeat: repeat-x;
-  background-size: 100% 10px;
-}
-
-.focus-ring:focus-visible {
-  outline: 2px solid #B8801F;
-  outline-offset: 2px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-}
+::selection { background: rgba(184,128,31,0.25); color: #fff; }

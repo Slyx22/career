@@ -6,86 +6,97 @@ import { RotatingText } from "@/components/RotatingText";
 
 export default function HomePage() {
   return (
-    <div className="flex min-h-screen flex-col">
-      <Header />
+    <div className="relative min-h-screen overflow-hidden bg-void text-paper">
+      {/* Subtle radial glow behind hero */}
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(184,128,31,0.15),transparent_60%)]" />
 
-      <main className="flex-1">
-        <section className="mx-auto grid max-w-5xl grid-cols-1 items-center gap-12 px-6 py-20 md:grid-cols-5">
-          <div className="md:col-span-3">
-            <p className="mb-4 font-body text-sm text-brass-dark">
-              Career Readiness Analyzer
-            </p>
-            <h1 className="font-display text-4xl leading-tight text-ink md:text-5xl">
-              How <RotatingText /> are you for your next career?
-            </h1>
-            <p className="mt-6 max-w-md font-body text-base leading-relaxed text-slate">
-              Upload your CV, get your readiness score, and earn a verified
-              certificate to showcase your career preparedness to employers.
-            </p>
-            <Link
-              href="/analyze"
-              className="focus-ring mt-8 inline-block rounded-lg bg-ink px-6 py-3 font-body text-sm font-medium text-paper shadow-sm transition-all hover:scale-[1.02] hover:bg-brass-dark hover:shadow-md"
-            >
-              Get Your Certificate →
-            </Link>
-          </div>
+      <div className="relative z-10">
+        <Header />
+        <main className="flex-1">
+          <section className="mx-auto max-w-5xl px-6 pt-28 pb-16 md:pt-36 md:pb-24">
+            <div className="grid gap-12 md:grid-cols-5 md:items-center">
+              <div className="md:col-span-3">
+                <p className="mb-4 font-body text-sm text-brass">Career Readiness Analyzer</p>
+                <h1 className="font-display text-4xl leading-tight text-paper md:text-6xl">
+                  How <RotatingText /> are you for your next career?
+                </h1>
+                <p className="mt-6 max-w-md font-body text-base leading-relaxed text-paper/70">
+                  Upload your CV, get an explainable readiness score, and earn a verified certificate employers trust.
+                </p>
+                <Link
+                  href="/analyze"
+                  className="mt-8 inline-flex items-center gap-2 rounded-full bg-brass px-7 py-3.5 font-body text-sm font-medium text-void shadow-lg shadow-brass/30 transition hover:bg-brass-dark hover:shadow-xl hover:shadow-brass/20"
+                >
+                  Get Your Certificate
+                  <span aria-hidden>→</span>
+                </Link>
+              </div>
 
-          <div className="md:col-span-2">
-            <div className="rounded-xl border border-line bg-gradient-to-br from-panel to-paper p-8 shadow-sm">
-              <ReadinessGauge score={73} size={220} />
-              <p className="mt-2 text-center font-body text-xs text-slate">
-                Example readiness score
-              </p>
+              {/* Dashed curved arrow pointing to CTA */}
+              <div className="hidden md:col-span-2 md:block md:relative md:h-64">
+                <svg viewBox="0 0 240 200" className="h-full w-full" aria-hidden="true">
+                  <defs>
+                    <filter id="glow">
+                      <feDropShadow dx="0" dy="0" stdDeviation="2" floodColor="#b8801f" floodOpacity="0.35" />
+                    </filter>
+                  </defs>
+                  <path
+                    d="M 30 160 C 70 120, 140 60, 200 80"
+                    fill="none"
+                    stroke="#b8801f"
+                    strokeWidth="2"
+                    strokeDasharray="8 6"
+                    strokeLinecap="round"
+                    filter="url(#glow)"
+                  />
+                  {/* Animated dash offset via CSS on this group */}
+                  <g>
+                    <circle cx="200" cy="80" r="3.5" fill="#b8801f" />
+                    <polygon points="200,80 192,72 196,78" fill="#b8801f" />
+                  </g>
+                </svg>
+                <style>{`
+                  @keyframes dash-move {
+                    to { stroke-dashoffset: -28; }
+                  }
+                  .arrow-path { animation: dash-move 3s linear infinite; }
+                `}</style>
+                <path
+                  className="arrow-path"
+                  d="M 30 160 C 70 120, 140 60, 200 80"
+                  fill="none"
+                  stroke="#b8801f"
+                  strokeWidth="2"
+                  strokeDasharray="8 6"
+                  strokeLinecap="round"
+                  filter="url(#glow)"
+                />
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        <div className="tick-rule" />
-
-        <section className="mx-auto max-w-5xl px-6 py-16">
-          <h2 className="font-display text-2xl text-ink">How it works</h2>
-          <ol className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
-            <li className="group rounded-xl border border-line bg-panel p-6 transition-all hover:border-brass/50 hover:shadow-md">
-              <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-brass/10">
-                <p className="font-display text-lg font-semibold text-brass-dark">1</p>
-              </div>
-              <h3 className="mt-2 font-body text-base font-semibold text-ink">
-                Upload your CV
-              </h3>
-              <p className="mt-2 font-body text-sm leading-relaxed text-slate">
-                Tell us your name and choose a target career, then upload a
-                PDF or DOCX CV.
-              </p>
-            </li>
-            <li className="group rounded-xl border border-line bg-panel p-6 transition-all hover:border-brass/50 hover:shadow-md">
-              <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-brass/10">
-                <p className="font-display text-lg font-semibold text-brass-dark">2</p>
-              </div>
-              <h3 className="mt-2 font-body text-base font-semibold text-ink">
-                Get an evidence-based score
-              </h3>
-              <p className="mt-2 font-body text-sm leading-relaxed text-slate">
-                Our engine reads what you&apos;ve actually done, not just
-                which words appear, to score your readiness out of 100.
-              </p>
-            </li>
-            <li className="group rounded-xl border border-line bg-panel p-6 transition-all hover:border-brass/50 hover:shadow-md">
-              <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-brass/10">
-                <p className="font-display text-lg font-semibold text-brass-dark">3</p>
-              </div>
-              <h3 className="mt-2 font-body text-base font-semibold text-ink">
-                Get your certificate
-              </h3>
-              <p className="mt-2 font-body text-sm leading-relaxed text-slate">
-                Generate a shareable Career Readiness Certificate with a
-                public verification link.
-              </p>
-            </li>
-          </ol>
-        </section>
-      </main>
-
-      <Footer />
+          {/* Cards section — clean, premium spacing */}
+          <section className="mx-auto max-w-5xl px-6 pb-24">
+            <div className="grid gap-8 md:grid-cols-3">
+              {[
+                { n: "01", t: "Analyze", d: "Upload your CV and we extract skills with explainable NLP." },
+                { n: "02", t: "Score", d: "Get a 0-100 career readiness score backed by market benchmarks." },
+                { n: "03", t: "Certify", d: "Download a professional certificate with your verified score." },
+              ].map((c) => (
+                <div
+                  key={c.n}
+                  className="rounded-2xl border border-white/5 bg-white/[0.02] p-8 backdrop-blur transition hover:border-brass/30 hover:bg-white/[0.04] hover:shadow-lg hover:shadow-brass/5"
+                >
+                  <span className="inline-block rounded-full bg-brass/20 px-3 py-1 text-xs font-bold tracking-widest text-brass">{c.n}</span>
+                  <h3 className="mt-5 font-display text-xl text-paper">{c.t}</h3>
+                  <p className="mt-3 font-body text-sm leading-relaxed text-paper/60">{c.d}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        </main>
+        <Footer />
+      </div>
     </div>
   );
 }
