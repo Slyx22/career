@@ -18,14 +18,14 @@ export function Header() {
           : "bg-transparent"
       }`}
     >
-      <div className="flex items-center justify-between">
-        <Link href="/" className="flex items-baseline gap-2">
-          <span className="font-display text-xl italic text-paper">Readiness</span>
-          <span className="font-body text-sm text-slate">Career Readiness Analyzer</span>
+      <div className="flex items-center justify-between gap-8">
+        <Link href="/" className="shrink-0 flex items-baseline gap-3">
+          <span className="font-display text-2xl italic text-paper tracking-tight">Readiness</span>
+          <span className="font-body text-sm text-slate hidden sm:inline">Career Readiness Analyzer</span>
         </Link>
-        <nav className="flex items-center gap-6 font-body text-sm text-paper/90">
-          <Link href="/analyze" className="hover:text-brass transition-colors">Check my readiness</Link>
-          <AuthSection />
+        <nav className="flex items-center gap-8 font-body text-sm text-paper/90 ml-auto">
+          <Link href="/analyze" className="hover:text-brass transition-colors whitespace-nowrap">Check my readiness</Link>
+          <div className="shrink-0"><AuthSection /></div>
         </nav>
       </div>
     </header>
