@@ -34,7 +34,13 @@ export default function HomePage() {
 
               {/* Dashed curved arrow pointing to CTA */}
               <div className="hidden md:col-span-2 md:block md:relative md:h-64">
-                <svg viewBox="0 0 240 200" className="h-full w-full" aria-hidden="true">
+                <style>{`
+@keyframes dash-flow { to { stroke-dashoffset: -28; } }
+@keyframes draw-once { from { stroke-dashoffset: 300; } to { stroke-dashoffset: 0; } }
+.arrow-flow { animation: dash-flow 1.2s linear infinite; }
+.arrow-draw { animation: draw-once 0.8s ease-out forwards; }
+`}</style>
+<svg viewBox="0 0 240 200" className="h-full w-full" aria-hidden="true">
                   <defs>
                     <filter id="glow">
                       <feDropShadow dx="0" dy="0" stdDeviation="2" floodColor="#b8801f" floodOpacity="0.35" />
@@ -62,7 +68,7 @@ export default function HomePage() {
                   .arrow-path { animation: dash-move 3s linear infinite; }
                 `}</style>
                 <path
-                  className="arrow-path"
+                  className="arrow-draw"
                   d="M 30 160 C 70 120, 140 60, 200 80"
                   fill="none"
                   stroke="#b8801f"

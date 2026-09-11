@@ -76,10 +76,10 @@ export default function AnalyzePage() {
       <Header />
       <main className="flex-1">
         <section className="mx-auto max-w-xl px-6 py-16">
-          <h1 className="font-display text-3xl text-ink">
+          <h1 className="font-display text-3xl text-slate-100">
             Tell us about you
           </h1>
-          <p className="mt-3 font-body text-sm text-slate">
+          <p className="mt-3 font-body text-sm text-slate-300">
             We use the name you enter here on your certificate &mdash; not
             whatever name appears inside your CV.
           </p>
@@ -87,7 +87,7 @@ export default function AnalyzePage() {
           <form onSubmit={handleSubmit} className="mt-10 space-y-6" noValidate>
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label htmlFor="firstName" className="font-body text-sm text-ink">
+                <label htmlFor="firstName" className="font-body text-sm text-slate-100">
                   First name *
                 </label>
                 <input
@@ -96,12 +96,12 @@ export default function AnalyzePage() {
                   required
                   value={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
-                  className="focus-ring mt-1.5 w-full rounded border border-line bg-panel px-3 py-2 font-body text-sm text-ink"
+                  className="focus-ring mt-1.5 w-full rounded border border-white/10 bg-void/60 px-3 py-2 font-body text-sm text-slate-100"
                   placeholder="John"
                 />
               </div>
               <div>
-                <label htmlFor="surname" className="font-body text-sm text-ink">
+                <label htmlFor="surname" className="font-body text-sm text-slate-100">
                   Surname *
                 </label>
                 <input
@@ -110,21 +110,21 @@ export default function AnalyzePage() {
                   required
                   value={surname}
                   onChange={(e) => setSurname(e.target.value)}
-                  className="focus-ring mt-1.5 w-full rounded border border-line bg-panel px-3 py-2 font-body text-sm text-ink"
+                  className="focus-ring mt-1.5 w-full rounded border border-white/10 bg-void/60 px-3 py-2 font-body text-sm text-slate-100"
                   placeholder="Smith"
                 />
               </div>
             </div>
 
             <div>
-              <label htmlFor="career" className="font-body text-sm text-ink">
+              <label htmlFor="career" className="font-body text-sm text-slate-100">
                 Target career *
               </label>
               <select
                 id="career"
                 value={career}
                 onChange={(e) => setCareer(e.target.value)}
-                className="focus-ring mt-1.5 w-full rounded border border-line bg-panel px-3 py-2 font-body text-sm text-ink max-h-60 overflow-y-auto"
+                className="focus-ring mt-1.5 w-full rounded border border-white/10 bg-void/60 px-3 py-2 font-body text-sm text-slate-100 max-h-60 overflow-y-auto"
               >
                 {(careers.length > 0
                   ? careers
@@ -135,13 +135,13 @@ export default function AnalyzePage() {
                   </option>
                 ))}
               </select>
-              <p className="mt-1.5 font-body text-xs text-slate">
+              <p className="mt-1.5 font-body text-xs text-slate-300">
                 More careers will be added over time.
               </p>
             </div>
 
             <div>
-              <label htmlFor="cv" className="font-body text-sm text-ink">
+              <label htmlFor="cv" className="font-body text-sm text-slate-100">
                 Upload CV *
               </label>
               <input
@@ -150,15 +150,15 @@ export default function AnalyzePage() {
                 required
                 accept={ACCEPTED_FORMATS}
                 onChange={(e) => setFile(e.target.files?.[0] ?? null)}
-                className="focus-ring mt-1.5 w-full rounded border border-line bg-panel px-3 py-2 font-body text-sm text-ink file:mr-3 file:rounded file:border-0 file:bg-ink file:px-3 file:py-1.5 file:font-body file:text-xs file:text-paper"
+                className="focus-ring mt-1.5 w-full rounded border border-white/10 bg-void/60 px-3 py-2 font-body text-sm text-slate-100 file:mr-3 file:rounded file:border-0 file:bg-ink file:px-3 file:py-1.5 file:font-body file:text-xs file:text-paper"
               />
-              <p className="mt-1.5 font-body text-xs text-slate">
+              <p className="mt-1.5 font-body text-xs text-slate-300">
                 Accepted formats: PDF, DOCX. Max 10MB.
               </p>
             </div>
 
             {error && (
-              <p className="rounded border border-brass bg-brass/10 px-3 py-2 font-body text-sm text-brass-dark" role="alert">
+              <p className="rounded border border-brass bg-brass/20 px-3 py-2 font-body text-sm text-brass" role="alert">
                 {error}
               </p>
             )}
