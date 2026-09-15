@@ -27,8 +27,8 @@ export default async function DashboardPage() {
       <div className="min-h-screen bg-paper">
         <Header />
         <main className="mx-auto max-w-2xl px-6 py-16">
-          <h1 className="font-display text-2xl text-ink">Dashboard not available yet</h1>
-          <p className="mt-3 font-body text-slate">
+          <h1 className="font-display text-2xl text-slate-100">Dashboard not available yet</h1>
+          <p className="mt-3 font-body text-slate-300">
             Clerk isn&apos;t configured in this environment, so accounts aren&apos;t
             enabled. Set <code className="text-sm">NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY</code>{" "}
             and <code className="text-sm">CLERK_SECRET_KEY</code> to turn this on - see the
@@ -67,10 +67,10 @@ export default async function DashboardPage() {
     <div className="min-h-screen bg-paper">
       <Header />
       <main className="mx-auto max-w-2xl px-6 py-16">
-        <h1 className="font-display text-2xl text-ink">
+        <h1 className="font-display text-2xl text-slate-100">
           Welcome{user?.firstName ? `, ${user.firstName}` : ""}
         </h1>
-        <p className="mt-3 font-body text-slate">
+        <p className="mt-3 font-body text-slate-300">
           Certificates you&apos;ve generated while signed in show up here.
         </p>
 
@@ -82,9 +82,9 @@ export default async function DashboardPage() {
           )}
 
           {!loadError && certificates.length === 0 && (
-            <div className="rounded border border-line bg-white px-5 py-6 font-body text-sm text-slate">
+            <div className="rounded border border-line bg-white px-5 py-6 font-body text-sm text-slate-300">
               No certificates yet.{" "}
-              <Link href="/analyze" className="underline hover:text-ink">
+              <Link href="/analyze" className="underline hover:text-slate-100">
                 Run an analysis
               </Link>{" "}
               to generate your first one.
@@ -99,8 +99,8 @@ export default async function DashboardPage() {
                   className="flex items-center justify-between rounded border border-line bg-white px-5 py-4"
                 >
                   <div>
-                    <p className="font-body text-sm font-medium text-ink">{cert.career}</p>
-                    <p className="font-body text-xs text-slate">
+                    <p className="font-body text-sm font-medium text-slate-100">{cert.career}</p>
+                    <p className="font-body text-xs text-slate-300">
                       {cert.score}/100 · {new Date(cert.issued_at).toLocaleDateString("en-US", {
                         day: "numeric",
                         month: "long",
@@ -111,7 +111,7 @@ export default async function DashboardPage() {
                   </div>
                   <Link
                     href={`/certificate/${cert.certificate_id}`}
-                    className="focus-ring rounded border border-line px-4 py-2 font-body text-xs font-medium text-ink hover:border-slate"
+                    className="focus-ring rounded border border-line px-4 py-2 font-body text-xs font-medium text-slate-100 hover:border-slate"
                   >
                     View
                   </Link>

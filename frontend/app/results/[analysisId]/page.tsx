@@ -30,10 +30,10 @@ export default async function ResultsPage({
         <Header />
         <main className="flex-1">
           <section className="mx-auto max-w-xl px-6 py-24 text-center">
-            <h1 className="font-display text-2xl text-ink">
+            <h1 className="font-display text-2xl text-slate-100">
               Analysis not found
             </h1>
-            <p className="mt-3 font-body text-sm text-slate">
+            <p className="mt-3 font-body text-sm text-slate-300">
               This analysis may have expired or the link is incorrect. Please
               run a new analysis.
             </p>
@@ -53,10 +53,10 @@ export default async function ResultsPage({
         <section className="mx-auto max-w-3xl px-6 py-16">
           <div className="flex flex-col items-center border border-line bg-panel px-8 py-10 text-center">
             <ReadinessGauge score={analysis.score} />
-            <p className="mt-4 font-display text-xl text-ink">
+            <p className="mt-4 font-display text-xl text-slate-100">
               {analysis.career}
             </p>
-            <p className="mt-1 font-body text-xs text-slate">
+            <p className="mt-1 font-body text-xs text-slate-300">
               Career Readiness
             </p>
           </div>
@@ -65,30 +65,30 @@ export default async function ResultsPage({
 
           <div className="mt-10 grid grid-cols-1 gap-10 md:grid-cols-2">
             <div>
-              <h2 className="font-display text-xl text-ink">Strengths</h2>
+              <h2 className="font-display text-xl text-slate-100">Strengths</h2>
               <ul className="mt-4 space-y-2">
                 {analysis.strengths.length === 0 && (
-                  <li className="font-body text-sm text-slate">
+                  <li className="font-body text-sm text-slate-300">
                     No strong evidence found yet for this career&apos;s core skills.
                   </li>
                 )}
                 {analysis.strengths.map((s) => (
-                  <li key={s} className="font-body text-sm text-ink">
+                  <li key={s} className="font-body text-sm text-slate-100">
                     <span className="text-brass-dark">&#10003;</span> {s}
                   </li>
                 ))}
               </ul>
             </div>
             <div>
-              <h2 className="font-display text-xl text-ink">Biggest gaps</h2>
+              <h2 className="font-display text-xl text-slate-100">Biggest gaps</h2>
               <ul className="mt-4 space-y-2">
                 {analysis.gaps.length === 0 && (
-                  <li className="font-body text-sm text-slate">
+                  <li className="font-body text-sm text-slate-300">
                     No major gaps identified.
                   </li>
                 )}
                 {analysis.gaps.map((g) => (
-                  <li key={g} className="font-body text-sm text-ink">
+                  <li key={g} className="font-body text-sm text-slate-100">
                     <span className="text-brass-dark">&#9888;</span> {g}
                   </li>
                 ))}
@@ -97,11 +97,11 @@ export default async function ResultsPage({
           </div>
 
           <div className="mt-14">
-            <h2 className="font-display text-xl text-ink">Skill breakdown</h2>
+            <h2 className="font-display text-xl text-slate-100">Skill breakdown</h2>
             <div className="mt-6 space-y-8">
               {grouped.map(([category, items]) => (
                 <div key={category}>
-                  <h3 className="font-body text-xs uppercase tracking-normal text-slate">
+                  <h3 className="font-body text-xs uppercase tracking-normal text-slate-300">
                     {category}
                   </h3>
                   <div className="mt-1 divide-y divide-line">
@@ -115,12 +115,12 @@ export default async function ResultsPage({
           </div>
 
           <div className="mt-14">
-            <h2 className="font-display text-xl text-ink">
+            <h2 className="font-display text-xl text-slate-100">
               Recommended next steps
             </h2>
             <ol className="mt-4 space-y-3">
               {analysis.recommendations.map((rec, i) => (
-                <li key={i} className="font-body text-sm text-ink">
+                <li key={i} className="font-body text-sm text-slate-100">
                   {i + 1}. {rec}
                 </li>
               ))}
@@ -131,7 +131,7 @@ export default async function ResultsPage({
             <FeatureInterestSurvey analysisId={analysis.analysis_id} />
           </div>
 
-          <p className="mt-10 font-body text-xs text-slate">
+          <p className="mt-10 font-body text-xs text-slate-300">
             {analysis.benchmark_disclaimer}
           </p>
 
