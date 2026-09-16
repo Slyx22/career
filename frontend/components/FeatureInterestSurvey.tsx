@@ -95,8 +95,8 @@ export function FeatureInterestSurvey({ analysisId }: Props) {
     return (
       <div className="rounded-lg border border-line bg-panel/50 px-6 py-8 text-center">
         <p className="text-2xl">🎉</p>
-        <p className="mt-3 font-display text-lg text-ink">Thank you!</p>
-        <p className="mt-2 font-body text-sm text-slate">
+        <p className="mt-3 font-display text-lg text-slate-700">Thank you!</p>
+        <p className="mt-2 font-body text-sm text-slate-600">
           We'll prioritize the features you selected. Check back soon!
         </p>
       </div>
@@ -105,10 +105,10 @@ export function FeatureInterestSurvey({ analysisId }: Props) {
 
   return (
     <div className="rounded-lg border border-line bg-panel/50 px-6 py-8">
-      <h3 className="font-display text-lg text-ink">
+      <h3 className="font-display text-lg text-slate-700">
         What would you like to do next?
       </h3>
-      <p className="mt-2 font-body text-sm text-slate">
+      <p className="mt-2 font-body text-sm text-slate-600">
         These features are coming soon. Select what interests you most to help
         us prioritize.
       </p>
@@ -131,14 +131,14 @@ export function FeatureInterestSurvey({ analysisId }: Props) {
               <span className="text-xl">{feature.icon}</span>
               <div className="flex-1">
                 <div className="flex items-center gap-2">
-                  <p className="font-body text-sm font-medium text-ink">
+                  <p className="font-body text-sm font-medium text-slate-700">
                     {feature.label}
                   </p>
                   <span className="rounded bg-brass/20 px-1.5 py-0.5 font-body text-[10px] uppercase tracking-wide text-brass-dark">
                     Beta
                   </span>
                 </div>
-                <p className="mt-1 font-body text-xs text-slate">
+                <p className="mt-1 font-body text-xs text-slate-600">
                   {feature.description}
                 </p>
               </div>

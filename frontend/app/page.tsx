@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -6,9 +8,9 @@ import { RotatingText } from "@/components/RotatingText";
 
 export default function HomePage() {
   return (
-    <div className="relative min-h-screen overflow-hidden bg-void text-paper">
+    <div className="relative min-h-screen overflow-hidden bg-paper text-ink">
       {/* Subtle radial glow behind hero */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(184,128,31,0.15),transparent_60%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_10%,rgba(184,128,31,0.08),transparent_50%)]" />
 
       <div className="relative z-10">
         <Header />
@@ -17,15 +19,15 @@ export default function HomePage() {
             <div className="grid gap-12 md:grid-cols-5 md:items-center">
               <div className="md:col-span-3">
                 <p className="mb-4 font-body text-sm text-brass">Career Readiness Analyzer</p>
-                <h1 className="font-display text-4xl leading-tight text-paper md:text-6xl">
+                <h1 className="font-display text-4xl leading-tight text-ink md:text-6xl">
                   How <RotatingText /> are you for your next career?
                 </h1>
-                <p className="mt-6 max-w-md font-body text-base leading-relaxed text-paper/70">
+                <p className="mt-6 max-w-md font-body text-base leading-relaxed text-slate-700">
                   Upload your CV, get an explainable readiness score, and earn a verified certificate employers trust.
                 </p>
                 <Link
                   href="/analyze"
-                  className="mt-8 inline-flex items-center gap-2 rounded-full bg-brass px-7 py-3.5 font-body text-sm font-medium text-void shadow-lg shadow-brass/30 transition hover:bg-brass-dark hover:shadow-xl hover:shadow-brass/20"
+                  className="mt-8 inline-flex items-center gap-2 rounded-full bg-ink px-7 py-3.5 font-body text-sm font-medium text-paper shadow-xl shadow-ink/10 transition hover:bg-ink/90 hover:shadow-2xl"
                 >
                   Get Your Certificate
                   <span aria-hidden>→</span>
@@ -68,7 +70,7 @@ export default function HomePage() {
                   .arrow-path { animation: dash-move 3s linear infinite; }
                 `}</style>
                 <path
-                  className="arrow-draw"
+                  className="arrow-flow"
                   d="M 30 160 C 70 120, 140 60, 200 80"
                   fill="none"
                   stroke="#b8801f"
@@ -91,11 +93,11 @@ export default function HomePage() {
               ].map((c) => (
                 <div
                   key={c.n}
-                  className="rounded-2xl border border-white/5 bg-white/[0.02] p-8 backdrop-blur transition hover:border-brass/30 hover:bg-white/[0.04] hover:shadow-lg hover:shadow-brass/5"
+                  className="rounded-2xl border border-line bg-white p-8 shadow-sm shadow-black/5 transition hover:border-brass hover:shadow-lg hover:-translate-y-0.5"
                 >
                   <span className="inline-block rounded-full bg-brass/20 px-3 py-1 text-xs font-bold tracking-widest text-brass">{c.n}</span>
-                  <h3 className="mt-5 font-display text-xl text-paper">{c.t}</h3>
-                  <p className="mt-3 font-body text-sm leading-relaxed text-paper/60">{c.d}</p>
+                  <h3 className="mt-5 font-display text-xl text-ink">{c.t}</h3>
+                  <p className="mt-3 font-body text-sm leading-relaxed text-slate-700">{c.d}</p>
                 </div>
               ))}
             </div>

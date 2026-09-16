@@ -1,0 +1,67 @@
+
+> career-readiness-analyzer-frontend@0.1.0 dev
+> next dev
+
+ ⚠ Port 3000 is in use, trying 3001 instead.
+ ⚠ Port 3001 is in use, trying 3002 instead.
+ ⚠ Port 3002 is in use, trying 3003 instead.
+  ▲ Next.js 14.2.35
+  - Local:        http://localhost:3003
+  - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 2.6s
+ ○ Compiling /middleware ...
+ ✓ Compiled /middleware in 1910ms (195 modules)
+ ○ Compiling / ...
+ ✓ Compiled / in 6.6s (884 modules)
+ GET / 200 in 7316ms
+<w> [webpack.cache.PackFileCacheStrategy] Serializing big strings (123kiB) impacts deserialization performance (consider using Buffer instead and decode when needed)
+ ○ Compiling /analyze ...
+ ✓ Compiled /analyze in 737ms (892 modules)
+ ✓ Compiled /api/careers in 335ms (539 modules)
+ GET /api/careers 200 in 596ms
+ GET /api/careers 200 in 61ms
+ ✓ Compiled in 13.6s (906 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\cache\webpack\client-development\3.pack.gz_' -> 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\cache\webpack\client-development\3.pack.gz'
+ ✓ Compiled in 2.4s (906 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\cache\webpack\server-development\0.pack.gz_' -> 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\cache\webpack\server-development\0.pack.gz'
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 553ms (895 modules)
+ GET / 404 in 1113ms
+ GET /analyze 404 in 244ms
+ GET /_next/static/css/app/layout.css?v=1789489414150 404 in 169ms
+ GET /_next/static/chunks/main-app.js?v=1789489414150 404 in 159ms
+ GET /_next/static/chunks/app/layout.js 404 in 172ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 172ms
+ ✓ Compiled in 7.3s (906 modules)
+ ✓ Compiled in 3.1s (906 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\cache\webpack\server-development\2.pack.gz_' -> 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\cache\webpack\server-development\2.pack.gz'
+ GET /analyze 200 in 484ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 1000ms (909 modules)
+ GET /_next/static/css/app/layout.css?v=1789490174095 404 in 1380ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 1258ms
+ GET /_next/static/chunks/main-app.js?v=1789490174095 404 in 1260ms
+ GET /_next/static/chunks/app/analyze/page.js 404 in 1258ms
+ GET / 200 in 96ms
+ GET /_next/static/css/app/layout.css?v=1789490189557 404 in 63ms
+ GET /_next/static/chunks/main-app.js?v=1789490189557 404 in 96ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 94ms
+ GET /_next/static/chunks/app/page.js 404 in 88ms
+ ✓ Compiled in 7.2s (906 modules)
+ ✓ Compiled in 8.9s (906 modules)
+ ✓ Compiled in 3.5s (906 modules)
+ ✓ Compiled in 5.5s (906 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: EPERM: operation not permitted, rename 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\cache\webpack\client-development\2.pack.gz_' -> 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\cache\webpack\client-development\2.pack.gz'
+ ✓ Compiled in 2.7s (906 modules)
+ ✓ Compiled in 3.1s (906 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\cache\webpack\client-development\0.pack.gz_' -> 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\cache\webpack\client-development\0.pack.gz'
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\cache\webpack\server-development\0.pack.gz_' -> 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\cache\webpack\server-development\0.pack.gz'
+ ✓ Compiled in 31.9s (903 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\cache\webpack\client-development\0.pack.gz_' -> 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\cache\webpack\client-development\0.pack.gz'
+ ✓ Compiled in 185.6s (903 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\cache\webpack\server-development\0.pack.gz_' -> 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\cache\webpack\server-development\0.pack.gz'
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\cache\webpack\client-development\0.pack.gz_' -> 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\cache\webpack\client-development\0.pack.gz'
+ ✓ Compiled in 33.5s (903 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\cache\webpack\server-development\0.pack.gz_' -> 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\cache\webpack\server-development\0.pack.gz'

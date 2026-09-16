@@ -1,0 +1,57 @@
+
+> career-readiness-analyzer-frontend@0.1.0 dev
+> next dev
+
+ ⚠ Port 3000 is in use, trying 3001 instead.
+  ▲ Next.js 14.2.35
+  - Local:        http://localhost:3001
+  - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 8.2s
+ ○ Compiling /middleware ...
+ ✓ Compiled /middleware in 4.2s (195 modules)
+ ○ Compiling / ...
+ ✓ Compiled / in 21.8s (898 modules)
+ GET / 200 in 23556ms
+ ○ Compiling /analyze ...
+<w> [webpack.cache.PackFileCacheStrategy] Serializing big strings (123kiB) impacts deserialization performance (consider using Buffer instead and decode when needed)
+ ✓ Compiled /analyze in 12s (906 modules)
+ ○ Compiling /api/careers ...
+ ✓ Compiled /api/careers in 1010ms (539 modules)
+ GET /api/careers 200 in 2116ms
+ GET /api/careers 200 in 130ms
+ ○ Compiling /terms ...
+ ✓ Compiled /terms in 1454ms (928 modules)
+ GET /api/careers 200 in 145ms
+ GET /api/careers 200 in 121ms
+ ○ Compiling /privacy ...
+ ✓ Compiled /privacy in 1327ms (930 modules)
+ ✓ Compiled in 5.3s (912 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: EPERM: operation not permitted, rename 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\cache\webpack\client-development\1.pack.gz_' -> 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\cache\webpack\client-development\1.pack.gz'
+ GET /analyze 200 in 372ms
+ ○ Compiling /api/careers ...
+ ✓ Compiled /api/careers in 850ms (544 modules)
+ GET /api/careers 200 in 1696ms
+ GET /api/careers 200 in 98ms
+ GET /privacy 200 in 216ms
+ ✓ Compiled in 1942ms (912 modules)
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 1545ms (901 modules)
+ GET /_next/static/webpack/e715c51195c8b33a.webpack.hot-update.json 404 in 1836ms
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /privacy 200 in 76ms
+ ✓ Compiled in 1532ms (915 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\cache\webpack\server-development\0.pack.gz_' -> 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\cache\webpack\server-development\0.pack.gz'
+ ✓ Compiled in 5.4s (912 modules)
+ ✓ Compiled in 1537ms (912 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\cache\webpack\server-development\0.pack.gz_' -> 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\cache\webpack\server-development\0.pack.gz'
+ ✓ Compiled in 2.7s (912 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\cache\webpack\server-development\1.pack.gz_' -> 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\cache\webpack\server-development\1.pack.gz'
+ ✓ Compiled in 3s (912 modules)
+ ✓ Compiled in 2.2s (912 modules)
+ ✓ Compiled in 2.1s (912 modules)
+ ✓ Compiled in 1201ms (912 modules)
+ ✓ Compiled in 15.9s (912 modules)
+ ✓ Compiled in 1785ms (912 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\cache\webpack\server-development\0.pack.gz_' -> 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\cache\webpack\server-development\0.pack.gz'

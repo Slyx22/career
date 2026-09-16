@@ -15,7 +15,7 @@ export function AuthSection() {
   if (!isClerkConfigured) {
     return (
       <span
-        className="font-body text-xs text-slate-300"
+        className="font-body text-xs text-slate-700"
         title="Sign-in will appear here once Clerk is connected (see README: Integrating Clerk)."
       >
         Sign in (coming soon)

@@ -7,9 +7,9 @@ export default function PrivacyPage() {
   return (
     <div className="min-h-screen bg-paper">
       <Header />
-      <main className="mx-auto max-w-2xl px-6 py-16 font-body text-sm leading-relaxed text-slate-100">
-        <h1 className="font-display text-3xl text-slate-100">Privacy Policy</h1>
-        <p className="mt-2 text-xs text-slate-300">Last updated: [insert date before publishing]</p>
+      <main className="mx-auto max-w-2xl px-6 py-16 font-body text-sm leading-relaxed text-ink">
+        <h1 className="font-display text-3xl text-ink">Privacy Policy</h1>
+        <p className="mt-2 text-xs text-ink">Last updated: [insert date before publishing]</p>
 
         <div className="mt-6 rounded border border-brass bg-brass/10 px-4 py-3 text-sm text-brass-dark">
           <strong>This is a drafted template, not legal advice.</strong> It
@@ -23,7 +23,7 @@ export default function PrivacyPage() {
           every [bracketed placeholder] with your real details.
         </div>
 
-        <h2 className="mt-8 font-display text-xl text-slate-100">1. What we collect</h2>
+        <h2 className="mt-8 font-display text-xl text-ink">1. What we collect</h2>
         <ul className="mt-2 list-disc pl-5">
           <li><strong>Name and surname</strong> you type into the analysis form (used as-is; we never take your name from your CV).</li>
           <li><strong>Your uploaded CV</strong> (PDF or DOCX) - processed to extract text for scoring.</li>
@@ -37,7 +37,7 @@ export default function PrivacyPage() {
           data) - please don&apos;t include such information in your CV.
         </p>
 
-        <h2 className="mt-8 font-display text-xl text-slate-100">2. Why we collect it</h2>
+        <h2 className="mt-8 font-display text-xl text-ink">2. Why we collect it</h2>
         <p className="mt-2">
           Solely to run the career readiness analysis you request, generate
           your results and (if requested) certificate, and let you or a
@@ -46,7 +46,7 @@ export default function PrivacyPage() {
           analysis.
         </p>
 
-        <h2 className="mt-8 font-display text-xl text-slate-100">3. What we don&apos;t do</h2>
+        <h2 className="mt-8 font-display text-xl text-ink">3. What we don&apos;t do</h2>
         <ul className="mt-2 list-disc pl-5">
           <li>We do not sell your personal information.</li>
           <li>We do not show ads, and we do not share your data with advertisers.</li>
@@ -54,7 +54,7 @@ export default function PrivacyPage() {
           <li>We do not use your CV to train any AI model - the readiness score is computed by a deterministic scoring algorithm we built, not an AI model, and no AI provider ever sees your CV as part of that scoring.</li>
         </ul>
 
-        <h2 className="mt-8 font-display text-xl text-slate-100">4. What&apos;s public</h2>
+        <h2 className="mt-8 font-display text-xl text-ink">4. What&apos;s public</h2>
         <p className="mt-2">
           If you generate a certificate, its ID, your name, your target
           career, your score, and the issue date become viewable by
@@ -64,7 +64,7 @@ export default function PrivacyPage() {
           full analysis breakdown) is made public.
         </p>
 
-        <h2 className="mt-8 font-display text-xl text-slate-100">5. Who we share data with</h2>
+        <h2 className="mt-8 font-display text-xl text-ink">5. Who we share data with</h2>
         <p className="mt-2">The following third-party services process data on our behalf ("subprocessors"):</p>
         <ul className="mt-2 list-disc pl-5">
           <li><strong>Clerk</strong> - authentication, if you create an account.</li>
@@ -75,7 +75,7 @@ export default function PrivacyPage() {
           We don&apos;t share your data with anyone else, and we don&apos;t sell it.
         </p>
 
-        <h2 className="mt-8 font-display text-xl text-slate-100">6. How long we keep data</h2>
+        <h2 className="mt-8 font-display text-xl text-ink">6. How long we keep data</h2>
         <p className="mt-2">
           [Fill in your real retention policy once decided - for example:
           uploaded CV files are processed in memory and not stored beyond
@@ -85,7 +85,7 @@ export default function PrivacyPage() {
           analyses, after which they may be deleted.]
         </p>
 
-        <h2 className="mt-8 font-display text-xl text-slate-100">7. Your rights</h2>
+        <h2 className="mt-8 font-display text-xl text-ink">7. Your rights</h2>
         <p className="mt-2">
           Depending on where you live, you may have rights to access,
           correct, or request deletion of your personal information (for
@@ -96,33 +96,33 @@ export default function PrivacyPage() {
           break its public verification link.
         </p>
 
-        <h2 className="mt-8 font-display text-xl text-slate-100">8. Cookies</h2>
+        <h2 className="mt-8 font-display text-xl text-ink">8. Cookies</h2>
         <p className="mt-2">
           If you create an account, Clerk sets cookies needed to keep you
           signed in. We don&apos;t use advertising or tracking cookies.
         </p>
 
-        <h2 className="mt-8 font-display text-xl text-slate-100">9. Children</h2>
+        <h2 className="mt-8 font-display text-xl text-ink">9. Children</h2>
         <p className="mt-2">
           The Service isn&apos;t directed at children, and we don&apos;t knowingly
           collect personal information from anyone under [insert your
           chosen age threshold, e.g. 16].
         </p>
 
-        <h2 className="mt-8 font-display text-xl text-slate-100">10. Changes to this policy</h2>
+        <h2 className="mt-8 font-display text-xl text-ink">10. Changes to this policy</h2>
         <p className="mt-2">
           We may update this Privacy Policy from time to time. Material
           changes will be reflected by updating the date at the top of
           this page.
         </p>
 
-        <h2 className="mt-8 font-display text-xl text-slate-100">11. Contact</h2>
+        <h2 className="mt-8 font-display text-xl text-ink">11. Contact</h2>
         <p className="mt-2">
           Questions or requests about your data: [insert contact email].
         </p>
 
-        <p className="mt-8 text-xs text-slate-300">
-          See also our <a href="/terms" className="underline hover:text-slate-100">Terms of Service</a>.
+        <p className="mt-8 text-xs text-ink">
+          See also our <a href="/terms" className="underline hover:text-ink">Terms of Service</a>.
         </p>
       </main>
       <Footer />

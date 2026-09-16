@@ -13,7 +13,7 @@ export default function AnalyzePage() {
   const [careers, setCareers] = useState<Career[]>([]);
   const [firstName, setFirstName] = useState("");
   const [surname, setSurname] = useState("");
-  const [career, setCareer] = useState("ml-engineer");
+  const [career, setCareer] = useState("");
   const [file, setFile] = useState<File | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -24,7 +24,8 @@ export default function AnalyzePage() {
       .then((data) => {
         if (Array.isArray(data.careers) && data.careers.length > 0) {
           setCareers(data.careers);
-          setCareer(data.careers[0].slug);
+          // Only set career if not already chosen by user; otherwise keep silent
+          setCareer((prev) => prev || data.careers[0].slug);
         }
       })
       .catch(() => {
@@ -72,22 +73,22 @@ export default function AnalyzePage() {
   }
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col bg-paper">
       <Header />
       <main className="flex-1">
-        <section className="mx-auto max-w-xl px-6 py-16">
-          <h1 className="font-display text-3xl text-slate-100">
+        <section className="mx-auto max-w-5xl px-6 py-16">
+          <h1 className="font-display text-3xl text-ink">
             Tell us about you
           </h1>
-          <p className="mt-3 font-body text-sm text-slate-300">
+          <p className="mt-3 font-body text-sm text-slate-700">
             We use the name you enter here on your certificate &mdash; not
             whatever name appears inside your CV.
           </p>
 
           <form onSubmit={handleSubmit} className="mt-10 space-y-6" noValidate>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-8 justify-between">
               <div>
-                <label htmlFor="firstName" className="font-body text-sm text-slate-100">
+                <label htmlFor="firstName" className="font-body text-sm text-ink">
                   First name *
                 </label>
                 <input
@@ -96,12 +97,12 @@ export default function AnalyzePage() {
                   required
                   value={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
-                  className="focus-ring mt-1.5 w-full rounded border border-white/10 bg-void/60 px-3 py-2 font-body text-sm text-slate-100"
+                  className="focus-ring mt-1.5 w-full rounded border border-line bg-white px-3 py-2 font-body text-sm text-ink shadow-sm placeholder:text-slate-400"
                   placeholder="John"
                 />
               </div>
               <div>
-                <label htmlFor="surname" className="font-body text-sm text-slate-100">
+                <label htmlFor="surname" className="font-body text-sm text-ink">
                   Surname *
                 </label>
                 <input
@@ -110,38 +111,37 @@ export default function AnalyzePage() {
                   required
                   value={surname}
                   onChange={(e) => setSurname(e.target.value)}
-                  className="focus-ring mt-1.5 w-full rounded border border-white/10 bg-void/60 px-3 py-2 font-body text-sm text-slate-100"
+                  className="focus-ring mt-1.5 w-full rounded border border-line bg-white px-3 py-2 font-body text-sm text-ink shadow-sm placeholder:text-slate-400"
                   placeholder="Smith"
                 />
               </div>
             </div>
 
+            <style>{`select option{background:#ffffff!important;color:#141A2E!important;}`}</style>
             <div>
-              <label htmlFor="career" className="font-body text-sm text-slate-100">
+              <label htmlFor="career" className="font-body text-sm text-ink">
                 Target career *
               </label>
               <select
                 id="career"
                 value={career}
                 onChange={(e) => setCareer(e.target.value)}
-                className="focus-ring mt-1.5 w-full rounded border border-white/10 bg-void/60 px-3 py-2 font-body text-sm text-slate-100 max-h-60 overflow-y-auto"
+                className="focus-ring mt-1.5 w-full rounded-xl border border-line bg-white px-4 py-3 font-body text-sm text-ink shadow-sm appearance-none cursor-pointer transition hover:border-brass"
               >
                 {(careers.length > 0
                   ? careers
                   : [{ slug: "ml-engineer", name: "ML Engineer", description: "" }]
                 ).map((c) => (
-                  <option key={c.slug} value={c.slug}>
-                    {c.name}
-                  </option>
+                  <option key={c.slug} value={c.slug} style={{backgroundColor:"#ffffff",color:"#141A2E"}}>{c.name}</option>
                 ))}
               </select>
-              <p className="mt-1.5 font-body text-xs text-slate-300">
+              <p className="mt-1.5 font-body text-xs text-slate-500">
                 More careers will be added over time.
               </p>
             </div>
 
             <div>
-              <label htmlFor="cv" className="font-body text-sm text-slate-100">
+              <label htmlFor="cv" className="font-body text-sm text-ink">
                 Upload CV *
               </label>
               <input
@@ -150,9 +150,9 @@ export default function AnalyzePage() {
                 required
                 accept={ACCEPTED_FORMATS}
                 onChange={(e) => setFile(e.target.files?.[0] ?? null)}
-                className="focus-ring mt-1.5 w-full rounded border border-white/10 bg-void/60 px-3 py-2 font-body text-sm text-slate-100 file:mr-3 file:rounded file:border-0 file:bg-ink file:px-3 file:py-1.5 file:font-body file:text-xs file:text-paper"
+                className="focus-ring mt-1.5 w-full rounded border border-line bg-white px-3 py-2 font-body text-sm text-ink shadow-sm file:mr-3 file:rounded file:border-0 file:bg-ink file:px-3 file:py-1.5 file:font-body file:text-xs file:text-paper"
               />
-              <p className="mt-1.5 font-body text-xs text-slate-300">
+              <p className="mt-1.5 font-body text-xs text-slate-500">
                 Accepted formats: PDF, DOCX. Max 10MB.
               </p>
             </div>
@@ -168,7 +168,7 @@ export default function AnalyzePage() {
               disabled={submitting}
               className="focus-ring w-full rounded bg-ink px-6 py-3 font-body text-sm font-medium text-paper transition-colors hover:bg-brass-dark disabled:cursor-not-allowed disabled:opacity-60"
             >
-              {submitting ? "Analyzing your CV\u2026" : "Analyze"}
+              {submitting ? "Analyzing your CV…" : "Analyze"}
             </button>
           </form>
         </section>

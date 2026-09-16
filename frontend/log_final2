@@ -1,0 +1,298 @@
+
+> career-readiness-analyzer-frontend@0.1.0 dev
+> next dev
+
+ ⚠ Port 3000 is in use, trying 3001 instead.
+ ⚠ Port 3001 is in use, trying 3002 instead.
+ ⚠ Port 3002 is in use, trying 3003 instead.
+ ⚠ Port 3003 is in use, trying 3004 instead.
+  ▲ Next.js 14.2.35
+  - Local:        http://localhost:3004
+  - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 4s
+ ○ Compiling /middleware ...
+ ✓ Compiled /middleware in 1595ms (195 modules)
+ ○ Compiling / ...
+ ✓ Compiled / in 8.6s (898 modules)
+ GET / 200 in 9589ms
+<w> [webpack.cache.PackFileCacheStrategy] Serializing big strings (123kiB) impacts deserialization performance (consider using Buffer instead and decode when needed)
+ ○ Compiling /analyze ...
+ ✓ Compiled /analyze in 998ms (906 modules)
+ ✓ Compiled /api/careers in 420ms (539 modules)
+ GET /api/careers 200 in 749ms
+ GET /api/careers 200 in 174ms
+ ✓ Compiled in 6.6s (906 modules)
+ ✓ Compiled in 2.4s (906 modules)
+ ⨯ SyntaxError: Unexpected non-whitespace character after JSON at position 361 (line 19 column 2)
+    at JSON.parse (<anonymous>)
+    at loadManifest (C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\load-manifest.js:36:25)
+    at loadManifestWithRetries (C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\load-components.js:40:51)
+    at async Promise.all (index 0)
+    at async loadComponentsImpl (C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\load-components.js:84:100)
+    at async DevServer.findPageComponentsImpl (C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\next-server.js:714:36)
+    at async DevServer.findPageComponents (C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\dev\next-dev-server.js:577:20)
+    at async DevServer.renderPageComponent (C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\base-server.js:1910:24)
+    at async DevServer.renderToResponseImpl (C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\base-server.js:1962:32)
+    at async DevServer.pipeImpl (C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\next-server.js:272:17)
+    at async DevServer.handleRequestImpl (C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\base-server.js:818:17)
+    at async C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\lib\router-server.js:179:21)
+    at async handleRequest (C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\lib\router-server.js:359:24)
+    at async requestHandlerImpl (C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\lib\router-server.js:383:13)
+    at async Server.requestListener (C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\lib\start-server.js:141:13) {
+  page: '/analyze'
+}
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 2.5s (1118 modules)
+ GET /analyze 200 in 247ms
+ ✓ Compiled /api/careers in 246ms (579 modules)
+ GET /api/careers 200 in 456ms
+ GET /api/careers 200 in 64ms
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\cache\webpack\client-development\2.pack.gz_' -> 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\cache\webpack\client-development\2.pack.gz'
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, lstat 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\server\app'
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving '../../../../.next/server/app/api/careers/route' in C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server for build dependencies doesn't lead to expected result 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\server\app\api\careers\route.js', but to 'Error: Can't resolve '../../../../.next/server/app/api/careers/route' in 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ../../../../.next/server/app/api/careers/route (expected C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\server\app\api\careers\route.js)
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\require.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\require.js
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\load-components.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\utils.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\utils.js
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at resolve commonjs C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 1680ms (1133 modules)
+ GET /_next/static/chunks/app/page.js 404 in 277ms
+ GET / 200 in 60ms
+ GET /_next/static/css/app/layout.css?v=1789490178070 404 in 73ms
+ GET /_next/static/chunks/app/page.js 404 in 103ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 118ms
+ GET /_next/static/chunks/main-app.js?v=1789490178070 404 in 119ms
+ GET / 200 in 78ms
+ GET /_next/static/css/app/layout.css?v=1789490196469 404 in 92ms
+ GET /_next/static/chunks/main-app.js?v=1789490196469 404 in 93ms
+ GET /_next/static/chunks/app/page.js 404 in 86ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 85ms
+ GET / 200 in 45ms
+ GET /_next/static/css/app/layout.css?v=1789490201388 404 in 73ms
+ GET /_next/static/chunks/main-app.js?v=1789490201388 404 in 112ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 112ms
+ GET /_next/static/chunks/app/page.js 404 in 116ms
+ GET /analyze 200 in 84ms
+ GET /_next/static/css/app/layout.css?v=1789490203140 404 in 80ms
+ GET /_next/static/chunks/main-app.js?v=1789490203140 404 in 85ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 84ms
+ GET /_next/static/chunks/app/analyze/page.js 404 in 82ms
+ GET / 200 in 118ms
+ GET /_next/static/css/app/layout.css?v=1789490209117 404 in 233ms
+ GET /_next/static/chunks/main-app.js?v=1789490209117 404 in 287ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 251ms
+ GET /_next/static/chunks/app/page.js 404 in 59ms
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, lstat 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\server\app\api'
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving '../../../../.next/server/app/api/careers/route' in C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server for build dependencies doesn't lead to expected result 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\server\app\api\careers\route.js', but to 'Error: Can't resolve '../../../../.next/server/app/api/careers/route' in 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ../../../../.next/server/app/api/careers/route (expected C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\server\app\api\careers\route.js)
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\require.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\require.js
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\load-components.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\utils.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\utils.js
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at resolve commonjs C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/dot-case' in C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\server for build dependencies doesn't lead to expected result 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\server\vendor-chunks\dot-case.js', but to 'Error: Can't resolve './vendor-chunks/dot-case' in 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/dot-case (expected C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\server\vendor-chunks\dot-case.js)
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\server\webpack-runtime.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\server\webpack-runtime.js
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\server\app\analyze\page.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\server\app\analyze\page.js
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\require.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\require.js
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\load-components.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\utils.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\utils.js
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at resolve commonjs C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving './vendor-chunks/snake-case' in C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\server for build dependencies doesn't lead to expected result 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\server\vendor-chunks\snake-case.js', but to 'Error: Can't resolve './vendor-chunks/snake-case' in 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ./vendor-chunks/snake-case (expected C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\server\vendor-chunks\snake-case.js)
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\server\webpack-runtime.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\server\webpack-runtime.js
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\server\app\analyze\page.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\server\app\analyze\page.js
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\require.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\require.js
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\load-components.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\utils.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\utils.js
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at resolve commonjs C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+ ✓ Compiled in 8.8s (1130 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, lstat 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\server\app\_not-found'
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving '../../../../.next/server/app/_not-found/page' in C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server for build dependencies doesn't lead to expected result 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\server\app\_not-found\page.js', but to 'Error: Can't resolve '../../../../.next/server/app/_not-found/page' in 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ../../../../.next/server/app/_not-found/page (expected C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\server\app\_not-found\page.js)
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\require.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\require.js
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\load-components.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\utils.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\utils.js
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at resolve commonjs C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving '../../../../.next/server/app/api/careers/route' in C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server for build dependencies doesn't lead to expected result 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\server\app\api\careers\route.js', but to 'Error: Can't resolve '../../../../.next/server/app/api/careers/route' in 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ../../../../.next/server/app/api/careers/route (expected C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\server\app\api\careers\route.js)
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\require.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\require.js
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\load-components.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\utils.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\utils.js
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at resolve commonjs C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+ ✓ Compiled in 20.5s (1130 modules)
+ ✓ Compiled in 5.5s (1130 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, lstat 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\server\app\_not-found'
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving '../../../../.next/server/app/_not-found/page' in C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server for build dependencies doesn't lead to expected result 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\server\app\_not-found\page.js', but to 'Error: Can't resolve '../../../../.next/server/app/_not-found/page' in 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ../../../../.next/server/app/_not-found/page (expected C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\server\app\_not-found\page.js)
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\require.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\require.js
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\load-components.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\utils.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\utils.js
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at resolve commonjs C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving '../../../../.next/server/app/api/careers/route' in C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server for build dependencies doesn't lead to expected result 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\server\app\api\careers\route.js', but to 'Error: Can't resolve '../../../../.next/server/app/api/careers/route' in 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ../../../../.next/server/app/api/careers/route (expected C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\server\app\api\careers\route.js)
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\require.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\require.js
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\load-components.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\utils.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\utils.js
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at resolve commonjs C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+ ✓ Compiled in 2.8s (1130 modules)
+ ✓ Compiled in 3.7s (1130 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, lstat 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\server\app\_not-found'
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving '../../../../.next/server/app/_not-found/page' in C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server for build dependencies doesn't lead to expected result 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\server\app\_not-found\page.js', but to 'Error: Can't resolve '../../../../.next/server/app/_not-found/page' in 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ../../../../.next/server/app/_not-found/page (expected C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\server\app\_not-found\page.js)
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\require.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\require.js
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\load-components.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\utils.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\utils.js
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at resolve commonjs C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving '../../../../.next/server/app/api/careers/route' in C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server for build dependencies doesn't lead to expected result 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\server\app\api\careers\route.js', but to 'Error: Can't resolve '../../../../.next/server/app/api/careers/route' in 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ../../../../.next/server/app/api/careers/route (expected C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\server\app\api\careers\route.js)
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\require.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\require.js
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\load-components.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\utils.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\utils.js
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at resolve commonjs C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\cache\webpack\client-development\0.pack.gz_' -> 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\cache\webpack\client-development\0.pack.gz'
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <div className=... onMouseMove={function onMouseMove} children=...>
+                                 ^^^^^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2910547807"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <div className=... onMouseMove={function onMouseMove} children=...>
+                                 ^^^^^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2910547807"
+ GET / 500 in 1888ms
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\cache\webpack\client-development\0.pack.gz_' -> 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\cache\webpack\client-development\0.pack.gz'
+ ✓ Compiled in 34.5s (1127 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, lstat 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\server\app\_not-found'
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving '../../../../.next/server/app/_not-found/page' in C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server for build dependencies doesn't lead to expected result 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\server\app\_not-found\page.js', but to 'Error: Can't resolve '../../../../.next/server/app/_not-found/page' in 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ../../../../.next/server/app/_not-found/page (expected C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\server\app\_not-found\page.js)
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\require.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\require.js
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\load-components.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\utils.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\utils.js
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at resolve commonjs C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving '../../../../.next/server/app/api/careers/route' in C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server for build dependencies doesn't lead to expected result 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\server\app\api\careers\route.js', but to 'Error: Can't resolve '../../../../.next/server/app/api/careers/route' in 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ../../../../.next/server/app/api/careers/route (expected C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\server\app\api\careers\route.js)
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\require.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\require.js
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\load-components.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\utils.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\utils.js
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at resolve commonjs C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+ ✓ Compiled in 153s (1127 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, lstat 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\server\app\_not-found'
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving '../../../../.next/server/app/_not-found/page' in C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server for build dependencies doesn't lead to expected result 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\server\app\_not-found\page.js', but to 'Error: Can't resolve '../../../../.next/server/app/_not-found/page' in 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ../../../../.next/server/app/_not-found/page (expected C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\server\app\_not-found\page.js)
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\require.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\require.js
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\load-components.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\utils.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\utils.js
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at resolve commonjs C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+ ✓ Compiled in 46.1s (1127 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, lstat 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\server\app\_not-found'
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving '../../../../.next/server/app/_not-found/page' in C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server for build dependencies doesn't lead to expected result 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\server\app\_not-found\page.js', but to 'Error: Can't resolve '../../../../.next/server/app/_not-found/page' in 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server'' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ../../../../.next/server/app/_not-found/page (expected C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\server\app\_not-found\page.js)
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\require.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\require.js
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\load-components.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\server\load-components.js
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\utils.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\utils.js
+<w>  at file dependencies C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at file C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w>  at resolve commonjs C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\node_modules\next\dist\build\webpack\loaders\next-route-loader\index.js
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\cache\webpack\client-development\0.pack.gz_' -> 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\cache\webpack\client-development\0.pack.gz'
+ ✓ Compiled in 41.3s (1127 modules)
+ ✓ Compiled in 4.4s (1127 modules)
+ ✓ Compiled in 3.9s (1127 modules)
+ ✓ Compiled in 8.1s (1127 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: EPERM: operation not permitted, rename 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\cache\webpack\client-development\0.pack.gz_' -> 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\cache\webpack\client-development\0.pack.gz'
+ ✓ Compiled in 17.2s (1127 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\cache\webpack\server-development\0.pack.gz_' -> 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\cache\webpack\server-development\0.pack.gz'
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\cache\webpack\client-development\0.pack.gz_' -> 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\cache\webpack\client-development\0.pack.gz'
+ ✓ Compiled in 2.6s (1127 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\cache\webpack\client-development\0.pack.gz_' -> 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\cache\webpack\client-development\0.pack.gz'
+ ✓ Compiled in 5.7s (584 modules)
+ ✓ Compiled in 1887ms (584 modules)
+ ✓ Compiled in 8.2s (584 modules)
+ ✓ Compiled in 2.4s (584 modules)
+ ✓ Compiled in 7.1s (584 modules)
+ ✓ Compiled in 1011ms (584 modules)
+ ✓ Compiled in 3.9s (1127 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\cache\webpack\server-development\0.pack.gz_' -> 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\frontend\.next\cache\webpack\server-development\0.pack.gz'

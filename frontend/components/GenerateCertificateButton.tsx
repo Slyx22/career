@@ -54,7 +54,7 @@ export function GenerateCertificateButton({
   if (needsSignUp && isClerkConfigured) {
     return (
       <div className="rounded border border-line bg-paper px-4 py-4">
-        <p className="font-body text-sm text-ink">
+        <p className="font-body text-sm text-slate-700">
           Certificates are free, but generating one needs a free account
           (so you can find it again later on your dashboard).
         </p>
@@ -65,12 +65,12 @@ export function GenerateCertificateButton({
             </button>
           </SignUpButton>
           <SignInButton mode="modal">
-            <button className="focus-ring rounded border border-line px-5 py-2.5 font-body text-sm font-medium text-ink transition-colors hover:border-slate">
+            <button className="focus-ring rounded border border-line px-5 py-2.5 font-body text-sm font-medium text-slate-700 transition-colors hover:border-slate">
               Already have an account? Sign in
             </button>
           </SignInButton>
         </div>
-        <p className="mt-3 font-body text-xs text-slate">
+        <p className="mt-3 font-body text-xs text-slate-600">
           Once you&apos;re signed in, click &quot;Generate My Certificate&quot; again.
         </p>
         <button
@@ -93,7 +93,7 @@ export function GenerateCertificateButton({
       >
         {loading ? "Generating\u2026" : "Generate My Certificate"}
       </button>
-      <p className="mt-2 font-body text-xs text-slate">
+      <p className="mt-2 font-body text-xs text-slate-600">
         Certificates are completely free.
         {isClerkConfigured ? " A free account is required so you can find it again later." : ""}
       </p>

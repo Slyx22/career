@@ -4,8 +4,8 @@ export function SkillBar({ item }: { item: SkillBreakdownItem }) {
   return (
     <div className="py-2.5">
       <div className="mb-1.5 flex items-baseline justify-between">
-        <span className="font-body text-sm text-ink">{item.name}</span>
-        <span className="font-body text-xs text-slate">
+        <span className="font-body text-sm text-slate-600-700">{item.name}</span>
+        <span className="font-body text-xs text-slate-600">
           {item.present ? `${item.score_percent}%` : "not found"}
         </span>
       </div>

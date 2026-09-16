@@ -1,0 +1,23 @@
+npm error code ENOENT
+npm error syscall open
+npm error path C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\package.json
+npm error errno -4058
+npm error enoent Could not read package.json: Error: ENOENT: no such file or directory, open 'C:\Users\DEPUTY(Mokgoshi\Downloads\career-readiness-analyzer\career-readiness-analyzer\package.json'
+npm error enoent This is related to npm not being able to find a file.
+npm error enoent
+npm ○ Compiling /middleware ...
+ ✓ Compiled /middleware in 5.1s (195 modules)
+ ○ Compiling / ...
+ ✓ Compiled / in 32.6s (897 modules)
+ GET / 200 in 38590ms
+ ○ Compiling /analyze ...
+<w> [webpack.cache.PackFileCacheStrategy] Serializing big strings (123kiB) impacts deserialization performance (consider using Buffer instead and decode when needed)
+ ✓ Compiled /analyze in 52.6s (903 modules)
+ ○ Compiling /api/careers ...
+ ✓ Compiled /api/careers in 1545ms (535 modules)
+ GET /api/careers 200 in 3281ms
+ GET /api/careers 200 in 267ms
+ ○ Compiling /terms ...
+ ✓ Compiled /privacy in 9s (899 modules)
+ ✓ Compiled in 10s (401 modules)
+ ✓ Compiled in 30.3s (913 modules)
