@@ -1,17 +1,8 @@
-# Netlify build configuration.
-#
-# The frontend is built with `next.config.mjs` set to `output: 'export'`,
-# which writes a static site to `frontend/dist/` (not `.next/`). This file
-# matches that so Netlify serves the static export.
-#
-# IMPORTANT: this project is currently deployed to Vercel, not Netlify.
-# If you later switch to Netlify, use these settings:
-#   Root Directory:  frontend
-#   Build Command:   npm run build
-#   Publish dir:     dist
-# and set PYTHON_API_URL in the Netlify site env vars to your backend URL.
-
+# Netlify build configuration — server deploy mode (not static export)
 [build]
   base = "frontend"
   command = "npm run build"
-  publish = "dist"
+  publish = ".next"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
