@@ -19,18 +19,25 @@ export default function AnalyzePage() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    let cancelled = false;
     fetch("/api/careers")
       .then((r) => r.json())
       .then((data) => {
+        if (cancelled) return;
         if (Array.isArray(data.careers) && data.careers.length > 0) {
           setCareers(data.careers);
-          // Only set career if not already chosen by user; otherwise keep silent
           setCareer((prev) => prev || data.careers[0].slug);
+        } else {
+          setError("No careers are available. Please try again later.");
         }
       })
       .catch(() => {
-        // Non-fatal: the form still works with the default "ml-engineer" slug.
+        if (cancelled) return;
+        setError("Could not load the career list. Please check your connection and try again.");
       });
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   async function handleSubmit(e: FormEvent) {
@@ -127,13 +134,15 @@ export default function AnalyzePage() {
                 value={career}
                 onChange={(e) => setCareer(e.target.value)}
                 className="focus-ring mt-1.5 w-full rounded-xl border border-line bg-white px-4 py-3 font-body text-sm text-ink shadow-sm appearance-none cursor-pointer transition hover:border-brass"
+                disabled={careers.length === 0}
               >
-                {(careers.length > 0
-                  ? careers
-                  : [{ slug: "ml-engineer", name: "ML Engineer", description: "" }]
-                ).map((c) => (
-                  <option key={c.slug} value={c.slug} style={{backgroundColor:"#ffffff",color:"#141A2E"}}>{c.name}</option>
-                ))}
+                {careers.length > 0 ? (
+                  careers.map((c) => (
+                    <option key={c.slug} value={c.slug} style={{backgroundColor:"#ffffff",color:"#141A2E"}}>{c.name}</option>
+                  ))
+                ) : (
+                  <option value="">Loading careers…</option>
+                )}
               </select>
               <p className="mt-1.5 font-body text-xs text-slate-500">
                 More careers will be added over time.

@@ -13,7 +13,7 @@ export function Header() {
   return (
     <header
       className={`sticky top-0 z-50 mx-auto max-w-6xl px-6 py-4 transition-all duration-300 ${
-        true
+        scrolled
           ? "mt-4 rounded-full border border-white/10 bg-void/70 backdrop-blur-xl shadow-2xl shadow-black/40"
           : "rounded-full border border-white/10 bg-void/70 backdrop-blur-xl shadow-xl shadow-black/20"
       }`}
