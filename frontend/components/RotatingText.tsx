@@ -28,9 +28,10 @@ export function RotatingText() {
 
   return (
     <span
-      className={`inline-block transition-all duration-200 ${
-        isAnimating ? "scale-95 opacity-0" : "scale-100 opacity-100"
+      className={`inline-block w-[9ch] text-left transition-opacity duration-200 ${
+        isAnimating ? "opacity-0" : "opacity-100"
       }`}
+      aria-live="off"
     >
       {ROTATING_WORDS[currentIndex]}
     </span>

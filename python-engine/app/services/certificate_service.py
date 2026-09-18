@@ -227,22 +227,22 @@ def render_certificate_pdf(*, store: Repository, certificate_id: str) -> Optiona
     c.setFont("Helvetica", 8)
     c.drawCentredString(width * 0.3, 46 * mm, "Date of Completion")
 
-    # Right side: Signature + initials only (professional, no full name)
+    # Right side: Signature on the line (transparent PNG only)
+    # Only the actual image renders; "S.R." initials stay below line.
     if signature_path.exists():
         try:
             sig_img = ImageReader(str(signature_path))
             img_width = 70 * mm
-            img_height = 35 * mm
-            c.drawImage(sig_img, width * 0.7 - img_width/2, 52*mm,
-                       width=img_width, height=img_height,
-                       mask='auto', preserveAspectRatio=True)
+            img_height = 30 * mm
+            # Center over decorative line (y = 52 mm bottom, image sits on line)
+            c.drawImage(sig_img,
+                        width * 0.7 - img_width/2, 52*mm - 4*mm,
+                        width=img_width, height=img_height,
+                        mask='auto', preserveAspectRatio=True)
         except Exception:
-            # Fallback if image can't load
-            c.setFont("Helvetica-Oblique", 16)
-            c.drawCentredString(width * 0.7, 58 * mm, "S.R.")
+            pass  # Do NOT replace with "S.R." fallback — initials stay below
     else:
-        c.setFont("Helvetica-Oblique", 16)
-        c.drawCentredString(width * 0.7, 58 * mm, "S.R.")
+        pass  # No fake signature; initials remain below line
 
     # Signature decorative line and initials only (no full name below)
     c.setStrokeColor(colors.HexColor("#CBD5E1"))
