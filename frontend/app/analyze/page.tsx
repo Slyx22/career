@@ -8,19 +8,12 @@ import { Career } from "@/lib/types";
 
 const ACCEPTED_FORMATS = ".pdf,.docx";
 
-const STATIC_CAREERS = [
-  { slug: "ml-engineer", name: "ML Engineer", description: "Build machine learning models and systems." },
-  { slug: "data-scientist", name: "Data Scientist", description: "Analyze data to extract insights and build predictive models." },
-  { slug: "software-engineer", name: "Software Engineer", description: "Design, develop, and maintain software systems." },
-  { slug: "english-teacher", name: "English Teacher", description: "Teach English language and literature to students." },
-];
-
 export default function AnalyzePage() {
   const router = useRouter();
-  const [careers, setCareers] = useState<Career[]>(STATIC_CAREERS);
+  const [careers, setCareers] = useState<Career[]>([]);
   const [firstName, setFirstName] = useState("");
   const [surname, setSurname] = useState("");
-  const [career, setCareer] = useState(STATIC_CAREERS[0].slug);
+  const [career, setCareer] = useState("");
   const [file, setFile] = useState<File | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -35,16 +28,14 @@ export default function AnalyzePage() {
           setCareers(data.careers);
           setCareer((prev) => prev || data.careers[0].slug);
         } else {
-          setError("No careers are available. Please try again later.");
+          setError("No careers are available.");
         }
       })
       .catch(() => {
         if (cancelled) return;
-        setError("Could not load the career list. Please check your connection and try again.");
+        setError("Could not load career list.");
       });
-    return () => {
-      cancelled = true;
-    };
+    return () => { cancelled = true; };
   }, []);
 
   async function handleSubmit(e: FormEvent) {
