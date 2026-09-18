@@ -8,7 +8,7 @@ import { RotatingText } from "@/components/RotatingText";
 
 export default function HomePage() {
   return (
-    <div className="relative min-h-screen overflow-hidden bg-paper text-ink">
+    <div className="relative min-h-screen overflow-hidden bg-white text-slate-900">
       {/* Subtle radial glow behind hero */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_10%,rgba(184,128,31,0.08),transparent_50%)]" />
 
@@ -34,58 +34,13 @@ export default function HomePage() {
                 </Link>
               </div>
 
-              {/* Dashed curved arrow pointing to CTA */}
-              <div className="hidden md:col-span-2 md:block md:relative md:h-64">
-                <style>{`
-@keyframes dash-flow { to { stroke-dashoffset: -28; } }
-@keyframes draw-once { from { stroke-dashoffset: 300; } to { stroke-dashoffset: 0; } }
-.arrow-flow { animation: dash-flow 1.2s linear infinite; }
-.arrow-draw { animation: draw-once 0.8s ease-out forwards; }
-`}</style>
-<svg viewBox="0 0 240 200" className="h-full w-full" aria-hidden="true">
-                  <defs>
-                    <filter id="glow">
-                      <feDropShadow dx="0" dy="0" stdDeviation="2" floodColor="#b8801f" floodOpacity="0.35" />
-                    </filter>
-                  </defs>
-                  <path
-                    d="M 30 160 C 70 120, 140 60, 200 80"
-                    fill="none"
-                    stroke="#b8801f"
-                    strokeWidth="2"
-                    strokeDasharray="8 6"
-                    strokeLinecap="round"
-                    filter="url(#glow)"
-                  />
-                  {/* Animated dash offset via CSS on this group */}
-                  <g>
-                    <circle cx="200" cy="80" r="3.5" fill="#b8801f" />
-                    <polygon points="200,80 192,72 196,78" fill="#b8801f" />
-                  </g>
-                </svg>
-                <style>{`
-                  @keyframes dash-move {
-                    to { stroke-dashoffset: -28; }
-                  }
-                  .arrow-path { animation: dash-move 3s linear infinite; }
-                `}</style>
-                <path
-                  className="arrow-flow"
-                  d="M 30 160 C 70 120, 140 60, 200 80"
-                  fill="none"
-                  stroke="#b8801f"
-                  strokeWidth="2"
-                  strokeDasharray="8 6"
-                  strokeLinecap="round"
-                  filter="url(#glow)"
-                />
-              </div>
+              {/* Dotted line removed per user request */}
             </div>
           </section>
 
           {/* Cards section — clean, premium spacing */}
           <section className="mx-auto max-w-5xl px-6 pb-24">
-            <div className="grid gap-8 md:grid-cols-3">
+            <div className="grid gap-8 md:grid-cols-3 animate-fade-in-up delay-200">
               {[
                 { n: "01", t: "Analyze", d: "Upload your CV and we extract skills with explainable NLP." },
                 { n: "02", t: "Score", d: "Get a 0-100 career readiness score backed by market benchmarks." },

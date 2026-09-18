@@ -8,12 +8,19 @@ import { Career } from "@/lib/types";
 
 const ACCEPTED_FORMATS = ".pdf,.docx";
 
+const STATIC_CAREERS = [
+  { slug: "ml-engineer", name: "ML Engineer", description: "Build machine learning models and systems." },
+  { slug: "data-scientist", name: "Data Scientist", description: "Analyze data to extract insights and build predictive models." },
+  { slug: "software-engineer", name: "Software Engineer", description: "Design, develop, and maintain software systems." },
+  { slug: "english-teacher", name: "English Teacher", description: "Teach English language and literature to students." },
+];
+
 export default function AnalyzePage() {
   const router = useRouter();
-  const [careers, setCareers] = useState<Career[]>([]);
+  const [careers, setCareers] = useState<Career[]>(STATIC_CAREERS);
   const [firstName, setFirstName] = useState("");
   const [surname, setSurname] = useState("");
-  const [career, setCareer] = useState("");
+  const [career, setCareer] = useState(STATIC_CAREERS[0].slug);
   const [file, setFile] = useState<File | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -80,7 +87,7 @@ export default function AnalyzePage() {
   }
 
   return (
-    <div className="flex min-h-screen flex-col bg-paper">
+    <div className="flex min-h-screen flex-col bg-white">
       <Header />
       <main className="flex-1">
         <section className="mx-auto max-w-5xl px-6 py-16">
