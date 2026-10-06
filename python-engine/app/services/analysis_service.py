@@ -90,7 +90,7 @@ def run_analysis(
 
     evidence = extract_skill_evidence(cv)
     # Pass the raw CV text for education level detection
-    result = score_career_readiness(evidence, career_model, cv_text=cv.full_text)
+    result = score_career_readiness(evidence, career_model, cv_text=cv.raw_text)
 
     gap_details = sorted(
         [d for d in result.skill_details if (not d.present) or d.final_score < 0.35],
