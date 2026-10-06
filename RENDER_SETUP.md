@@ -28,7 +28,8 @@ In your Render service → **Environment Variables**, add:
 | Key | Value |
 |---|---|
 | `ALLOWED_ORIGINS` | `https://your-vercel-url.vercel.app,http://localhost:3000` |
-| `PUBLIC_VERIFY_URL_BASE` | `https://your-vercel-url.vercel.app` |
+| `PUBLIC_VERIFY_URL_BASE` | `https://your-
+vercel-url.vercel.app` |
 | `STORAGE_BACKEND` | `local` |
 | `REQUIRE_ACCOUNT_FOR_CERTIFICATE` | `false` |
 

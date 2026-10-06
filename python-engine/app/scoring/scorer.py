@@ -20,15 +20,19 @@ The per-skill contributions are combined into an overall 0-100 score,
 weighted by each skill's market_frequency (how often it matters for this
 career) so rare/niche skills don't dominate the score as much as core
 skills.
+
+EDUCATION BOOST (added): Relevant degrees/diplomas provide a modest boost
+to the overall score (5-15 points) to reward formal education attainment.
 """
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Dict, List
+from typing import Dict, List, Optional
 
 from app.nlp.skill_extractor import SkillEvidence
 from app.nlp.taxonomy import SKILL_BY_SLUG
 from app.scoring.career_model import CareerModel
+from app.nlp.education_detector import detect_education_level, calculate_education_boost, EducationInfo
 
 
 @dataclass
@@ -53,10 +57,12 @@ class ScoringResult:
     skill_details: List[SkillScoreDetail]
     strengths: List[str]
     gaps: List[str]
+    education_info: Optional[EducationInfo] = None  # Detected education level
+    education_boost: float = 0.0  # Points added for education (0-15)
 
 
 def score_career_readiness(
-    evidence_by_slug: Dict[str, SkillEvidence], career_model: CareerModel
+    evidence_by_slug: Dict[str, SkillEvidence], career_model: CareerModel, cv_text: Optional[str] = None
 ) -> ScoringResult:
     details: List[SkillScoreDetail] = []
     weighted_sum = 0.0
@@ -111,7 +117,17 @@ def score_career_readiness(
         )
 
     overall_fraction = (weighted_sum / weight_total) if weight_total else 0.0
-    overall_score = round(max(0.0, min(1.0, overall_fraction)) * 100)
+    base_score = max(0.0, min(1.0, overall_fraction)) * 100
+
+    # Detect education level and calculate boost
+    education_info = None
+    education_boost = 0.0
+    if cv_text:
+        education_info = detect_education_level(cv_text)
+        education_boost = calculate_education_boost(education_info)
+
+    # Apply education boost (capped at 100)
+    overall_score = round(min(100, base_score + education_boost))
 
     # Strengths: present skills with strong final_score, ranked by
     # importance so the most career-relevant strengths surface first.
@@ -131,4 +147,11 @@ def score_career_readiness(
     )
     gaps = [d.name for d in gap_candidates[:6]]
 
-    return ScoringResult(overall_score=overall_score, skill_details=details, strengths=strengths, gaps=gaps)
+    return ScoringResult(
+        overall_score=overall_score,
+        skill_details=details,
+        strengths=strengths,
+        gaps=gaps,
+        education_info=education_info,
+        education_boost=round(education_boost, 1),
+    )

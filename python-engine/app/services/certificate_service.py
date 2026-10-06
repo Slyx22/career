@@ -216,6 +216,8 @@ def render_certificate_pdf(*, store: Repository, certificate_id: str) -> Optiona
 
     # Try to load signature
     signature_path = Path(__file__).resolve().parent.parent.parent.parent / "frontend" / "public" / "images" / "signature.png"
+    if not signature_path.exists():
+        signature_path = Path(__file__).resolve().parent.parent.parent.parent / "signature.png"
 
     # Left side: Date — aligned directly on decorative line
     c.setFont("Helvetica", 9)
@@ -233,16 +235,21 @@ def render_certificate_pdf(*, store: Repository, certificate_id: str) -> Optiona
         try:
             sig_img = ImageReader(str(signature_path))
             img_width = 70 * mm
-            img_height = 30 * mm
-            # Center over decorative line (y = 52 mm bottom, image sits on line)
+            img_height = 20 * mm  # Reduced from 30mm for better proportion on line
+            # Center over decorative line (y = 52 mm bottom, image top edge at line)
+            # drawImage y parameter is the bottom-left corner, so we position it to sit on the line
             c.drawImage(sig_img,
-                        width * 0.7 - img_width/2, 52*mm - 4*mm,
+                        width * 0.7 - img_width/2, 52*mm,
                         width=img_width, height=img_height,
                         mask='auto', preserveAspectRatio=True)
-        except Exception:
-            pass  # Do NOT replace with "S.R." fallback — initials stay below
+        except Exception as e:
+            # Log the failure but continue gracefully
+            import sys
+            print(f"Warning: Failed to load signature image from {signature_path}: {e}", file=sys.stderr)
     else:
-        pass  # No fake signature; initials remain below line
+        # Log missing signature but continue
+        import sys
+        print(f"Warning: Signature file not found at {signature_path}", file=sys.stderr)
 
     # Signature decorative line and initials only (no full name below)
     c.setStrokeColor(colors.HexColor("#CBD5E1"))

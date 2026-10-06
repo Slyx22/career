@@ -28,7 +28,7 @@ export function RotatingText() {
 
   return (
     <span
-      className={`inline-block w-[9ch] text-left transition-opacity duration-200 ${
+      className={`inline-block w-[7ch] text-left align-middle transition-opacity duration-200 ${
         isAnimating ? "opacity-0" : "opacity-100"
       }`}
       aria-live="off"
