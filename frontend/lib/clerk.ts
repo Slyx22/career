@@ -3,10 +3,11 @@
  * core CV -> score -> certificate flow). This flag lets the rest of the
  * app render sensibly whether or not Clerk has been connected yet.
  *
- * Set NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY and CLERK_SECRET_KEY (see
- * .env.example / README "Integrating Clerk" section) to turn auth on -
- * no other code changes are needed.
+ * Supports both standard Clerk env vars and custom Vercel naming:
+ * - NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY or CLERK1 (publishable key)
+ * - CLERK_SECRET_KEY or CLERK2 (secret key)
  */
 export const isClerkConfigured = Boolean(
-  process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY && process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY.length > 0
+  process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY &&
+  process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY.length > 0
 );

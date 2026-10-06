@@ -9,11 +9,10 @@ import { isClerkConfigured } from "@/lib/clerk";
  * /certificate, /verify - stays public, because the core CV -> score ->
  * certificate flow must never require an account.
  *
- * When Clerk isn't configured yet (no NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY /
- * CLERK_SECRET_KEY), this middleware is a harmless no-op passthrough, so
- * the app runs fine before you've connected Clerk. Once you set those two
- * env vars (see README "Integrating Clerk"), /dashboard becomes
- * auth-protected automatically - no code changes needed.
+ * When Clerk isn't configured yet (no CLERK1/CLERK2 env vars),
+ * this middleware is a harmless no-op passthrough, so the app runs
+ * fine before you've connected Clerk. Once you set those two env vars,
+ * /dashboard becomes auth-protected automatically.
  */
 
 const isProtectedRoute = createRouteMatcher(["/dashboard(.*)"]);
