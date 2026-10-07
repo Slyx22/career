@@ -15,5 +15,10 @@ export default function AuthProvider({ children }: { children: React.ReactNode }
   if (!isClerkConfigured) {
     return <>{children}</>;
   }
-  return <ClerkProvider>{children}</ClerkProvider>;
+
+  // Get the publishable key from environment - supports both standard and custom naming
+  const publishableKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY ||
+                         process.env.CLERK1 || '';
+
+  return <ClerkProvider publishableKey={publishableKey}>{children}</ClerkProvider>;
 }

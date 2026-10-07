@@ -4,22 +4,23 @@ import { useEffect, useState } from "react";
 import { AuthSection } from "@/components/AuthSection";
 
 export function Header() {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(true);
   const [lastY, setLastY] = useState(0);
 
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
-      if (y < 40) {
-        setVisible(false);
+      if (y < 50) {
+        // At top: always show the header
+        setVisible(true);
         setLastY(y);
         return;
       }
       if (y > lastY) {
-        // scrolling down → hide
+        // Scrolling down → hide
         setVisible(false);
       } else {
-        // scrolling up → show
+        // Scrolling up → show
         setVisible(true);
       }
       setLastY(y);
@@ -30,7 +31,7 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 mx-auto max-w-full bg-white/80 backdrop-blur-2xl border-b border-black/5 shadow-[0_1px_0_rgba(0,0,0,0.02)] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+      className={`fixed top-0 left-0 right-0 z-50 mx-auto max-w-full bg-white/80 backdrop-blur-2xl border-b border-black/5 shadow-[0_1px_0_rgba(0,0,0,0.02)] transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
         visible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
