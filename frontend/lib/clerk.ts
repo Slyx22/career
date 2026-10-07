@@ -8,6 +8,6 @@
  * - CLERK_SECRET_KEY or CLERK2 (secret key)
  */
 export const isClerkConfigured = Boolean(
-  process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY &&
-  process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY.length > 0
+  (process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY && process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY.length > 0) ||
+  (process.env.CLERK1 && process.env.CLERK1.length > 0)
 );
