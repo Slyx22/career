@@ -3,8 +3,8 @@ const nextConfig = {
   reactStrictMode: true,
   env: {
     // Map CLERK1 and CLERK2 to the standard Clerk environment variable names
-    NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: process.env.CLERK1 || process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY || '',
-    CLERK_SECRET_KEY: process.env.CLERK2 || process.env.CLERK_SECRET_KEY || '',
+    NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: process.env.CLERK1 || process.env.clerk1 || process.env.CLERK_PUBLISHABLE_KEY || process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY || '',
+    CLERK_SECRET_KEY: process.env.CLERK2 || process.env.clerk2 || process.env.CLERK_SECRET_KEY || process.env.CLERK_SECRET_KEY || '',
 
     // Map custom Supabase env vars to the standard names
     NEXT_PUBLIC_SUPABASE_URL: process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL || '',
