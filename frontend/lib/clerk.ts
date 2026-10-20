@@ -3,11 +3,18 @@
  * core CV -> score -> certificate flow). This flag lets the rest of the
  * app render sensibly whether or not Clerk has been connected yet.
  *
- * Supports both standard Clerk env vars and custom Vercel naming:
- * - NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY or CLERK1 (publishable key)
- * - CLERK_SECRET_KEY or CLERK2 (secret key)
+ * IMPORTANT: This module is imported by client components ("use client"),
+ * so only NEXT_PUBLIC_* env vars are available on the client side.
+ * next.config.mjs maps CLERK1 -> NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY at
+ * build time, so by the time this runs, the standard key name is all
+ * we need to check.
+ *
+ * The key must start with "pk_" to be a genuine Clerk publishable key —
+ * this guards against empty strings or placeholder values that
+ * next.config.mjs may fall through to.
  */
 export const isClerkConfigured = Boolean(
-  (process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY && process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY.length > 0) ||
-  (process.env.CLERK1 && process.env.CLERK1.length > 0)
+  process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY &&
+  process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY.length > 0 &&
+  process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY.startsWith("pk_")
 );

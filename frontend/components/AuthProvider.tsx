@@ -16,9 +16,9 @@ export default function AuthProvider({ children }: { children: React.ReactNode }
     return <>{children}</>;
   }
 
-  // Get the publishable key from environment - supports both standard and custom naming
-  const publishableKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY ||
-                         process.env.CLERK1 || '';
+  // next.config.mjs already maps CLERK1 -> NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
+  // at build time, so only the NEXT_PUBLIC_ var is visible here.
+  const publishableKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY || '';
 
   return <ClerkProvider publishableKey={publishableKey}>{children}</ClerkProvider>;
 }
