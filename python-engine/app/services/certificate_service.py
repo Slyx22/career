@@ -21,7 +21,7 @@ _ID_ALPHABET = string.ascii_uppercase + string.digits
 # personal names. Bump METHOD_VERSION whenever the scoring method or the
 # career data changes, so old and new certificates can be told apart.
 ISSUER_NAME = os.environ.get("CERTIFICATE_ISSUER_NAME", "Career Readiness Analyzer")
-METHOD_VERSION = "2.0"
+METHOD_VERSION = "2.1"
 CERTIFICATE_VALID_DAYS = 365
 
 
