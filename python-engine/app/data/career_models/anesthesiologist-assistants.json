@@ -7,7 +7,7 @@
     "occupation_title": "Anesthesiologist Assistants",
     "note": "Imported from the O*NET Database (USDOL/ETA, CC BY 4.0) with exact skill mapping.",
     "source_url": "https://www.onetonline.org/link/summary/29-1071.01",
-    "last_synced": "2026-10-27T15:42:58.405509+00:00",
+    "last_synced": "2026-10-27T15:44:39.961447+00:00",
     "sync_method": "onet_bulk_database"
   },
   "skills": [
@@ -165,16 +165,16 @@
     },
     {
       "skill_slug": "microsoft_excel",
-      "market_frequency": 0.6,
-      "market_importance": 0.6,
+      "market_frequency": 0.45,
+      "market_importance": 0.45,
       "source": "onet_technology_skills",
       "onet_confirmed": true,
       "onet_element": ""
     },
     {
       "skill_slug": "microsoft_office",
-      "market_frequency": 0.6,
-      "market_importance": 0.6,
+      "market_frequency": 0.45,
+      "market_importance": 0.45,
       "source": "onet_technology_skills",
       "onet_confirmed": true,
       "onet_element": ""
