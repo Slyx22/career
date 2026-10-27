@@ -1,13 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getPythonApiUrl } from "@/lib/config";
+import { engineFetch } from "@/lib/config";
 
 export async function GET(
   _req: NextRequest,
   { params }: { params: { analysisId: string } }
 ) {
   try {
-    const res = await fetch(
-      `${getPythonApiUrl()}/api/analysis/${encodeURIComponent(
+    const res = await engineFetch(`/api/analysis/${encodeURIComponent(
         params.analysisId
       )}`,
       { cache: "no-store" }

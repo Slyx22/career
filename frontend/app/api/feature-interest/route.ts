@@ -4,13 +4,31 @@ import { auth } from "@clerk/nextjs/server";
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL;
 const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SERVICE_ROLE;
 
+// Only accept the feature keys the survey actually offers, and analysis
+// IDs shaped like the UUIDs the engine issues, so the table can't be
+// filled with junk.
+const ALLOWED_FEATURE_KEYS = new Set([
+  "personalized_roadmap",
+  "employer_insights",
+  "score_increase_tips",
+  "cv_improvement",
+  "profile_integration",
+  "download_certificate",
+]);
+const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
 export async function POST(request: NextRequest) {
   try {
     const { analysisId, featureKey } = await request.json();
 
-    if (!analysisId || !featureKey) {
+    if (
+      typeof analysisId !== "string" ||
+      typeof featureKey !== "string" ||
+      !UUID_RE.test(analysisId) ||
+      !ALLOWED_FEATURE_KEYS.has(featureKey)
+    ) {
       return NextResponse.json(
-        { error: "analysisId and featureKey required" },
+        { error: "A valid analysisId and featureKey are required" },
         { status: 400 }
       );
     }

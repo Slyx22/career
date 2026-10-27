@@ -61,6 +61,10 @@ export interface CertificateVerification {
   career?: string;
   score?: number;
   issued_at?: string;
+  valid_until?: string;
+  expired?: boolean;
+  issuer?: string;
+  method_version?: string;
 }
 
 export interface ApiError {

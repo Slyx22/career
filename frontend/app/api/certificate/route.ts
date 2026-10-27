@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getPythonApiUrl } from "@/lib/config";
+import { engineFetch } from "@/lib/config";
 import { isClerkConfigured } from "@/lib/clerk";
 
 /**
@@ -44,7 +44,7 @@ export async function POST(req: NextRequest) {
   }
 
   try {
-    const res = await fetch(`${getPythonApiUrl()}/api/certificate`, {
+    const res = await engineFetch(`/api/certificate`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ ...body, clerk_user_id: clerkUserId }),

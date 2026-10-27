@@ -10,3 +10,16 @@ export function getPythonApiUrl(): string {
   }
   return url.replace(/\/$/, "");
 }
+
+// Calls the Python engine. If ENGINE_API_KEY is set (in Vercel, and the
+// same value in Render), it is sent in the x-engine-key header so the
+// engine only answers this website, not anyone who finds its URL.
+export function engineFetch(
+  path: string,
+  init: RequestInit & { next?: { revalidate?: number } } = {}
+): Promise<Response> {
+  const headers = new Headers(init.headers);
+  const key = process.env.ENGINE_API_KEY;
+  if (key) headers.set("x-engine-key", key);
+  return fetch(`${getPythonApiUrl()}${path}`, { ...init, headers });
+}
