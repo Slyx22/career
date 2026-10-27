@@ -145,6 +145,15 @@ def _tech_rows(db_dir: Path) -> List[dict]:
     )
 
 
+def _tech_example(row: dict) -> str:
+    """The software/tool name in a Technology (or Software) Skills row.
+    Column names have varied between O*NET releases."""
+    for key in ("Example", "Software", "Software Name", "Technology", "Tool", "Element Name"):
+        if row.get(key):
+            return row[key]
+    return ""
+
+
 def _is_yes(value: Optional[str]) -> bool:
     return (value or "").strip().upper() in ("Y", "YES", "TRUE", "1")
 
@@ -209,7 +218,7 @@ def _build_career_model(
     # --- Technology Skills: whole-word match to software skills only ---
     tech: Dict[str, dict] = {}
     for row in tech_rows:
-        slug = _match_tech_slug(row.get("Example", "") or row.get("Software", ""))
+        slug = _match_tech_slug(_tech_example(row))
         if not slug or any(s["skill_slug"] == slug for s in skills):
             continue
         hot = _is_yes(row.get("Hot Technology"))
@@ -322,8 +331,16 @@ def import_all_careers(db_dir: Path) -> dict:
         if soc and r.get("Scale ID", "IM") in ("IM", ""):
             skills_by_soc.setdefault(soc, []).append(r)
 
+    tech_rows_all = _tech_rows(db_dir)
+    tech_columns = list(tech_rows_all[0].keys()) if tech_rows_all else []
+    tech_unmatched: Dict[str, int] = {}
+    tech_matched: Dict[str, int] = {}
+    for r in tech_rows_all:
+        name = _tech_example(r)
+        bucket = tech_matched if _match_tech_slug(name) else tech_unmatched
+        bucket[name] = bucket.get(name, 0) + 1
     tech_by_soc: Dict[str, List[dict]] = {}
-    for r in _tech_rows(db_dir):
+    for r in tech_rows_all:
         soc = r.get("O*NET-SOC Code", "")
         if soc:
             tech_by_soc.setdefault(soc, []).append(r)
@@ -374,6 +391,10 @@ def import_all_careers(db_dir: Path) -> dict:
         "careers_skipped_too_few_rated_skills": len(skipped),
         "skipped_examples": skipped[:25],
         "unmapped_onet_elements": dict(sorted(unmapped.items(), key=lambda kv: -kv[1])),
+        "technology_rows": len(tech_rows_all),
+        "technology_columns": tech_columns,
+        "technology_matched_top": dict(sorted(tech_matched.items(), key=lambda kv: -kv[1])[:40]),
+        "technology_unmatched_top": dict(sorted(tech_unmatched.items(), key=lambda kv: -kv[1])[:60]),
     }
     with open(REPORT_PATH, "w", encoding="utf-8") as f:
         json.dump(report, f, indent=2)
