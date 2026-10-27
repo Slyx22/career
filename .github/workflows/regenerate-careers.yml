@@ -69,7 +69,7 @@ jobs:
       - name: Relink South African job titles and refresh the website's fallback list
         working-directory: python-engine
         run: |
-          pip install -q openpyxl xlrd
+          pip install -q -r requirements.txt openpyxl xlrd
           python scripts/build_sa_occupations.py
           python scripts/export_careers_json.py
 
