@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import uuid
 from datetime import datetime, timezone
+from typing import Optional
 
 from app.extractors.cv_extractor import CVExtractionError, ExtractedCV, extract_cv
 from app.models.schemas import AnalysisResponse, OnetSourceInfo, SkillBreakdownItem
@@ -9,6 +10,8 @@ from app.nlp.skill_extractor import extract_skill_evidence
 from app.recommendations.engine import generate_recommendations
 from app.scoring.career_model import CareerModel, get_career_model
 from app.scoring.scorer import ScoringResult, score_career_readiness
+from app.scoring.sa_requirements import sa_requirements_for
+from app.scoring.sa_titles import resolve_sa_title
 from app.db.interface import Repository
 
 GENERIC_BENCHMARK_DISCLAIMER = (
@@ -61,6 +64,7 @@ def run_analysis(
     first_name: str,
     surname: str,
     career_slug: str,
+    career_title: Optional[str] = None,
 ) -> AnalysisResponse:
     first_name = (first_name or "").strip()
     surname = (surname or "").strip()
@@ -100,13 +104,21 @@ def run_analysis(
     recommendations = generate_recommendations(gap_details, limit=5)
     breakdown = _build_breakdown(result)
     onet_source = _build_onet_source_info(career_model)
+    # Show the South African title the user picked (if it really is one
+    # linked to this career); the O*NET occupation is kept for reference.
+    display_name = resolve_sa_title(career_model.slug, career_title) or career_model.name
+    sa_requirements = sa_requirements_for(
+        career_model.onet.soc_code if career_model.onet else None, cv.raw_text
+    )
 
     analysis_id = str(uuid.uuid4())
     created_at = datetime.now(timezone.utc).isoformat()
 
     payload = {
         "career_slug": career_model.slug,
-        "career_name": career_model.name,
+        "career_name": display_name,
+        "onet_career_name": career_model.name,
+        "sa_requirements": sa_requirements,
         "strengths": result.strengths,
         "gaps": result.gaps,
         "skill_breakdown": [b.model_dump() for b in breakdown],
@@ -119,7 +131,7 @@ def run_analysis(
             "id": analysis_id,
             "first_name": first_name,
             "surname": surname,
-            "career": career_model.name,
+            "career": display_name,
             "score": result.overall_score,
             "payload": payload,
             "created_at": created_at,
@@ -129,8 +141,9 @@ def run_analysis(
     return AnalysisResponse(
         analysis_id=analysis_id,
         score=result.overall_score,
-        career=career_model.name,
+        career=display_name,
         career_slug=career_model.slug,
+        onet_career=career_model.name,
         first_name=first_name,
         surname=surname,
         strengths=result.strengths,
@@ -139,6 +152,7 @@ def run_analysis(
         recommendations=recommendations,
         benchmark_disclaimer=GENERIC_BENCHMARK_DISCLAIMER,
         onet_source=onet_source,
+        sa_requirements=sa_requirements,
         created_at=created_at,
     )
 
@@ -155,6 +169,7 @@ def get_analysis_response(*, store: Repository, analysis_id: str) -> AnalysisRes
         score=record["score"],
         career=payload.get("career_name", record["career"]),
         career_slug=payload.get("career_slug", ""),
+        onet_career=payload.get("onet_career_name"),
         first_name=record["first_name"],
         surname=record["surname"],
         strengths=payload.get("strengths", []),
@@ -163,5 +178,6 @@ def get_analysis_response(*, store: Repository, analysis_id: str) -> AnalysisRes
         recommendations=payload.get("recommendations", []),
         benchmark_disclaimer=GENERIC_BENCHMARK_DISCLAIMER,
         onet_source=OnetSourceInfo(**onet_source_raw) if onet_source_raw else None,
+        sa_requirements=payload.get("sa_requirements", []),
         created_at=record["created_at"],
     )
