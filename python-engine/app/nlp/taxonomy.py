@@ -108,6 +108,31 @@ SKILL_TAXONOMY: List[Skill] = [
     Skill("grammar_composition", "Grammar & composition instruction", "Education", ["grammar instruction", "writing instruction", "composition"]),
     Skill("literature_analysis", "Literary analysis instruction", "Education", ["teaching literature", "literary criticism"]),
     Skill("public_speaking", "Public speaking", "Education", ["presentation skills", "oral communication"]),
+
+    # Widely used workplace software (matched to O*NET Technology Skills)
+    Skill("microsoft_excel", "Microsoft Excel", "Workplace software", ["excel", "ms excel", "spreadsheets", "pivot tables", "vlookup", "xlookup"]),
+    Skill("microsoft_office", "Microsoft Office", "Workplace software", ["ms office", "microsoft word", "ms word", "powerpoint", "microsoft outlook", "office 365", "microsoft 365"]),
+    Skill("power_bi", "Power BI", "Workplace software", ["powerbi", "microsoft power bi"]),
+    Skill("tableau", "Tableau", "Workplace software", []),
+    Skill("autocad", "AutoCAD", "Workplace software", ["auto cad"]),
+    Skill("sap", "SAP", "Workplace software", ["sap erp", "sap s/4hana"]),
+    Skill("salesforce", "Salesforce", "Workplace software", ["salesforce crm"]),
+    Skill("adobe_creative", "Adobe Creative Cloud", "Workplace software", ["photoshop", "adobe photoshop", "illustrator", "adobe illustrator", "indesign", "premiere pro", "after effects"]),
+    Skill("ms_project", "Microsoft Project", "Workplace software", ["ms project"]),
+    Skill("linux", "Linux", "Software Engineering", ["unix", "ubuntu", "red hat"]),
+    Skill("html_css", "HTML and CSS", "Software Engineering", ["html", "css", "html5", "css3"]),
+    Skill("react", "React", "Software Engineering", ["react.js", "reactjs"]),
+    Skill("csharp", "C#", "Software Engineering", ["c sharp", ".net", "asp.net"]),
+    Skill("cpp", "C++", "Software Engineering", []),
+    Skill("r_language", "R (programming language)", "Statistics", ["rstudio", "r programming", "r language", "tidyverse", "ggplot2"]),
+]
+
+# O*NET Skills and Knowledge areas (see app/nlp/onet_elements.py), so
+# every O*NET occupation can be described with skills a CV can show.
+from app.nlp.onet_elements import ONET_ELEMENTS  # noqa: E402
+
+SKILL_TAXONOMY += [
+    Skill(el.slug, el.name, el.category, list(el.aliases)) for el in ONET_ELEMENTS
 ]
 
 SKILL_BY_SLUG = {s.slug: s for s in SKILL_TAXONOMY}

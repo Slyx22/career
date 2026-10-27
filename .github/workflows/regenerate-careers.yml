@@ -1,0 +1,56 @@
+name: Regenerate careers from O*NET
+
+# Downloads the free O*NET Database (text version) and rebuilds the career
+# files in python-engine/app/data/career_models using the exact skill
+# mapping. Run it from GitHub: Actions -> "Regenerate careers from O*NET"
+# -> Run workflow (for example when O*NET publishes a new release).
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [fix/career-skill-matching]
+    paths:
+      - "python-engine/scripts/onet_bulk_import.py"
+      - "python-engine/app/nlp/onet_elements.py"
+      - ".github/workflows/regenerate-careers.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  regenerate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Find and download the latest O*NET text database
+        run: |
+          set -euo pipefail
+          page=$(curl -fsSL https://www.onetcenter.org/database.html)
+          file=$(printf '%s' "$page" | grep -oE 'db_[0-9]+_[0-9]+_text\.zip' | sort -uV | tail -1)
+          if [ -z "$file" ]; then echo "Could not find the O*NET text download link"; exit 1; fi
+          echo "Downloading $file"
+          curl -fsSL -o onet.zip "https://www.onetcenter.org/dl_files/database/$file"
+          unzip -q onet.zip -d onet
+          dir=$(dirname "$(find onet -name 'Occupation Data.txt' | head -1)")
+          echo "ONET_DIR=$dir" >> "$GITHUB_ENV"
+          echo "ONET_VERSION=${file%_text.zip}" >> "$GITHUB_ENV"
+          ls "$dir" | head -50
+
+      - name: Rebuild career files
+        working-directory: python-engine
+        run: python scripts/onet_bulk_import.py --db-dir "$GITHUB_WORKSPACE/$ONET_DIR" --import-all
+
+      - name: Commit the regenerated files
+        run: |
+          rm -rf onet onet.zip
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A python-engine/app/data/career_models python-engine/scripts/last_import_report.json
+          if git diff --cached --quiet; then echo "No changes"; exit 0; fi
+          git commit -m "Regenerate career models from O*NET ${ONET_VERSION} with exact skill mapping"
+          git push
