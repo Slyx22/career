@@ -7,9 +7,6 @@ name: Regenerate careers from O*NET
 
 on:
   workflow_dispatch:
-  push:
-    branches: [fix/breakdown-and-steps]
-    paths: ["python-engine/scripts/onet_bulk_import.py"]
 
 permissions:
   contents: write
