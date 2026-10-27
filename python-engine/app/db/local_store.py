@@ -162,22 +162,40 @@ class LocalStore(Repository):
         ]
 
 
-_store_instance: Optional[LocalStore] = None
+_store_instance: Optional[Repository] = None
+
+
+def storage_backend_name() -> str:
+    """'supabase' when Supabase credentials are configured (unless
+    STORAGE_BACKEND=local forces SQLite), otherwise 'local'."""
+    backend = os.environ.get("STORAGE_BACKEND", "").strip().lower()
+    if backend in ("local", "supabase"):
+        return backend
+    has_supabase = os.environ.get("SUPABASE_URL") and (
+        os.environ.get("SUPABASE_SERVICE_ROLE_KEY") or os.environ.get("SUPABASE_SERVICE_ROLE")
+    )
+    return "supabase" if has_supabase else "local"
 
 
 def get_store() -> Repository:
     """
-    Storage factory. Reads STORAGE_BACKEND to decide which implementation
-    to use. Only 'local' (SQLite) is implemented in Phase 1; 'supabase' is
-    a documented extension point for later.
+    Storage factory.
+
+    - Supabase (permanent) when SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY
+      are set. Use this in production: Render's free disk is wiped on
+      every restart, which would delete certificates stored in SQLite.
+    - SQLite (LocalStore) otherwise, for local development.
     """
     global _store_instance
-    backend = os.environ.get("STORAGE_BACKEND", "local")
-    if backend == "supabase":
-        raise NotImplementedError(
-            "Supabase backend not yet implemented. Implement app/db/supabase_store.py "
-            "against the Repository interface and wire it in here when you're ready to launch."
-        )
     if _store_instance is None:
-        _store_instance = LocalStore()
+        if storage_backend_name() == "supabase":
+            from app.db.supabase_store import SupabaseStore
+
+            url = os.environ.get("SUPABASE_URL", "")
+            key = os.environ.get("SUPABASE_SERVICE_ROLE_KEY") or os.environ.get("SUPABASE_SERVICE_ROLE", "")
+            if not url or not key:
+                raise RuntimeError("STORAGE_BACKEND=supabase needs SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY")
+            _store_instance = SupabaseStore(url, key)
+        else:
+            _store_instance = LocalStore()
     return _store_instance

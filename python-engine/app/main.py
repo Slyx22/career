@@ -40,7 +40,11 @@ async def unhandled_exception_handler(request: Request, exc: Exception):
 
 @app.get("/health")
 def health():
-    return {"status": "ok"}
+    # "storage" tells you whether certificates are kept permanently
+    # ("supabase") or in the temporary local file ("local").
+    from app.db.local_store import storage_backend_name
+
+    return {"status": "ok", "storage": storage_backend_name()}
 
 
 app.include_router(router, prefix="/api")
