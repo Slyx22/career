@@ -43,7 +43,7 @@ SYNC_METHOD = "onet_bulk_database"
 MIN_IMPORTANCE = 0.5
 MAX_SKILL_ELEMENTS = 12
 MAX_KNOWLEDGE_ELEMENTS = 8
-MAX_TECH_SKILLS = 5
+MAX_TECH_SKILLS = 10
 MIN_SKILLS = 5
 
 # Only these taxonomy categories can be matched from Technology Skills.

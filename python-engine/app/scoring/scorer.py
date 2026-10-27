@@ -42,6 +42,12 @@ from app.nlp.education_detector import detect_education_level, calculate_educati
 GENERAL_SKILL_CATEGORIES = {"Core skills", "People skills"}
 GENERAL_SKILL_WEIGHT = 0.5
 
+# O*NET lists many software tools per occupation; nobody uses all of them.
+# The tools count as one group: having any TOOLS_EXPECTED of the listed
+# tools earns full credit for the group.
+TOOL_SOURCE = "onet_technology_skills"
+TOOLS_EXPECTED = 3
+
 
 @dataclass
 class SkillScoreDetail:
@@ -57,6 +63,9 @@ class SkillScoreDetail:
     final_score: float  # 0-1, this skill's normalized contribution
     weight_source: str = "benchmark_estimate"
     onet_confirmed: bool = False
+    effective_weight: float = 0.0  # weight in the overall score (after general/tool adjustments)
+    importance_level: str = ""  # "essential" | "important" | "useful"
+    is_tool: bool = False
 
 
 @dataclass
@@ -67,6 +76,9 @@ class ScoringResult:
     gaps: List[str]
     education_info: Optional[EducationInfo] = None  # Detected education level
     education_boost: float = 0.0  # Points added for education (0-15)
+    gap_details: List["SkillScoreDetail"] = None  # gaps, most valuable to close first
+    tools_found: int = 0
+    tools_listed: int = 0
 
 
 def score_career_readiness(
@@ -106,8 +118,13 @@ def score_career_readiness(
         if importance_weight < 0.05:
             skill_final = 0.0
 
-        weighted_sum += skill_final * combined_weight
-        weight_total += combined_weight
+        is_tool = weight.source == TOOL_SOURCE
+        if importance_weight >= 0.7:
+            level = "essential"
+        elif importance_weight >= 0.55:
+            level = "important"
+        else:
+            level = "useful"
 
         details.append(
             SkillScoreDetail(
@@ -123,8 +140,30 @@ def score_career_readiness(
                 final_score=round(skill_final, 3),
                 weight_source=weight.source,
                 onet_confirmed=weight.onet_confirmed,
+                effective_weight=combined_weight,
+                importance_level="useful" if is_tool else level,
+                is_tool=is_tool,
             )
         )
+
+    # Skills and knowledge: each counts with its own weight.
+    for d in details:
+        if not d.is_tool:
+            weighted_sum += d.final_score * d.effective_weight
+            weight_total += d.effective_weight
+
+    # Tools: one group. The best TOOLS_EXPECTED tool scores count, at the
+    # average tool weight, so knowing any 3 of the listed tools is full credit.
+    tools = [d for d in details if d.is_tool]
+    tools_found = sum(1 for d in tools if d.present)
+    if tools:
+        slots = min(TOOLS_EXPECTED, len(tools))
+        avg_w = sum(d.effective_weight for d in tools) / len(tools)
+        best = sorted((d.final_score for d in tools), reverse=True)[:slots]
+        weighted_sum += sum(best) * avg_w
+        weight_total += slots * avg_w
+        for d in tools:
+            d.effective_weight = avg_w * slots / len(tools)
 
     overall_fraction = (weighted_sum / weight_total) if weight_total else 0.0
     base_score = max(0.0, min(1.0, overall_fraction)) * 100
@@ -139,22 +178,30 @@ def score_career_readiness(
     # Apply education boost (capped at 100)
     overall_score = round(min(100, base_score + education_boost))
 
-    # Strengths: present skills with strong final_score, ranked by
-    # importance so the most career-relevant strengths surface first.
+    # Strengths: present skills with strong final_score, job-specific ones
+    # (knowledge, technical skills, tools) first, then by importance.
     present_sorted = sorted(
         [d for d in details if d.present and d.final_score >= 0.45],
-        key=lambda d: (d.market_importance, d.final_score),
+        key=lambda d: (d.category not in GENERAL_SKILL_CATEGORIES, d.market_importance, d.final_score),
         reverse=True,
     )
     strengths = [d.name for d in present_sorted[:6]]
 
-    # Gaps: absent or weak skills, ranked by how much they'd matter
-    # (importance x frequency) - the highest-value gaps to close first.
-    gap_candidates = sorted(
-        [d for d in details if (not d.present) or d.final_score < 0.35],
-        key=lambda d: (d.market_importance * d.market_frequency),
-        reverse=True,
-    )
+    # Gaps: missing or weak skills, ranked by how many points closing them
+    # would add (their weight in the score x how much is missing). Missing
+    # tools only count as gaps while fewer than TOOLS_EXPECTED tools were
+    # found, and then only the most in-demand ones.
+    def points(d):
+        return d.effective_weight * (1.0 - d.final_score)
+
+    gap_candidates = [d for d in details if not d.is_tool and ((not d.present) or d.final_score < 0.35)]
+    if tools and tools_found < min(TOOLS_EXPECTED, len(tools)):
+        missing_tools = sorted((d for d in tools if not d.present), key=lambda d: d.market_importance, reverse=True)
+        needed = min(TOOLS_EXPECTED, len(tools)) - tools_found
+        for d in missing_tools[:needed]:
+            d.effective_weight = avg_w  # each missing tool would fill one full slot
+            gap_candidates.append(d)
+    gap_candidates.sort(key=points, reverse=True)
     gaps = [d.name for d in gap_candidates[:6]]
 
     return ScoringResult(
@@ -164,4 +211,7 @@ def score_career_readiness(
         gaps=gaps,
         education_info=education_info,
         education_boost=round(education_boost, 1),
+        gap_details=gap_candidates,
+        tools_found=tools_found,
+        tools_listed=len(tools),
     )
