@@ -5,74 +5,99 @@
   "onet": {
     "soc_code": "53-7062.00",
     "occupation_title": "Laborers and Freight, Stock, and Material Movers, Hand",
-    "note": "Imported from O*NET 31.0 Database.",
+    "note": "Imported from the O*NET Database (USDOL/ETA, CC BY 4.0) with exact skill mapping.",
     "source_url": "https://www.onetonline.org/link/summary/53-7062.00",
-    "last_synced": "2026-09-08T19:21:53.557648+00:00",
+    "last_synced": "2026-10-27T15:44:39.961447+00:00",
     "sync_method": "onet_bulk_database"
   },
   "skills": [
     {
-      "skill_slug": "literacy_instruction",
-      "market_frequency": 0.28,
-      "market_importance": 0.28,
+      "skill_slug": "business_management",
+      "market_frequency": 0.605,
+      "market_importance": 0.605,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Administration and Management"
     },
     {
-      "skill_slug": "grammar_composition",
-      "market_frequency": 0.28,
-      "market_importance": 0.28,
+      "skill_slug": "customer_service",
+      "market_frequency": 0.598,
+      "market_importance": 0.598,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Customer and Personal Service"
     },
     {
-      "skill_slug": "public_speaking",
-      "market_frequency": 0.25,
-      "market_importance": 0.25,
+      "skill_slug": "public_safety",
+      "market_frequency": 0.55,
+      "market_importance": 0.55,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Public Safety and Security"
     },
     {
-      "skill_slug": "model_monitoring",
-      "market_frequency": 0.28,
-      "market_importance": 0.28,
+      "skill_slug": "transportation",
+      "market_frequency": 0.537,
+      "market_importance": 0.537,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Transportation"
     },
     {
-      "skill_slug": "python",
+      "skill_slug": "production_processing",
+      "market_frequency": 0.525,
+      "market_importance": 0.525,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Production and Processing"
+    },
+    {
+      "skill_slug": "mathematics",
+      "market_frequency": 0.512,
+      "market_importance": 0.512,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Mathematics"
+    },
+    {
+      "skill_slug": "coordination",
       "market_frequency": 0.5,
       "market_importance": 0.5,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Coordination"
     },
     {
-      "skill_slug": "system_design",
-      "market_frequency": 0.5,
-      "market_importance": 0.5,
-      "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "skill_slug": "autocad",
+      "market_frequency": 0.45,
+      "market_importance": 0.45,
+      "source": "onet_technology_skills",
+      "onet_confirmed": true,
+      "onet_element": ""
     },
     {
-      "skill_slug": "esl_instruction",
-      "market_frequency": 0.562,
-      "market_importance": 0.562,
-      "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "skill_slug": "microsoft_excel",
+      "market_frequency": 0.45,
+      "market_importance": 0.45,
+      "source": "onet_technology_skills",
+      "onet_confirmed": true,
+      "onet_element": ""
     },
     {
-      "skill_slug": "typescript",
-      "market_frequency": 0.5,
-      "market_importance": 0.5,
-      "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "skill_slug": "microsoft_office",
+      "market_frequency": 0.45,
+      "market_importance": 0.45,
+      "source": "onet_technology_skills",
+      "onet_confirmed": true,
+      "onet_element": ""
     },
     {
-      "skill_slug": "data_visualization",
-      "market_frequency": 0.47,
-      "market_importance": 0.47,
-      "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "skill_slug": "sap",
+      "market_frequency": 0.45,
+      "market_importance": 0.45,
+      "source": "onet_technology_skills",
+      "onet_confirmed": true,
+      "onet_element": ""
     }
   ]
 }

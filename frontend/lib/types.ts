@@ -4,6 +4,20 @@ export interface Career {
   description: string;
 }
 
+/** South African (OFO 2021) job title linked to a career: t=title, a=other names, s=career slug. */
+export interface SaTitle {
+  t: string;
+  a: string[];
+  s: string;
+}
+
+export interface SaRequirement {
+  key: string;
+  label: string;
+  detail: string;
+  found_in_cv: boolean;
+}
+
 export interface SkillBreakdownItem {
   slug: string;
   name: string;
@@ -17,6 +31,7 @@ export interface AnalysisResult {
   score: number;
   career: string;
   career_slug: string;
+  onet_career?: string | null;
   first_name: string;
   surname: string;
   strengths: string[];
@@ -24,6 +39,7 @@ export interface AnalysisResult {
   skill_breakdown: SkillBreakdownItem[];
   recommendations: string[];
   benchmark_disclaimer: string;
+  sa_requirements?: SaRequirement[];
   created_at: string;
 }
 
@@ -45,6 +61,10 @@ export interface CertificateVerification {
   career?: string;
   score?: number;
   issued_at?: string;
+  valid_until?: string;
+  expired?: boolean;
+  issuer?: string;
+  method_version?: string;
 }
 
 export interface ApiError {

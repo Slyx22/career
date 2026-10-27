@@ -5,74 +5,139 @@
   "onet": {
     "soc_code": "41-9091.00",
     "occupation_title": "Door-to-Door Sales Workers, News and Street Vendors, and Related Workers",
-    "note": "Imported from O*NET 31.0 Database.",
+    "note": "Imported from the O*NET Database (USDOL/ETA, CC BY 4.0) with exact skill mapping.",
     "source_url": "https://www.onetonline.org/link/summary/41-9091.00",
-    "last_synced": "2026-09-08T19:21:53.557648+00:00",
+    "last_synced": "2026-10-27T15:44:39.961447+00:00",
     "sync_method": "onet_bulk_database"
   },
   "skills": [
     {
-      "skill_slug": "literacy_instruction",
-      "market_frequency": 0.438,
-      "market_importance": 0.438,
+      "skill_slug": "customer_service",
+      "market_frequency": 0.845,
+      "market_importance": 0.845,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Customer and Personal Service"
     },
     {
-      "skill_slug": "grammar_composition",
-      "market_frequency": 0.438,
-      "market_importance": 0.438,
+      "skill_slug": "sales_marketing",
+      "market_frequency": 0.792,
+      "market_importance": 0.792,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Sales and Marketing"
     },
     {
-      "skill_slug": "public_speaking",
+      "skill_slug": "speaking",
+      "market_frequency": 0.75,
+      "market_importance": 0.75,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Speaking"
+    },
+    {
+      "skill_slug": "persuasion",
+      "market_frequency": 0.75,
+      "market_importance": 0.75,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Persuasion"
+    },
+    {
+      "skill_slug": "social_perceptiveness",
+      "market_frequency": 0.688,
+      "market_importance": 0.688,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Social Perceptiveness"
+    },
+    {
+      "skill_slug": "service_orientation",
+      "market_frequency": 0.655,
+      "market_importance": 0.655,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Service Orientation"
+    },
+    {
+      "skill_slug": "active_listening",
       "market_frequency": 0.595,
       "market_importance": 0.595,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Active Listening"
     },
     {
-      "skill_slug": "model_monitoring",
-      "market_frequency": 0.47,
-      "market_importance": 0.47,
+      "skill_slug": "english_language",
+      "market_frequency": 0.573,
+      "market_importance": 0.573,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "English Language"
     },
     {
-      "skill_slug": "python",
+      "skill_slug": "coordination",
+      "market_frequency": 0.562,
+      "market_importance": 0.562,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Coordination"
+    },
+    {
+      "skill_slug": "negotiation",
+      "market_frequency": 0.562,
+      "market_importance": 0.562,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Negotiation"
+    },
+    {
+      "skill_slug": "administration",
+      "market_frequency": 0.51,
+      "market_importance": 0.51,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Administrative"
+    },
+    {
+      "skill_slug": "reading_comprehension",
       "market_frequency": 0.5,
       "market_importance": 0.5,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Reading Comprehension"
     },
     {
-      "skill_slug": "system_design",
+      "skill_slug": "judgment_decision_making",
       "market_frequency": 0.5,
       "market_importance": 0.5,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Judgment and Decision Making"
     },
     {
-      "skill_slug": "esl_instruction",
-      "market_frequency": 0.458,
-      "market_importance": 0.458,
-      "source": "onet_bulk_database",
-      "onet_confirmed": true
-    },
-    {
-      "skill_slug": "typescript",
+      "skill_slug": "business_management",
       "market_frequency": 0.5,
       "market_importance": 0.5,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Administration and Management"
     },
     {
-      "skill_slug": "data_visualization",
-      "market_frequency": 0.062,
-      "market_importance": 0.062,
-      "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "skill_slug": "microsoft_excel",
+      "market_frequency": 0.45,
+      "market_importance": 0.45,
+      "source": "onet_technology_skills",
+      "onet_confirmed": true,
+      "onet_element": ""
+    },
+    {
+      "skill_slug": "microsoft_office",
+      "market_frequency": 0.45,
+      "market_importance": 0.45,
+      "source": "onet_technology_skills",
+      "onet_confirmed": true,
+      "onet_element": ""
     }
   ]
 }

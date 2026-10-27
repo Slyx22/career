@@ -14,6 +14,12 @@ Each skill weight is tagged with a `source`:
                              scripts/onet_sync.py with your own free
                              O*NET Web Services credentials to populate
                              these.
+  - "onet_bulk_database"   : a real O*NET Importance rating (1-5, normalized
+                             to 0-1) for an O*NET Skill or Knowledge area,
+                             mapped exactly via app/nlp/onet_elements.py.
+  - "onet_technology_skills": software/tools O*NET lists for the
+                             occupation (weight depends on its Hot
+                             Technology / In Demand flags).
   - "benchmark_estimate"   : NOT yet sourced from O*NET or any verified
                              job-market dataset. This is an initial
                              estimate seeded by the product team. Do not
@@ -129,11 +135,16 @@ def get_career_model(slug: str) -> CareerModel:
     return models[slug]
 
 
+# A career needs at least this many skills to produce a meaningful score.
+MIN_SKILLS_TO_LIST = 5
+
+
 def list_careers() -> List[Dict]:
     models = _load_all_career_models()
     return [
         {"slug": m.slug, "name": m.name, "description": m.description}
-        for m in models.values()
+        for m in sorted(models.values(), key=lambda m: m.name.lower())
+        if len(m.skills) >= MIN_SKILLS_TO_LIST
     ]
 
 

@@ -5,74 +5,67 @@
   "onet": {
     "soc_code": "51-9192.00",
     "occupation_title": "Cleaning, Washing, and Metal Pickling Equipment Operators and Tenders",
-    "note": "Imported from O*NET 31.0 Database.",
+    "note": "Imported from the O*NET Database (USDOL/ETA, CC BY 4.0) with exact skill mapping.",
     "source_url": "https://www.onetonline.org/link/summary/51-9192.00",
-    "last_synced": "2026-09-08T19:21:53.557648+00:00",
+    "last_synced": "2026-10-27T15:44:39.961447+00:00",
     "sync_method": "onet_bulk_database"
   },
   "skills": [
     {
-      "skill_slug": "literacy_instruction",
-      "market_frequency": 0.312,
-      "market_importance": 0.312,
+      "skill_slug": "production_processing",
+      "market_frequency": 0.733,
+      "market_importance": 0.733,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Production and Processing"
     },
     {
-      "skill_slug": "grammar_composition",
-      "market_frequency": 0.345,
-      "market_importance": 0.345,
+      "skill_slug": "operation_and_control",
+      "market_frequency": 0.562,
+      "market_importance": 0.562,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Operation and Control"
     },
     {
-      "skill_slug": "public_speaking",
-      "market_frequency": 0.312,
-      "market_importance": 0.312,
+      "skill_slug": "operations_monitoring",
+      "market_frequency": 0.53,
+      "market_importance": 0.53,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Operations Monitoring"
     },
     {
-      "skill_slug": "model_monitoring",
-      "market_frequency": 0.5,
-      "market_importance": 0.5,
+      "skill_slug": "english_language",
+      "market_frequency": 0.502,
+      "market_importance": 0.502,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "English Language"
     },
     {
-      "skill_slug": "python",
-      "market_frequency": 0.5,
-      "market_importance": 0.5,
+      "skill_slug": "active_listening",
+      "market_frequency": 0.47,
+      "market_importance": 0.47,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Active Listening"
     },
     {
-      "skill_slug": "system_design",
-      "market_frequency": 0.5,
-      "market_importance": 0.5,
-      "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "skill_slug": "microsoft_excel",
+      "market_frequency": 0.45,
+      "market_importance": 0.45,
+      "source": "onet_technology_skills",
+      "onet_confirmed": true,
+      "onet_element": ""
     },
     {
-      "skill_slug": "esl_instruction",
-      "market_frequency": 0.402,
-      "market_importance": 0.402,
-      "source": "onet_bulk_database",
-      "onet_confirmed": true
-    },
-    {
-      "skill_slug": "typescript",
-      "market_frequency": 0.5,
-      "market_importance": 0.5,
-      "source": "onet_bulk_database",
-      "onet_confirmed": true
-    },
-    {
-      "skill_slug": "data_visualization",
-      "market_frequency": 0.345,
-      "market_importance": 0.345,
-      "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "skill_slug": "microsoft_office",
+      "market_frequency": 0.45,
+      "market_importance": 0.45,
+      "source": "onet_technology_skills",
+      "onet_confirmed": true,
+      "onet_element": ""
     }
   ]
 }

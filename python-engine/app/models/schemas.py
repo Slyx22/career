@@ -25,11 +25,19 @@ class OnetSourceInfo(BaseModel):
     total_skill_count: int = 0
 
 
+class SaRequirement(BaseModel):
+    key: str
+    label: str
+    detail: str
+    found_in_cv: bool
+
+
 class AnalysisResponse(BaseModel):
     analysis_id: str
     score: int
-    career: str
+    career: str  # what the user chose: an SA (OFO) title, or the O*NET career name
     career_slug: str
+    onet_career: Optional[str] = None  # the O*NET occupation whose skills were scored
     first_name: str
     surname: str
     strengths: List[str]
@@ -38,6 +46,7 @@ class AnalysisResponse(BaseModel):
     recommendations: List[str]
     benchmark_disclaimer: str
     onet_source: Optional[OnetSourceInfo] = None
+    sa_requirements: List[SaRequirement] = []
     created_at: str
 
 
@@ -74,6 +83,10 @@ class CertificateVerifyResponse(BaseModel):
     career: Optional[str] = None
     score: Optional[int] = None
     issued_at: Optional[str] = None
+    valid_until: Optional[str] = None
+    expired: Optional[bool] = None
+    issuer: Optional[str] = None
+    method_version: Optional[str] = None
 
 
 class CertificateListResponse(BaseModel):

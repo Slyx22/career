@@ -5,74 +5,203 @@
   "onet": {
     "soc_code": "43-1011.00",
     "occupation_title": "First-Line Supervisors of Office and Administrative Support Workers",
-    "note": "Imported from O*NET 31.0 Database.",
+    "note": "Imported from the O*NET Database (USDOL/ETA, CC BY 4.0) with exact skill mapping.",
     "source_url": "https://www.onetonline.org/link/summary/43-1011.00",
-    "last_synced": "2026-09-08T19:21:53.557648+00:00",
+    "last_synced": "2026-10-27T15:44:39.961447+00:00",
     "sync_method": "onet_bulk_database"
   },
   "skills": [
     {
-      "skill_slug": "literacy_instruction",
-      "market_frequency": 0.688,
-      "market_importance": 0.688,
+      "skill_slug": "business_management",
+      "market_frequency": 0.87,
+      "market_importance": 0.87,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Administration and Management"
     },
     {
-      "skill_slug": "grammar_composition",
-      "market_frequency": 0.688,
-      "market_importance": 0.688,
+      "skill_slug": "customer_service",
+      "market_frequency": 0.808,
+      "market_importance": 0.808,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Customer and Personal Service"
     },
     {
-      "skill_slug": "public_speaking",
+      "skill_slug": "reading_comprehension",
       "market_frequency": 0.75,
       "market_importance": 0.75,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Reading Comprehension"
     },
     {
-      "skill_slug": "model_monitoring",
+      "skill_slug": "active_listening",
       "market_frequency": 0.75,
       "market_importance": 0.75,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Active Listening"
     },
     {
-      "skill_slug": "python",
-      "market_frequency": 0.037,
-      "market_importance": 0.037,
+      "skill_slug": "speaking",
+      "market_frequency": 0.75,
+      "market_importance": 0.75,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Speaking"
     },
     {
-      "skill_slug": "system_design",
-      "market_frequency": 0.5,
-      "market_importance": 0.5,
+      "skill_slug": "monitoring",
+      "market_frequency": 0.75,
+      "market_importance": 0.75,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Monitoring"
     },
     {
-      "skill_slug": "esl_instruction",
-      "market_frequency": 0.7,
-      "market_importance": 0.7,
+      "skill_slug": "social_perceptiveness",
+      "market_frequency": 0.75,
+      "market_importance": 0.75,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Social Perceptiveness"
     },
     {
-      "skill_slug": "typescript",
-      "market_frequency": 0.5,
-      "market_importance": 0.5,
+      "skill_slug": "coordination",
+      "market_frequency": 0.75,
+      "market_importance": 0.75,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Coordination"
     },
     {
-      "skill_slug": "data_visualization",
-      "market_frequency": 0.405,
-      "market_importance": 0.405,
+      "skill_slug": "critical_thinking",
+      "market_frequency": 0.72,
+      "market_importance": 0.72,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Critical Thinking"
+    },
+    {
+      "skill_slug": "writing",
+      "market_frequency": 0.688,
+      "market_importance": 0.688,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Writing"
+    },
+    {
+      "skill_slug": "active_learning",
+      "market_frequency": 0.688,
+      "market_importance": 0.688,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Active Learning"
+    },
+    {
+      "skill_slug": "instructing",
+      "market_frequency": 0.688,
+      "market_importance": 0.688,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Instructing"
+    },
+    {
+      "skill_slug": "judgment_decision_making",
+      "market_frequency": 0.688,
+      "market_importance": 0.688,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Judgment and Decision Making"
+    },
+    {
+      "skill_slug": "time_management",
+      "market_frequency": 0.688,
+      "market_importance": 0.688,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Time Management"
+    },
+    {
+      "skill_slug": "english_language",
+      "market_frequency": 0.677,
+      "market_importance": 0.677,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "English Language"
+    },
+    {
+      "skill_slug": "administration",
+      "market_frequency": 0.675,
+      "market_importance": 0.675,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Administrative"
+    },
+    {
+      "skill_slug": "computers_electronics",
+      "market_frequency": 0.57,
+      "market_importance": 0.57,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Computers and Electronics"
+    },
+    {
+      "skill_slug": "human_resources",
+      "market_frequency": 0.542,
+      "market_importance": 0.542,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Personnel and Human Resources"
+    },
+    {
+      "skill_slug": "economics_accounting",
+      "market_frequency": 0.525,
+      "market_importance": 0.525,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Economics and Accounting"
+    },
+    {
+      "skill_slug": "microsoft_excel",
+      "market_frequency": 0.55,
+      "market_importance": 0.55,
+      "source": "onet_technology_skills",
+      "onet_confirmed": true,
+      "onet_element": ""
+    },
+    {
+      "skill_slug": "microsoft_office",
+      "market_frequency": 0.55,
+      "market_importance": 0.55,
+      "source": "onet_technology_skills",
+      "onet_confirmed": true,
+      "onet_element": ""
+    },
+    {
+      "skill_slug": "statistics",
+      "market_frequency": 0.45,
+      "market_importance": 0.45,
+      "source": "onet_technology_skills",
+      "onet_confirmed": true,
+      "onet_element": ""
+    },
+    {
+      "skill_slug": "ms_project",
+      "market_frequency": 0.45,
+      "market_importance": 0.45,
+      "source": "onet_technology_skills",
+      "onet_confirmed": true,
+      "onet_element": ""
+    },
+    {
+      "skill_slug": "salesforce",
+      "market_frequency": 0.45,
+      "market_importance": 0.45,
+      "source": "onet_technology_skills",
+      "onet_confirmed": true,
+      "onet_element": ""
     }
   ]
 }

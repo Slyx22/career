@@ -5,74 +5,187 @@
   "onet": {
     "soc_code": "29-1216.00",
     "occupation_title": "General Internal Medicine Physicians",
-    "note": "Imported from O*NET 31.0 Database.",
+    "note": "Imported from the O*NET Database (USDOL/ETA, CC BY 4.0) with exact skill mapping.",
     "source_url": "https://www.onetonline.org/link/summary/29-1216.00",
-    "last_synced": "2026-09-08T19:21:53.557648+00:00",
+    "last_synced": "2026-10-27T15:44:39.961447+00:00",
     "sync_method": "onet_bulk_database"
   },
   "skills": [
     {
-      "skill_slug": "literacy_instruction",
-      "market_frequency": 1.0,
-      "market_importance": 1.0,
+      "skill_slug": "medicine",
+      "market_frequency": 0.978,
+      "market_importance": 0.978,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Medicine and Dentistry"
     },
     {
-      "skill_slug": "grammar_composition",
+      "skill_slug": "biology",
+      "market_frequency": 0.883,
+      "market_importance": 0.883,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Biology"
+    },
+    {
+      "skill_slug": "therapy_counseling",
+      "market_frequency": 0.84,
+      "market_importance": 0.84,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Therapy and Counseling"
+    },
+    {
+      "skill_slug": "psychology",
+      "market_frequency": 0.835,
+      "market_importance": 0.835,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Psychology"
+    },
+    {
+      "skill_slug": "education_training",
+      "market_frequency": 0.805,
+      "market_importance": 0.805,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Education and Training"
+    },
+    {
+      "skill_slug": "english_language",
+      "market_frequency": 0.802,
+      "market_importance": 0.802,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "English Language"
+    },
+    {
+      "skill_slug": "reading_comprehension",
       "market_frequency": 0.78,
       "market_importance": 0.78,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Reading Comprehension"
     },
     {
-      "skill_slug": "public_speaking",
+      "skill_slug": "active_listening",
       "market_frequency": 0.78,
       "market_importance": 0.78,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Active Listening"
     },
     {
-      "skill_slug": "model_monitoring",
+      "skill_slug": "writing",
       "market_frequency": 0.75,
       "market_importance": 0.75,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Writing"
     },
     {
-      "skill_slug": "python",
-      "market_frequency": 1.0,
-      "market_importance": 1.0,
+      "skill_slug": "speaking",
+      "market_frequency": 0.75,
+      "market_importance": 0.75,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Speaking"
     },
     {
-      "skill_slug": "system_design",
-      "market_frequency": 0.03,
-      "market_importance": 0.03,
+      "skill_slug": "science",
+      "market_frequency": 0.75,
+      "market_importance": 0.75,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Science"
     },
     {
-      "skill_slug": "esl_instruction",
-      "market_frequency": 0.962,
-      "market_importance": 0.962,
+      "skill_slug": "critical_thinking",
+      "market_frequency": 0.75,
+      "market_importance": 0.75,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Critical Thinking"
     },
     {
-      "skill_slug": "typescript",
-      "market_frequency": 0.5,
-      "market_importance": 0.5,
+      "skill_slug": "social_perceptiveness",
+      "market_frequency": 0.75,
+      "market_importance": 0.75,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Social Perceptiveness"
     },
     {
-      "skill_slug": "data_visualization",
-      "market_frequency": 0.47,
-      "market_importance": 0.47,
+      "skill_slug": "complex_problem_solving",
+      "market_frequency": 0.75,
+      "market_importance": 0.75,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Complex Problem Solving"
+    },
+    {
+      "skill_slug": "judgment_decision_making",
+      "market_frequency": 0.75,
+      "market_importance": 0.75,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Judgment and Decision Making"
+    },
+    {
+      "skill_slug": "business_management",
+      "market_frequency": 0.735,
+      "market_importance": 0.735,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Administration and Management"
+    },
+    {
+      "skill_slug": "customer_service",
+      "market_frequency": 0.728,
+      "market_importance": 0.728,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Customer and Personal Service"
+    },
+    {
+      "skill_slug": "active_learning",
+      "market_frequency": 0.72,
+      "market_importance": 0.72,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Active Learning"
+    },
+    {
+      "skill_slug": "monitoring",
+      "market_frequency": 0.72,
+      "market_importance": 0.72,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Monitoring"
+    },
+    {
+      "skill_slug": "service_orientation",
+      "market_frequency": 0.688,
+      "market_importance": 0.688,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Service Orientation"
+    },
+    {
+      "skill_slug": "microsoft_excel",
+      "market_frequency": 0.45,
+      "market_importance": 0.45,
+      "source": "onet_technology_skills",
+      "onet_confirmed": true,
+      "onet_element": ""
+    },
+    {
+      "skill_slug": "microsoft_office",
+      "market_frequency": 0.45,
+      "market_importance": 0.45,
+      "source": "onet_technology_skills",
+      "onet_confirmed": true,
+      "onet_element": ""
     }
   ]
 }

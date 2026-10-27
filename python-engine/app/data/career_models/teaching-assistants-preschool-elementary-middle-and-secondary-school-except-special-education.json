@@ -5,74 +5,179 @@
   "onet": {
     "soc_code": "25-9042.00",
     "occupation_title": "Teaching Assistants, Preschool, Elementary, Middle, and Secondary School, Except Special Education",
-    "note": "Imported from O*NET 31.0 Database.",
+    "note": "Imported from the O*NET Database (USDOL/ETA, CC BY 4.0) with exact skill mapping.",
     "source_url": "https://www.onetonline.org/link/summary/25-9042.00",
-    "last_synced": "2026-09-08T19:21:53.557648+00:00",
+    "last_synced": "2026-10-27T15:44:39.961447+00:00",
     "sync_method": "onet_bulk_database"
   },
   "skills": [
     {
-      "skill_slug": "literacy_instruction",
+      "skill_slug": "customer_service",
+      "market_frequency": 0.778,
+      "market_importance": 0.778,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Customer and Personal Service"
+    },
+    {
+      "skill_slug": "english_language",
+      "market_frequency": 0.7,
+      "market_importance": 0.7,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "English Language"
+    },
+    {
+      "skill_slug": "psychology",
+      "market_frequency": 0.69,
+      "market_importance": 0.69,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Psychology"
+    },
+    {
+      "skill_slug": "active_listening",
+      "market_frequency": 0.688,
+      "market_importance": 0.688,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Active Listening"
+    },
+    {
+      "skill_slug": "social_perceptiveness",
+      "market_frequency": 0.688,
+      "market_importance": 0.688,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Social Perceptiveness"
+    },
+    {
+      "skill_slug": "reading_comprehension",
       "market_frequency": 0.655,
       "market_importance": 0.655,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Reading Comprehension"
     },
     {
-      "skill_slug": "grammar_composition",
+      "skill_slug": "speaking",
+      "market_frequency": 0.655,
+      "market_importance": 0.655,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Speaking"
+    },
+    {
+      "skill_slug": "mathematics",
+      "market_frequency": 0.63,
+      "market_importance": 0.63,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Mathematics"
+    },
+    {
+      "skill_slug": "coordination",
       "market_frequency": 0.625,
       "market_importance": 0.625,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Coordination"
     },
     {
-      "skill_slug": "public_speaking",
-      "market_frequency": 0.562,
-      "market_importance": 0.562,
+      "skill_slug": "service_orientation",
+      "market_frequency": 0.625,
+      "market_importance": 0.625,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Service Orientation"
     },
     {
-      "skill_slug": "model_monitoring",
+      "skill_slug": "education_training",
+      "market_frequency": 0.62,
+      "market_importance": 0.62,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Education and Training"
+    },
+    {
+      "skill_slug": "writing",
       "market_frequency": 0.595,
       "market_importance": 0.595,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Writing"
     },
     {
-      "skill_slug": "python",
-      "market_frequency": 0.578,
-      "market_importance": 0.578,
+      "skill_slug": "critical_thinking",
+      "market_frequency": 0.595,
+      "market_importance": 0.595,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Critical Thinking"
     },
     {
-      "skill_slug": "system_design",
-      "market_frequency": 0.215,
-      "market_importance": 0.215,
+      "skill_slug": "learning_strategies",
+      "market_frequency": 0.595,
+      "market_importance": 0.595,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Learning Strategies"
     },
     {
-      "skill_slug": "esl_instruction",
-      "market_frequency": 0.85,
-      "market_importance": 0.85,
+      "skill_slug": "monitoring",
+      "market_frequency": 0.595,
+      "market_importance": 0.595,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Monitoring"
     },
     {
-      "skill_slug": "typescript",
-      "market_frequency": 0.122,
-      "market_importance": 0.122,
+      "skill_slug": "instructing",
+      "market_frequency": 0.595,
+      "market_importance": 0.595,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Instructing"
     },
     {
-      "skill_slug": "data_visualization",
-      "market_frequency": 0.405,
-      "market_importance": 0.405,
+      "skill_slug": "public_safety",
+      "market_frequency": 0.575,
+      "market_importance": 0.575,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Public Safety and Security"
+    },
+    {
+      "skill_slug": "administration",
+      "market_frequency": 0.54,
+      "market_importance": 0.54,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Administrative"
+    },
+    {
+      "skill_slug": "sociology",
+      "market_frequency": 0.52,
+      "market_importance": 0.52,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Sociology and Anthropology"
+    },
+    {
+      "skill_slug": "microsoft_excel",
+      "market_frequency": 0.45,
+      "market_importance": 0.45,
+      "source": "onet_technology_skills",
+      "onet_confirmed": true,
+      "onet_element": ""
+    },
+    {
+      "skill_slug": "microsoft_office",
+      "market_frequency": 0.45,
+      "market_importance": 0.45,
+      "source": "onet_technology_skills",
+      "onet_confirmed": true,
+      "onet_element": ""
     }
   ]
 }

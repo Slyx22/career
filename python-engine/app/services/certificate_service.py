@@ -4,20 +4,33 @@ import io
 import os
 import secrets
 import string
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from typing import List, Optional
 
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import landscape, A4
 from reportlab.lib.units import mm
 from reportlab.pdfgen import canvas
-from reportlab.lib.utils import ImageReader
-from pathlib import Path
 
 from app.db.interface import Repository
 from app.models.schemas import CertificateResponse, CertificateVerifyResponse
 
 _ID_ALPHABET = string.ascii_uppercase + string.digits
+
+# Shown on certificates and the verify page. Keep these generic: no
+# personal names. Bump METHOD_VERSION whenever the scoring method or the
+# career data changes, so old and new certificates can be told apart.
+ISSUER_NAME = os.environ.get("CERTIFICATE_ISSUER_NAME", "Career Readiness Analyzer")
+METHOD_VERSION = "2.0"
+CERTIFICATE_VALID_DAYS = 365
+
+
+def certificate_valid_until(issued: datetime) -> datetime:
+    return issued + timedelta(days=CERTIFICATE_VALID_DAYS)
+
+
+def _format_date(dt: datetime) -> str:
+    return f"{dt.day} {dt.strftime('%B %Y')}"
 
 
 class CertificateError(Exception):
@@ -109,8 +122,17 @@ def verify_certificate(*, store: Repository, certificate_id: str) -> Certificate
     if not cert:
         return CertificateVerifyResponse(verified=False)
 
+    issued_dt = datetime.fromisoformat(cert["issued_at"])
+    if issued_dt.tzinfo is None:
+        issued_dt = issued_dt.replace(tzinfo=timezone.utc)
+    valid_until = certificate_valid_until(issued_dt)
+
     return CertificateVerifyResponse(
         verified=True,
+        valid_until=valid_until.isoformat(),
+        expired=datetime.now(timezone.utc) > valid_until,
+        issuer=ISSUER_NAME,
+        method_version=METHOD_VERSION,
         certificate_id=cert["certificate_id"],
         first_name=cert["first_name"],
         surname=cert["surname"],
@@ -161,7 +183,7 @@ def render_certificate_pdf(*, store: Repository, certificate_id: str) -> Optiona
     # Header with decorative line
     c.setFont("Helvetica", 11)
     c.setFillColor(colors.HexColor("#B8801F"))
-    c.drawCentredString(center_x, height - 35 * mm, "CERTIFICATE OF ACHIEVEMENT")
+    c.drawCentredString(center_x, height - 35 * mm, "CERTIFICATE OF CAREER READINESS")
 
     # Decorative line under header
     c.setStrokeColor(colors.HexColor("#B8801F"))
@@ -189,13 +211,13 @@ def render_certificate_pdf(*, store: Repository, certificate_id: str) -> Optiona
     # Achievement text
     c.setFont("Helvetica", 13)
     c.setFillColor(colors.HexColor("#334155"))
-    c.drawCentredString(center_x, height - 80 * mm, "has successfully demonstrated career readiness for")
+    c.drawCentredString(center_x, height - 80 * mm, "has been assessed for career readiness for the occupation")
 
     # Career (prominent, kept centered, not extending to sig area)
     c.setFont("Helvetica-Bold", 16)
     c.setFillColor(colors.HexColor("#B8801F"))
     career_text = cert["career"]
-    # Truncate very long names to prevent overlap with signature column
+    # Truncate very long career names so they stay on one line
     max_career_chars = 42
     if len(career_text) > max_career_chars:
         career_text = career_text[:max_career_chars] + "..."
@@ -210,77 +232,57 @@ def render_certificate_pdf(*, store: Repository, certificate_id: str) -> Optiona
     c.setFillColor(colors.HexColor("#B8801F"))
     c.drawCentredString(center_x, height - 122 * mm, f"{cert['score']}/100")
 
-    # Signature section
+    # Issue / validity section. No personal signature: a handwritten
+    # signature image in a public repo can be copied, and the certificate's
+    # authority comes from the public verification link, not a signature.
     issued_dt = datetime.fromisoformat(cert["issued_at"])
-    issued_str = issued_dt.strftime("%-d %B %Y") if os.name != "nt" else issued_dt.strftime("%d %B %Y").lstrip("0")
+    valid_until_dt = certificate_valid_until(issued_dt)
+    issued_str = _format_date(issued_dt)
+    valid_str = _format_date(valid_until_dt)
 
-    # Try to load signature
-    signature_path = Path(__file__).resolve().parent.parent.parent.parent / "frontend" / "public" / "images" / "signature.png"
-    if not signature_path.exists():
-        signature_path = Path(__file__).resolve().parent.parent.parent.parent / "signature.png"
+    for x, value, label in (
+        (width * 0.3, issued_str, "Date Issued"),
+        (width * 0.7, valid_str, "Valid Until"),
+    ):
+        c.setFont("Helvetica", 10)
+        c.setFillColor(colors.HexColor("#334155"))
+        c.drawCentredString(x, 55 * mm, value)
+        c.setStrokeColor(colors.HexColor("#CBD5E1"))
+        c.setLineWidth(0.5)
+        c.line(x - 30 * mm, 52 * mm, x + 30 * mm, 52 * mm)
+        c.setFont("Helvetica", 8)
+        c.setFillColor(colors.HexColor("#475569"))
+        c.drawCentredString(x, 46 * mm, label)
 
-    # Left side: Date — aligned directly on decorative line
-    c.setFont("Helvetica", 9)
-    c.setFillColor(colors.HexColor("#475569"))
-    c.drawCentredString(width * 0.3, 55 * mm, issued_str)
-    c.setStrokeColor(colors.HexColor("#CBD5E1"))
-    c.setLineWidth(0.5)
-    c.line(width * 0.3 - 30*mm, 52*mm, width * 0.3 + 30*mm, 52*mm)
-    c.setFont("Helvetica", 8)
-    c.drawCentredString(width * 0.3, 46 * mm, "Date of Completion")
-
-    # Right side: Signature on the line (transparent PNG only)
-    # Only the actual image renders; "S.R." initials stay below line.
-    if signature_path.exists():
-        try:
-            sig_img = ImageReader(str(signature_path))
-            img_width = 70 * mm
-            img_height = 20 * mm  # Reduced from 30mm for better proportion on line
-            # Center over decorative line (y = 52 mm bottom, image top edge at line)
-            # drawImage y parameter is the bottom-left corner, so we position it to sit on the line
-            c.drawImage(sig_img,
-                        width * 0.7 - img_width/2, 52*mm,
-                        width=img_width, height=img_height,
-                        mask='auto', preserveAspectRatio=True)
-        except Exception as e:
-            # Log the failure but continue gracefully
-            import sys
-            print(f"Warning: Failed to load signature image from {signature_path}: {e}", file=sys.stderr)
-    else:
-        # Log missing signature but continue
-        import sys
-        print(f"Warning: Signature file not found at {signature_path}", file=sys.stderr)
-
-    # Signature decorative line and initials only (no full name below)
-    c.setStrokeColor(colors.HexColor("#CBD5E1"))
-    c.setLineWidth(0.5)
-    c.line(width * 0.7 - 30*mm, 52*mm, width * 0.7 + 30*mm, 52*mm)
-    c.setFont("Helvetica-Oblique", 10)
-    c.setFillColor(colors.HexColor("#334155"))
-    c.drawCentredString(width * 0.7, 46 * mm, "S.R.")
     c.setFont("Helvetica", 8)
     c.setFillColor(colors.HexColor("#475569"))
-    c.drawCentredString(width * 0.7, 42 * mm, "Founder & Chief AI Officer")
+    c.drawCentredString(center_x, 40 * mm, f"Issued by {ISSUER_NAME}  \u00b7  Method {METHOD_VERSION}")
 
     # Bottom info
     c.setFont("Helvetica", 8)
     c.setFillColor(colors.HexColor("#64748B"))
-    c.drawCentredString(center_x, 28 * mm, f"Certificate ID: {cert['certificate_id']}")
+    c.drawCentredString(center_x, 33 * mm, f"Certificate ID: {cert['certificate_id']}")
 
-    verify_base = os.environ.get("PUBLIC_VERIFY_URL_BASE", "")
+    verify_base = os.environ.get("PUBLIC_VERIFY_URL_BASE", "https://srmaps.co.za").rstrip("/")
     verify_line = (
         f"Verify at: {verify_base}/verify/{cert['certificate_id']}"
         if verify_base
         else f"Verify authenticity at: /verify/{cert['certificate_id']}"
     )
-    c.drawCentredString(center_x, 24 * mm, verify_line)
+    c.drawCentredString(center_x, 29 * mm, verify_line)
 
     c.setFont("Helvetica-Oblique", 7)
     c.setFillColor(colors.HexColor("#94A3B8"))
     c.drawCentredString(
         center_x,
-        19 * mm,
-        "This certificate confirms completion of a Career Readiness Assessment and is not a professional accreditation.",
+        23 * mm,
+        "Automated skills assessment of the CV supplied by the holder. Name as entered by the holder. "
+        "Not a qualification or professional accreditation.",
+    )
+    c.drawCentredString(
+        center_x,
+        19.5 * mm,
+        "Skills data: O*NET Database, U.S. Department of Labor/ETA, used under CC BY 4.0.",
     )
 
     c.showPage()

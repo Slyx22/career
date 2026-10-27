@@ -4,7 +4,10 @@ import { FormEvent, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { Career } from "@/lib/types";
+import Link from "next/link";
+import { Career, SaTitle } from "@/lib/types";
+import { CareerChoice, CareerPicker } from "@/components/CareerPicker";
+import { MINIMUM_AGE } from "@/lib/site";
 
 const ACCEPTED_FORMATS = ".pdf,.docx";
 
@@ -13,8 +16,10 @@ export default function AnalyzePage() {
   const [careers, setCareers] = useState<Career[]>([]);
   const [firstName, setFirstName] = useState("");
   const [surname, setSurname] = useState("");
-  const [career, setCareer] = useState("");
+  const [saTitles, setSaTitles] = useState<SaTitle[]>([]);
+  const [career, setCareer] = useState<CareerChoice | null>(null);
   const [file, setFile] = useState<File | null>(null);
+  const [consent, setConsent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -26,7 +31,7 @@ export default function AnalyzePage() {
         if (cancelled) return;
         if (Array.isArray(data.careers) && data.careers.length > 0) {
           setCareers(data.careers);
-          setCareer((prev) => prev || data.careers[0].slug);
+          if (Array.isArray(data.sa_titles)) setSaTitles(data.sa_titles);
         } else {
           setError("No careers are available.");
         }
@@ -50,16 +55,27 @@ export default function AnalyzePage() {
       setError("Please enter your surname.");
       return;
     }
+    if (!career) {
+      setError("Please choose your target career from the list.");
+      return;
+    }
     if (!file) {
       setError("Please upload your CV as a PDF or DOCX file.");
+      return;
+    }
+
+    if (!consent) {
+      setError("Please tick the box to agree before uploading your CV.");
       return;
     }
 
     const formData = new FormData();
     formData.append("first_name", firstName.trim());
     formData.append("surname", surname.trim());
-    formData.append("career", career);
+    formData.append("career", career.slug);
+    if (career.title) formData.append("career_title", career.title);
     formData.append("file", file);
+    formData.append("consent", "yes");
 
     setSubmitting(true);
     try {
@@ -122,28 +138,20 @@ export default function AnalyzePage() {
               </div>
             </div>
 
-            <style>{`select option{background:#ffffff!important;color:#141A2E!important;}`}</style>
             <div>
               <label htmlFor="career" className="font-body text-sm text-ink">
                 Target career *
               </label>
-              <select
+              <CareerPicker
                 id="career"
+                careers={careers}
+                saTitles={saTitles}
                 value={career}
-                onChange={(e) => setCareer(e.target.value)}
-                className="focus-ring mt-1.5 w-full rounded-xl border border-line bg-white px-4 py-3 font-body text-sm text-ink shadow-sm appearance-none cursor-pointer transition hover:border-brass"
-                disabled={careers.length === 0}
-              >
-                {careers.length > 0 ? (
-                  careers.map((c) => (
-                    <option key={c.slug} value={c.slug} style={{backgroundColor:"#ffffff",color:"#141A2E"}}>{c.name}</option>
-                  ))
-                ) : (
-                  <option value="">Loading careers…</option>
-                )}
-              </select>
+                onChange={setCareer}
+                loading={careers.length === 0 && !error}
+              />
               <p className="mt-1.5 font-body text-xs text-slate-500">
-                More careers will be added over time.
+                Search South African job titles or international ones. Type to search, or tap the arrow to scroll.
               </p>
             </div>
 
@@ -164,6 +172,30 @@ export default function AnalyzePage() {
               </p>
             </div>
 
+            <div className="flex items-start gap-3">
+              <input
+                id="consent"
+                type="checkbox"
+                checked={consent}
+                onChange={(e) => setConsent(e.target.checked)}
+                className="focus-ring mt-0.5 h-4 w-4 shrink-0 rounded border-line accent-ink"
+              />
+              <label htmlFor="consent" className="font-body text-xs leading-relaxed text-slate-700">
+                I agree to the{" "}
+                <Link href="/terms" target="_blank" className="underline hover:text-ink">
+                  Terms of Service
+                </Link>{" "}
+                and{" "}
+                <Link href="/privacy" target="_blank" className="underline hover:text-ink">
+                  Privacy Policy
+                </Link>
+                , and consent to my CV being processed to calculate my score. My CV
+                file is not stored. I am {MINIMUM_AGE} or older, or have a parent or
+                guardian&apos;s permission, and this is my own CV or I have permission
+                to upload it.
+              </label>
+            </div>
+
             {error && (
               <p className="rounded border border-brass bg-brass/20 px-3 py-2 font-body text-sm text-brass" role="alert">
                 {error}
@@ -172,7 +204,7 @@ export default function AnalyzePage() {
 
             <button
               type="submit"
-              disabled={submitting}
+              disabled={submitting || !consent}
               className="focus-ring w-full rounded bg-ink px-6 py-3 font-body text-sm font-medium text-paper transition-colors hover:bg-brass-dark disabled:cursor-not-allowed disabled:opacity-60"
             >
               {submitting ? "Analyzing your CV…" : "Analyze"}

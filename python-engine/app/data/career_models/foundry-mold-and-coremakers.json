@@ -5,74 +5,99 @@
   "onet": {
     "soc_code": "51-4071.00",
     "occupation_title": "Foundry Mold and Coremakers",
-    "note": "Imported from O*NET 31.0 Database.",
+    "note": "Imported from the O*NET Database (USDOL/ETA, CC BY 4.0) with exact skill mapping.",
     "source_url": "https://www.onetonline.org/link/summary/51-4071.00",
-    "last_synced": "2026-09-08T19:21:53.557648+00:00",
+    "last_synced": "2026-10-27T15:44:39.961447+00:00",
     "sync_method": "onet_bulk_database"
   },
   "skills": [
     {
-      "skill_slug": "literacy_instruction",
-      "market_frequency": 0.25,
-      "market_importance": 0.25,
+      "skill_slug": "english_language",
+      "market_frequency": 0.598,
+      "market_importance": 0.598,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "English Language"
     },
     {
-      "skill_slug": "grammar_composition",
-      "market_frequency": 0.188,
-      "market_importance": 0.188,
+      "skill_slug": "mechanical",
+      "market_frequency": 0.593,
+      "market_importance": 0.593,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Mechanical"
     },
     {
-      "skill_slug": "public_speaking",
-      "market_frequency": 0.22,
-      "market_importance": 0.22,
+      "skill_slug": "production_processing",
+      "market_frequency": 0.568,
+      "market_importance": 0.568,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Production and Processing"
     },
     {
-      "skill_slug": "model_monitoring",
-      "market_frequency": 0.405,
-      "market_importance": 0.405,
+      "skill_slug": "education_training",
+      "market_frequency": 0.568,
+      "market_importance": 0.568,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Education and Training"
     },
     {
-      "skill_slug": "python",
+      "skill_slug": "business_management",
+      "market_frequency": 0.56,
+      "market_importance": 0.56,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Administration and Management"
+    },
+    {
+      "skill_slug": "physics",
+      "market_frequency": 0.537,
+      "market_importance": 0.537,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Physics"
+    },
+    {
+      "skill_slug": "design",
+      "market_frequency": 0.517,
+      "market_importance": 0.517,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Design"
+    },
+    {
+      "skill_slug": "engineering_technology",
+      "market_frequency": 0.505,
+      "market_importance": 0.505,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Engineering and Technology"
+    },
+    {
+      "skill_slug": "monitoring",
       "market_frequency": 0.5,
       "market_importance": 0.5,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Monitoring"
     },
     {
-      "skill_slug": "system_design",
-      "market_frequency": 0.545,
-      "market_importance": 0.545,
-      "source": "onet_bulk_database",
-      "onet_confirmed": true
-    },
-    {
-      "skill_slug": "esl_instruction",
-      "market_frequency": 0.485,
-      "market_importance": 0.485,
-      "source": "onet_bulk_database",
-      "onet_confirmed": true
-    },
-    {
-      "skill_slug": "typescript",
+      "skill_slug": "operations_monitoring",
       "market_frequency": 0.5,
       "market_importance": 0.5,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Operations Monitoring"
     },
     {
-      "skill_slug": "data_visualization",
-      "market_frequency": 0.5,
-      "market_importance": 0.5,
-      "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "skill_slug": "autocad",
+      "market_frequency": 0.45,
+      "market_importance": 0.45,
+      "source": "onet_technology_skills",
+      "onet_confirmed": true,
+      "onet_element": ""
     }
   ]
 }

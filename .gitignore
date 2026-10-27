@@ -29,3 +29,11 @@ local_dev.db
 # --- Misc ---
 *.log
 .env
+
+# Build/run logs and personal documents never belong in this public repo
+log_*
+log[0-9]*
+frontend/log*
+/*.docx
+/*.pdf
+/*.png

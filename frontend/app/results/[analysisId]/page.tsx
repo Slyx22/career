@@ -59,7 +59,38 @@ export default async function ResultsPage({
             <p className="mt-1 font-body text-xs text-slate-600">
               Career Readiness
             </p>
+            {analysis.onet_career && analysis.onet_career !== analysis.career && (
+              <p className="mt-3 max-w-md font-body text-xs text-slate-500">
+                Skills compared with the international occupation &ldquo;{analysis.onet_career}&rdquo;
+                (O*NET), the closest match to this South African job title.
+              </p>
+            )}
           </div>
+
+          {analysis.sa_requirements && analysis.sa_requirements.length > 0 && (
+            <div className="mt-10 border border-line bg-panel px-6 py-6">
+              <h2 className="font-display text-xl text-ink">Required in South Africa</h2>
+              <p className="mt-1 font-body text-xs text-slate-600">
+                Employers in South Africa usually check these for this job. They don&apos;t change your
+                score, but if you have them, make sure your CV says so clearly.
+              </p>
+              <ul className="mt-4 space-y-3">
+                {analysis.sa_requirements.map((r) => (
+                  <li key={r.key} className="font-body text-sm text-ink">
+                    <span className={r.found_in_cv ? "text-brass-dark" : "text-slate-500"}>
+                      {r.found_in_cv ? "\u2713" : "\u25cb"}
+                    </span>{" "}
+                    <strong>{r.label}</strong>
+                    <span className="text-slate-600">
+                      {" "}
+                      &mdash; {r.found_in_cv ? "mentioned in your CV." : "not found in your CV."}
+                    </span>
+                    <span className="mt-0.5 block text-xs text-slate-600">{r.detail}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           <div className="tick-rule mt-12" />
 

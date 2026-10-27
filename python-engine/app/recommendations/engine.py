@@ -12,6 +12,7 @@ from __future__ import annotations
 
 from typing import List
 
+from app.nlp.onet_elements import ACTION_BY_SLUG
 from app.scoring.scorer import SkillScoreDetail
 
 _ACTION_TEMPLATES = {
@@ -39,18 +40,26 @@ _ACTION_TEMPLATES = {
 }
 
 _GENERIC_TEMPLATE = "Build a small project that specifically demonstrates {skill}."
+_TOOL_TEMPLATE = (
+    "Learn the basics of {skill} with a free course or trial version, then add it to your CV "
+    "with one sentence on what you used it for."
+)
+_TOOL_CATEGORIES = {"Workplace software", "Cloud", "Databases", "Deployment", "MLOps"}
 
 
 def generate_recommendations(gap_details: List[SkillScoreDetail], limit: int = 5) -> List[str]:
     recommendations: List[str] = []
     for detail in gap_details[:limit]:
-        template = _ACTION_TEMPLATES.get(detail.slug)
-        recommendations.append(template or _GENERIC_TEMPLATE.format(skill=detail.name))
+        template = _ACTION_TEMPLATES.get(detail.slug) or ACTION_BY_SLUG.get(detail.slug)
+        if not template:
+            generic = _TOOL_TEMPLATE if detail.category in _TOOL_CATEGORIES else _GENERIC_TEMPLATE
+            template = generic.format(skill=detail.name)
+        recommendations.append(template)
 
     if not recommendations:
         recommendations.append(
-            "Great coverage across the core ML Engineer skill set - consider deepening "
-            "your strongest areas with a portfolio project that showcases end-to-end ownership."
+            "Great coverage of the skills this career needs - consider deepening "
+            "your strongest areas with a portfolio project that shows end-to-end ownership."
         )
 
     return recommendations[:limit] if len(recommendations) >= 3 else recommendations

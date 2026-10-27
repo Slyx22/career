@@ -5,74 +5,51 @@
   "onet": {
     "soc_code": "53-7081.00",
     "occupation_title": "Refuse and Recyclable Material Collectors",
-    "note": "Imported from O*NET 31.0 Database.",
+    "note": "Imported from the O*NET Database (USDOL/ETA, CC BY 4.0) with exact skill mapping.",
     "source_url": "https://www.onetonline.org/link/summary/53-7081.00",
-    "last_synced": "2026-09-08T19:21:53.557648+00:00",
+    "last_synced": "2026-10-27T15:44:39.961447+00:00",
     "sync_method": "onet_bulk_database"
   },
   "skills": [
     {
-      "skill_slug": "literacy_instruction",
-      "market_frequency": 0.25,
-      "market_importance": 0.25,
+      "skill_slug": "mechanical",
+      "market_frequency": 0.555,
+      "market_importance": 0.555,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Mechanical"
     },
     {
-      "skill_slug": "grammar_composition",
-      "market_frequency": 0.25,
-      "market_importance": 0.25,
-      "source": "onet_bulk_database",
-      "onet_confirmed": true
-    },
-    {
-      "skill_slug": "public_speaking",
-      "market_frequency": 0.25,
-      "market_importance": 0.25,
-      "source": "onet_bulk_database",
-      "onet_confirmed": true
-    },
-    {
-      "skill_slug": "model_monitoring",
-      "market_frequency": 0.25,
-      "market_importance": 0.25,
-      "source": "onet_bulk_database",
-      "onet_confirmed": true
-    },
-    {
-      "skill_slug": "python",
+      "skill_slug": "operations_monitoring",
       "market_frequency": 0.5,
       "market_importance": 0.5,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Operations Monitoring"
     },
     {
-      "skill_slug": "system_design",
+      "skill_slug": "operation_and_control",
       "market_frequency": 0.5,
       "market_importance": 0.5,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Operation and Control"
     },
     {
-      "skill_slug": "esl_instruction",
-      "market_frequency": 0.37,
-      "market_importance": 0.37,
+      "skill_slug": "active_listening",
+      "market_frequency": 0.47,
+      "market_importance": 0.47,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Active Listening"
     },
     {
-      "skill_slug": "typescript",
-      "market_frequency": 0.5,
-      "market_importance": 0.5,
+      "skill_slug": "speaking",
+      "market_frequency": 0.47,
+      "market_importance": 0.47,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
-    },
-    {
-      "skill_slug": "data_visualization",
-      "market_frequency": 0.312,
-      "market_importance": 0.312,
-      "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Speaking"
     }
   ]
 }

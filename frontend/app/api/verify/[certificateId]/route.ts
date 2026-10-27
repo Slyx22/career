@@ -1,13 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getPythonApiUrl } from "@/lib/config";
+import { engineFetch } from "@/lib/config";
 
 export async function GET(
   _req: NextRequest,
   { params }: { params: { certificateId: string } }
 ) {
   try {
-    const res = await fetch(
-      `${getPythonApiUrl()}/api/verify/${encodeURIComponent(
+    const res = await engineFetch(`/api/verify/${encodeURIComponent(
         params.certificateId
       )}`,
       { cache: "no-store" }

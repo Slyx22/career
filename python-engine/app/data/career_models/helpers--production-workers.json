@@ -5,74 +5,91 @@
   "onet": {
     "soc_code": "51-9198.00",
     "occupation_title": "Helpers--Production Workers",
-    "note": "Imported from O*NET 31.0 Database.",
+    "note": "Imported from the O*NET Database (USDOL/ETA, CC BY 4.0) with exact skill mapping.",
     "source_url": "https://www.onetonline.org/link/summary/51-9198.00",
-    "last_synced": "2026-09-08T19:21:53.557648+00:00",
+    "last_synced": "2026-10-27T15:44:39.961447+00:00",
     "sync_method": "onet_bulk_database"
   },
   "skills": [
     {
-      "skill_slug": "literacy_instruction",
-      "market_frequency": 0.28,
-      "market_importance": 0.28,
+      "skill_slug": "production_processing",
+      "market_frequency": 0.595,
+      "market_importance": 0.595,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Production and Processing"
     },
     {
-      "skill_slug": "grammar_composition",
-      "market_frequency": 0.188,
-      "market_importance": 0.188,
+      "skill_slug": "english_language",
+      "market_frequency": 0.507,
+      "market_importance": 0.507,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "English Language"
     },
     {
-      "skill_slug": "public_speaking",
-      "market_frequency": 0.25,
-      "market_importance": 0.25,
+      "skill_slug": "mechanical",
+      "market_frequency": 0.465,
+      "market_importance": 0.465,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Mechanical"
     },
     {
-      "skill_slug": "model_monitoring",
-      "market_frequency": 0.28,
-      "market_importance": 0.28,
+      "skill_slug": "active_listening",
+      "market_frequency": 0.438,
+      "market_importance": 0.438,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Active Listening"
     },
     {
-      "skill_slug": "python",
-      "market_frequency": 0.085,
-      "market_importance": 0.085,
+      "skill_slug": "monitoring",
+      "market_frequency": 0.438,
+      "market_importance": 0.438,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Monitoring"
     },
     {
-      "skill_slug": "system_design",
-      "market_frequency": 0.24,
-      "market_importance": 0.24,
-      "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "skill_slug": "adobe_creative",
+      "market_frequency": 0.45,
+      "market_importance": 0.45,
+      "source": "onet_technology_skills",
+      "onet_confirmed": true,
+      "onet_element": ""
     },
     {
-      "skill_slug": "esl_instruction",
-      "market_frequency": 0.593,
-      "market_importance": 0.593,
-      "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "skill_slug": "autocad",
+      "market_frequency": 0.45,
+      "market_importance": 0.45,
+      "source": "onet_technology_skills",
+      "onet_confirmed": true,
+      "onet_element": ""
     },
     {
-      "skill_slug": "typescript",
-      "market_frequency": 0.5,
-      "market_importance": 0.5,
-      "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "skill_slug": "microsoft_excel",
+      "market_frequency": 0.45,
+      "market_importance": 0.45,
+      "source": "onet_technology_skills",
+      "onet_confirmed": true,
+      "onet_element": ""
     },
     {
-      "skill_slug": "data_visualization",
-      "market_frequency": 0.375,
-      "market_importance": 0.375,
-      "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "skill_slug": "microsoft_office",
+      "market_frequency": 0.45,
+      "market_importance": 0.45,
+      "source": "onet_technology_skills",
+      "onet_confirmed": true,
+      "onet_element": ""
+    },
+    {
+      "skill_slug": "sap",
+      "market_frequency": 0.45,
+      "market_importance": 0.45,
+      "source": "onet_technology_skills",
+      "onet_confirmed": true,
+      "onet_element": ""
     }
   ]
 }

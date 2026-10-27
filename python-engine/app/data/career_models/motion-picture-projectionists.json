@@ -5,74 +5,107 @@
   "onet": {
     "soc_code": "39-3021.00",
     "occupation_title": "Motion Picture Projectionists",
-    "note": "Imported from O*NET 31.0 Database.",
+    "note": "Imported from the O*NET Database (USDOL/ETA, CC BY 4.0) with exact skill mapping.",
     "source_url": "https://www.onetonline.org/link/summary/39-3021.00",
-    "last_synced": "2026-09-08T19:21:53.557648+00:00",
+    "last_synced": "2026-10-27T15:44:39.961447+00:00",
     "sync_method": "onet_bulk_database"
   },
   "skills": [
     {
-      "skill_slug": "literacy_instruction",
+      "skill_slug": "computers_electronics",
+      "market_frequency": 0.765,
+      "market_importance": 0.765,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Computers and Electronics"
+    },
+    {
+      "skill_slug": "customer_service",
+      "market_frequency": 0.573,
+      "market_importance": 0.573,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Customer and Personal Service"
+    },
+    {
+      "skill_slug": "mechanical",
+      "market_frequency": 0.545,
+      "market_importance": 0.545,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Mechanical"
+    },
+    {
+      "skill_slug": "english_language",
+      "market_frequency": 0.542,
+      "market_importance": 0.542,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "English Language"
+    },
+    {
+      "skill_slug": "operations_monitoring",
+      "market_frequency": 0.53,
+      "market_importance": 0.53,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Operations Monitoring"
+    },
+    {
+      "skill_slug": "reading_comprehension",
       "market_frequency": 0.5,
       "market_importance": 0.5,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Reading Comprehension"
     },
     {
-      "skill_slug": "grammar_composition",
-      "market_frequency": 0.438,
-      "market_importance": 0.438,
-      "source": "onet_bulk_database",
-      "onet_confirmed": true
-    },
-    {
-      "skill_slug": "public_speaking",
-      "market_frequency": 0.47,
-      "market_importance": 0.47,
-      "source": "onet_bulk_database",
-      "onet_confirmed": true
-    },
-    {
-      "skill_slug": "model_monitoring",
-      "market_frequency": 0.47,
-      "market_importance": 0.47,
-      "source": "onet_bulk_database",
-      "onet_confirmed": true
-    },
-    {
-      "skill_slug": "python",
+      "skill_slug": "active_listening",
       "market_frequency": 0.5,
       "market_importance": 0.5,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Active Listening"
     },
     {
-      "skill_slug": "system_design",
-      "market_frequency": 0.023,
-      "market_importance": 0.023,
-      "source": "onet_bulk_database",
-      "onet_confirmed": true
-    },
-    {
-      "skill_slug": "esl_instruction",
-      "market_frequency": 0.49,
-      "market_importance": 0.49,
-      "source": "onet_bulk_database",
-      "onet_confirmed": true
-    },
-    {
-      "skill_slug": "typescript",
+      "skill_slug": "speaking",
       "market_frequency": 0.5,
       "market_importance": 0.5,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Speaking"
     },
     {
-      "skill_slug": "data_visualization",
-      "market_frequency": 0.47,
-      "market_importance": 0.47,
+      "skill_slug": "operation_and_control",
+      "market_frequency": 0.5,
+      "market_importance": 0.5,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Operation and Control"
+    },
+    {
+      "skill_slug": "autocad",
+      "market_frequency": 0.45,
+      "market_importance": 0.45,
+      "source": "onet_technology_skills",
+      "onet_confirmed": true,
+      "onet_element": ""
+    },
+    {
+      "skill_slug": "microsoft_excel",
+      "market_frequency": 0.45,
+      "market_importance": 0.45,
+      "source": "onet_technology_skills",
+      "onet_confirmed": true,
+      "onet_element": ""
+    },
+    {
+      "skill_slug": "microsoft_office",
+      "market_frequency": 0.45,
+      "market_importance": 0.45,
+      "source": "onet_technology_skills",
+      "onet_confirmed": true,
+      "onet_element": ""
     }
   ]
 }

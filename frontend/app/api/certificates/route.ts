@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getPythonApiUrl } from "@/lib/config";
+import { engineFetch } from "@/lib/config";
 import { isClerkConfigured } from "@/lib/clerk";
 
 /**
@@ -19,8 +19,7 @@ export async function GET() {
   }
 
   try {
-    const res = await fetch(
-      `${getPythonApiUrl()}/api/certificates?clerk_user_id=${encodeURIComponent(userId)}`,
+    const res = await engineFetch(`/api/certificates?clerk_user_id=${encodeURIComponent(userId)}`,
       { cache: "no-store" }
     );
     const data = await res.json().catch(() => null);

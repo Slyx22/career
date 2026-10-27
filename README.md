@@ -254,6 +254,21 @@ silently presented as more verified than it is:
   labels these clearly (`onet_source` / `weight_source` fields) so the
   frontend never presents them as verified statistics.
 
+### Refreshing all careers from O*NET (free, one click)
+
+All O*NET careers are generated from the free O*NET Database. To rebuild
+them (for example when O*NET publishes a new release), open GitHub ->
+**Actions** -> **Regenerate careers from O*NET** -> **Run workflow**. It
+downloads the latest text database, runs
+`scripts/onet_bulk_import.py --import-all`, and commits the updated
+`app/data/career_models/` files plus `scripts/last_import_report.json`.
+
+Skills are matched exactly through `app/nlp/onet_elements.py` (every
+O*NET Skill and Knowledge area, keyed by Element ID). Each skill in a
+career file records the `onet_element` it came from, so the mapping can
+be audited. Occupations O*NET doesn't rate (mostly "All Other"
+catch-alls) are skipped.
+
 ### Adding another career
 
 1. Find its O*NET-SOC code at https://www.onetonline.org (search by job title).
