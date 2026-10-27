@@ -7,7 +7,7 @@
     "occupation_title": "Engineering Teachers, Postsecondary",
     "note": "Imported from the O*NET Database (USDOL/ETA, CC BY 4.0) with exact skill mapping.",
     "source_url": "https://www.onetonline.org/link/summary/25-1032.00",
-    "last_synced": "2026-10-27T22:44:07.269239+00:00",
+    "last_synced": "2026-10-27T22:45:26.547535+00:00",
     "sync_method": "onet_bulk_database"
   },
   "skills": [
@@ -172,23 +172,7 @@
       "onet_element": "Chemistry"
     },
     {
-      "skill_slug": "autocad",
-      "market_frequency": 0.45,
-      "market_importance": 0.45,
-      "source": "onet_technology_skills",
-      "onet_confirmed": true,
-      "onet_element": ""
-    },
-    {
-      "skill_slug": "cpp",
-      "market_frequency": 0.45,
-      "market_importance": 0.45,
-      "source": "onet_technology_skills",
-      "onet_confirmed": true,
-      "onet_element": ""
-    },
-    {
-      "skill_slug": "javascript",
+      "skill_slug": "microsoft_office",
       "market_frequency": 0.45,
       "market_importance": 0.45,
       "source": "onet_technology_skills",
@@ -204,7 +188,7 @@
       "onet_element": ""
     },
     {
-      "skill_slug": "microsoft_office",
+      "skill_slug": "ms_project",
       "market_frequency": 0.45,
       "market_importance": 0.45,
       "source": "onet_technology_skills",
@@ -212,7 +196,23 @@
       "onet_element": ""
     },
     {
-      "skill_slug": "ms_project",
+      "skill_slug": "autocad",
+      "market_frequency": 0.45,
+      "market_importance": 0.45,
+      "source": "onet_technology_skills",
+      "onet_confirmed": true,
+      "onet_element": ""
+    },
+    {
+      "skill_slug": "python",
+      "market_frequency": 0.45,
+      "market_importance": 0.45,
+      "source": "onet_technology_skills",
+      "onet_confirmed": true,
+      "onet_element": ""
+    },
+    {
+      "skill_slug": "cpp",
       "market_frequency": 0.45,
       "market_importance": 0.45,
       "source": "onet_technology_skills",
@@ -228,7 +228,7 @@
       "onet_element": ""
     },
     {
-      "skill_slug": "python",
+      "skill_slug": "javascript",
       "market_frequency": 0.45,
       "market_importance": 0.45,
       "source": "onet_technology_skills",

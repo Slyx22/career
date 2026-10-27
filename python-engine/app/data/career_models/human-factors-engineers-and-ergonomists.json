@@ -7,7 +7,7 @@
     "occupation_title": "Human Factors Engineers and Ergonomists",
     "note": "Imported from the O*NET Database (USDOL/ETA, CC BY 4.0) with exact skill mapping.",
     "source_url": "https://www.onetonline.org/link/summary/17-2112.01",
-    "last_synced": "2026-10-27T22:44:07.269239+00:00",
+    "last_synced": "2026-10-27T22:45:26.547535+00:00",
     "sync_method": "onet_bulk_database"
   },
   "skills": [
@@ -172,14 +172,6 @@
       "onet_element": "Administration and Management"
     },
     {
-      "skill_slug": "microsoft_excel",
-      "market_frequency": 0.55,
-      "market_importance": 0.55,
-      "source": "onet_technology_skills",
-      "onet_confirmed": true,
-      "onet_element": ""
-    },
-    {
       "skill_slug": "microsoft_office",
       "market_frequency": 0.55,
       "market_importance": 0.55,
@@ -188,9 +180,9 @@
       "onet_element": ""
     },
     {
-      "skill_slug": "adobe_creative",
-      "market_frequency": 0.45,
-      "market_importance": 0.45,
+      "skill_slug": "microsoft_excel",
+      "market_frequency": 0.55,
+      "market_importance": 0.55,
       "source": "onet_technology_skills",
       "onet_confirmed": true,
       "onet_element": ""
@@ -204,31 +196,7 @@
       "onet_element": ""
     },
     {
-      "skill_slug": "cpp",
-      "market_frequency": 0.45,
-      "market_importance": 0.45,
-      "source": "onet_technology_skills",
-      "onet_confirmed": true,
-      "onet_element": ""
-    },
-    {
-      "skill_slug": "html_css",
-      "market_frequency": 0.45,
-      "market_importance": 0.45,
-      "source": "onet_technology_skills",
-      "onet_confirmed": true,
-      "onet_element": ""
-    },
-    {
-      "skill_slug": "statistics",
-      "market_frequency": 0.45,
-      "market_importance": 0.45,
-      "source": "onet_technology_skills",
-      "onet_confirmed": true,
-      "onet_element": ""
-    },
-    {
-      "skill_slug": "javascript",
+      "skill_slug": "adobe_creative",
       "market_frequency": 0.45,
       "market_importance": 0.45,
       "source": "onet_technology_skills",
@@ -244,7 +212,39 @@
       "onet_element": ""
     },
     {
+      "skill_slug": "python",
+      "market_frequency": 0.45,
+      "market_importance": 0.45,
+      "source": "onet_technology_skills",
+      "onet_confirmed": true,
+      "onet_element": ""
+    },
+    {
+      "skill_slug": "cpp",
+      "market_frequency": 0.45,
+      "market_importance": 0.45,
+      "source": "onet_technology_skills",
+      "onet_confirmed": true,
+      "onet_element": ""
+    },
+    {
       "skill_slug": "java",
+      "market_frequency": 0.45,
+      "market_importance": 0.45,
+      "source": "onet_technology_skills",
+      "onet_confirmed": true,
+      "onet_element": ""
+    },
+    {
+      "skill_slug": "statistics",
+      "market_frequency": 0.45,
+      "market_importance": 0.45,
+      "source": "onet_technology_skills",
+      "onet_confirmed": true,
+      "onet_element": ""
+    },
+    {
+      "skill_slug": "r_language",
       "market_frequency": 0.45,
       "market_importance": 0.45,
       "source": "onet_technology_skills",

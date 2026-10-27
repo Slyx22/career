@@ -192,8 +192,8 @@
    "ofo_code": "121207",
    "title": "Personnel Manager",
    "aliases": [],
-   "career_slug": "compensation-and-benefits-managers",
-   "career_name": "Compensation and Benefits Managers",
+   "career_slug": "human-resources-managers",
+   "career_name": "Human Resources Managers",
    "match": "crosswalk"
   },
   {
@@ -1237,8 +1237,8 @@
     "Molecular Geneticist",
     "Plant Molecular Biologist"
    ],
-   "career_slug": "bioinformatics-scientists",
-   "career_name": "Bioinformatics Scientists",
+   "career_slug": "biochemists-and-biophysicists",
+   "career_name": "Biochemists and Biophysicists",
    "match": "crosswalk"
   },
   {
@@ -1264,8 +1264,8 @@
     "Fisheries Researcher",
     "Fisheries Scientist"
    ],
-   "career_slug": "biologists",
-   "career_name": "Biologists",
+   "career_slug": "zoologists-and-wildlife-biologists",
+   "career_name": "Zoologists and Wildlife Biologists",
    "match": "crosswalk"
   },
   {
@@ -1808,8 +1808,8 @@
     "Physical Metallurgist",
     "Radiological Metallurgist"
    ],
-   "career_slug": "materials-engineers",
-   "career_name": "Materials Engineers",
+   "career_slug": "materials-scientists",
+   "career_name": "Materials Scientists",
    "match": "crosswalk"
   },
   {
@@ -2673,8 +2673,8 @@
     "Prosthodontist",
     "Stomatologist"
    ],
-   "career_slug": "oral-and-maxillofacial-surgeons",
-   "career_name": "Oral and Maxillofacial Surgeons",
+   "career_slug": "prosthodontists",
+   "career_name": "Prosthodontists",
    "match": "crosswalk"
   },
   {
@@ -2920,8 +2920,8 @@
     "Professor",
     "Tertiary Educator"
    ],
-   "career_slug": "family-and-consumer-sciences-teachers-postsecondary",
-   "career_name": "Family and Consumer Sciences Teachers, Postsecondary",
+   "career_slug": "physics-teachers-postsecondary",
+   "career_name": "Physics Teachers, Postsecondary",
    "match": "crosswalk"
   },
   {
@@ -2930,8 +2930,8 @@
    "aliases": [
     "Community Education and Training Lecturer - Inactive"
    ],
-   "career_slug": "careertechnical-education-teachers-secondary-school",
-   "career_name": "Career/Technical Education Teachers, Secondary School",
+   "career_slug": "careertechnical-education-teachers-postsecondary",
+   "career_name": "Career/Technical Education Teachers, Postsecondary",
    "match": "crosswalk"
   },
   {
@@ -3067,8 +3067,8 @@
     "Teacher of Gifted Students",
     "Visual Impairment Special Needs Teacher"
    ],
-   "career_slug": "special-education-teachers-preschool",
-   "career_name": "Special Education Teachers, Preschool",
+   "career_slug": "special-education-teachers-kindergarten",
+   "career_name": "Special Education Teachers, Kindergarten",
    "match": "crosswalk"
   },
   {
@@ -3214,8 +3214,8 @@
    "ofo_code": "241204",
    "title": "Financial Markets Practitioner",
    "aliases": [],
-   "career_slug": "financial-and-investment-analysts",
-   "career_name": "Financial and Investment Analysts",
+   "career_slug": "personal-financial-advisors",
+   "career_name": "Personal Financial Advisors",
    "match": "crosswalk"
   },
   {
@@ -4196,8 +4196,8 @@
    "ofo_code": "263402",
    "title": "Educational Psychologist",
    "aliases": [],
-   "career_slug": "clinical-and-counseling-psychologists",
-   "career_name": "Clinical and Counseling Psychologists",
+   "career_slug": "school-psychologists",
+   "career_name": "School Psychologists",
    "match": "crosswalk"
   },
   {
@@ -4235,24 +4235,24 @@
    "ofo_code": "263406",
    "title": "Sport Psychologist",
    "aliases": [],
-   "career_slug": "clinical-and-counseling-psychologists",
-   "career_name": "Clinical and Counseling Psychologists",
+   "career_slug": "industrial-organizational-psychologists",
+   "career_name": "Industrial-Organizational Psychologists",
    "match": "crosswalk"
   },
   {
    "ofo_code": "263407",
    "title": "Counselling Psychologist",
    "aliases": [],
-   "career_slug": "clinical-and-counseling-psychologists",
-   "career_name": "Clinical and Counseling Psychologists",
+   "career_slug": "industrial-organizational-psychologists",
+   "career_name": "Industrial-Organizational Psychologists",
    "match": "crosswalk"
   },
   {
    "ofo_code": "263408",
    "title": "Community Psychologist",
    "aliases": [],
-   "career_slug": "clinical-and-counseling-psychologists",
-   "career_name": "Clinical and Counseling Psychologists",
+   "career_slug": "industrial-organizational-psychologists",
+   "career_name": "Industrial-Organizational Psychologists",
    "match": "crosswalk"
   },
   {
@@ -5460,8 +5460,8 @@
     "Attack Helicopter Pilot",
     "Chopper Pilot"
    ],
-   "career_slug": "airline-pilots-copilots-and-flight-engineers",
-   "career_name": "Airline Pilots, Copilots, and Flight Engineers",
+   "career_slug": "commercial-pilots",
+   "career_name": "Commercial Pilots",
    "match": "crosswalk"
   },
   {
@@ -5706,8 +5706,8 @@
     "Orthotist",
     "Prosthetist"
    ],
-   "career_slug": "orthotists-and-prosthetists",
-   "career_name": "Orthotists and Prosthetists",
+   "career_slug": "dental-laboratory-technicians",
+   "career_name": "Dental Laboratory Technicians",
    "match": "crosswalk"
   },
   {
@@ -8044,8 +8044,8 @@
    "ofo_code": "512101",
    "title": "Cook",
    "aliases": [],
-   "career_slug": "cooks-restaurant",
-   "career_name": "Cooks, Restaurant",
+   "career_slug": "cooks-institution-and-cafeteria",
+   "career_name": "Cooks, Institution and Cafeteria",
    "match": "crosswalk"
   },
   {
@@ -8120,8 +8120,8 @@
     "Permanent Make-up Artist",
     "Skin Peeling and Dermabrasion"
    ],
-   "career_slug": "hairdressers-hairstylists-and-cosmetologists",
-   "career_name": "Hairdressers, Hairstylists, and Cosmetologists",
+   "career_slug": "makeup-artists-theatrical-and-performance",
+   "career_name": "Makeup Artists, Theatrical and Performance",
    "match": "crosswalk"
   },
   {
@@ -8765,8 +8765,8 @@
     "Traffic Warden",
     "Transportation Vehicle, Equipment and Systems Inspectors"
    ],
-   "career_slug": "police-and-sheriffs-patrol-officers",
-   "career_name": "Police and Sheriff's Patrol Officers",
+   "career_slug": "first-line-supervisors-of-police-and-detectives",
+   "career_name": "First-Line Supervisors of Police and Detectives",
    "match": "crosswalk"
   },
   {
@@ -9345,8 +9345,8 @@
     "Industrial Insulation Installer",
     "Insulating Contractor"
    ],
-   "career_slug": "insulation-workers-floor-ceiling-and-wall",
-   "career_name": "Insulation Workers, Floor, Ceiling, and Wall",
+   "career_slug": "insulation-workers-mechanical",
+   "career_name": "Insulation Workers, Mechanical",
    "match": "crosswalk"
   },
   {
@@ -9524,8 +9524,8 @@
     "Metal Casting Moulder",
     "Metal Mould Maker"
    ],
-   "career_slug": "molding-coremaking-and-casting-machine-setters-operators-and-tenders-metal-and-plastic",
-   "career_name": "Molding, Coremaking, and Casting Machine Setters, Operators, and Tenders, Metal and Plastic",
+   "career_slug": "foundry-mold-and-coremakers",
+   "career_name": "Foundry Mold and Coremakers",
    "match": "crosswalk"
   },
   {
@@ -10454,8 +10454,8 @@
     "Security System Installer / Technician",
     "Slot Machine Serviceman / Technician"
    ],
-   "career_slug": "electrical-and-electronics-repairers-commercial-and-industrial-equipment",
-   "career_name": "Electrical and Electronics Repairers, Commercial and Industrial Equipment",
+   "career_slug": "electronic-equipment-installers-and-repairers-motor-vehicles",
+   "career_name": "Electronic Equipment Installers and Repairers, Motor Vehicles",
    "match": "crosswalk"
   },
   {
@@ -11093,8 +11093,8 @@
    "aliases": [
     "Plaster Caster"
    ],
-   "career_slug": "cutting-and-slicing-machine-setters-operators-and-tenders",
-   "career_name": "Cutting and Slicing Machine Setters, Operators, and Tenders",
+   "career_slug": "mixing-and-blending-machine-setters-operators-and-tenders",
+   "career_name": "Mixing and Blending Machine Setters, Operators, and Tenders",
    "match": "crosswalk"
   },
   {
@@ -11116,8 +11116,8 @@
     "Metal Production Plant Operator",
     "Steel Roller"
    ],
-   "career_slug": "rolling-machine-setters-operators-and-tenders-metal-and-plastic",
-   "career_name": "Rolling Machine Setters, Operators, and Tenders, Metal and Plastic",
+   "career_slug": "pourers-and-casters-metal",
+   "career_name": "Pourers and Casters, Metal",
    "match": "crosswalk"
   },
   {
@@ -11212,8 +11212,8 @@
     "Optic Fibre Drawer",
     "Wire Drawer ( Plastics)"
    ],
-   "career_slug": "plating-machine-setters-operators-and-tenders-metal-and-plastic",
-   "career_name": "Plating Machine Setters, Operators, and Tenders, Metal and Plastic",
+   "career_slug": "drilling-and-boring-machine-tool-setters-operators-and-tenders-metal-and-plastic",
+   "career_name": "Drilling and Boring Machine Tool Setters, Operators, and Tenders, Metal and Plastic",
    "match": "crosswalk"
   },
   {
@@ -11251,8 +11251,8 @@
    "aliases": [
     "Vacuum Forming Machine Operator"
    ],
-   "career_slug": "forging-machine-setters-operators-and-tenders-metal-and-plastic",
-   "career_name": "Forging Machine Setters, Operators, and Tenders, Metal and Plastic",
+   "career_slug": "cutting-punching-and-press-machine-setters-operators-and-tenders-metal-and-plastic",
+   "career_name": "Cutting, Punching, and Press Machine Setters, Operators, and Tenders, Metal and Plastic",
    "match": "crosswalk"
   },
   {
@@ -11634,8 +11634,8 @@
     "Turbine Assembler",
     "Vehicle Assembler"
    ],
-   "career_slug": "engine-and-other-machine-assemblers",
-   "career_name": "Engine and Other Machine Assemblers",
+   "career_slug": "aircraft-structure-surfaces-rigging-and-systems-assemblers",
+   "career_name": "Aircraft Structure, Surfaces, Rigging, and Systems Assemblers",
    "match": "crosswalk"
   },
   {
@@ -11762,8 +11762,8 @@
     "Cab Driver",
     "Taxi Operator"
    ],
-   "career_slug": "ambulance-drivers-and-attendants-except-emergency-medical-technicians",
-   "career_name": "Ambulance Drivers and Attendants, Except Emergency Medical Technicians",
+   "career_slug": "light-truck-drivers",
+   "career_name": "Light Truck Drivers",
    "match": "crosswalk"
   },
   {
@@ -11940,8 +11940,8 @@
     "Loader Driver",
     "Skid-steer-loader Operator"
    ],
-   "career_slug": "excavating-and-loading-machine-and-dragline-operators-surface-mining",
-   "career_name": "Excavating and Loading Machine and Dragline Operators, Surface Mining",
+   "career_slug": "paving-surfacing-and-tamping-equipment-operators",
+   "career_name": "Paving, Surfacing, and Tamping Equipment Operators",
    "match": "crosswalk"
   },
   {
@@ -12103,8 +12103,8 @@
     "Medium Risk Area Cleaner",
     "Ward Cleaner"
    ],
-   "career_slug": "janitors-and-cleaners-except-maids-and-housekeeping-cleaners",
-   "career_name": "Janitors and Cleaners, Except Maids and Housekeeping Cleaners",
+   "career_slug": "maids-and-housekeeping-cleaners",
+   "career_name": "Maids and Housekeeping Cleaners",
    "match": "crosswalk"
   },
   {
