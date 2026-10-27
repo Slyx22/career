@@ -7,7 +7,7 @@
     "occupation_title": "Solar Thermal Installers and Technicians",
     "note": "Imported from the O*NET Database (USDOL/ETA, CC BY 4.0) with exact skill mapping.",
     "source_url": "https://www.onetonline.org/link/summary/47-2152.04",
-    "last_synced": "2026-10-27T15:44:39.961447+00:00",
+    "last_synced": "2026-10-27T22:44:07.269239+00:00",
     "sync_method": "onet_bulk_database"
   },
   "skills": [
@@ -205,6 +205,14 @@
     },
     {
       "skill_slug": "java",
+      "market_frequency": 0.45,
+      "market_importance": 0.45,
+      "source": "onet_technology_skills",
+      "onet_confirmed": true,
+      "onet_element": ""
+    },
+    {
+      "skill_slug": "salesforce",
       "market_frequency": 0.45,
       "market_importance": 0.45,
       "source": "onet_technology_skills",
