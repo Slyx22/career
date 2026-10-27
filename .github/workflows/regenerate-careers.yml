@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
   push:
     branches: [fix/breakdown-and-steps]
-    paths: [".github/workflows/regenerate-careers.yml"]
+    paths: ["python-engine/scripts/onet_bulk_import.py"]
 
 permissions:
   contents: write

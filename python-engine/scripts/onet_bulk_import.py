@@ -158,6 +158,10 @@ def _is_yes(value: Optional[str]) -> bool:
     return (value or "").strip().upper() in ("Y", "YES", "TRUE", "1")
 
 
+# slug -> number of occupations listing that tool; filled by import_all_careers.
+_TOOL_POPULARITY: Dict[str, int] = {}
+
+
 def _build_career_model(
     soc_code: str,
     occupation_title: str,
@@ -233,7 +237,13 @@ def _build_career_model(
                 "onet_confirmed": True,
                 "_onet_element": row.get("Example", ""),
             }
-    skills += sorted(tech.values(), key=lambda s: s["market_importance"], reverse=True)[:MAX_TECH_SKILLS]
+    # Highest weight first; among equals, tools that more occupations list
+    # (e.g. Python, Excel) before niche ones.
+    skills += sorted(
+        tech.values(),
+        key=lambda s: (s["market_importance"], _TOOL_POPULARITY.get(s["skill_slug"], 0)),
+        reverse=True,
+    )[:MAX_TECH_SKILLS]
 
     return {
         "slug": career_slug,
@@ -339,6 +349,13 @@ def import_all_careers(db_dir: Path) -> dict:
         name = _tech_example(r)
         bucket = tech_matched if _match_tech_slug(name) else tech_unmatched
         bucket[name] = bucket.get(name, 0) + 1
+    socs_by_tool: Dict[str, set] = {}
+    for r in tech_rows_all:
+        slug = _match_tech_slug(_tech_example(r))
+        if slug:
+            socs_by_tool.setdefault(slug, set()).add(r.get("O*NET-SOC Code", ""))
+    _TOOL_POPULARITY.clear()
+    _TOOL_POPULARITY.update({k: len(v) for k, v in socs_by_tool.items()})
     tech_by_soc: Dict[str, List[dict]] = {}
     for r in tech_rows_all:
         soc = r.get("O*NET-SOC Code", "")
