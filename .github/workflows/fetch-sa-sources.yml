@@ -45,6 +45,42 @@ jobs:
           fetch soc2010_to_soc2018_crosswalk.xlsx \
             "https://www.bls.gov/soc/2018/soc_2010_to_2018_crosswalk.xlsx" \
             "https://www.bls.gov/soc/2018/soc_2010_to_2018_crosswalk.xls"
+          # O*NET job titles (alternate + reported titles), used only to match
+          # SA titles to careers. Kept compact: SOC code + title per line.
+          page=$(curl -fsSL -A "$UA" https://www.onetcenter.org/database.html || true)
+          zipname=$(printf '%s' "$page" | grep -oE 'db_[0-9]+_[0-9]+_text\.zip' | sort -uV | tail -1)
+          zipname=${zipname:-db_31_0_text.zip}
+          if curl -fsSL -A "$UA" -o onet.zip "https://www.onetcenter.org/dl_files/database/$zipname"; then
+            unzip -q onet.zip -d onet
+            dir=$(dirname "$(find onet -name 'Occupation Data.txt' | head -1)")
+            for f in "Job Titles.txt" "Alternate Titles.txt" "Sample of Reported Titles.txt"; do
+              [ -f "$dir/$f" ] && echo "::notice::$f header: $(head -1 "$dir/$f" | tr '\t' '|') rows: $(wc -l < "$dir/$f")"
+            done
+            python3 - "$dir" "$out/onet_job_titles.tsv" <<'PY'
+          import csv, sys, os
+          src, dest = sys.argv[1], sys.argv[2]
+          seen = set()
+          with open(dest, "w", encoding="utf-8") as out:
+              out.write("soc\ttitle\n")
+              for name in ("Job Titles.txt", "Alternate Titles.txt", "Sample of Reported Titles.txt"):
+                  path = os.path.join(src, name)
+                  if not os.path.exists(path):
+                      continue
+                  with open(path, encoding="utf-8-sig", newline="") as f:
+                      for row in csv.DictReader(f, delimiter="\t"):
+                          soc = row.get("O*NET-SOC Code", "")
+                          for key in ("Alternate Title", "Reported Job Title", "Job Title", "Title", "Short Title"):
+                              t = (row.get(key) or "").strip()
+                              if soc and t and (soc, t.lower()) not in seen:
+                                  seen.add((soc, t.lower()))
+                                  out.write(f"{soc}\t{t}\n")
+          print("titles written:", len(seen))
+          PY
+            echo "::notice::onet_job_titles.tsv rows: $(wc -l < "$out/onet_job_titles.tsv") from $zipname"
+            rm -rf onet onet.zip
+          else
+            echo "::error::Could not download O*NET $zipname"
+          fi
           ls -la "$out"
       - name: Commit
         run: |
