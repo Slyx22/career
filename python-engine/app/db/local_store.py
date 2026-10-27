@@ -166,11 +166,15 @@ _store_instance: Optional[Repository] = None
 
 
 def storage_backend_name() -> str:
-    """'supabase' when Supabase credentials are configured (unless
-    STORAGE_BACKEND=local forces SQLite), otherwise 'local'."""
+    """'postgres' when DATABASE_URL is set, 'supabase' when Supabase API
+    credentials are set, otherwise 'local' (temporary SQLite file).
+    STORAGE_BACKEND=local|supabase|postgres forces a choice; 'auto' or
+    empty picks automatically."""
     backend = os.environ.get("STORAGE_BACKEND", "").strip().lower()
-    if backend in ("local", "supabase"):
+    if backend in ("local", "supabase", "postgres"):
         return backend
+    if os.environ.get("DATABASE_URL"):
+        return "postgres"
     has_supabase = os.environ.get("SUPABASE_URL") and (
         os.environ.get("SUPABASE_SERVICE_ROLE_KEY") or os.environ.get("SUPABASE_SERVICE_ROLE")
     )
@@ -188,7 +192,15 @@ def get_store() -> Repository:
     """
     global _store_instance
     if _store_instance is None:
-        if storage_backend_name() == "supabase":
+        backend = storage_backend_name()
+        if backend == "postgres":
+            from app.db.postgres_store import PostgresStore
+
+            dsn = os.environ.get("DATABASE_URL", "")
+            if not dsn:
+                raise RuntimeError("STORAGE_BACKEND=postgres needs DATABASE_URL")
+            _store_instance = PostgresStore(dsn)
+        elif backend == "supabase":
             from app.db.supabase_store import SupabaseStore
 
             url = os.environ.get("SUPABASE_URL", "")

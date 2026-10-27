@@ -30,16 +30,17 @@ In your Render service → **Environment Variables**, add:
 |---|---|
 | `ALLOWED_ORIGINS` | `https://srmaps.co.za,http://localhost:3000` |
 | `PUBLIC_VERIFY_URL_BASE` | `https://srmaps.co.za` |
-| `SUPABASE_URL` | Your Supabase Project URL (Supabase → Project Settings → API) |
-| `SUPABASE_SERVICE_ROLE_KEY` | Your Supabase **secret** / `service_role` key (same page). Never put this in the frontend. |
+| `DATABASE_URL` | Postgres connection string for the low-privilege `engine_store` role in Supabase (via the session pooler, `aws-0-eu-west-1.pooler.supabase.com:5432`). Preferred. |
+| `STORAGE_BACKEND` | `auto` |
+| `SUPABASE_URL` / `SUPABASE_SERVICE_ROLE_KEY` | Alternative to `DATABASE_URL`: Supabase Project URL and **secret** key. Never put the key in the frontend. |
 | `REQUIRE_ACCOUNT_FOR_CERTIFICATE` | `false` |
 
 Do **not** set `STORAGE_BACKEND=local` in production: it forces the
 temporary SQLite file, which Render wipes on every restart, deleting all
-certificates. With the two Supabase values set, the engine stores
+certificates. With `DATABASE_URL` (or the two Supabase values) set, the engine stores
 analyses and certificates permanently in Supabase. Before the first
 deploy with them, run `supabase/migrations/0006_engine_storage.sql` once
 in Supabase → SQL Editor. Check it worked: `/health` shows
-`"storage":"supabase"`.
+`"storage":"postgres"` (or `"supabase"`).
 
 Then **Redeploy** the service so the new env vars take effect.
