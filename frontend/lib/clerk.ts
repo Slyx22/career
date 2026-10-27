@@ -5,7 +5,7 @@
  *
  * IMPORTANT: This module is imported by client components ("use client"),
  * so only NEXT_PUBLIC_* env vars are available on the client side.
- * next.config.mjs maps CLERK1 -> NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY at
+ * next.config.mjs maps clerk1/CLERK1 -> NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY at
  * build time, so by the time this runs, the standard key name is all
  * we need to check.
  *
