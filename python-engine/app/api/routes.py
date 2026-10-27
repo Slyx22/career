@@ -1,10 +1,13 @@
 from __future__ import annotations
 
+from typing import Optional
+
 from fastapi import APIRouter, Depends, File, Form, HTTPException, UploadFile
 from fastapi.responses import Response
 
 from app.db.interface import Repository
 from app.db.local_store import get_store
+from app.scoring.sa_titles import sa_titles_for_listing
 from app.models.schemas import (
     AnalysisResponse,
     CertificateListResponse,
@@ -34,7 +37,12 @@ def get_repository() -> Repository:
 
 @router.get("/careers")
 def careers_endpoint():
-    return {"careers": list_careers()}
+    careers = list_careers()
+    return {
+        "careers": careers,
+        # South African (OFO 2021) job titles, each linked to a career above.
+        "sa_titles": sa_titles_for_listing({c["slug"] for c in careers}),
+    }
 
 
 @router.post("/analyze", response_model=AnalysisResponse)
@@ -42,6 +50,7 @@ async def analyze_endpoint(
     first_name: str = Form(...),
     surname: str = Form(...),
     career: str = Form(...),
+    career_title: Optional[str] = Form(None),
     file: UploadFile = File(...),
     store: Repository = Depends(get_repository),
 ):
@@ -63,6 +72,7 @@ async def analyze_endpoint(
             first_name=first_name,
             surname=surname,
             career_slug=career,
+            career_title=career_title,
         )
     except AnalysisError as exc:
         raise HTTPException(status_code=exc.status_code, detail=exc.message) from exc

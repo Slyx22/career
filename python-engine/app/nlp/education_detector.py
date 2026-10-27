@@ -83,6 +83,10 @@ BACHELOR_PATTERNS = [
     r"\bb\.?bus\.?sci\b",
     r"\bb\.?soc\.?sci\b",
     r"\bb\.?admin\b",
+    # South African NQF levels 7-8 (bachelor's, advanced diploma, honours)
+    r"\bhonours\b",
+    r"\bhons\b",
+    r"\bnqf\s*(level\s*)?[78]\b",
 ]
 
 DIPLOMA_PATTERNS = [
@@ -91,6 +95,12 @@ DIPLOMA_PATTERNS = [
     r"\bnational diploma\b",
     r"\badvanced diploma\b",
     r"\btechnician diploma\b",
+    # South African: N6 / National N Diploma, NQF level 6, artisan trade test
+    r"\bn6\b",
+    r"\bnational n diploma\b",
+    r"\bnqf\s*(level\s*)?6\b",
+    r"\btrade test\b",
+    r"\bred seal\b",
 ]
 
 CERTIFICATE_PATTERNS = [
@@ -100,9 +110,17 @@ CERTIFICATE_PATTERNS = [
     r"\bbootcamp\b",
     r"\btraining certificate\b",
     r"\bprofessional certificate\b",
+    # South African learnerships / occupational certificates (NQF 1-4)
+    r"\blearnership\b",
+    r"\bnational certificate\b",
+    r"\bnqf\s*(level\s*)?[1-4]\b",
 ]
 
 ASSOCIATE_PATTERNS = [
+    # South African higher certificate / N4-N5 / NQF level 5
+    r"\bhigher certificate\b",
+    r"\bn[45]\b",
+    r"\bnqf\s*(level\s*)?5\b",
     r"\bassociate'?s?\b",
     r"\bassociate degree\b",
     r"\bassociate'?s degree\b",

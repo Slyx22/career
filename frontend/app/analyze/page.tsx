@@ -5,7 +5,8 @@ import { useRouter } from "next/navigation";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import Link from "next/link";
-import { Career } from "@/lib/types";
+import { Career, SaTitle } from "@/lib/types";
+import { CareerChoice, CareerPicker } from "@/components/CareerPicker";
 import { MINIMUM_AGE } from "@/lib/site";
 
 const ACCEPTED_FORMATS = ".pdf,.docx";
@@ -15,7 +16,8 @@ export default function AnalyzePage() {
   const [careers, setCareers] = useState<Career[]>([]);
   const [firstName, setFirstName] = useState("");
   const [surname, setSurname] = useState("");
-  const [career, setCareer] = useState("");
+  const [saTitles, setSaTitles] = useState<SaTitle[]>([]);
+  const [career, setCareer] = useState<CareerChoice | null>(null);
   const [file, setFile] = useState<File | null>(null);
   const [consent, setConsent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -29,7 +31,7 @@ export default function AnalyzePage() {
         if (cancelled) return;
         if (Array.isArray(data.careers) && data.careers.length > 0) {
           setCareers(data.careers);
-          setCareer((prev) => prev || data.careers[0].slug);
+          if (Array.isArray(data.sa_titles)) setSaTitles(data.sa_titles);
         } else {
           setError("No careers are available.");
         }
@@ -53,6 +55,10 @@ export default function AnalyzePage() {
       setError("Please enter your surname.");
       return;
     }
+    if (!career) {
+      setError("Please choose your target career from the list.");
+      return;
+    }
     if (!file) {
       setError("Please upload your CV as a PDF or DOCX file.");
       return;
@@ -66,7 +72,8 @@ export default function AnalyzePage() {
     const formData = new FormData();
     formData.append("first_name", firstName.trim());
     formData.append("surname", surname.trim());
-    formData.append("career", career);
+    formData.append("career", career.slug);
+    if (career.title) formData.append("career_title", career.title);
     formData.append("file", file);
     formData.append("consent", "yes");
 
@@ -131,28 +138,20 @@ export default function AnalyzePage() {
               </div>
             </div>
 
-            <style>{`select option{background:#ffffff!important;color:#141A2E!important;}`}</style>
             <div>
               <label htmlFor="career" className="font-body text-sm text-ink">
                 Target career *
               </label>
-              <select
+              <CareerPicker
                 id="career"
+                careers={careers}
+                saTitles={saTitles}
                 value={career}
-                onChange={(e) => setCareer(e.target.value)}
-                className="focus-ring mt-1.5 w-full rounded-xl border border-line bg-white px-4 py-3 font-body text-sm text-ink shadow-sm appearance-none cursor-pointer transition hover:border-brass"
-                disabled={careers.length === 0}
-              >
-                {careers.length > 0 ? (
-                  careers.map((c) => (
-                    <option key={c.slug} value={c.slug} style={{backgroundColor:"#ffffff",color:"#141A2E"}}>{c.name}</option>
-                  ))
-                ) : (
-                  <option value="">Loading careers…</option>
-                )}
-              </select>
+                onChange={setCareer}
+                loading={careers.length === 0 && !error}
+              />
               <p className="mt-1.5 font-body text-xs text-slate-500">
-                More careers will be added over time.
+                Search South African job titles or international ones. Type to search, or tap the arrow to scroll.
               </p>
             </div>
 
