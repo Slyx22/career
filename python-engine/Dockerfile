@@ -8,7 +8,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY app ./app
 
-ENV STORAGE_BACKEND=local
+# Storage is chosen automatically: DATABASE_URL -> Postgres (permanent),
+# else Supabase API keys, else the temporary SQLite file (app/db/local_store.py).
+ENV STORAGE_BACKEND=auto
 ENV LOCAL_DB_PATH=/app/local_dev.db
 
 EXPOSE 8000
