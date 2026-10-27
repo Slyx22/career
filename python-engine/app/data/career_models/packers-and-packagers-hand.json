@@ -5,74 +5,51 @@
   "onet": {
     "soc_code": "53-7064.00",
     "occupation_title": "Packers and Packagers, Hand",
-    "note": "Imported from O*NET 31.0 Database.",
+    "note": "Imported from the O*NET Database (USDOL/ETA, CC BY 4.0) with exact skill mapping.",
     "source_url": "https://www.onetonline.org/link/summary/53-7064.00",
-    "last_synced": "2026-09-08T19:21:53.557648+00:00",
+    "last_synced": "2026-10-27T15:41:11.483989+00:00",
     "sync_method": "onet_bulk_database"
   },
   "skills": [
     {
-      "skill_slug": "literacy_instruction",
-      "market_frequency": 0.25,
-      "market_importance": 0.25,
+      "skill_slug": "production_processing",
+      "market_frequency": 0.743,
+      "market_importance": 0.743,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Production and Processing"
     },
     {
-      "skill_slug": "grammar_composition",
-      "market_frequency": 0.22,
-      "market_importance": 0.22,
+      "skill_slug": "customer_service",
+      "market_frequency": 0.55,
+      "market_importance": 0.55,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Customer and Personal Service"
     },
     {
-      "skill_slug": "public_speaking",
-      "market_frequency": 0.25,
-      "market_importance": 0.25,
-      "source": "onet_bulk_database",
-      "onet_confirmed": true
-    },
-    {
-      "skill_slug": "model_monitoring",
-      "market_frequency": 0.28,
-      "market_importance": 0.28,
-      "source": "onet_bulk_database",
-      "onet_confirmed": true
-    },
-    {
-      "skill_slug": "python",
+      "skill_slug": "monitoring",
       "market_frequency": 0.5,
       "market_importance": 0.5,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Monitoring"
     },
     {
-      "skill_slug": "system_design",
-      "market_frequency": 0.128,
-      "market_importance": 0.128,
+      "skill_slug": "english_language",
+      "market_frequency": 0.495,
+      "market_importance": 0.495,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "English Language"
     },
     {
-      "skill_slug": "esl_instruction",
-      "market_frequency": 0.36,
-      "market_importance": 0.36,
+      "skill_slug": "administration",
+      "market_frequency": 0.448,
+      "market_importance": 0.448,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
-    },
-    {
-      "skill_slug": "typescript",
-      "market_frequency": 0.5,
-      "market_importance": 0.5,
-      "source": "onet_bulk_database",
-      "onet_confirmed": true
-    },
-    {
-      "skill_slug": "data_visualization",
-      "market_frequency": 0.22,
-      "market_importance": 0.22,
-      "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Administrative"
     }
   ]
 }

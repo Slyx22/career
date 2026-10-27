@@ -5,74 +5,163 @@
   "onet": {
     "soc_code": "41-1012.00",
     "occupation_title": "First-Line Supervisors of Non-Retail Sales Workers",
-    "note": "Imported from O*NET 31.0 Database.",
+    "note": "Imported from the O*NET Database (USDOL/ETA, CC BY 4.0) with exact skill mapping.",
     "source_url": "https://www.onetonline.org/link/summary/41-1012.00",
-    "last_synced": "2026-09-08T19:21:53.557648+00:00",
+    "last_synced": "2026-10-27T15:41:11.483989+00:00",
     "sync_method": "onet_bulk_database"
   },
   "skills": [
     {
-      "skill_slug": "literacy_instruction",
-      "market_frequency": 0.78,
-      "market_importance": 0.78,
+      "skill_slug": "customer_service",
+      "market_frequency": 0.762,
+      "market_importance": 0.762,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Customer and Personal Service"
     },
     {
-      "skill_slug": "grammar_composition",
+      "skill_slug": "active_listening",
       "market_frequency": 0.75,
       "market_importance": 0.75,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Active Listening"
     },
     {
-      "skill_slug": "public_speaking",
+      "skill_slug": "speaking",
       "market_frequency": 0.75,
       "market_importance": 0.75,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Speaking"
     },
     {
-      "skill_slug": "model_monitoring",
-      "market_frequency": 0.812,
-      "market_importance": 0.812,
+      "skill_slug": "monitoring",
+      "market_frequency": 0.75,
+      "market_importance": 0.75,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Monitoring"
     },
     {
-      "skill_slug": "python",
-      "market_frequency": 0.5,
-      "market_importance": 0.5,
+      "skill_slug": "people_management",
+      "market_frequency": 0.75,
+      "market_importance": 0.75,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Management of Personnel Resources"
     },
     {
-      "skill_slug": "system_design",
-      "market_frequency": 0.05,
-      "market_importance": 0.05,
+      "skill_slug": "business_management",
+      "market_frequency": 0.728,
+      "market_importance": 0.728,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Administration and Management"
     },
     {
-      "skill_slug": "esl_instruction",
-      "market_frequency": 0.595,
-      "market_importance": 0.595,
+      "skill_slug": "social_perceptiveness",
+      "market_frequency": 0.72,
+      "market_importance": 0.72,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Social Perceptiveness"
     },
     {
-      "skill_slug": "typescript",
-      "market_frequency": 0.5,
-      "market_importance": 0.5,
+      "skill_slug": "coordination",
+      "market_frequency": 0.72,
+      "market_importance": 0.72,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Coordination"
     },
     {
-      "skill_slug": "data_visualization",
-      "market_frequency": 0.47,
-      "market_importance": 0.47,
+      "skill_slug": "judgment_decision_making",
+      "market_frequency": 0.72,
+      "market_importance": 0.72,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Judgment and Decision Making"
+    },
+    {
+      "skill_slug": "time_management",
+      "market_frequency": 0.72,
+      "market_importance": 0.72,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Time Management"
+    },
+    {
+      "skill_slug": "english_language",
+      "market_frequency": 0.693,
+      "market_importance": 0.693,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "English Language"
+    },
+    {
+      "skill_slug": "persuasion",
+      "market_frequency": 0.688,
+      "market_importance": 0.688,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Persuasion"
+    },
+    {
+      "skill_slug": "reading_comprehension",
+      "market_frequency": 0.655,
+      "market_importance": 0.655,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Reading Comprehension"
+    },
+    {
+      "skill_slug": "writing",
+      "market_frequency": 0.655,
+      "market_importance": 0.655,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Writing"
+    },
+    {
+      "skill_slug": "critical_thinking",
+      "market_frequency": 0.655,
+      "market_importance": 0.655,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Critical Thinking"
+    },
+    {
+      "skill_slug": "human_resources",
+      "market_frequency": 0.635,
+      "market_importance": 0.635,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Personnel and Human Resources"
+    },
+    {
+      "skill_slug": "economics_accounting",
+      "market_frequency": 0.59,
+      "market_importance": 0.59,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Economics and Accounting"
+    },
+    {
+      "skill_slug": "sales_marketing",
+      "market_frequency": 0.58,
+      "market_importance": 0.58,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Sales and Marketing"
+    },
+    {
+      "skill_slug": "education_training",
+      "market_frequency": 0.515,
+      "market_importance": 0.515,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Education and Training"
     }
   ]
 }

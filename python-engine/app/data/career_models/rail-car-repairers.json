@@ -5,74 +5,147 @@
   "onet": {
     "soc_code": "49-3043.00",
     "occupation_title": "Rail Car Repairers",
-    "note": "Imported from O*NET 31.0 Database.",
+    "note": "Imported from the O*NET Database (USDOL/ETA, CC BY 4.0) with exact skill mapping.",
     "source_url": "https://www.onetonline.org/link/summary/49-3043.00",
-    "last_synced": "2026-09-08T19:21:53.557648+00:00",
+    "last_synced": "2026-10-27T15:41:11.483989+00:00",
     "sync_method": "onet_bulk_database"
   },
   "skills": [
     {
-      "skill_slug": "literacy_instruction",
-      "market_frequency": 0.438,
-      "market_importance": 0.438,
+      "skill_slug": "mechanical",
+      "market_frequency": 0.87,
+      "market_importance": 0.87,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Mechanical"
     },
     {
-      "skill_slug": "grammar_composition",
-      "market_frequency": 0.438,
-      "market_importance": 0.438,
+      "skill_slug": "troubleshooting",
+      "market_frequency": 0.75,
+      "market_importance": 0.75,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Troubleshooting"
     },
     {
-      "skill_slug": "public_speaking",
-      "market_frequency": 0.345,
-      "market_importance": 0.345,
+      "skill_slug": "repairing",
+      "market_frequency": 0.75,
+      "market_importance": 0.75,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Repairing"
     },
     {
-      "skill_slug": "model_monitoring",
-      "market_frequency": 0.438,
-      "market_importance": 0.438,
+      "skill_slug": "equipment_maintenance",
+      "market_frequency": 0.688,
+      "market_importance": 0.688,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Equipment Maintenance"
     },
     {
-      "skill_slug": "python",
+      "skill_slug": "production_processing",
+      "market_frequency": 0.6,
+      "market_importance": 0.6,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Production and Processing"
+    },
+    {
+      "skill_slug": "design",
+      "market_frequency": 0.578,
+      "market_importance": 0.578,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Design"
+    },
+    {
+      "skill_slug": "critical_thinking",
+      "market_frequency": 0.562,
+      "market_importance": 0.562,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Critical Thinking"
+    },
+    {
+      "skill_slug": "operations_monitoring",
+      "market_frequency": 0.562,
+      "market_importance": 0.562,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Operations Monitoring"
+    },
+    {
+      "skill_slug": "quality_control",
+      "market_frequency": 0.562,
+      "market_importance": 0.562,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Quality Control Analysis"
+    },
+    {
+      "skill_slug": "business_management",
+      "market_frequency": 0.56,
+      "market_importance": 0.56,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Administration and Management"
+    },
+    {
+      "skill_slug": "building_construction",
+      "market_frequency": 0.552,
+      "market_importance": 0.552,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Building and Construction"
+    },
+    {
+      "skill_slug": "engineering_technology",
+      "market_frequency": 0.55,
+      "market_importance": 0.55,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Engineering and Technology"
+    },
+    {
+      "skill_slug": "transportation",
+      "market_frequency": 0.532,
+      "market_importance": 0.532,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Transportation"
+    },
+    {
+      "skill_slug": "operation_and_control",
+      "market_frequency": 0.53,
+      "market_importance": 0.53,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Operation and Control"
+    },
+    {
+      "skill_slug": "mathematics",
+      "market_frequency": 0.505,
+      "market_importance": 0.505,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Mathematics"
+    },
+    {
+      "skill_slug": "active_listening",
       "market_frequency": 0.5,
       "market_importance": 0.5,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Active Listening"
     },
     {
-      "skill_slug": "system_design",
-      "market_frequency": 0.677,
-      "market_importance": 0.677,
-      "source": "onet_bulk_database",
-      "onet_confirmed": true
-    },
-    {
-      "skill_slug": "esl_instruction",
-      "market_frequency": 0.338,
-      "market_importance": 0.338,
-      "source": "onet_bulk_database",
-      "onet_confirmed": true
-    },
-    {
-      "skill_slug": "typescript",
+      "skill_slug": "speaking",
       "market_frequency": 0.5,
       "market_importance": 0.5,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
-    },
-    {
-      "skill_slug": "data_visualization",
-      "market_frequency": 0.72,
-      "market_importance": 0.72,
-      "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Speaking"
     }
   ]
 }

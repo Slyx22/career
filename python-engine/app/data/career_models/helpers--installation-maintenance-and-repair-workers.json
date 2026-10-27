@@ -5,74 +5,171 @@
   "onet": {
     "soc_code": "49-9098.00",
     "occupation_title": "Helpers--Installation, Maintenance, and Repair Workers",
-    "note": "Imported from O*NET 31.0 Database.",
+    "note": "Imported from the O*NET Database (USDOL/ETA, CC BY 4.0) with exact skill mapping.",
     "source_url": "https://www.onetonline.org/link/summary/49-9098.00",
-    "last_synced": "2026-09-08T19:21:53.557648+00:00",
+    "last_synced": "2026-10-27T15:41:11.483989+00:00",
     "sync_method": "onet_bulk_database"
   },
   "skills": [
     {
-      "skill_slug": "literacy_instruction",
-      "market_frequency": 0.28,
-      "market_importance": 0.28,
+      "skill_slug": "mechanical",
+      "market_frequency": 0.768,
+      "market_importance": 0.768,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Mechanical"
     },
     {
-      "skill_slug": "grammar_composition",
-      "market_frequency": 0.25,
-      "market_importance": 0.25,
+      "skill_slug": "building_construction",
+      "market_frequency": 0.688,
+      "market_importance": 0.688,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Building and Construction"
     },
     {
-      "skill_slug": "public_speaking",
-      "market_frequency": 0.345,
-      "market_importance": 0.345,
+      "skill_slug": "customer_service",
+      "market_frequency": 0.667,
+      "market_importance": 0.667,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Customer and Personal Service"
     },
     {
-      "skill_slug": "model_monitoring",
-      "market_frequency": 0.405,
-      "market_importance": 0.405,
+      "skill_slug": "public_safety",
+      "market_frequency": 0.62,
+      "market_importance": 0.62,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Public Safety and Security"
     },
     {
-      "skill_slug": "python",
-      "market_frequency": 0.12,
-      "market_importance": 0.12,
+      "skill_slug": "english_language",
+      "market_frequency": 0.618,
+      "market_importance": 0.618,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "English Language"
     },
     {
-      "skill_slug": "system_design",
-      "market_frequency": 0.713,
-      "market_importance": 0.713,
+      "skill_slug": "engineering_technology",
+      "market_frequency": 0.59,
+      "market_importance": 0.59,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Engineering and Technology"
     },
     {
-      "skill_slug": "esl_instruction",
-      "market_frequency": 0.527,
-      "market_importance": 0.527,
+      "skill_slug": "mathematics",
+      "market_frequency": 0.585,
+      "market_importance": 0.585,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Mathematics"
     },
     {
-      "skill_slug": "typescript",
+      "skill_slug": "design",
+      "market_frequency": 0.58,
+      "market_importance": 0.58,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Design"
+    },
+    {
+      "skill_slug": "production_processing",
+      "market_frequency": 0.537,
+      "market_importance": 0.537,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Production and Processing"
+    },
+    {
+      "skill_slug": "active_listening",
+      "market_frequency": 0.53,
+      "market_importance": 0.53,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Active Listening"
+    },
+    {
+      "skill_slug": "critical_thinking",
+      "market_frequency": 0.53,
+      "market_importance": 0.53,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Critical Thinking"
+    },
+    {
+      "skill_slug": "monitoring",
+      "market_frequency": 0.53,
+      "market_importance": 0.53,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Monitoring"
+    },
+    {
+      "skill_slug": "operations_monitoring",
+      "market_frequency": 0.53,
+      "market_importance": 0.53,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Operations Monitoring"
+    },
+    {
+      "skill_slug": "operation_and_control",
+      "market_frequency": 0.53,
+      "market_importance": 0.53,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Operation and Control"
+    },
+    {
+      "skill_slug": "equipment_maintenance",
+      "market_frequency": 0.53,
+      "market_importance": 0.53,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Equipment Maintenance"
+    },
+    {
+      "skill_slug": "troubleshooting",
+      "market_frequency": 0.53,
+      "market_importance": 0.53,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Troubleshooting"
+    },
+    {
+      "skill_slug": "repairing",
+      "market_frequency": 0.53,
+      "market_importance": 0.53,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Repairing"
+    },
+    {
+      "skill_slug": "speaking",
       "market_frequency": 0.5,
       "market_importance": 0.5,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Speaking"
     },
     {
-      "skill_slug": "data_visualization",
-      "market_frequency": 0.562,
-      "market_importance": 0.562,
+      "skill_slug": "coordination",
+      "market_frequency": 0.5,
+      "market_importance": 0.5,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Coordination"
+    },
+    {
+      "skill_slug": "quality_control",
+      "market_frequency": 0.5,
+      "market_importance": 0.5,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Quality Control Analysis"
     }
   ]
 }

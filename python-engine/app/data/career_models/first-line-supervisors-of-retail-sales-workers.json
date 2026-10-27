@@ -5,74 +5,171 @@
   "onet": {
     "soc_code": "41-1011.00",
     "occupation_title": "First-Line Supervisors of Retail Sales Workers",
-    "note": "Imported from O*NET 31.0 Database.",
+    "note": "Imported from the O*NET Database (USDOL/ETA, CC BY 4.0) with exact skill mapping.",
     "source_url": "https://www.onetonline.org/link/summary/41-1011.00",
-    "last_synced": "2026-09-08T19:21:53.557648+00:00",
+    "last_synced": "2026-10-27T15:41:11.483989+00:00",
     "sync_method": "onet_bulk_database"
   },
   "skills": [
     {
-      "skill_slug": "literacy_instruction",
+      "skill_slug": "customer_service",
+      "market_frequency": 0.955,
+      "market_importance": 0.955,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Customer and Personal Service"
+    },
+    {
+      "skill_slug": "business_management",
+      "market_frequency": 0.87,
+      "market_importance": 0.87,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Administration and Management"
+    },
+    {
+      "skill_slug": "sales_marketing",
+      "market_frequency": 0.733,
+      "market_importance": 0.733,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Sales and Marketing"
+    },
+    {
+      "skill_slug": "active_listening",
       "market_frequency": 0.72,
       "market_importance": 0.72,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Active Listening"
     },
     {
-      "skill_slug": "grammar_composition",
-      "market_frequency": 0.655,
-      "market_importance": 0.655,
+      "skill_slug": "english_language",
+      "market_frequency": 0.715,
+      "market_importance": 0.715,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "English Language"
     },
     {
-      "skill_slug": "public_speaking",
-      "market_frequency": 0.72,
-      "market_importance": 0.72,
+      "skill_slug": "speaking",
+      "market_frequency": 0.688,
+      "market_importance": 0.688,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Speaking"
     },
     {
-      "skill_slug": "model_monitoring",
-      "market_frequency": 0.72,
-      "market_importance": 0.72,
+      "skill_slug": "service_orientation",
+      "market_frequency": 0.688,
+      "market_importance": 0.688,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Service Orientation"
     },
     {
-      "skill_slug": "python",
-      "market_frequency": 0.257,
-      "market_importance": 0.257,
+      "skill_slug": "education_training",
+      "market_frequency": 0.65,
+      "market_importance": 0.65,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Education and Training"
     },
     {
-      "skill_slug": "system_design",
-      "market_frequency": 0.5,
-      "market_importance": 0.5,
+      "skill_slug": "critical_thinking",
+      "market_frequency": 0.625,
+      "market_importance": 0.625,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Critical Thinking"
     },
     {
-      "skill_slug": "esl_instruction",
-      "market_frequency": 0.593,
-      "market_importance": 0.593,
+      "skill_slug": "monitoring",
+      "market_frequency": 0.625,
+      "market_importance": 0.625,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Monitoring"
     },
     {
-      "skill_slug": "typescript",
-      "market_frequency": 0.5,
-      "market_importance": 0.5,
+      "skill_slug": "social_perceptiveness",
+      "market_frequency": 0.625,
+      "market_importance": 0.625,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Social Perceptiveness"
     },
     {
-      "skill_slug": "data_visualization",
-      "market_frequency": 0.438,
-      "market_importance": 0.438,
+      "skill_slug": "coordination",
+      "market_frequency": 0.625,
+      "market_importance": 0.625,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Coordination"
+    },
+    {
+      "skill_slug": "human_resources",
+      "market_frequency": 0.583,
+      "market_importance": 0.583,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Personnel and Human Resources"
+    },
+    {
+      "skill_slug": "mathematics",
+      "market_frequency": 0.578,
+      "market_importance": 0.578,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Mathematics"
+    },
+    {
+      "skill_slug": "computers_electronics",
+      "market_frequency": 0.578,
+      "market_importance": 0.578,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Computers and Electronics"
+    },
+    {
+      "skill_slug": "persuasion",
+      "market_frequency": 0.562,
+      "market_importance": 0.562,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Persuasion"
+    },
+    {
+      "skill_slug": "negotiation",
+      "market_frequency": 0.562,
+      "market_importance": 0.562,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Negotiation"
+    },
+    {
+      "skill_slug": "instructing",
+      "market_frequency": 0.562,
+      "market_importance": 0.562,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Instructing"
+    },
+    {
+      "skill_slug": "people_management",
+      "market_frequency": 0.562,
+      "market_importance": 0.562,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Management of Personnel Resources"
+    },
+    {
+      "skill_slug": "economics_accounting",
+      "market_frequency": 0.552,
+      "market_importance": 0.552,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Economics and Accounting"
     }
   ]
 }

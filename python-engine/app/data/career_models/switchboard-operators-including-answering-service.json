@@ -5,74 +5,99 @@
   "onet": {
     "soc_code": "43-2011.00",
     "occupation_title": "Switchboard Operators, Including Answering Service",
-    "note": "Imported from O*NET 31.0 Database.",
+    "note": "Imported from the O*NET Database (USDOL/ETA, CC BY 4.0) with exact skill mapping.",
     "source_url": "https://www.onetonline.org/link/summary/43-2011.00",
-    "last_synced": "2026-09-08T19:21:53.557648+00:00",
+    "last_synced": "2026-10-27T15:41:11.483989+00:00",
     "sync_method": "onet_bulk_database"
   },
   "skills": [
     {
-      "skill_slug": "literacy_instruction",
-      "market_frequency": 0.47,
-      "market_importance": 0.47,
+      "skill_slug": "customer_service",
+      "market_frequency": 0.835,
+      "market_importance": 0.835,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Customer and Personal Service"
     },
     {
-      "skill_slug": "grammar_composition",
-      "market_frequency": 0.345,
-      "market_importance": 0.345,
+      "skill_slug": "active_listening",
+      "market_frequency": 0.75,
+      "market_importance": 0.75,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Active Listening"
     },
     {
-      "skill_slug": "public_speaking",
-      "market_frequency": 0.47,
-      "market_importance": 0.47,
+      "skill_slug": "speaking",
+      "market_frequency": 0.72,
+      "market_importance": 0.72,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Speaking"
     },
     {
-      "skill_slug": "model_monitoring",
-      "market_frequency": 0.375,
-      "market_importance": 0.375,
+      "skill_slug": "english_language",
+      "market_frequency": 0.713,
+      "market_importance": 0.713,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "English Language"
     },
     {
-      "skill_slug": "python",
-      "market_frequency": 0.195,
-      "market_importance": 0.195,
+      "skill_slug": "administration",
+      "market_frequency": 0.67,
+      "market_importance": 0.67,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Administrative"
     },
     {
-      "skill_slug": "system_design",
+      "skill_slug": "social_perceptiveness",
+      "market_frequency": 0.625,
+      "market_importance": 0.625,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Social Perceptiveness"
+    },
+    {
+      "skill_slug": "computers_electronics",
+      "market_frequency": 0.623,
+      "market_importance": 0.623,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Computers and Electronics"
+    },
+    {
+      "skill_slug": "telecommunications",
+      "market_frequency": 0.585,
+      "market_importance": 0.585,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Telecommunications"
+    },
+    {
+      "skill_slug": "service_orientation",
+      "market_frequency": 0.53,
+      "market_importance": 0.53,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Service Orientation"
+    },
+    {
+      "skill_slug": "reading_comprehension",
       "market_frequency": 0.5,
       "market_importance": 0.5,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Reading Comprehension"
     },
     {
-      "skill_slug": "esl_instruction",
-      "market_frequency": 0.613,
-      "market_importance": 0.613,
-      "source": "onet_bulk_database",
-      "onet_confirmed": true
-    },
-    {
-      "skill_slug": "typescript",
+      "skill_slug": "coordination",
       "market_frequency": 0.5,
       "market_importance": 0.5,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
-    },
-    {
-      "skill_slug": "data_visualization",
-      "market_frequency": 0.125,
-      "market_importance": 0.125,
-      "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Coordination"
     }
   ]
 }

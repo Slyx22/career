@@ -5,74 +5,107 @@
   "onet": {
     "soc_code": "51-9195.05",
     "occupation_title": "Potters, Manufacturing",
-    "note": "Imported from O*NET 31.0 Database.",
+    "note": "Imported from the O*NET Database (USDOL/ETA, CC BY 4.0) with exact skill mapping.",
     "source_url": "https://www.onetonline.org/link/summary/51-9195.05",
-    "last_synced": "2026-09-08T19:21:53.557648+00:00",
+    "last_synced": "2026-10-27T15:41:11.483989+00:00",
     "sync_method": "onet_bulk_database"
   },
   "skills": [
     {
-      "skill_slug": "literacy_instruction",
-      "market_frequency": 0.47,
-      "market_importance": 0.47,
+      "skill_slug": "fine_arts",
+      "market_frequency": 0.752,
+      "market_importance": 0.752,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Fine Arts"
     },
     {
-      "skill_slug": "grammar_composition",
-      "market_frequency": 0.405,
-      "market_importance": 0.405,
+      "skill_slug": "production_processing",
+      "market_frequency": 0.735,
+      "market_importance": 0.735,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Production and Processing"
     },
     {
-      "skill_slug": "public_speaking",
-      "market_frequency": 0.47,
-      "market_importance": 0.47,
+      "skill_slug": "design",
+      "market_frequency": 0.65,
+      "market_importance": 0.65,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Design"
     },
     {
-      "skill_slug": "model_monitoring",
+      "skill_slug": "customer_service",
+      "market_frequency": 0.598,
+      "market_importance": 0.598,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Customer and Personal Service"
+    },
+    {
+      "skill_slug": "operations_monitoring",
+      "market_frequency": 0.562,
+      "market_importance": 0.562,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Operations Monitoring"
+    },
+    {
+      "skill_slug": "chemistry",
+      "market_frequency": 0.55,
+      "market_importance": 0.55,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Chemistry"
+    },
+    {
+      "skill_slug": "business_management",
+      "market_frequency": 0.535,
+      "market_importance": 0.535,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Administration and Management"
+    },
+    {
+      "skill_slug": "operation_and_control",
+      "market_frequency": 0.53,
+      "market_importance": 0.53,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Operation and Control"
+    },
+    {
+      "skill_slug": "sales_marketing",
+      "market_frequency": 0.52,
+      "market_importance": 0.52,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Sales and Marketing"
+    },
+    {
+      "skill_slug": "active_listening",
       "market_frequency": 0.5,
       "market_importance": 0.5,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Active Listening"
     },
     {
-      "skill_slug": "python",
+      "skill_slug": "critical_thinking",
       "market_frequency": 0.5,
       "market_importance": 0.5,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Critical Thinking"
     },
     {
-      "skill_slug": "system_design",
-      "market_frequency": 0.655,
-      "market_importance": 0.655,
+      "skill_slug": "monitoring",
+      "market_frequency": 0.5,
+      "market_importance": 0.5,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
-    },
-    {
-      "skill_slug": "esl_instruction",
-      "market_frequency": 0.542,
-      "market_importance": 0.542,
-      "source": "onet_bulk_database",
-      "onet_confirmed": true
-    },
-    {
-      "skill_slug": "typescript",
-      "market_frequency": 1.0,
-      "market_importance": 1.0,
-      "source": "onet_bulk_database",
-      "onet_confirmed": true
-    },
-    {
-      "skill_slug": "data_visualization",
-      "market_frequency": 0.688,
-      "market_importance": 0.688,
-      "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Monitoring"
     }
   ]
 }

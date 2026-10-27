@@ -5,74 +5,155 @@
   "onet": {
     "soc_code": "25-1126.00",
     "occupation_title": "Philosophy and Religion Teachers, Postsecondary",
-    "note": "Imported from O*NET 31.0 Database.",
+    "note": "Imported from the O*NET Database (USDOL/ETA, CC BY 4.0) with exact skill mapping.",
     "source_url": "https://www.onetonline.org/link/summary/25-1126.00",
-    "last_synced": "2026-09-08T19:21:53.557648+00:00",
+    "last_synced": "2026-10-27T15:41:11.483989+00:00",
     "sync_method": "onet_bulk_database"
   },
   "skills": [
     {
-      "skill_slug": "literacy_instruction",
-      "market_frequency": 0.97,
-      "market_importance": 0.97,
+      "skill_slug": "philosophy_theology",
+      "market_frequency": 0.96,
+      "market_importance": 0.96,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Philosophy and Theology"
     },
     {
-      "skill_slug": "grammar_composition",
-      "market_frequency": 1.0,
-      "market_importance": 1.0,
+      "skill_slug": "english_language",
+      "market_frequency": 0.903,
+      "market_importance": 0.903,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "English Language"
     },
     {
-      "skill_slug": "public_speaking",
-      "market_frequency": 0.938,
-      "market_importance": 0.938,
+      "skill_slug": "reading_comprehension",
+      "market_frequency": 0.812,
+      "market_importance": 0.812,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Reading Comprehension"
     },
     {
-      "skill_slug": "model_monitoring",
+      "skill_slug": "education_training",
+      "market_frequency": 0.792,
+      "market_importance": 0.792,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Education and Training"
+    },
+    {
+      "skill_slug": "active_listening",
+      "market_frequency": 0.78,
+      "market_importance": 0.78,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Active Listening"
+    },
+    {
+      "skill_slug": "speaking",
+      "market_frequency": 0.78,
+      "market_importance": 0.78,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Speaking"
+    },
+    {
+      "skill_slug": "instructing",
+      "market_frequency": 0.78,
+      "market_importance": 0.78,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Instructing"
+    },
+    {
+      "skill_slug": "writing",
+      "market_frequency": 0.75,
+      "market_importance": 0.75,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Writing"
+    },
+    {
+      "skill_slug": "critical_thinking",
+      "market_frequency": 0.75,
+      "market_importance": 0.75,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Critical Thinking"
+    },
+    {
+      "skill_slug": "learning_strategies",
       "market_frequency": 0.72,
       "market_importance": 0.72,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Learning Strategies"
     },
     {
-      "skill_slug": "python",
-      "market_frequency": 0.165,
-      "market_importance": 0.165,
+      "skill_slug": "active_learning",
+      "market_frequency": 0.688,
+      "market_importance": 0.688,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Active Learning"
     },
     {
-      "skill_slug": "system_design",
-      "market_frequency": 0.5,
-      "market_importance": 0.5,
+      "skill_slug": "complex_problem_solving",
+      "market_frequency": 0.625,
+      "market_importance": 0.625,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Complex Problem Solving"
     },
     {
-      "skill_slug": "esl_instruction",
-      "market_frequency": 1.0,
-      "market_importance": 1.0,
+      "skill_slug": "history",
+      "market_frequency": 0.618,
+      "market_importance": 0.618,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "History and Archeology"
     },
     {
-      "skill_slug": "typescript",
-      "market_frequency": 0.18,
-      "market_importance": 0.18,
+      "skill_slug": "social_perceptiveness",
+      "market_frequency": 0.595,
+      "market_importance": 0.595,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Social Perceptiveness"
     },
     {
-      "skill_slug": "data_visualization",
-      "market_frequency": 0.188,
-      "market_importance": 0.188,
+      "skill_slug": "judgment_decision_making",
+      "market_frequency": 0.595,
+      "market_importance": 0.595,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Judgment and Decision Making"
+    },
+    {
+      "skill_slug": "monitoring",
+      "market_frequency": 0.562,
+      "market_importance": 0.562,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Monitoring"
+    },
+    {
+      "skill_slug": "sociology",
+      "market_frequency": 0.537,
+      "market_importance": 0.537,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Sociology and Anthropology"
+    },
+    {
+      "skill_slug": "law_government",
+      "market_frequency": 0.507,
+      "market_importance": 0.507,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Law and Government"
     }
   ]
 }

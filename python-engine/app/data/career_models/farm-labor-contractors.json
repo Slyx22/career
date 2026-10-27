@@ -5,74 +5,155 @@
   "onet": {
     "soc_code": "13-1074.00",
     "occupation_title": "Farm Labor Contractors",
-    "note": "Imported from O*NET 31.0 Database.",
+    "note": "Imported from the O*NET Database (USDOL/ETA, CC BY 4.0) with exact skill mapping.",
     "source_url": "https://www.onetonline.org/link/summary/13-1074.00",
-    "last_synced": "2026-09-08T19:21:53.557648+00:00",
+    "last_synced": "2026-10-27T15:41:11.483989+00:00",
     "sync_method": "onet_bulk_database"
   },
   "skills": [
     {
-      "skill_slug": "literacy_instruction",
-      "market_frequency": 0.438,
-      "market_importance": 0.438,
+      "skill_slug": "business_management",
+      "market_frequency": 0.762,
+      "market_importance": 0.762,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Administration and Management"
     },
     {
-      "skill_slug": "grammar_composition",
-      "market_frequency": 0.438,
-      "market_importance": 0.438,
+      "skill_slug": "administration",
+      "market_frequency": 0.755,
+      "market_importance": 0.755,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Administrative"
     },
     {
-      "skill_slug": "public_speaking",
+      "skill_slug": "food_production",
+      "market_frequency": 0.703,
+      "market_importance": 0.703,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Food Production"
+    },
+    {
+      "skill_slug": "production_processing",
+      "market_frequency": 0.662,
+      "market_importance": 0.662,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Production and Processing"
+    },
+    {
+      "skill_slug": "economics_accounting",
+      "market_frequency": 0.625,
+      "market_importance": 0.625,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Economics and Accounting"
+    },
+    {
+      "skill_slug": "other_languages",
+      "market_frequency": 0.618,
+      "market_importance": 0.618,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Foreign Language"
+    },
+    {
+      "skill_slug": "mathematics",
+      "market_frequency": 0.605,
+      "market_importance": 0.605,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Mathematics"
+    },
+    {
+      "skill_slug": "speaking",
       "market_frequency": 0.595,
       "market_importance": 0.595,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Speaking"
     },
     {
-      "skill_slug": "model_monitoring",
-      "market_frequency": 0.47,
-      "market_importance": 0.47,
+      "skill_slug": "customer_service",
+      "market_frequency": 0.593,
+      "market_importance": 0.593,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Customer and Personal Service"
     },
     {
-      "skill_slug": "python",
-      "market_frequency": 0.01,
-      "market_importance": 0.01,
+      "skill_slug": "law_government",
+      "market_frequency": 0.578,
+      "market_importance": 0.578,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Law and Government"
     },
     {
-      "skill_slug": "system_design",
-      "market_frequency": 0.407,
-      "market_importance": 0.407,
+      "skill_slug": "active_listening",
+      "market_frequency": 0.53,
+      "market_importance": 0.53,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Active Listening"
     },
     {
-      "skill_slug": "esl_instruction",
-      "market_frequency": 0.37,
-      "market_importance": 0.37,
+      "skill_slug": "coordination",
+      "market_frequency": 0.53,
+      "market_importance": 0.53,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Coordination"
     },
     {
-      "skill_slug": "typescript",
+      "skill_slug": "people_management",
+      "market_frequency": 0.53,
+      "market_importance": 0.53,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Management of Personnel Resources"
+    },
+    {
+      "skill_slug": "critical_thinking",
       "market_frequency": 0.5,
       "market_importance": 0.5,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Critical Thinking"
     },
     {
-      "skill_slug": "data_visualization",
-      "market_frequency": 0.125,
-      "market_importance": 0.125,
+      "skill_slug": "monitoring",
+      "market_frequency": 0.5,
+      "market_importance": 0.5,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Monitoring"
+    },
+    {
+      "skill_slug": "social_perceptiveness",
+      "market_frequency": 0.5,
+      "market_importance": 0.5,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Social Perceptiveness"
+    },
+    {
+      "skill_slug": "judgment_decision_making",
+      "market_frequency": 0.5,
+      "market_importance": 0.5,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Judgment and Decision Making"
+    },
+    {
+      "skill_slug": "time_management",
+      "market_frequency": 0.5,
+      "market_importance": 0.5,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Time Management"
     }
   ]
 }
