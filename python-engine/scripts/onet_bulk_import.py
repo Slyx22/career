@@ -148,7 +148,7 @@ def _tech_rows(db_dir: Path) -> List[dict]:
 def _tech_example(row: dict) -> str:
     """The software/tool name in a Technology (or Software) Skills row.
     Column names have varied between O*NET releases."""
-    for key in ("Example", "Software", "Software Name", "Technology", "Tool", "Element Name"):
+    for key in ("Workplace Example", "Example", "Software", "Software Name", "Technology", "Tool"):
         if row.get(key):
             return row[key]
     return ""
