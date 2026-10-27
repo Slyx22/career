@@ -1,0 +1,56 @@
+name: Fetch South African occupation sources
+
+# Downloads the free source files used to show South African job titles:
+#  - OFO 2021 (South Africa's Organising Framework for Occupations), via HWSETA
+#  - BLS crosswalk ISCO-08 <-> 2010 SOC
+#  - BLS crosswalk 2010 SOC -> 2018 SOC (O*NET uses 2018-based codes)
+# and commits them to python-engine/app/data/sources/.
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [feat/sa-occupations]
+    paths: [".github/workflows/fetch-sa-sources.yml"]
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download files
+        run: |
+          set -u
+          UA="Mozilla/5.0 (X11; Linux x86_64) career-readiness-analyzer/1.0 (+https://srmaps.co.za)"
+          out=python-engine/app/data/sources
+          mkdir -p "$out"
+          fetch() {  # fetch <dest-name> <url> [<url> ...]
+            dest="$1"; shift
+            for url in "$@"; do
+              if curl -fsSL --retry 2 -A "$UA" -H "Accept: */*" -H "Accept-Language: en" -o "$out/$dest" "$url"; then
+                echo "::notice::OK $dest <- $url ($(du -h "$out/$dest" | cut -f1), $(file -b "$out/$dest" | head -c 80))"
+                return 0
+              fi
+              echo "::warning::Failed $url"
+            done
+            rm -f "$out/$dest"
+            echo "::error::Could not download $dest"
+          }
+          fetch ofo_2021.xlsx \
+            "https://www.hwseta.org.za/wp-content/uploads/2019/12/OFO-Codes-2021.xlsx"
+          fetch isco08_soc2010_crosswalk.xls \
+            "https://www.bls.gov/soc/ISCO_SOC_Crosswalk.xls"
+          fetch soc2010_to_soc2018_crosswalk.xlsx \
+            "https://www.bls.gov/soc/2018/soc_2010_to_2018_crosswalk.xlsx" \
+            "https://www.bls.gov/soc/2018/soc_2010_to_2018_crosswalk.xls"
+          ls -la "$out"
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add python-engine/app/data/sources
+          if git diff --cached --quiet; then echo "Nothing downloaded"; exit 1; fi
+          git commit -m "Add South African occupation source files (OFO 2021, ISCO/SOC crosswalks)"
+          git push
