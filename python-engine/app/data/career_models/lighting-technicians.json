@@ -1,0 +1,55 @@
+{
+  "slug": "lighting-technicians",
+  "name": "Lighting Technicians",
+  "description": "Set up, maintain, and dismantle light fixtures, lighting control devices, and the associated lighting electrical and rigging equipment used for photography, television, film, video, and live productions. May focus or operate light fixtures, or attach color filters or other lighting accessories.",
+  "onet": {
+    "soc_code": "27-4015.00",
+    "occupation_title": "Lighting Technicians",
+    "note": "Imported from the O*NET Database (USDOL/ETA, CC BY 4.0) with exact skill mapping.",
+    "source_url": "https://www.onetonline.org/link/summary/27-4015.00",
+    "last_synced": "2026-10-27T15:42:58.405509+00:00",
+    "sync_method": "onet_bulk_database"
+  },
+  "skills": [
+    {
+      "skill_slug": "microsoft_office",
+      "market_frequency": 0.7,
+      "market_importance": 0.7,
+      "source": "onet_technology_skills",
+      "onet_confirmed": true,
+      "onet_element": ""
+    },
+    {
+      "skill_slug": "autocad",
+      "market_frequency": 0.6,
+      "market_importance": 0.6,
+      "source": "onet_technology_skills",
+      "onet_confirmed": true,
+      "onet_element": ""
+    },
+    {
+      "skill_slug": "microsoft_excel",
+      "market_frequency": 0.6,
+      "market_importance": 0.6,
+      "source": "onet_technology_skills",
+      "onet_confirmed": true,
+      "onet_element": ""
+    },
+    {
+      "skill_slug": "ms_project",
+      "market_frequency": 0.6,
+      "market_importance": 0.6,
+      "source": "onet_technology_skills",
+      "onet_confirmed": true,
+      "onet_element": ""
+    },
+    {
+      "skill_slug": "sap",
+      "market_frequency": 0.45,
+      "market_importance": 0.45,
+      "source": "onet_technology_skills",
+      "onet_confirmed": true,
+      "onet_element": ""
+    }
+  ]
+}
