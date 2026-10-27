@@ -1,7 +1,12 @@
+import Link from "next/link";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { ContactEmail } from "@/components/ContactEmail";
+import { LEGAL_LAST_UPDATED, MINIMUM_AGE, SITE_NAME, SITE_URL } from "@/lib/site";
 
-export const metadata = { title: "Terms of Service - Career Readiness Analyzer" };
+export const metadata = { title: `Terms of Service - ${SITE_NAME}` };
+
+const h2 = "mt-8 font-display text-xl text-ink";
 
 export default function TermsPage() {
   return (
@@ -9,97 +14,161 @@ export default function TermsPage() {
       <Header />
       <main className="mx-auto max-w-2xl px-6 py-16 font-body text-sm leading-relaxed text-ink">
         <h1 className="font-display text-3xl text-ink">Terms of Service</h1>
-        <p className="mt-2 text-xs text-slate">Last updated: [insert date before publishing]</p>
+        <p className="mt-2 text-xs text-ink">Last updated: {LEGAL_LAST_UPDATED}</p>
 
-        <div className="mt-6 rounded border border-brass bg-brass/10 px-4 py-3 text-sm text-brass-dark">
-          <strong>This is a drafted template, not legal advice.</strong> It was
-          written to reflect what this specific application actually does,
-          but it has not been reviewed by a lawyer. Have a qualified lawyer
-          - ideally one familiar with South Africa&apos;s POPIA and any other
-          jurisdictions your users are in - review and customize this
-          before relying on it for a real, live product. Replace every
-          [bracketed placeholder] below with your real details.
-        </div>
-
-        <h2 className="mt-8 font-display text-xl text-ink">1. What this service is</h2>
-        <p className="mt-2">
-          Career Readiness Analyzer (&quot;the Service&quot;, &quot;we&quot;, &quot;us&quot;) lets you
-          upload a CV, select a target career, and receive an automated
-          Career Readiness Score, a skill breakdown, and recommendations.
-          You can also generate a Career Readiness Certificate reflecting
-          that assessment. The Service is provided free of charge.
+        <p className="mt-6">
+          These terms apply when you use {SITE_NAME} (&quot;the service&quot;,
+          &quot;we&quot;, &quot;us&quot;) at {SITE_URL}. By using the service you agree
+          to them and to our{" "}
+          <Link href="/privacy" className="underline hover:text-ink">
+            Privacy Policy
+          </Link>
+          . If you don&apos;t agree, please don&apos;t use the service.
         </p>
 
-        <h2 className="mt-8 font-display text-xl text-ink">2. Not professional certification or career advice</h2>
+        <h2 className={h2}>1. What the service does</h2>
         <p className="mt-2">
-          The Career Readiness Score and Certificate reflect an automated
-          comparison between the skills evidenced in your CV and a skill
-          model for your selected career. They are <strong>not</strong> a
-          professional accreditation, qualification, or certification, and
-          do not guarantee employment, interviews, or any career outcome.
-          Some of the skill-importance data behind the score is drawn from
-          O*NET (a U.S. Department of Labor database) and some is an
-          internal estimate - see the results page for which is which. Do
-          not treat the score as definitive career guidance; use it as one
-          input among others.
+          You upload a CV and choose a career. The service compares the skills
+          your CV shows with the skills that matter for that career and gives
+          you a Career Readiness Score out of 100, a skills breakdown and
+          suggestions. You can also create a Career Readiness Certificate.
+          The service is currently free.
         </p>
 
-        <h2 className="mt-8 font-display text-xl text-ink">3. Your account</h2>
-        <p className="mt-2">
-          Running an analysis does not require an account. Generating a
-          Career Readiness Certificate does require a free account,
-          created via our authentication provider, Clerk. You&apos;re
-          responsible for the accuracy of the name/surname you enter (it
-          appears on your certificate) and for keeping your account
-          credentials secure.
-        </p>
-
-        <h2 className="mt-8 font-display text-xl text-ink">4. Certificate verification is public by design</h2>
-        <p className="mt-2">
-          Every certificate gets a unique ID and a public verification
-          page at <code>/verify/[certificate-id]</code>. Anyone who has (or
-          guesses) that ID can see the name, career, score, and issue date
-          associated with it. This is intentional, so third parties can
-          verify a certificate you choose to share - do not generate or
-          share a certificate if you don&apos;t want that information to be
-          checkable by anyone with the link. We do not display your CV
-          content or any other private information on the verification
-          page.
-        </p>
-
-        <h2 className="mt-8 font-display text-xl text-ink">5. Acceptable use</h2>
-        <p className="mt-2">You agree not to:</p>
-        <ul className="mt-2 list-disc pl-5">
-          <li>Upload a CV or enter a name that isn&apos;t yours, or misrepresent your identity.</li>
-          <li>Attempt to disrupt, overload, or reverse-engineer the Service.</li>
-          <li>Use the Service to generate certificates for the purpose of deceiving a third party (e.g. an employer) about your actual skills.</li>
-          <li>Upload malicious files or content that infringes someone else&apos;s rights.</li>
+        <h2 className={h2}>2. What the score and certificate are, and are not</h2>
+        <ul className="mt-2 list-disc space-y-1 pl-5">
+          <li>
+            The score is an automated estimate based only on the text of the CV
+            you upload. It measures how well your CV matches a career&apos;s
+            skills on that date.
+          </li>
+          <li>
+            It is <strong>not</strong> a qualification, a SAQA-registered
+            credential, a professional accreditation, a job offer, or a
+            guarantee of interviews or employment.
+          </li>
+          <li>
+            We do not check whether what your CV says is true, and we do not
+            verify your identity. The name on a certificate is the name you
+            typed in.
+          </li>
+          <li>
+            Certificates are valid for 12 months from the issue date. After
+            that, the verification page shows them as expired.
+          </li>
+          <li>
+            Career skills data comes from the O*NET Database (see section 8),
+            which describes occupations in the United States. Local job
+            requirements in South Africa or elsewhere may differ.
+          </li>
+          <li>
+            The score is not career, financial or legal advice. Use it as one
+            input among others.
+          </li>
         </ul>
 
-        <h2 className="mt-8 font-display text-xl text-ink">6. No warranty; limitation of liability</h2>
+        <h2 className={h2}>3. Who can use it</h2>
         <p className="mt-2">
-          The Service is provided &quot;as is&quot;, free of charge, without
-          warranties of any kind. To the maximum extent permitted by
-          applicable law, [Company Name] is not liable for any indirect,
-          incidental, or consequential damages arising from your use of
-          the Service, including decisions made based on your Career
-          Readiness Score or Certificate.
+          You must be {MINIMUM_AGE} or older, or have permission from a parent
+          or guardian who accepts these terms for you. You don&apos;t need an
+          account to get a score. You need a free account to create a
+          certificate, and you must keep your sign-in details safe.
         </p>
 
-        <h2 className="mt-8 font-display text-xl text-ink">7. Changes to the Service or these Terms</h2>
+        <h2 className={h2}>4. Your responsibilities</h2>
+        <p className="mt-2">You agree not to:</p>
+        <ul className="mt-2 list-disc space-y-1 pl-5">
+          <li>upload someone else&apos;s CV without their permission;</li>
+          <li>create a certificate in another person&apos;s name, or use a certificate to pretend to be someone else;</li>
+          <li>change, edit or fake a certificate, or present it as a qualification;</li>
+          <li>upload files containing viruses or harmful code, or try to break, overload or get unauthorised access to the service;</li>
+          <li>use automated tools to scrape the service or collect other people&apos;s information; or</li>
+          <li>use the service for anything unlawful.</li>
+        </ul>
         <p className="mt-2">
-          We may update these Terms or change, suspend, or discontinue the
-          Service at any time. Continued use after an update means you
-          accept the revised Terms.
+          You are responsible for the content of the CV you upload, and you
+          confirm you have the right to share it with us.
         </p>
 
-        <h2 className="mt-8 font-display text-xl text-ink">8. Contact</h2>
+        <h2 className={h2}>5. Withdrawing certificates and access</h2>
         <p className="mt-2">
-          Questions about these Terms: [insert contact email].
+          We may withdraw a certificate, or suspend access, if we reasonably
+          believe these terms were broken (for example a certificate in
+          someone else&apos;s name), or if a certificate was created because of
+          an error in the service. A withdrawn certificate will no longer
+          verify.
         </p>
 
-        <p className="mt-8 text-xs text-slate">
-          See also our <a href="/privacy" className="underline hover:text-ink">Privacy Policy</a>.
+        <h2 className={h2}>6. Your content</h2>
+        <p className="mt-2">
+          Your CV stays yours. You let us process it only to give you your
+          results and certificate, as described in the Privacy Policy.
+        </p>
+
+        <h2 className={h2}>7. Our content</h2>
+        <p className="mt-2">
+          The website design, scoring method, text and certificate layout
+          belong to us. You may share your own results and certificate, but
+          you may not copy the service or reuse its content commercially
+          without permission.
+        </p>
+
+        <h2 className={h2}>8. O*NET data</h2>
+        <p className="mt-2">
+          This site uses information from the{" "}
+          <a
+            href="https://www.onetcenter.org/database.html"
+            className="underline hover:text-ink"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            O*NET Database
+          </a>{" "}
+          by the U.S. Department of Labor, Employment and Training
+          Administration (USDOL/ETA), used under the{" "}
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/"
+            className="underline hover:text-ink"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            CC BY 4.0 licence
+          </a>
+          . We have modified the data for use in this service. USDOL/ETA has
+          not approved, endorsed, or tested these modifications. O*NET&reg; is
+          a trademark of USDOL/ETA.
+        </p>
+
+        <h2 className={h2}>9. Availability</h2>
+        <p className="mt-2">
+          We try to keep the service running but can&apos;t promise it will
+          always be available, fast or error-free. The analysis engine may take
+          up to a minute to start after a quiet period. We may change, pause or
+          stop the service, or parts of it, at any time.
+        </p>
+
+        <h2 className={h2}>10. Limitation of liability</h2>
+        <p className="mt-2">
+          The service is provided free and &quot;as is&quot;. To the extent the law
+          allows, we are not liable for any loss arising from your use of the
+          service or reliance on a score or certificate, including lost job
+          opportunities, income or data. Nothing in these terms limits rights
+          you have under the Consumer Protection Act, 2008, or any other law
+          that cannot be excluded, or our liability for gross negligence.
+        </p>
+
+        <h2 className={h2}>11. Changes to these terms</h2>
+        <p className="mt-2">
+          We may update these terms. We will change the date at the top, and
+          for important changes we will show a notice on the site. If you keep
+          using the service after a change, the new terms apply.
+        </p>
+
+        <h2 className={h2}>12. Law and contact</h2>
+        <p className="mt-2">
+          These terms are governed by the laws of the Republic of South
+          Africa. Questions or complaints: <ContactEmail />. We will try to
+          resolve any issue with you informally first.
         </p>
       </main>
       <Footer />

@@ -14,6 +14,14 @@ export async function POST(req: NextRequest) {
     );
   }
 
+  if (incomingForm.get("consent") !== "yes") {
+    return NextResponse.json(
+      { error: "Please agree to the Terms and Privacy Policy before uploading your CV." },
+      { status: 400 }
+    );
+  }
+  incomingForm.delete("consent");
+
   try {
     const res = await fetch(`${getPythonApiUrl()}/api/analyze`, {
       method: "POST",
