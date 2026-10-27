@@ -5,74 +5,163 @@
   "onet": {
     "soc_code": "51-9032.00",
     "occupation_title": "Cutting and Slicing Machine Setters, Operators, and Tenders",
-    "note": "Imported from O*NET 31.0 Database.",
+    "note": "Imported from the O*NET Database (USDOL/ETA, CC BY 4.0) with exact skill mapping.",
     "source_url": "https://www.onetonline.org/link/summary/51-9032.00",
-    "last_synced": "2026-09-08T19:21:53.557648+00:00",
+    "last_synced": "2026-10-27T15:44:39.961447+00:00",
     "sync_method": "onet_bulk_database"
   },
   "skills": [
     {
-      "skill_slug": "literacy_instruction",
-      "market_frequency": 0.47,
-      "market_importance": 0.47,
+      "skill_slug": "operations_monitoring",
+      "market_frequency": 0.75,
+      "market_importance": 0.75,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Operations Monitoring"
     },
     {
-      "skill_slug": "grammar_composition",
-      "market_frequency": 0.28,
-      "market_importance": 0.28,
+      "skill_slug": "production_processing",
+      "market_frequency": 0.728,
+      "market_importance": 0.728,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Production and Processing"
     },
     {
-      "skill_slug": "public_speaking",
-      "market_frequency": 0.405,
-      "market_importance": 0.405,
+      "skill_slug": "operation_and_control",
+      "market_frequency": 0.72,
+      "market_importance": 0.72,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Operation and Control"
     },
     {
-      "skill_slug": "model_monitoring",
-      "market_frequency": 0.5,
-      "market_importance": 0.5,
+      "skill_slug": "quality_control",
+      "market_frequency": 0.655,
+      "market_importance": 0.655,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Quality Control Analysis"
     },
     {
-      "skill_slug": "python",
-      "market_frequency": 0.195,
-      "market_importance": 0.195,
+      "skill_slug": "english_language",
+      "market_frequency": 0.613,
+      "market_importance": 0.613,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "English Language"
     },
     {
-      "skill_slug": "system_design",
-      "market_frequency": 0.66,
-      "market_importance": 0.66,
+      "skill_slug": "mechanical",
+      "market_frequency": 0.59,
+      "market_importance": 0.59,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Mechanical"
     },
     {
-      "skill_slug": "esl_instruction",
-      "market_frequency": 0.703,
-      "market_importance": 0.703,
+      "skill_slug": "computers_electronics",
+      "market_frequency": 0.575,
+      "market_importance": 0.575,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Computers and Electronics"
     },
     {
-      "skill_slug": "typescript",
-      "market_frequency": 0.135,
-      "market_importance": 0.135,
+      "skill_slug": "business_management",
+      "market_frequency": 0.562,
+      "market_importance": 0.562,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Administration and Management"
     },
     {
-      "skill_slug": "data_visualization",
+      "skill_slug": "education_training",
+      "market_frequency": 0.535,
+      "market_importance": 0.535,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Education and Training"
+    },
+    {
+      "skill_slug": "mathematics",
+      "market_frequency": 0.532,
+      "market_importance": 0.532,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Mathematics"
+    },
+    {
+      "skill_slug": "reading_comprehension",
       "market_frequency": 0.53,
       "market_importance": 0.53,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Reading Comprehension"
+    },
+    {
+      "skill_slug": "monitoring",
+      "market_frequency": 0.53,
+      "market_importance": 0.53,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Monitoring"
+    },
+    {
+      "skill_slug": "engineering_technology",
+      "market_frequency": 0.517,
+      "market_importance": 0.517,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Engineering and Technology"
+    },
+    {
+      "skill_slug": "design",
+      "market_frequency": 0.515,
+      "market_importance": 0.515,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Design"
+    },
+    {
+      "skill_slug": "equipment_maintenance",
+      "market_frequency": 0.5,
+      "market_importance": 0.5,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Equipment Maintenance"
+    },
+    {
+      "skill_slug": "troubleshooting",
+      "market_frequency": 0.5,
+      "market_importance": 0.5,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Troubleshooting"
+    },
+    {
+      "skill_slug": "microsoft_excel",
+      "market_frequency": 0.45,
+      "market_importance": 0.45,
+      "source": "onet_technology_skills",
+      "onet_confirmed": true,
+      "onet_element": ""
+    },
+    {
+      "skill_slug": "microsoft_office",
+      "market_frequency": 0.45,
+      "market_importance": 0.45,
+      "source": "onet_technology_skills",
+      "onet_confirmed": true,
+      "onet_element": ""
+    },
+    {
+      "skill_slug": "sap",
+      "market_frequency": 0.45,
+      "market_importance": 0.45,
+      "source": "onet_technology_skills",
+      "onet_confirmed": true,
+      "onet_element": ""
     }
   ]
 }

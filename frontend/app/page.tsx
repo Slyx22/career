@@ -43,7 +43,7 @@ export default function HomePage() {
             <div className="grid gap-8 md:grid-cols-3 animate-fade-in-up delay-200">
               {[
                 { n: "01", t: "Analyze", d: "Upload your CV and we extract skills with explainable NLP." },
-                { n: "02", t: "Score", d: "Get a 0-100 career readiness score backed by market benchmarks." },
+                { n: "02", t: "Score", d: "Get a 0-100 career readiness score built on O*NET occupation data." },
                 { n: "03", t: "Certify", d: "Download a professional certificate with your verified score." },
               ].map((c) => (
                 <div

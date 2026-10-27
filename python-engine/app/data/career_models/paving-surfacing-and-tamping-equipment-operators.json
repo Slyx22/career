@@ -5,74 +5,107 @@
   "onet": {
     "soc_code": "47-2071.00",
     "occupation_title": "Paving, Surfacing, and Tamping Equipment Operators",
-    "note": "Imported from O*NET 31.0 Database.",
+    "note": "Imported from the O*NET Database (USDOL/ETA, CC BY 4.0) with exact skill mapping.",
     "source_url": "https://www.onetonline.org/link/summary/47-2071.00",
-    "last_synced": "2026-09-08T19:21:53.557648+00:00",
+    "last_synced": "2026-10-27T15:44:39.961447+00:00",
     "sync_method": "onet_bulk_database"
   },
   "skills": [
     {
-      "skill_slug": "literacy_instruction",
-      "market_frequency": 0.28,
-      "market_importance": 0.28,
+      "skill_slug": "building_construction",
+      "market_frequency": 0.662,
+      "market_importance": 0.662,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Building and Construction"
     },
     {
-      "skill_slug": "grammar_composition",
-      "market_frequency": 0.155,
-      "market_importance": 0.155,
+      "skill_slug": "operations_monitoring",
+      "market_frequency": 0.655,
+      "market_importance": 0.655,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Operations Monitoring"
     },
     {
-      "skill_slug": "public_speaking",
-      "market_frequency": 0.312,
-      "market_importance": 0.312,
+      "skill_slug": "operation_and_control",
+      "market_frequency": 0.595,
+      "market_importance": 0.595,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Operation and Control"
     },
     {
-      "skill_slug": "model_monitoring",
-      "market_frequency": 0.47,
-      "market_importance": 0.47,
+      "skill_slug": "mechanical",
+      "market_frequency": 0.565,
+      "market_importance": 0.565,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Mechanical"
     },
     {
-      "skill_slug": "python",
+      "skill_slug": "monitoring",
+      "market_frequency": 0.562,
+      "market_importance": 0.562,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Monitoring"
+    },
+    {
+      "skill_slug": "critical_thinking",
       "market_frequency": 0.5,
       "market_importance": 0.5,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Critical Thinking"
     },
     {
-      "skill_slug": "system_design",
-      "market_frequency": 0.438,
-      "market_importance": 0.438,
-      "source": "onet_bulk_database",
-      "onet_confirmed": true
-    },
-    {
-      "skill_slug": "esl_instruction",
-      "market_frequency": 0.292,
-      "market_importance": 0.292,
-      "source": "onet_bulk_database",
-      "onet_confirmed": true
-    },
-    {
-      "skill_slug": "typescript",
-      "market_frequency": 0.018,
-      "market_importance": 0.018,
-      "source": "onet_bulk_database",
-      "onet_confirmed": true
-    },
-    {
-      "skill_slug": "data_visualization",
+      "skill_slug": "coordination",
       "market_frequency": 0.5,
       "market_importance": 0.5,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Coordination"
+    },
+    {
+      "skill_slug": "troubleshooting",
+      "market_frequency": 0.5,
+      "market_importance": 0.5,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Troubleshooting"
+    },
+    {
+      "skill_slug": "repairing",
+      "market_frequency": 0.5,
+      "market_importance": 0.5,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Repairing"
+    },
+    {
+      "skill_slug": "autocad",
+      "market_frequency": 0.45,
+      "market_importance": 0.45,
+      "source": "onet_technology_skills",
+      "onet_confirmed": true,
+      "onet_element": ""
+    },
+    {
+      "skill_slug": "microsoft_excel",
+      "market_frequency": 0.45,
+      "market_importance": 0.45,
+      "source": "onet_technology_skills",
+      "onet_confirmed": true,
+      "onet_element": ""
+    },
+    {
+      "skill_slug": "microsoft_office",
+      "market_frequency": 0.45,
+      "market_importance": 0.45,
+      "source": "onet_technology_skills",
+      "onet_confirmed": true,
+      "onet_element": ""
     }
   ]
 }

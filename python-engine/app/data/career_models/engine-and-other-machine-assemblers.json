@@ -5,74 +5,115 @@
   "onet": {
     "soc_code": "51-2031.00",
     "occupation_title": "Engine and Other Machine Assemblers",
-    "note": "Imported from O*NET 31.0 Database.",
+    "note": "Imported from the O*NET Database (USDOL/ETA, CC BY 4.0) with exact skill mapping.",
     "source_url": "https://www.onetonline.org/link/summary/51-2031.00",
-    "last_synced": "2026-09-08T19:21:53.557648+00:00",
+    "last_synced": "2026-10-27T15:44:39.961447+00:00",
     "sync_method": "onet_bulk_database"
   },
   "skills": [
     {
-      "skill_slug": "literacy_instruction",
+      "skill_slug": "mechanical",
+      "market_frequency": 0.728,
+      "market_importance": 0.728,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Mechanical"
+    },
+    {
+      "skill_slug": "production_processing",
+      "market_frequency": 0.603,
+      "market_importance": 0.603,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Production and Processing"
+    },
+    {
+      "skill_slug": "operations_monitoring",
+      "market_frequency": 0.595,
+      "market_importance": 0.595,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Operations Monitoring"
+    },
+    {
+      "skill_slug": "customer_service",
+      "market_frequency": 0.555,
+      "market_importance": 0.555,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Customer and Personal Service"
+    },
+    {
+      "skill_slug": "reading_comprehension",
       "market_frequency": 0.53,
       "market_importance": 0.53,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Reading Comprehension"
     },
     {
-      "skill_slug": "grammar_composition",
-      "market_frequency": 0.312,
-      "market_importance": 0.312,
+      "skill_slug": "quality_control",
+      "market_frequency": 0.53,
+      "market_importance": 0.53,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Quality Control Analysis"
     },
     {
-      "skill_slug": "public_speaking",
-      "market_frequency": 0.47,
-      "market_importance": 0.47,
-      "source": "onet_bulk_database",
-      "onet_confirmed": true
-    },
-    {
-      "skill_slug": "model_monitoring",
+      "skill_slug": "active_listening",
       "market_frequency": 0.5,
       "market_importance": 0.5,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Active Listening"
     },
     {
-      "skill_slug": "python",
+      "skill_slug": "speaking",
       "market_frequency": 0.5,
       "market_importance": 0.5,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Speaking"
     },
     {
-      "skill_slug": "system_design",
-      "market_frequency": 0.415,
-      "market_importance": 0.415,
-      "source": "onet_bulk_database",
-      "onet_confirmed": true
-    },
-    {
-      "skill_slug": "esl_instruction",
-      "market_frequency": 0.41,
-      "market_importance": 0.41,
-      "source": "onet_bulk_database",
-      "onet_confirmed": true
-    },
-    {
-      "skill_slug": "typescript",
+      "skill_slug": "critical_thinking",
       "market_frequency": 0.5,
       "market_importance": 0.5,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Critical Thinking"
     },
     {
-      "skill_slug": "data_visualization",
-      "market_frequency": 0.72,
-      "market_importance": 0.72,
+      "skill_slug": "monitoring",
+      "market_frequency": 0.5,
+      "market_importance": 0.5,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Monitoring"
+    },
+    {
+      "skill_slug": "microsoft_excel",
+      "market_frequency": 0.45,
+      "market_importance": 0.45,
+      "source": "onet_technology_skills",
+      "onet_confirmed": true,
+      "onet_element": ""
+    },
+    {
+      "skill_slug": "microsoft_office",
+      "market_frequency": 0.45,
+      "market_importance": 0.45,
+      "source": "onet_technology_skills",
+      "onet_confirmed": true,
+      "onet_element": ""
+    },
+    {
+      "skill_slug": "sap",
+      "market_frequency": 0.45,
+      "market_importance": 0.45,
+      "source": "onet_technology_skills",
+      "onet_confirmed": true,
+      "onet_element": ""
     }
   ]
 }

@@ -5,74 +5,83 @@
   "onet": {
     "soc_code": "53-7031.00",
     "occupation_title": "Dredge Operators",
-    "note": "Imported from O*NET 31.0 Database.",
+    "note": "Imported from the O*NET Database (USDOL/ETA, CC BY 4.0) with exact skill mapping.",
     "source_url": "https://www.onetonline.org/link/summary/53-7031.00",
-    "last_synced": "2026-09-08T19:21:53.557648+00:00",
+    "last_synced": "2026-10-27T15:44:39.961447+00:00",
     "sync_method": "onet_bulk_database"
   },
   "skills": [
     {
-      "skill_slug": "literacy_instruction",
-      "market_frequency": 0.345,
-      "market_importance": 0.345,
+      "skill_slug": "mechanical",
+      "market_frequency": 0.765,
+      "market_importance": 0.765,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Mechanical"
     },
     {
-      "skill_slug": "grammar_composition",
-      "market_frequency": 0.25,
-      "market_importance": 0.25,
+      "skill_slug": "operation_and_control",
+      "market_frequency": 0.688,
+      "market_importance": 0.688,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Operation and Control"
     },
     {
-      "skill_slug": "public_speaking",
-      "market_frequency": 0.312,
-      "market_importance": 0.312,
+      "skill_slug": "operations_monitoring",
+      "market_frequency": 0.625,
+      "market_importance": 0.625,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Operations Monitoring"
     },
     {
-      "skill_slug": "model_monitoring",
-      "market_frequency": 0.47,
-      "market_importance": 0.47,
+      "skill_slug": "english_language",
+      "market_frequency": 0.608,
+      "market_importance": 0.608,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "English Language"
     },
     {
-      "skill_slug": "python",
+      "skill_slug": "public_safety",
+      "market_frequency": 0.545,
+      "market_importance": 0.545,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Public Safety and Security"
+    },
+    {
+      "skill_slug": "business_management",
+      "market_frequency": 0.537,
+      "market_importance": 0.537,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Administration and Management"
+    },
+    {
+      "skill_slug": "critical_thinking",
       "market_frequency": 0.5,
       "market_importance": 0.5,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Critical Thinking"
     },
     {
-      "skill_slug": "system_design",
+      "skill_slug": "coordination",
       "market_frequency": 0.5,
       "market_importance": 0.5,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Coordination"
     },
     {
-      "skill_slug": "esl_instruction",
-      "market_frequency": 0.598,
-      "market_importance": 0.598,
-      "source": "onet_bulk_database",
-      "onet_confirmed": true
-    },
-    {
-      "skill_slug": "typescript",
+      "skill_slug": "judgment_decision_making",
       "market_frequency": 0.5,
       "market_importance": 0.5,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
-    },
-    {
-      "skill_slug": "data_visualization",
-      "market_frequency": 0.438,
-      "market_importance": 0.438,
-      "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Judgment and Decision Making"
     }
   ]
 }

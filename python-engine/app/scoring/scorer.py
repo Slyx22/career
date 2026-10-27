@@ -34,6 +34,14 @@ from app.nlp.taxonomy import SKILL_BY_SLUG
 from app.scoring.career_model import CareerModel
 from app.nlp.education_detector import detect_education_level, calculate_education_boost, EducationInfo
 
+# O*NET rates broad abilities such as active listening or speaking as
+# important for almost every occupation, but CVs rarely name them and
+# recruiters screen mainly on job-specific knowledge and tools. These
+# categories still count, at half weight, so a CV isn't marked down mainly
+# for not spelling out "active listening".
+GENERAL_SKILL_CATEGORIES = {"Core skills", "People skills"}
+GENERAL_SKILL_WEIGHT = 0.5
+
 
 @dataclass
 class SkillScoreDetail:
@@ -90,6 +98,8 @@ def score_career_readiness(
         importance_weight = weight.market_importance
         frequency_weight = weight.market_frequency
         combined_weight = (0.6 * importance_weight) + (0.4 * frequency_weight)
+        if skill.category in GENERAL_SKILL_CATEGORIES:
+            combined_weight *= GENERAL_SKILL_WEIGHT
 
         # Irrelevant skills (low market importance) contribute 0 — prevents
         # unrelated skills (e.g., Python in non-ML career) from inflating score.

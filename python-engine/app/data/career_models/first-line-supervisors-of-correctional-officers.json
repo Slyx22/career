@@ -5,74 +5,187 @@
   "onet": {
     "soc_code": "33-1011.00",
     "occupation_title": "First-Line Supervisors of Correctional Officers",
-    "note": "Imported from O*NET 31.0 Database.",
+    "note": "Imported from the O*NET Database (USDOL/ETA, CC BY 4.0) with exact skill mapping.",
     "source_url": "https://www.onetonline.org/link/summary/33-1011.00",
-    "last_synced": "2026-09-08T19:21:53.557648+00:00",
+    "last_synced": "2026-10-27T15:44:39.961447+00:00",
     "sync_method": "onet_bulk_database"
   },
   "skills": [
     {
-      "skill_slug": "literacy_instruction",
+      "skill_slug": "public_safety",
+      "market_frequency": 0.952,
+      "market_importance": 0.952,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Public Safety and Security"
+    },
+    {
+      "skill_slug": "law_government",
+      "market_frequency": 0.847,
+      "market_importance": 0.847,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Law and Government"
+    },
+    {
+      "skill_slug": "business_management",
+      "market_frequency": 0.788,
+      "market_importance": 0.788,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Administration and Management"
+    },
+    {
+      "skill_slug": "psychology",
+      "market_frequency": 0.778,
+      "market_importance": 0.778,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Psychology"
+    },
+    {
+      "skill_slug": "english_language",
+      "market_frequency": 0.76,
+      "market_importance": 0.76,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "English Language"
+    },
+    {
+      "skill_slug": "active_listening",
       "market_frequency": 0.75,
       "market_importance": 0.75,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Active Listening"
     },
     {
-      "skill_slug": "grammar_composition",
+      "skill_slug": "critical_thinking",
+      "market_frequency": 0.75,
+      "market_importance": 0.75,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Critical Thinking"
+    },
+    {
+      "skill_slug": "monitoring",
+      "market_frequency": 0.75,
+      "market_importance": 0.75,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Monitoring"
+    },
+    {
+      "skill_slug": "social_perceptiveness",
+      "market_frequency": 0.75,
+      "market_importance": 0.75,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Social Perceptiveness"
+    },
+    {
+      "skill_slug": "coordination",
+      "market_frequency": 0.75,
+      "market_importance": 0.75,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Coordination"
+    },
+    {
+      "skill_slug": "speaking",
+      "market_frequency": 0.72,
+      "market_importance": 0.72,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Speaking"
+    },
+    {
+      "skill_slug": "reading_comprehension",
+      "market_frequency": 0.688,
+      "market_importance": 0.688,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Reading Comprehension"
+    },
+    {
+      "skill_slug": "people_management",
+      "market_frequency": 0.688,
+      "market_importance": 0.688,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Management of Personnel Resources"
+    },
+    {
+      "skill_slug": "administration",
+      "market_frequency": 0.672,
+      "market_importance": 0.672,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Administrative"
+    },
+    {
+      "skill_slug": "computers_electronics",
+      "market_frequency": 0.66,
+      "market_importance": 0.66,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Computers and Electronics"
+    },
+    {
+      "skill_slug": "education_training",
       "market_frequency": 0.655,
       "market_importance": 0.655,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Education and Training"
     },
     {
-      "skill_slug": "public_speaking",
-      "market_frequency": 0.75,
-      "market_importance": 0.75,
+      "skill_slug": "writing",
+      "market_frequency": 0.625,
+      "market_importance": 0.625,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Writing"
     },
     {
-      "skill_slug": "model_monitoring",
-      "market_frequency": 0.812,
-      "market_importance": 0.812,
+      "skill_slug": "persuasion",
+      "market_frequency": 0.625,
+      "market_importance": 0.625,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Persuasion"
     },
     {
-      "skill_slug": "python",
-      "market_frequency": 0.71,
-      "market_importance": 0.71,
+      "skill_slug": "negotiation",
+      "market_frequency": 0.625,
+      "market_importance": 0.625,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Negotiation"
     },
     {
-      "skill_slug": "system_design",
-      "market_frequency": 0.04,
-      "market_importance": 0.04,
+      "skill_slug": "active_learning",
+      "market_frequency": 0.562,
+      "market_importance": 0.562,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Active Learning"
     },
     {
-      "skill_slug": "esl_instruction",
-      "market_frequency": 0.755,
-      "market_importance": 0.755,
-      "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "skill_slug": "microsoft_office",
+      "market_frequency": 0.55,
+      "market_importance": 0.55,
+      "source": "onet_technology_skills",
+      "onet_confirmed": true,
+      "onet_element": ""
     },
     {
-      "skill_slug": "typescript",
-      "market_frequency": 0.5,
-      "market_importance": 0.5,
-      "source": "onet_bulk_database",
-      "onet_confirmed": true
-    },
-    {
-      "skill_slug": "data_visualization",
-      "market_frequency": 0.375,
-      "market_importance": 0.375,
-      "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "skill_slug": "microsoft_excel",
+      "market_frequency": 0.45,
+      "market_importance": 0.45,
+      "source": "onet_technology_skills",
+      "onet_confirmed": true,
+      "onet_element": ""
     }
   ]
 }

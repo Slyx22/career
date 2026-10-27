@@ -5,74 +5,155 @@
   "onet": {
     "soc_code": "53-5022.00",
     "occupation_title": "Motorboat Operators",
-    "note": "Imported from O*NET 31.0 Database.",
+    "note": "Imported from the O*NET Database (USDOL/ETA, CC BY 4.0) with exact skill mapping.",
     "source_url": "https://www.onetonline.org/link/summary/53-5022.00",
-    "last_synced": "2026-09-08T19:21:53.557648+00:00",
+    "last_synced": "2026-10-27T15:44:39.961447+00:00",
     "sync_method": "onet_bulk_database"
   },
   "skills": [
     {
-      "skill_slug": "literacy_instruction",
-      "market_frequency": 0.5,
-      "market_importance": 0.5,
+      "skill_slug": "customer_service",
+      "market_frequency": 0.84,
+      "market_importance": 0.84,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Customer and Personal Service"
     },
     {
-      "skill_slug": "grammar_composition",
-      "market_frequency": 0.438,
-      "market_importance": 0.438,
+      "skill_slug": "english_language",
+      "market_frequency": 0.775,
+      "market_importance": 0.775,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "English Language"
     },
     {
-      "skill_slug": "public_speaking",
-      "market_frequency": 0.47,
-      "market_importance": 0.47,
+      "skill_slug": "education_training",
+      "market_frequency": 0.728,
+      "market_importance": 0.728,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Education and Training"
     },
     {
-      "skill_slug": "model_monitoring",
+      "skill_slug": "operation_and_control",
+      "market_frequency": 0.72,
+      "market_importance": 0.72,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Operation and Control"
+    },
+    {
+      "skill_slug": "public_safety",
+      "market_frequency": 0.705,
+      "market_importance": 0.705,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Public Safety and Security"
+    },
+    {
+      "skill_slug": "transportation",
+      "market_frequency": 0.693,
+      "market_importance": 0.693,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Transportation"
+    },
+    {
+      "skill_slug": "operations_monitoring",
+      "market_frequency": 0.688,
+      "market_importance": 0.688,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Operations Monitoring"
+    },
+    {
+      "skill_slug": "mechanical",
+      "market_frequency": 0.615,
+      "market_importance": 0.615,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Mechanical"
+    },
+    {
+      "skill_slug": "speaking",
       "market_frequency": 0.595,
       "market_importance": 0.595,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Speaking"
     },
     {
-      "skill_slug": "python",
+      "skill_slug": "monitoring",
+      "market_frequency": 0.595,
+      "market_importance": 0.595,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Monitoring"
+    },
+    {
+      "skill_slug": "equipment_maintenance",
+      "market_frequency": 0.595,
+      "market_importance": 0.595,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Equipment Maintenance"
+    },
+    {
+      "skill_slug": "judgment_decision_making",
+      "market_frequency": 0.562,
+      "market_importance": 0.562,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Judgment and Decision Making"
+    },
+    {
+      "skill_slug": "active_listening",
+      "market_frequency": 0.53,
+      "market_importance": 0.53,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Active Listening"
+    },
+    {
+      "skill_slug": "critical_thinking",
+      "market_frequency": 0.53,
+      "market_importance": 0.53,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Critical Thinking"
+    },
+    {
+      "skill_slug": "social_perceptiveness",
       "market_frequency": 0.5,
       "market_importance": 0.5,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Social Perceptiveness"
     },
     {
-      "skill_slug": "system_design",
-      "market_frequency": 0.175,
-      "market_importance": 0.175,
-      "source": "onet_bulk_database",
-      "onet_confirmed": true
-    },
-    {
-      "skill_slug": "esl_instruction",
-      "market_frequency": 0.71,
-      "market_importance": 0.71,
-      "source": "onet_bulk_database",
-      "onet_confirmed": true
-    },
-    {
-      "skill_slug": "typescript",
+      "skill_slug": "coordination",
       "market_frequency": 0.5,
       "market_importance": 0.5,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Coordination"
     },
     {
-      "skill_slug": "data_visualization",
-      "market_frequency": 0.625,
-      "market_importance": 0.625,
+      "skill_slug": "service_orientation",
+      "market_frequency": 0.5,
+      "market_importance": 0.5,
       "source": "onet_bulk_database",
-      "onet_confirmed": true
+      "onet_confirmed": true,
+      "onet_element": "Service Orientation"
+    },
+    {
+      "skill_slug": "complex_problem_solving",
+      "market_frequency": 0.5,
+      "market_importance": 0.5,
+      "source": "onet_bulk_database",
+      "onet_confirmed": true,
+      "onet_element": "Complex Problem Solving"
     }
   ]
 }
