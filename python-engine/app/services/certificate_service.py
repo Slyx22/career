@@ -11,6 +11,9 @@ from reportlab.lib import colors
 from reportlab.lib.pagesizes import landscape, A4
 from reportlab.lib.units import mm
 from reportlab.pdfgen import canvas
+from reportlab.graphics import renderPDF
+from reportlab.graphics.barcode.qr import QrCodeWidget
+from reportlab.graphics.shapes import Drawing
 
 from app.db.interface import Repository
 from app.models.schemas import CertificateResponse, CertificateVerifyResponse
@@ -21,7 +24,7 @@ _ID_ALPHABET = string.ascii_uppercase + string.digits
 # personal names. Bump METHOD_VERSION whenever the scoring method or the
 # career data changes, so old and new certificates can be told apart.
 ISSUER_NAME = os.environ.get("CERTIFICATE_ISSUER_NAME", "Career Readiness Analyzer")
-METHOD_VERSION = "2.0"
+METHOD_VERSION = "2.1"
 CERTIFICATE_VALID_DAYS = 365
 
 
@@ -223,14 +226,27 @@ def render_certificate_pdf(*, store: Repository, certificate_id: str) -> Optiona
         career_text = career_text[:max_career_chars] + "..."
     c.drawCentredString(center_x, height - 92 * mm, career_text)
 
-    # Score box (Udemy-style)
-    c.setFont("Helvetica", 11)
+    # Score ring
+    ring_cx, ring_cy, ring_r = center_x, height - 120 * mm, 15 * mm
+    c.setLineWidth(3.2 * mm)
+    c.setStrokeColor(colors.HexColor("#E8DFC9"))
+    c.circle(ring_cx, ring_cy, ring_r, stroke=1, fill=0)
+    score = max(0, min(100, int(cert["score"])))
+    if score:
+        c.setStrokeColor(colors.HexColor("#B8801F"))
+        c.setLineCap(1)
+        path = c.beginPath()
+        path.arc(ring_cx - ring_r, ring_cy - ring_r, ring_cx + ring_r, ring_cy + ring_r, startAng=90, extent=-3.6 * score)
+        c.drawPath(path, stroke=1, fill=0)
+        c.setLineCap(0)
+    c.setFont("Helvetica-Bold", 24)
+    c.setFillColor(colors.HexColor("#141A2E"))
+    c.drawCentredString(ring_cx, ring_cy - 2 * mm, str(score))
+    c.setFont("Helvetica", 7.5)
     c.setFillColor(colors.HexColor("#475569"))
-    c.drawCentredString(center_x, height - 108 * mm, "Career Readiness Score")
-
-    c.setFont("Helvetica-Bold", 28)
-    c.setFillColor(colors.HexColor("#B8801F"))
-    c.drawCentredString(center_x, height - 122 * mm, f"{cert['score']}/100")
+    c.drawCentredString(ring_cx, ring_cy - 7 * mm, "out of 100")
+    c.setFont("Helvetica", 10)
+    c.drawCentredString(center_x, ring_cy + ring_r + 4.5 * mm, "Career Readiness Score")
 
     # Issue / validity section. No personal signature: a handwritten
     # signature image in a public repo can be copied, and the certificate's
@@ -270,6 +286,20 @@ def render_certificate_pdf(*, store: Repository, certificate_id: str) -> Optiona
         else f"Verify authenticity at: /verify/{cert['certificate_id']}"
     )
     c.drawCentredString(center_x, 29 * mm, verify_line)
+
+    # QR code: scan to open the public verification page.
+    if verify_base:
+        qr_url = f"{verify_base}/verify/{cert['certificate_id']}"
+        widget = QrCodeWidget(qr_url)
+        x0, y0, x1, y1 = widget.getBounds()
+        qr_size = 24 * mm
+        drawing = Drawing(qr_size, qr_size, transform=[qr_size / (x1 - x0), 0, 0, qr_size / (y1 - y0), 0, 0])
+        drawing.add(widget)
+        qr_x, qr_y = width - 22 * mm - qr_size, 24 * mm
+        renderPDF.draw(drawing, c, qr_x, qr_y)
+        c.setFont("Helvetica", 6.5)
+        c.setFillColor(colors.HexColor("#64748B"))
+        c.drawCentredString(qr_x + qr_size / 2, qr_y - 3 * mm, "Scan to verify")
 
     c.setFont("Helvetica-Oblique", 7)
     c.setFillColor(colors.HexColor("#94A3B8"))

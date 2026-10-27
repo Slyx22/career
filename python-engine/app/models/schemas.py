@@ -11,8 +11,11 @@ class SkillBreakdownItem(BaseModel):
     category: str
     present: bool
     score_percent: int  # 0-100, for the UI progress bar
-    weight_source: str = "benchmark_estimate"  # "onet_api" | "onet_technology_list_only" | "benchmark_estimate"
+    weight_source: str = "benchmark_estimate"  # "onet_bulk_database" | "onet_technology_skills" | "benchmark_estimate"
     onet_confirmed: bool = False
+    importance_level: str = ""  # "essential" | "important" | "useful"
+    is_tool: bool = False
+    tip: Optional[str] = None  # how to show or build this skill, when it's missing or weak
 
 
 class OnetSourceInfo(BaseModel):

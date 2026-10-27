@@ -1,6 +1,27 @@
+import type { Metadata } from "next";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { fetchVerification } from "@/lib/serverApi";
+import { shareTitle, verifyUrl } from "@/lib/certificate";
+import { SITE_NAME } from "@/lib/site";
+
+// Title, description and preview picture used when this link is shared.
+export async function generateMetadata({ params }: { params: { certificateId: string } }): Promise<Metadata> {
+  const cert = await fetchVerification(params.certificateId);
+  if (!cert.verified) return { title: `Certificate not found - ${SITE_NAME}`, robots: { index: false } };
+  const title = shareTitle(cert);
+  const description = cert.expired
+    ? `Genuine career readiness certificate from ${SITE_NAME} (validity period ended).`
+    : `Verified career readiness certificate issued by ${SITE_NAME}.`;
+  return {
+    title,
+    description,
+    openGraph: { title, description, url: verifyUrl(params.certificateId), type: "website", siteName: SITE_NAME },
+    twitter: { card: "summary_large_image", title, description },
+    // Found through the shared link, not by searching someone's name.
+    robots: { index: false, follow: false },
+  };
+}
 
 function formatDate(iso: string) {
   try {

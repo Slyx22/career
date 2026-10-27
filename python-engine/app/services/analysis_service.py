@@ -7,7 +7,7 @@ from typing import Optional
 from app.extractors.cv_extractor import CVExtractionError, ExtractedCV, extract_cv
 from app.models.schemas import AnalysisResponse, OnetSourceInfo, SkillBreakdownItem
 from app.nlp.skill_extractor import extract_skill_evidence
-from app.recommendations.engine import generate_recommendations
+from app.recommendations.engine import action_for, generate_recommendations
 from app.scoring.career_model import CareerModel, get_career_model
 from app.scoring.scorer import ScoringResult, score_career_readiness
 from app.scoring.sa_requirements import sa_requirements_for
@@ -15,9 +15,12 @@ from app.scoring.sa_titles import resolve_sa_title
 from app.db.interface import Repository
 
 GENERIC_BENCHMARK_DISCLAIMER = (
-    "Skill importance and frequency figures used in this analysis are a mix of "
-    "O*NET-sourced data and initial benchmark estimates set by the product team. "
-    "See onet_source below for which skills are independently verified."
+    "How this works: your CV is compared with the skills, knowledge areas and tools "
+    "that the O*NET database (U.S. Department of Labor) rates as important for this "
+    "occupation. A skill counts as found when your CV shows it in words a recruiter "
+    "would recognise. The score reflects your CV, not everything you can do, so "
+    "adding clear evidence to your CV can raise it. Tools count as a group: any 3 of "
+    "the listed tools earn full credit."
 )
 
 
@@ -51,8 +54,11 @@ def _build_breakdown(result: ScoringResult) -> list:
             score_percent=round(d.final_score * 100),
             weight_source=d.weight_source,
             onet_confirmed=d.onet_confirmed,
+            importance_level=d.importance_level,
+            is_tool=d.is_tool,
+            tip=None if d.present and d.final_score >= 0.35 else action_for(d),
         )
-        for d in sorted(result.skill_details, key=lambda d: d.market_importance, reverse=True)
+        for d in sorted(result.skill_details, key=lambda d: (d.is_tool, -d.market_importance))
     ]
 
 
@@ -96,11 +102,7 @@ def run_analysis(
     # Pass the raw CV text for education level detection
     result = score_career_readiness(evidence, career_model, cv_text=cv.raw_text)
 
-    gap_details = sorted(
-        [d for d in result.skill_details if (not d.present) or d.final_score < 0.35],
-        key=lambda d: (d.market_importance * d.market_frequency),
-        reverse=True,
-    )
+    gap_details = result.gap_details or []
     recommendations = generate_recommendations(gap_details, limit=5)
     breakdown = _build_breakdown(result)
     onet_source = _build_onet_source_info(career_model)
@@ -110,6 +112,13 @@ def run_analysis(
     sa_requirements = sa_requirements_for(
         career_model.onet.soc_code if career_model.onet else None, cv.raw_text
     )
+    missing_reqs = [r for r in sa_requirements if not r["found_in_cv"]]
+    if missing_reqs:
+        labels = " and ".join(r["label"] for r in missing_reqs[:2])
+        recommendations = [
+            f"South African employers usually check for {labels} for this job. If you have it, "
+            "state it clearly on your CV; if not, find out what it takes to get it."
+        ] + recommendations[:4]
 
     analysis_id = str(uuid.uuid4())
     created_at = datetime.now(timezone.utc).isoformat()

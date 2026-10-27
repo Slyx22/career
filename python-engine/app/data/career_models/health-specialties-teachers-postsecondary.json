@@ -7,7 +7,7 @@
     "occupation_title": "Health Specialties Teachers, Postsecondary",
     "note": "Imported from the O*NET Database (USDOL/ETA, CC BY 4.0) with exact skill mapping.",
     "source_url": "https://www.onetonline.org/link/summary/25-1071.00",
-    "last_synced": "2026-10-27T15:44:39.961447+00:00",
+    "last_synced": "2026-10-27T22:45:26.547535+00:00",
     "sync_method": "onet_bulk_database"
   },
   "skills": [
@@ -172,7 +172,7 @@
       "onet_element": "Monitoring"
     },
     {
-      "skill_slug": "statistics",
+      "skill_slug": "microsoft_office",
       "market_frequency": 0.45,
       "market_importance": 0.45,
       "source": "onet_technology_skills",
@@ -188,7 +188,7 @@
       "onet_element": ""
     },
     {
-      "skill_slug": "microsoft_office",
+      "skill_slug": "statistics",
       "market_frequency": 0.45,
       "market_importance": 0.45,
       "source": "onet_technology_skills",

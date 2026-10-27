@@ -10,6 +10,8 @@ import AuthProvider from "@/components/AuthProvider";
 // getting the intended typefaces wherever the network is available.
 
 export const metadata: Metadata = {
+  // Makes share-preview image links absolute (needed by LinkedIn/WhatsApp).
+  metadataBase: new URL("https://srmaps.co.za"),
   title: "Career Readiness Analyzer",
   description:
     "Upload your CV and discover how closely your skills match the requirements of your target career.",

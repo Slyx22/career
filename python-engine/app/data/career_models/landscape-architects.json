@@ -7,7 +7,7 @@
     "occupation_title": "Landscape Architects",
     "note": "Imported from the O*NET Database (USDOL/ETA, CC BY 4.0) with exact skill mapping.",
     "source_url": "https://www.onetonline.org/link/summary/17-1012.00",
-    "last_synced": "2026-10-27T15:44:39.961447+00:00",
+    "last_synced": "2026-10-27T22:45:26.547535+00:00",
     "sync_method": "onet_bulk_database"
   },
   "skills": [
@@ -172,15 +172,7 @@
       "onet_element": "Public Safety and Security"
     },
     {
-      "skill_slug": "adobe_creative",
-      "market_frequency": 0.55,
-      "market_importance": 0.55,
-      "source": "onet_technology_skills",
-      "onet_confirmed": true,
-      "onet_element": ""
-    },
-    {
-      "skill_slug": "autocad",
+      "skill_slug": "microsoft_office",
       "market_frequency": 0.55,
       "market_importance": 0.55,
       "source": "onet_technology_skills",
@@ -196,7 +188,15 @@
       "onet_element": ""
     },
     {
-      "skill_slug": "microsoft_office",
+      "skill_slug": "autocad",
+      "market_frequency": 0.55,
+      "market_importance": 0.55,
+      "source": "onet_technology_skills",
+      "onet_confirmed": true,
+      "onet_element": ""
+    },
+    {
+      "skill_slug": "adobe_creative",
       "market_frequency": 0.55,
       "market_importance": 0.55,
       "source": "onet_technology_skills",
