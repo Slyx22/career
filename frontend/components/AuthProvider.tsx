@@ -16,7 +16,7 @@ export default function AuthProvider({ children }: { children: React.ReactNode }
     return <>{children}</>;
   }
 
-  // next.config.mjs already maps CLERK1 -> NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
+  // next.config.mjs maps clerk1/CLERK1 -> NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
   // at build time, so only the NEXT_PUBLIC_ var is visible here.
   const publishableKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY || '';
 
