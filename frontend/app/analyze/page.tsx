@@ -4,7 +4,9 @@ import { FormEvent, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import Link from "next/link";
 import { Career } from "@/lib/types";
+import { MINIMUM_AGE } from "@/lib/site";
 
 const ACCEPTED_FORMATS = ".pdf,.docx";
 
@@ -15,6 +17,7 @@ export default function AnalyzePage() {
   const [surname, setSurname] = useState("");
   const [career, setCareer] = useState("");
   const [file, setFile] = useState<File | null>(null);
+  const [consent, setConsent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -55,11 +58,17 @@ export default function AnalyzePage() {
       return;
     }
 
+    if (!consent) {
+      setError("Please tick the box to agree before uploading your CV.");
+      return;
+    }
+
     const formData = new FormData();
     formData.append("first_name", firstName.trim());
     formData.append("surname", surname.trim());
     formData.append("career", career);
     formData.append("file", file);
+    formData.append("consent", "yes");
 
     setSubmitting(true);
     try {
@@ -164,6 +173,30 @@ export default function AnalyzePage() {
               </p>
             </div>
 
+            <div className="flex items-start gap-3">
+              <input
+                id="consent"
+                type="checkbox"
+                checked={consent}
+                onChange={(e) => setConsent(e.target.checked)}
+                className="focus-ring mt-0.5 h-4 w-4 shrink-0 rounded border-line accent-ink"
+              />
+              <label htmlFor="consent" className="font-body text-xs leading-relaxed text-slate-700">
+                I agree to the{" "}
+                <Link href="/terms" target="_blank" className="underline hover:text-ink">
+                  Terms of Service
+                </Link>{" "}
+                and{" "}
+                <Link href="/privacy" target="_blank" className="underline hover:text-ink">
+                  Privacy Policy
+                </Link>
+                , and consent to my CV being processed to calculate my score. My CV
+                file is not stored. I am {MINIMUM_AGE} or older, or have a parent or
+                guardian&apos;s permission, and this is my own CV or I have permission
+                to upload it.
+              </label>
+            </div>
+
             {error && (
               <p className="rounded border border-brass bg-brass/20 px-3 py-2 font-body text-sm text-brass" role="alert">
                 {error}
@@ -172,7 +205,7 @@ export default function AnalyzePage() {
 
             <button
               type="submit"
-              disabled={submitting}
+              disabled={submitting || !consent}
               className="focus-ring w-full rounded bg-ink px-6 py-3 font-body text-sm font-medium text-paper transition-colors hover:bg-brass-dark disabled:cursor-not-allowed disabled:opacity-60"
             >
               {submitting ? "Analyzing your CV…" : "Analyze"}
