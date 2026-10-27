@@ -62,6 +62,26 @@ export default function TermsPage() {
             requirements in South Africa or elsewhere may differ.
           </li>
           <li>
+            South African job titles come from the Organising Framework for
+            Occupations (OFO 2021). Each one is linked to the closest
+            international occupation, whose skills are used for the score. The
+            link is our best match, not an official equivalence, and the results
+            page shows which occupation was used.
+          </li>
+          <li>
+            The &ldquo;Required in South Africa&rdquo; checklist and recommended
+            next steps are general information to help you, not legal,
+            professional or career advice. Registration and licensing rules can
+            change and may not be complete; always confirm with the relevant
+            council, authority or employer. The checklist only shows whether
+            your CV mentions an item; it does not check that you hold it.
+          </li>
+          <li>
+            Scoring methods improve over time. A certificate records the score
+            and method version on the date issued; a new analysis may give a
+            different score.
+          </li>
+          <li>
             The score is not career, financial or legal advice. Use it as one
             input among others.
           </li>
@@ -80,7 +100,8 @@ export default function TermsPage() {
         <ul className="mt-2 list-disc space-y-1 pl-5">
           <li>upload someone else&apos;s CV without their permission;</li>
           <li>create a certificate in another person&apos;s name, or use a certificate to pretend to be someone else;</li>
-          <li>change, edit or fake a certificate, or present it as a qualification;</li>
+          <li>change, edit or fake a certificate, its images or its verification page, or present it as a qualification;</li>
+          <li>share a certificate that isn&apos;t yours, or describe a certificate in a way that suggests we endorse you or vouch for your skills or character;</li>
           <li>upload files containing viruses or harmful code, or try to break, overload or get unauthorised access to the service;</li>
           <li>use automated tools to scrape the service or collect other people&apos;s information; or</li>
           <li>use the service for anything unlawful.</li>
@@ -111,6 +132,14 @@ export default function TermsPage() {
           belong to us. You may share your own results and certificate, but
           you may not copy the service or reuse its content commercially
           without permission.
+        </p>
+        <p className="mt-2">
+          <strong>Sharing.</strong> You may share your own certificate, its
+          link and its images, unchanged, on social media, in job applications
+          and on profiles such as LinkedIn. When you use a share button you
+          leave our site and the other platform&apos;s terms apply. We are not
+          responsible for those platforms or for what other people do with what
+          you share.
         </p>
 
         <h2 className={h2}>8. O*NET data</h2>

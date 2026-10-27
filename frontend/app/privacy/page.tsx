@@ -43,9 +43,12 @@ export default function PrivacyPage() {
             file.
           </li>
           <li>
-            <strong>The career you choose</strong> and your{" "}
-            <strong>results</strong>: your score, the skills found and
-            missing, and recommendations.
+            <strong>The career you choose</strong> (a South African job title or
+            an international one) and your <strong>results</strong>: your score,
+            which skills were found or missing, recommended next steps, and
+            whether your CV mentions registrations or licences usually required
+            in South Africa for that job (for example SANC or a trade test). We
+            keep these results, not the wording of your CV.
           </li>
           <li>
             <strong>Account details</strong> (such as your email address), only
@@ -53,8 +56,8 @@ export default function PrivacyPage() {
             by our sign-in provider, Clerk.
           </li>
           <li>
-            <strong>Certificate details</strong>: name, career, score, issue date
-            and certificate ID, if you create a certificate.
+            <strong>Certificate details</strong>: name, career, score, issue and
+            expiry dates and certificate ID, if you create a certificate.
           </li>
           <li>
             <strong>Feedback you choose to give</strong>, such as which future
@@ -112,10 +115,22 @@ export default function PrivacyPage() {
         <p className="mt-2">
           If you create a certificate, anyone with its verification link or ID
           can see your name, the career, your score, the issue and expiry
-          dates, and the certificate ID. That is how an employer checks a
-          certificate is real. Your CV, email address and detailed results are
-          never shown on that page. Only create and share a certificate if you
-          are comfortable with this.
+          dates, and the certificate ID. The same details appear in the
+          certificate PDF, the downloadable certificate images and the preview
+          picture shown when the link is shared. That is how an employer checks
+          a certificate is real. Your CV, email address and detailed results
+          are never shown. We ask search engines not to list certificate pages,
+          so they are found through the link you share, not by searching your
+          name. Only create and share a certificate if you are comfortable with
+          this.
+        </p>
+        <p className="mt-2">
+          <strong>Sharing is your choice.</strong> If you use the share buttons
+          (LinkedIn, WhatsApp, Facebook, X) or download and post an image, you
+          are sharing through that platform, under its own terms and privacy
+          policy. Once you share, others can save or reshare it; we can&apos;t
+          undo that, but we can withdraw the certificate so the link no longer
+          verifies.
         </p>
 
         <h2 className={h2}>7. Who processes data for us</h2>
@@ -126,23 +141,36 @@ export default function PrivacyPage() {
         </p>
         <ul className="mt-2 list-disc space-y-1 pl-5">
           <li><strong>Vercel</strong>: hosts the website.</li>
-          <li><strong>Render</strong>: runs the analysis engine that reads your CV.</li>
+          <li><strong>Render</strong>: runs the analysis engine that reads your CV (United States).</li>
+          <li><strong>Supabase</strong>: our database, which stores analysis results, certificates and feedback (Ireland, EU).</li>
           <li><strong>Clerk</strong>: sign-in and accounts.</li>
-          <li><strong>Supabase</strong>: database for some records, such as feature feedback.</li>
         </ul>
         <p className="mt-2">
-          These providers may store or process data outside South Africa (for
-          example in the United States or Europe). We use providers that
-          protect personal information to a standard comparable to POPIA, and
-          by using the service you agree to this transfer.
+          These providers store or process data outside South Africa (in the
+          United States and the European Union). We use providers bound by
+          data-protection laws or agreements that give protection comparable to
+          POPIA, and by using the service you agree to this transfer.
         </p>
 
         <h2 className={h2}>8. How long we keep it, and your rights</h2>
         <p className="mt-2">
-          We keep analysis results and certificates for as long as needed to
-          show them to you and to verify certificates, and at most 24 months
-          after a certificate expires, unless you ask us to delete them
-          sooner. Account details are kept until you delete your account.
+          We delete data automatically on this schedule, unless you ask us to
+          delete it sooner:
+        </p>
+        <ul className="mt-2 list-disc space-y-1 pl-5">
+          <li>Your CV file: never stored (see section 5).</li>
+          <li>Analysis results without a certificate: deleted 12 months after the analysis.</li>
+          <li>
+            Certificates and the analysis behind them: kept while the
+            certificate is valid (12 months) so it can be verified, then
+            deleted 24 months after it expires.
+          </li>
+          <li>Feedback about future features: deleted after 24 months.</li>
+          <li>Account details: kept until you delete your account with our sign-in provider.</li>
+        </ul>
+        <p className="mt-2">
+          Hosting providers may keep server logs and backups for a short time
+          under their own policies.
         </p>
         <p className="mt-2">Under POPIA you have the right to:</p>
         <ul className="mt-2 list-disc space-y-1 pl-5">
