@@ -7,14 +7,23 @@ import { FeatureInterestSurvey } from "@/components/FeatureInterestSurvey";
 import { fetchAnalysis } from "@/lib/serverApi";
 import { SkillBreakdownItem } from "@/lib/types";
 
+// Job-specific groups first, broad skills after, tools last.
+const CATEGORY_ORDER = ["Knowledge", "Technical skills", "Management", "Core skills", "People skills"];
+
 function groupByCategory(items: SkillBreakdownItem[]) {
   const groups = new Map<string, SkillBreakdownItem[]>();
   for (const item of items) {
-    const list = groups.get(item.category) ?? [];
+    const key = item.is_tool ? "Tools and software" : item.category;
+    const list = groups.get(key) ?? [];
     list.push(item);
-    groups.set(item.category, list);
+    groups.set(key, list);
   }
-  return Array.from(groups.entries());
+  const rank = (k: string) => {
+    if (k === "Tools and software") return 99;
+    const i = CATEGORY_ORDER.indexOf(k);
+    return i === -1 ? 50 : i;
+  };
+  return Array.from(groups.entries()).sort((a, b) => rank(a[0]) - rank(b[0]));
 }
 
 export default async function ResultsPage({
@@ -129,11 +138,22 @@ export default async function ResultsPage({
 
           <div className="mt-14">
             <h2 className="font-display text-xl text-ink">Skill breakdown</h2>
+            <p className="mt-2 font-body text-xs text-slate-600">
+              Each bar shows how strongly your CV shows that skill. <strong>Essential</strong> and{" "}
+              <strong>Important</strong> skills count most towards your score. Where a skill is missing,
+              there&apos;s a tip on how to show it.
+            </p>
             <div className="mt-6 space-y-8">
               {grouped.map(([category, items]) => (
                 <div key={category}>
                   <h3 className="font-body text-xs uppercase tracking-normal text-slate-600">
                     {category}
+                    {category === "Tools and software" && (
+                      <span className="ml-2 normal-case">
+                        &middot; {items.filter((i) => i.present).length} of {items.length} found. Any 3 give full
+                        credit.
+                      </span>
+                    )}
                   </h3>
                   <div className="mt-1 divide-y divide-line">
                     {items.map((item) => (

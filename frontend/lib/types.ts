@@ -24,6 +24,9 @@ export interface SkillBreakdownItem {
   category: string;
   present: boolean;
   score_percent: number;
+  importance_level?: "essential" | "important" | "useful" | "";
+  is_tool?: boolean;
+  tip?: string | null;
 }
 
 export interface AnalysisResult {
