@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getPythonApiUrl } from "@/lib/config";
+import { engineFetch } from "@/lib/config";
 
 export const runtime = "nodejs";
 
@@ -15,7 +15,7 @@ export async function POST(req: NextRequest) {
   }
 
   try {
-    const res = await fetch(`${getPythonApiUrl()}/api/analyze`, {
+    const res = await engineFetch(`/api/analyze`, {
       method: "POST",
       body: incomingForm,
     });

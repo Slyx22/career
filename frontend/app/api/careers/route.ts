@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { promises as fs } from "fs";
 import path from "path";
-import { getPythonApiUrl } from "@/lib/config";
+import { engineFetch } from "@/lib/config";
 
 async function loadStaticCareers() {
   try {
@@ -16,7 +16,7 @@ async function loadStaticCareers() {
 export async function GET() {
   // Try the live Python engine first (with caching for 5 minutes).
   try {
-    const res = await fetch(`${getPythonApiUrl()}/api/careers`, {
+    const res = await engineFetch(`/api/careers`, {
       cache: "force-cache",
       next: { revalidate: 300 } // Cache for 5 minutes (300 seconds)
     });

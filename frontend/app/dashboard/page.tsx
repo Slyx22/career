@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { isClerkConfigured } from "@/lib/clerk";
-import { getPythonApiUrl } from "@/lib/config";
+import { engineFetch } from "@/lib/config";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 
@@ -48,8 +48,7 @@ export default async function DashboardPage() {
 
   if (user) {
     try {
-      const res = await fetch(
-        `${getPythonApiUrl()}/api/certificates?clerk_user_id=${encodeURIComponent(user.id)}`,
+      const res = await engineFetch(`/api/certificates?clerk_user_id=${encodeURIComponent(user.id)}`,
         { cache: "no-store" }
       );
       if (res.ok) {
