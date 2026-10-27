@@ -71,6 +71,18 @@ BACHELOR_PATTERNS = [
     r"\bbachelor'?s?\b",
     r"\bbachelor degree\b",
     r"\bundergraduate degree\b",
+    # Common South African bachelor's degree abbreviations
+    r"\bb\.?com\b",
+    r"\bb\.?compt\b",
+    r"\bb\.?acc\b",
+    r"\bb\.ed\b",
+    r"\bb\.?tech\b",
+    r"\bb\.?pharm\b",
+    r"\bb\.?cur\b",
+    r"\bmbchb\b",
+    r"\bb\.?bus\.?sci\b",
+    r"\bb\.?soc\.?sci\b",
+    r"\bb\.?admin\b",
 ]
 
 DIPLOMA_PATTERNS = [

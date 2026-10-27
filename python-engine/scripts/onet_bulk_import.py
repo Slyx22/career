@@ -43,7 +43,7 @@ SYNC_METHOD = "onet_bulk_database"
 MIN_IMPORTANCE = 0.5
 MAX_SKILL_ELEMENTS = 12
 MAX_KNOWLEDGE_ELEMENTS = 8
-MAX_TECH_SKILLS = 8
+MAX_TECH_SKILLS = 5
 MIN_SKILLS = 5
 
 # Only these taxonomy categories can be matched from Technology Skills.
@@ -223,7 +223,7 @@ def _build_career_model(
             continue
         hot = _is_yes(row.get("Hot Technology"))
         in_demand = _is_yes(row.get("In Demand"))
-        weight = 0.7 if (hot and in_demand) else 0.6 if (hot or in_demand) else 0.45
+        weight = 0.55 if (hot and in_demand) else 0.45 if (hot or in_demand) else 0.35
         if slug not in tech or tech[slug]["market_importance"] < weight:
             tech[slug] = {
                 "skill_slug": slug,

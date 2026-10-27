@@ -111,7 +111,7 @@ SKILL_TAXONOMY: List[Skill] = [
 
     # Widely used workplace software (matched to O*NET Technology Skills)
     Skill("microsoft_excel", "Microsoft Excel", "Workplace software", ["excel", "ms excel", "spreadsheets", "pivot tables", "vlookup", "xlookup"]),
-    Skill("microsoft_office", "Microsoft Office", "Workplace software", ["ms office", "microsoft word", "ms word", "powerpoint", "microsoft outlook", "office 365", "microsoft 365"]),
+    Skill("microsoft_office", "Microsoft Office", "Workplace software", ["ms office", "microsoft word", "ms word", "word processing", "microsoft excel", "excel", "powerpoint", "microsoft outlook", "office 365", "microsoft 365"]),
     Skill("power_bi", "Power BI", "Workplace software", ["powerbi", "microsoft power bi"]),
     Skill("tableau", "Tableau", "Workplace software", []),
     Skill("autocad", "AutoCAD", "Workplace software", ["auto cad"]),

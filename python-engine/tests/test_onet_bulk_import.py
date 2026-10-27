@@ -89,8 +89,8 @@ def test_import_career_model_parses_real_shaped_tsv_files(fake_onet_db, tmp_path
     assert "statistics" not in by_slug
     # Technology Skills examples map to software skills by whole words.
     assert by_slug["docker"]["source"] == "onet_technology_skills"
-    assert by_slug["tensorflow"]["market_importance"] == 0.7  # Hot + In Demand
-    assert by_slug["docker"]["market_importance"] == 0.6      # Hot only
+    assert by_slug["tensorflow"]["market_importance"] == 0.55  # Hot + In Demand
+    assert by_slug["docker"]["market_importance"] == 0.45     # Hot only
 
 
 def _row(soc, elem_id, name, value, fields):
