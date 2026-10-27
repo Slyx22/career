@@ -207,7 +207,7 @@ ONET_ELEMENTS: List[OnetElement] = [
                  "promotions", "market research", "seo", "lead generation", "retail sales", "campaigns"),
                 "Run a small marketing or sales effort (e.g. social media for a local business) and report the results."),
     OnetElement(("2.C.1.e",), ("Customer and Personal Service",), "customer_service", "Customer service", KNOW,
-                ("customer service", "customer care", "client service", "customer experience", "complaints handling",
+                ("customer service", "customer care", "client service", "customer experience", "complaints handling", "patient care",
                  "front of house", "cashier", "waiter", "waitress", "call centre", "call center", "retail"),
                 "Add customer-facing work and one example of a customer problem you solved."),
     OnetElement(("2.C.1.f",), ("Personnel and Human Resources",), "human_resources", "Human resources", KNOW,

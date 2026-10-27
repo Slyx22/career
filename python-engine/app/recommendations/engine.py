@@ -40,13 +40,21 @@ _ACTION_TEMPLATES = {
 }
 
 _GENERIC_TEMPLATE = "Build a small project that specifically demonstrates {skill}."
+_TOOL_TEMPLATE = (
+    "Learn the basics of {skill} with a free course or trial version, then add it to your CV "
+    "with one sentence on what you used it for."
+)
+_TOOL_CATEGORIES = {"Workplace software", "Cloud", "Databases", "Deployment", "MLOps"}
 
 
 def generate_recommendations(gap_details: List[SkillScoreDetail], limit: int = 5) -> List[str]:
     recommendations: List[str] = []
     for detail in gap_details[:limit]:
         template = _ACTION_TEMPLATES.get(detail.slug) or ACTION_BY_SLUG.get(detail.slug)
-        recommendations.append(template or _GENERIC_TEMPLATE.format(skill=detail.name))
+        if not template:
+            generic = _TOOL_TEMPLATE if detail.category in _TOOL_CATEGORIES else _GENERIC_TEMPLATE
+            template = generic.format(skill=detail.name)
+        recommendations.append(template)
 
     if not recommendations:
         recommendations.append(

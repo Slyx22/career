@@ -7,12 +7,6 @@ name: Regenerate careers from O*NET
 
 on:
   workflow_dispatch:
-  push:
-    branches: [fix/career-skill-matching]
-    paths:
-      - "python-engine/scripts/onet_bulk_import.py"
-      - "python-engine/app/nlp/onet_elements.py"
-      - ".github/workflows/regenerate-careers.yml"
 
 permissions:
   contents: write
