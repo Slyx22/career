@@ -74,6 +74,10 @@ class CertificateVerifyResponse(BaseModel):
     career: Optional[str] = None
     score: Optional[int] = None
     issued_at: Optional[str] = None
+    valid_until: Optional[str] = None
+    expired: Optional[bool] = None
+    issuer: Optional[str] = None
+    method_version: Optional[str] = None
 
 
 class CertificateListResponse(BaseModel):
