@@ -1,0 +1,16 @@
+name: pooler-check
+on:
+  push:
+    branches: [tmp/pooler-check]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          sudo apt-get install -y -qq postgresql-client >/dev/null 2>&1 || true
+          for host in aws-0-eu-west-1.pooler.supabase.com aws-1-eu-west-1.pooler.supabase.com aws-2-eu-west-1.pooler.supabase.com; do
+            for port in 5432 6543; do
+              out=$(PGPASSWORD=definitely-wrong-password PGCONNECT_TIMEOUT=10 psql "host=$host port=$port dbname=postgres user=postgres.biahxcpthtboyalpphkz sslmode=require" -c 'select 1' 2>&1 | head -2 | tr '\n' ' ')
+              echo "::notice::$host:$port -> $out"
+            done
+          done
