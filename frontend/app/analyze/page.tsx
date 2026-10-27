@@ -6,6 +6,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import Link from "next/link";
 import { Career } from "@/lib/types";
+import { CareerPicker } from "@/components/CareerPicker";
 import { MINIMUM_AGE } from "@/lib/site";
 
 const ACCEPTED_FORMATS = ".pdf,.docx";
@@ -29,7 +30,6 @@ export default function AnalyzePage() {
         if (cancelled) return;
         if (Array.isArray(data.careers) && data.careers.length > 0) {
           setCareers(data.careers);
-          setCareer((prev) => prev || data.careers[0].slug);
         } else {
           setError("No careers are available.");
         }
@@ -51,6 +51,10 @@ export default function AnalyzePage() {
     }
     if (!surname.trim()) {
       setError("Please enter your surname.");
+      return;
+    }
+    if (!career) {
+      setError("Please choose your target career from the list.");
       return;
     }
     if (!file) {
@@ -131,28 +135,19 @@ export default function AnalyzePage() {
               </div>
             </div>
 
-            <style>{`select option{background:#ffffff!important;color:#141A2E!important;}`}</style>
             <div>
               <label htmlFor="career" className="font-body text-sm text-ink">
                 Target career *
               </label>
-              <select
+              <CareerPicker
                 id="career"
+                careers={careers}
                 value={career}
-                onChange={(e) => setCareer(e.target.value)}
-                className="focus-ring mt-1.5 w-full rounded-xl border border-line bg-white px-4 py-3 font-body text-sm text-ink shadow-sm appearance-none cursor-pointer transition hover:border-brass"
-                disabled={careers.length === 0}
-              >
-                {careers.length > 0 ? (
-                  careers.map((c) => (
-                    <option key={c.slug} value={c.slug} style={{backgroundColor:"#ffffff",color:"#141A2E"}}>{c.name}</option>
-                  ))
-                ) : (
-                  <option value="">Loading careers…</option>
-                )}
-              </select>
+                onChange={setCareer}
+                loading={careers.length === 0 && !error}
+              />
               <p className="mt-1.5 font-body text-xs text-slate-500">
-                More careers will be added over time.
+                Type to search, or tap the arrow to scroll the full list.
               </p>
             </div>
 
