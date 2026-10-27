@@ -91,6 +91,9 @@ OVERRIDES = {
     "director (enterprise / organisation)": "chief-executives",
 }
 OVERRIDE_PATTERNS = [
+    (re.compile(r"(call|contact) centre .*(agent|consultant|advisor)", re.I), "customer-service-representatives"),
+    (re.compile(r"call centre team leader", re.I), "first-line-supervisors-of-office-and-administrative-support-workers"),
+    (re.compile(r"^passenger coach driver$", re.I), "bus-drivers-transit-and-intercity"),
     (re.compile(r"^(?!.*(worker|assistant|manager|foreman)).*\bfarmer$", re.I), "farmers-ranchers-and-other-agricultural-managers"),
 ]
 
@@ -149,10 +152,11 @@ def load_ofo():
     alt: Dict[str, List[str]] = defaultdict(list)
     for sheet in ("Specialisations", "Alternate Title"):
         for code, title in _ofo_rows(wb[sheet]):
-            for part in re.split(r"\s*/\s*", title):
-                part = part.strip()
-                if part and part.lower() != "test":
-                    alt[code].append(part)
+            # Keep each entry whole: splitting on "/" breaks entries like
+            # "Engineer (Applications / Ecommerce)" into meaningless pieces.
+            title = re.sub(r"\s+", " ", title).strip()
+            if len(title) > 2 and title.lower() != "test":
+                alt[code].append(title)
     return units, occupations, alt
 
 

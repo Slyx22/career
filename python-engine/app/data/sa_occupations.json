@@ -1,19 +1,18 @@
 {
  "source": "OFO 2021 (South Africa) linked to O*NET careers via ISCO-08 and SOC crosswalks",
  "counts": {
-  "unmatched": 585,
-  "title": 139,
-  "crosswalk": 768,
-  "reviewed": 19
+  "unmatched": 590,
+  "title": 140,
+  "crosswalk": 756,
+  "reviewed": 25
  },
  "occupations": [
   {
    "ofo_code": "111202",
    "title": "General Manager Public Service",
    "aliases": [
-    "Chief Director",
+    "Chief Director /Director",
     "Diplomatic Mission Administrator",
-    "Director",
     "Labour Inspectorate Manager"
    ],
    "career_slug": "public-relations-managers",
@@ -31,9 +30,8 @@
     "Chief of Staff",
     "Commissioner",
     "Consular Officer",
-    "Court etc. But Excluding Tertiary Institutions)",
     "Plenipotentiary",
-    "Registrar (Including Legal",
+    "Registrar (Including Legal / Court etc. But Excluding Tertiary Institutions)",
     "Secretary (Government Department)",
     "Spokesperson",
     "Trade Commissioner Attaché"
@@ -80,12 +78,10 @@
     "Deemed (Shadow) Director",
     "Executive Director",
     "Independent Non-executive Director",
-    "Lead Independent Non-executive Director",
     "Managing Director",
-    "Managing Director (Enterprise",
+    "Managing Director (Enterprise / Organisation)",
     "Non-executive Director",
-    "Organisation)",
-    "Senior"
+    "Senior / Lead Independent Non-executive Director"
    ],
    "career_slug": "chief-executives",
    "career_name": "Chief Executives",
@@ -196,8 +192,8 @@
    "ofo_code": "121207",
    "title": "Personnel Manager",
    "aliases": [],
-   "career_slug": "compensation-and-benefits-managers",
-   "career_name": "Compensation and Benefits Managers",
+   "career_slug": "human-resources-managers",
+   "career_name": "Human Resources Managers",
    "match": "crosswalk"
   },
   {
@@ -236,12 +232,11 @@
     "Agriculture & Forestry Quality Controller",
     "ETQA Manager",
     "Management System Auditor",
-    "Quality Assurance",
+    "Quality Assurance / Systems Auditor",
     "Quality Auditor",
     "Quality Certification Manager",
     "Quality Control Manager",
-    "Quality Systems Coordinator",
-    "Systems Auditor"
+    "Quality Systems Coordinator"
    ],
    "career_slug": "quality-control-systems-managers",
    "career_name": "Quality Control Systems Managers",
@@ -307,10 +302,9 @@
    "aliases": [
     "Client Service Manager",
     "Client Services Advisor",
-    "Client Services Manager",
-    "Customer Care Manager",
-    "Customer Services Engineer",
-    "Representative"
+    "Client Services Manager / Representative",
+    "Customer Care Manager / Representative",
+    "Customer Services Engineer"
    ],
    "career_slug": "customer-service-representatives",
    "career_name": "Customer Service Representatives",
@@ -321,13 +315,11 @@
    "title": "Advertising and Public Relations Manager",
    "aliases": [
     "Advertising Manager",
-    "Chief Communications Manager",
+    "Chief Communications Manager / Officer",
     "Corporate Relations Manager",
     "Green Marketer",
-    "Manager",
-    "Media Advisor",
+    "Media Advisor / Manager",
     "Media and Communications Manager",
-    "Officer",
     "PR Accounts Executive",
     "Public Relations Manager",
     "Relationship Manager"
@@ -375,9 +367,8 @@
     "Abalone Farm Manager",
     "Aquaculture Hatchery Manager",
     "Crocodile Farm Manager",
-    "Farm Manager",
     "Fresh Water Aquaculture Farm Manager",
-    "Mariculture Farmer"
+    "Mariculture Farmer / Farm Manager"
    ],
    "career_slug": "farmers-ranchers-and-other-agricultural-managers",
    "career_name": "Farmers, Ranchers, and Other Agricultural Managers",
@@ -405,8 +396,7 @@
     "Plant Superintendent",
     "Processing Manager",
     "Processing Unit Manager",
-    "Works",
-    "Workshop Manager (Manufacturing)"
+    "Works / Workshop Manager (Manufacturing)"
    ],
    "career_slug": "industrial-production-managers",
    "career_name": "Industrial Production Managers",
@@ -544,11 +534,8 @@
    "ofo_code": "132404",
    "title": "Warehouse Manager",
    "aliases": [
-    "Coolstore",
-    "Packhouse",
-    "Stockroom",
-    "Storage and Warehousing Manager",
-    "Storeroom Manager"
+    "Coolstore / Packhouse / Stockroom / Storeroom Manager",
+    "Storage and Warehousing Manager"
    ],
    "career_slug": "transportation-storage-and-distribution-managers",
    "career_name": "Transportation, Storage, and Distribution Managers",
@@ -577,26 +564,8 @@
    "title": "Chief Information Officer",
    "aliases": [
     "Chief Technology Officer",
-    "ICT",
-    "IT Director",
-    "IT Manager"
-   ],
-   "career_slug": "computer-and-information-systems-managers",
-   "career_name": "Computer and Information Systems Managers",
-   "match": "crosswalk"
-  },
-  {
-   "ofo_code": "133102",
-   "title": "ICT Project Manager",
-   "aliases": [
-    "Computer Marketing Executive",
-    "Computer Operations Manager",
-    "Computer Service Manager",
-    "Computer Support Manager",
-    "Hardware Development Manager",
-    "ICT",
-    "ICT Project Director",
-    "IT"
+    "ICT / IT Director",
+    "ICT / IT Manager"
    ],
    "career_slug": "computer-and-information-systems-managers",
    "career_name": "Computer and Information Systems Managers",
@@ -958,9 +927,8 @@
     "Art Director (Film, Television or Stage)",
     "Art Gallery Director",
     "Artistic Director",
-    "Arts",
+    "Arts / Culture Administrator",
     "Arts Centre Manager",
-    "Culture Administrator",
     "Producer Performing Arts",
     "Production Manager Performing Arts"
    ],
@@ -1012,11 +980,9 @@
    "ofo_code": "143901",
    "title": "Facilities Manager",
    "aliases": [
-    "Campus Administrator",
+    "Campus Administrator / Supervisor",
     "Facilities Supervisor",
-    "Garden",
-    "Park Manager",
-    "Supervisor"
+    "Garden / Park Manager"
    ],
    "career_slug": "facilities-managers",
    "career_name": "Facilities Managers",
@@ -1271,8 +1237,8 @@
     "Molecular Geneticist",
     "Plant Molecular Biologist"
    ],
-   "career_slug": "bioinformatics-scientists",
-   "career_name": "Bioinformatics Scientists",
+   "career_slug": "biochemists-and-biophysicists",
+   "career_name": "Biochemists and Biophysicists",
    "match": "crosswalk"
   },
   {
@@ -1284,8 +1250,8 @@
     "Plant Morphologist",
     "Plant Taxonomist"
    ],
-   "career_slug": "biologists",
-   "career_name": "Biologists",
+   "career_slug": "soil-and-plant-scientists",
+   "career_name": "Soil and Plant Scientists",
    "match": "crosswalk"
   },
   {
@@ -1362,18 +1328,17 @@
    "ofo_code": "213201",
    "title": "Agriculture Consultant",
    "aliases": [
-    "Advisor",
     "Agriculture Advisor",
     "Agriculture Economic Advisor",
     "Agriculture Extension Officer",
     "Agriculture Field Officer",
     "Agriculture Mentor",
-    "Animal Husbandry Consultant",
-    "Farm Consultant",
+    "Animal Husbandry Consultant / Advisor",
+    "Farm Consultant / Advisor",
     "Farm Economic Techniques Advisor",
-    "Field Husbandry Consultant",
-    "Floriculture Consultant",
-    "Horticulture Consultant",
+    "Field Husbandry Consultant / Advisor",
+    "Floriculture Consultant / Advisor",
+    "Horticulture Consultant / Advisor",
     "Landcare Officer",
     "Orchard Consultant",
     "Pasture Consultant",
@@ -1393,10 +1358,9 @@
     "Animal Husbandry Scientist",
     "Animal Nutritionist",
     "Companion Animal Nutritionist",
-    "Ecologist",
     "Farming Scientist",
-    "Plant",
-    "Plant Biologist",
+    "Plant / Seed Breeder",
+    "Plant Biologist / Ecologist / Toxicologist",
     "Plant Pathologist",
     "Plant Pathology Manager",
     "Plant Physiologist",
@@ -1404,12 +1368,10 @@
     "Pomologist",
     "Quarantine Scientist",
     "Seed Analyst",
-    "Seed Breeder",
     "Seed Product Developer",
     "Seed Production Agronomist",
     "Seed Production Horticulturist",
-    "Soil and Plant Scientists",
-    "Toxicologist"
+    "Soil and Plant Scientists"
    ],
    "career_slug": "soil-and-plant-scientists",
    "career_name": "Soil and Plant Scientists",
@@ -1438,8 +1400,7 @@
    "ofo_code": "213205",
    "title": "Food and Beverage Scientist",
    "aliases": [
-    "Engineer",
-    "Food Chemist",
+    "Food Chemist / Engineer",
     "Food Quality Consultant",
     "Food Safety Standards Auditor",
     "Food Safety Standards Manager",
@@ -1499,11 +1460,9 @@
    "aliases": [
     "Beach and Estuary Warden",
     "Fish Warden",
-    "Game",
-    "Park Warden",
-    "Warden",
+    "Game / Park Warden",
     "Wildlife Conservationist",
-    "Wildlife Officer"
+    "Wildlife Officer / Warden"
    ],
    "career_slug": "park-naturalists",
    "career_name": "Park Naturalists",
@@ -1602,7 +1561,7 @@
     "Structural Engineer",
     "Transport Engineer",
     "Transportation and Urban Planning Engineer",
-    "Water and Wastewater  Engineer"
+    "Water and Wastewater Engineer"
    ],
    "career_slug": "civil-engineers",
    "career_name": "Civil Engineers",
@@ -1849,17 +1808,16 @@
     "Physical Metallurgist",
     "Radiological Metallurgist"
    ],
-   "career_slug": "materials-engineers",
-   "career_name": "Materials Engineers",
+   "career_slug": "materials-scientists",
+   "career_name": "Materials Scientists",
    "match": "crosswalk"
   },
   {
    "ofo_code": "214607",
    "title": "Petroleum Engineer",
    "aliases": [
-    "Biodiesel Technology and Product Development Managers",
-    "Biofuels",
     "Biofuels Engineer",
+    "Biofuels/Biodiesel Technology and Product Development Managers",
     "Gas Engineer",
     "Mud Engineer",
     "Natural Gas Engineer",
@@ -2056,10 +2014,9 @@
    "ofo_code": "216302",
    "title": "Industrial Designer",
    "aliases": [
-    "Carpet Designer",
+    "Carpet Designer / Copyist Planner",
     "Ceramic Designer",
     "Commercial Product Designer",
-    "Copyist Planner",
     "Furniture Designer",
     "Glass Designer",
     "Industrial Graphic Designer",
@@ -2080,8 +2037,8 @@
     "Custom Made Jewellery Designer",
     "Jewellery Industrial Designer"
    ],
-   "career_slug": "commercial-and-industrial-designers",
-   "career_name": "Commercial and Industrial Designers",
+   "career_slug": "fashion-designers",
+   "career_name": "Fashion Designers",
    "match": "crosswalk"
   },
   {
@@ -2099,18 +2056,14 @@
    "ofo_code": "216401",
    "title": "Urban and Regional Planner",
    "aliases": [
-    "Community",
-    "Country",
-    "District Planner",
+    "Community / Country / District Planner",
     "Environmental Consent Planner",
     "Environmental Policy Planner",
     "Geothermal Resource Officer",
     "Land Development Planner",
     "Land Planner",
     "Land Use Planner",
-    "Natural Resource Management Consultant",
-    "Officer",
-    "Planner",
+    "Natural Resource Management Consultant / Officer / Planner",
     "Town Planner",
     "Traffic and Transport Planner"
    ],
@@ -2170,7 +2123,7 @@
    "ofo_code": "216601",
    "title": "Digital Artist",
    "aliases": [
-    "Advertising Artist",
+    "Advertising Artist / Designer",
     "Animator",
     "Art Director",
     "Calligrapher",
@@ -2178,10 +2131,8 @@
     "Colourist",
     "Commercial Artist",
     "Compositor",
-    "Designer",
     "Display Artist",
-    "Display Designer",
-    "Exhibition",
+    "Exhibition / Display Designer",
     "Film and Video Graphics Designer",
     "Foley Artist",
     "Graphic Artist",
@@ -2247,8 +2198,8 @@
     "Sports Medicine Practitioner",
     "Sports Physician"
    ],
-   "career_slug": "family-medicine-physicians",
-   "career_name": "Family Medicine Physicians",
+   "career_slug": "general-internal-medicine-physicians",
+   "career_name": "General Internal Medicine Physicians",
    "match": "crosswalk"
   },
   {
@@ -2417,8 +2368,8 @@
    "ofo_code": "221214",
    "title": "Nuclear Medicine Specialist",
    "aliases": [],
-   "career_slug": "emergency-medicine-physicians",
-   "career_name": "Emergency Medicine Physicians",
+   "career_slug": "preventive-medicine-physicians",
+   "career_name": "Preventive Medicine Physicians",
    "match": "crosswalk"
   },
   {
@@ -2509,16 +2460,14 @@
    "aliases": [
     "Clinic Nurse",
     "District Nurse",
-    "Factory Nurse",
     "Health Coordinator",
     "Health Education and Promotion Nurse",
-    "Industrial",
+    "Industrial / Factory Nurse",
     "Nurse Clinician",
     "Occupational Health Nurse",
     "Primary Health Care Nurse",
     "Public Health Nurse",
-    "Remote",
-    "Rural Area Nurse",
+    "Remote / Rural Area Nurse",
     "School Nurse"
    ],
    "career_slug": "registered-nurses",
@@ -2531,9 +2480,8 @@
    "aliases": [
     "Acute Care Nurse",
     "Coronary Care Unit Nurse",
-    "Emergency",
-    "Intensive Care Nurse",
-    "Trauma Nurse"
+    "Emergency / Trauma Nurse",
+    "Intensive Care Nurse"
    ],
    "career_slug": "registered-nurses",
    "career_name": "Registered Nurses",
@@ -2715,10 +2663,9 @@
    "title": "Dental Specialist",
    "aliases": [
     "Community Dentistry Specialist",
-    "Dental",
+    "Dental / Oral Surgeon",
     "Endodontist",
     "Oral Pathologist",
-    "Oral Surgeon",
     "Oral and Maxillofacial Surgeon",
     "Orthodontist",
     "Paedodontist",
@@ -2726,8 +2673,8 @@
     "Prosthodontist",
     "Stomatologist"
    ],
-   "career_slug": "oral-and-maxillofacial-surgeons",
-   "career_name": "Oral and Maxillofacial Surgeons",
+   "career_slug": "prosthodontists",
+   "career_name": "Prosthodontists",
    "match": "crosswalk"
   },
   {
@@ -2786,8 +2733,8 @@
     "Licensed Premises Inspector",
     "Waste Management Practitioner"
    ],
-   "career_slug": "occupational-health-and-safety-specialists",
-   "career_name": "Occupational Health and Safety Specialists",
+   "career_slug": "health-education-specialists",
+   "career_name": "Health Education Specialists",
    "match": "crosswalk"
   },
   {
@@ -2796,16 +2743,13 @@
    "aliases": [
     "Chief Safety Officer Mining",
     "Clinical Risk Manager",
-    "Coordinator",
-    "Health and Safety Officer",
+    "Health and Safety Officer / Coordinator / Professional",
     "Injury Prevention Consultant",
     "Occupational Health and Safety Advisor",
     "Occupational Hygienist",
     "Occupational Safety Advisor",
-    "Occupational Safety Practitioner",
-    "Occupational Safety and Health (OSH) Advisor",
-    "Officer",
-    "Professional",
+    "Occupational Safety Practitioner / Officer",
+    "Occupational Safety and Health (OSH) Advisor / Coordinator / Officer / Professional",
     "Radiation Protection Expert",
     "Risk and Safety Manager",
     "Road Safety Coordinator",
@@ -2858,12 +2802,11 @@
    "ofo_code": "226501",
    "title": "Dietitian",
    "aliases": [
-    "Advisor Food Science",
+    "Advisor Food Science / Technology",
     "Dietetic Consultant",
     "Health Advisor (Nutrition)",
     "Home Economist",
-    "Sports Nutritionist",
-    "Technology"
+    "Sports Nutritionist"
    ],
    "career_slug": "dietitians-and-nutritionists",
    "career_name": "Dietitians and Nutritionists",
@@ -2934,9 +2877,8 @@
    "ofo_code": "226902",
    "title": "Occupational Therapist",
    "aliases": [
-    "Corrections Programme Coordinator",
+    "Corrections Programme Coordinator / Facilitator",
     "Ergotherapist",
-    "Facilitator",
     "Work Rehabilitation Therapist"
    ],
    "career_slug": "occupational-therapists",
@@ -2970,18 +2912,16 @@
    "ofo_code": "231101",
    "title": "University Lecturer",
    "aliases": [
-    "Assessment Advisor And",
+    "Assessment Advisor And/Or Internal Moderator",
     "Associate Professor",
     "College of Education Lecturer",
-    "Correspondence School Teacher",
-    "Distant Education Teacher",
+    "Distant Education Teacher/Correspondence School Teacher",
     "Lecturer",
-    "Or Internal Moderator",
     "Professor",
     "Tertiary Educator"
    ],
-   "career_slug": "psychology-teachers-postsecondary",
-   "career_name": "Psychology Teachers, Postsecondary",
+   "career_slug": "physics-teachers-postsecondary",
+   "career_name": "Physics Teachers, Postsecondary",
    "match": "crosswalk"
   },
   {
@@ -2990,8 +2930,8 @@
    "aliases": [
     "Community Education and Training Lecturer - Inactive"
    ],
-   "career_slug": "careertechnical-education-teachers-postsecondary",
-   "career_name": "Career/Technical Education Teachers, Postsecondary",
+   "career_slug": "careertechnical-education-teachers-secondary-school",
+   "career_name": "Career/Technical Education Teachers, Secondary School",
    "match": "crosswalk"
   },
   {
@@ -3075,22 +3015,19 @@
    "aliases": [
     "Academic Advisor",
     "Academic Development Coordinator",
-    "Curriculum Advisory Officer",
+    "Curriculum Advisory Officer / Facilitator",
     "Curriculum Coordinator",
     "Curriculum Development Audit Officer",
     "Curriculum Specialist",
-    "Education",
+    "Education / Training Consultant",
+    "Education / Training Methods Specialist",
+    "Education / Training Specialist",
+    "Education / Training Verifier",
     "Education Officer",
-    "Education and Training Quality Assurance (ETQA) Officer",
-    "Facilitator",
+    "Education and Training Quality Assurance (ETQA) Officer / Manager",
     "Home-school Liaison Officer",
-    "Manager",
     "Pre-school Advisor",
-    "Teaching Aids Specialist",
-    "Training Consultant",
-    "Training Methods Specialist",
-    "Training Specialist",
-    "Training Verifier"
+    "Teaching Aids Specialist"
    ],
    "career_slug": "instructional-coordinators",
    "career_name": "Instructional Coordinators",
@@ -3123,30 +3060,15 @@
     "Learning Support Teacher",
     "Neurological and Neuro-Development Special Education Teacher",
     "Physical Impairment Special Education Teacher",
-    "Physically Handicapped)",
     "Rehabilitation Teacher",
     "Remedial Teacher",
     "Skills and Vocational Special Needs Teacher",
-    "Special Education Teacher (Mentally",
+    "Special Education Teacher (Mentally / Physically Handicapped)",
     "Teacher of Gifted Students",
     "Visual Impairment Special Needs Teacher"
    ],
-   "career_slug": "special-education-teachers-elementary-school",
-   "career_name": "Special Education Teachers, Elementary School",
-   "match": "crosswalk"
-  },
-  {
-   "ofo_code": "235401",
-   "title": "Private Tuition Music Teacher",
-   "aliases": [
-    "Flute",
-    "Guitar",
-    "Piano",
-    "Singing Teacher (Private Tuition)",
-    "Violin Teacher"
-   ],
-   "career_slug": "self-enrichment-teachers",
-   "career_name": "Self-Enrichment Teachers",
+   "career_slug": "special-education-teachers-middle-school",
+   "career_name": "Special Education Teachers, Middle School",
    "match": "crosswalk"
   },
   {
@@ -3213,8 +3135,7 @@
    "aliases": [
     "Audit and Assurance Manager",
     "Auditor",
-    "Forensic Auditor",
-    "Investigator",
+    "Forensic Auditor / Investigator",
     "Project Auditor",
     "Public Accountant"
    ],
@@ -3308,9 +3229,8 @@
     "Financial Business Analyst",
     "Financial Consultant",
     "Financial Planner",
-    "Financial Planning Advisor",
-    "Insurance Manager",
-    "Manager"
+    "Financial Planning Advisor / Manager",
+    "Insurance Manager"
    ],
    "career_slug": "financial-and-investment-analysts",
    "career_name": "Financial and Investment Analysts",
@@ -3329,18 +3249,16 @@
     "Commercial Analyst",
     "Corporate Planner",
     "Ecommerce Programme Manager",
-    "Facilitator",
     "Farm Management Consultant",
     "Financial Systems Advisor",
     "Management Consulting Specialist",
     "Management Reporting Analyst",
-    "Mentor",
     "Operations Analyst",
     "Purchase Advisor",
     "Resource Development Analyst",
     "Service Solutions Project Manager",
-    "Small Business Consultant",
-    "Strategic Developer",
+    "Small Business Consultant / Mentor",
+    "Strategic Developer / Facilitator",
     "Superannuation Transitions Specialist",
     "Technology Development Coordinator"
    ],
@@ -3367,20 +3285,15 @@
    "ofo_code": "242202",
    "title": "Policy Analyst",
    "aliases": [
-    "Analyst",
     "Commerce Projects Advisor",
     "Intelligence Analyst",
-    "Officer",
-    "Planner",
-    "Planning",
     "Policy Advisor",
-    "Policy Consultant",
+    "Policy Consultant / Officer / Planner",
     "Position Analyst",
     "Programme Evaluator",
     "Research Consultant",
     "Research and Evaluation Analyst",
-    "Review",
-    "Risk",
+    "Risk / Planning / Review / Analyst",
     "Special Projects Analyst",
     "Strategic Advisor",
     "Strategic Business Policy Analyst",
@@ -3418,12 +3331,11 @@
    "ofo_code": "242208",
    "title": "Organisational Risk Manager",
    "aliases": [
-    "Organisational Development Manager",
+    "Organisational Development Manager / Practitioner",
     "Organisational Enterprise Wide Risk Manager",
     "Organisational Risk Adviser",
     "Organisational Risk Coordinator",
     "Organisational Risk Officer",
-    "Practitioner",
     "Risk Compliance Manager"
    ],
    "career_slug": "financial-risk-specialists",
@@ -3576,10 +3488,9 @@
    "ofo_code": "242402",
    "title": "Occupational Instructor",
    "aliases": [
-    "Business Leadership",
+    "Business Leadership / Executive Coach",
     "Business Management Skills Trainer",
     "Business Skills Trainer",
-    "Executive Coach",
     "Maintenance Instructor",
     "Mechanical Instructor",
     "Metalwork Instructor",
@@ -3602,9 +3513,8 @@
     "Advertising Account Executive",
     "Advertising Account Manager",
     "Advertising Agent Representative",
-    "Advertising Coordinator",
-    "Creative Director (Advertising)",
-    "Specialist"
+    "Advertising Coordinator / Specialist",
+    "Creative Director (Advertising)"
    ],
    "career_slug": "advertising-sales-agents",
    "career_name": "Advertising Sales Agents",
@@ -3615,15 +3525,13 @@
    "title": "Market Research Analyst",
    "aliases": [
     "Information and Publishing Communications Advisor",
-    "Key Account Manager",
     "Market Access Counsellor",
-    "Market Research Project Manager",
+    "Market Research Project Manager / Project Leader",
     "Market Researcher",
     "Market Trends Consultant",
     "Marketing Analyst",
-    "Marketing Research Accounts Manager",
+    "Marketing Research Accounts Manager / Key Account Manager",
     "Marketing Research Executive",
-    "Project Leader",
     "Trade Marketing Analyst"
    ],
    "career_slug": "market-research-analysts-and-marketing-specialists",
@@ -3643,9 +3551,8 @@
     "Marketing Officer",
     "Marketing Professional",
     "Marketing Specialist",
-    "Product",
+    "Product / Programme Developer (Travel Services)",
     "Product Manager",
-    "Programme Developer (Travel Services)",
     "Retail Advisor",
     "Sales Account Manager",
     "Sales Coordinator",
@@ -3660,8 +3567,7 @@
    "ofo_code": "243104",
    "title": "Market Campaign Analyst",
    "aliases": [
-    "Contact Centre Production",
-    "Productivity Analyst"
+    "Contact Centre Production / Productivity Analyst"
    ],
    "career_slug": "market-research-analysts-and-marketing-specialists",
    "career_name": "Market Research Analysts and Marketing Specialists",
@@ -3673,24 +3579,18 @@
    "aliases": [
     "Communication Management Coordinator",
     "Company Promoter",
-    "Coordinator",
-    "Coordinator External",
-    "Corporate Affairs Officer",
+    "Coordinator External / Internal Communication",
+    "Corporate Affairs Officer / Coordinator",
     "Customer Relations Officer",
-    "Employee Communication Coordinator",
-    "Internal",
-    "Internal Communication",
+    "Internal / Employee Communication Coordinator",
     "Media Liaison Officer",
-    "Officer",
     "PR Accounts Manager",
     "Parliamentary Writer",
-    "Practitioner",
-    "Press Officer",
-    "Promotions Officer",
-    "Public Affairs Advisor",
-    "Public Relations (PR) Coordinator",
-    "Publicity Advisor",
-    "Secretary",
+    "Press Officer / Secretary",
+    "Promotions Officer / Coordinator",
+    "Public Affairs Advisor / Officer",
+    "Public Relations (PR) Coordinator / Practitioner",
+    "Publicity Advisor / Officer / Coordinator",
     "Speechwriter and Advisor",
     "Water Liaison practitioner"
    ],
@@ -3702,43 +3602,36 @@
    "ofo_code": "243204",
    "title": "Event Producer",
    "aliases": [
-    "Concert Promoter",
-    "Conference and Event Organiser",
-    "Coordinator",
+    "Concert Promoter / Organiser",
+    "Conference and Event Organiser / Coordinator",
     "Event Coordinator",
     "Event Director",
     "Event Manager Specialist",
     "Festival Coordinator",
     "Government, Protocol or Civic Event Organiser",
-    "Life Cycle Organiser",
     "Meeting Planner",
-    "Organiser",
     "Procedural adviser",
     "Procedural officer",
     "Professional Conference Organiser",
-    "Social",
+    "Social / Life Cycle Organiser",
     "Sports Event Organiser",
     "Wedding Coordinator"
    ],
-   "career_slug": "public-relations-specialists",
-   "career_name": "Public Relations Specialists",
-   "match": "crosswalk"
+   "career_slug": "meeting-convention-and-event-planners",
+   "career_name": "Meeting, Convention, and Event Planners",
+   "match": "title"
   },
   {
    "ofo_code": "243301",
    "title": "Industrial Products Sales Representative",
    "aliases": [
-    "Coordinator",
-    "Customer Services Engineer",
+    "Customer Services Engineer / Processor",
     "Engineering Salesman",
-    "Manager",
-    "Processor",
-    "Salesman",
-    "Service Delivery Analyst",
+    "Service Delivery Analyst / Coordinator",
     "Solar and Hot Water System Sales Representative",
-    "Technical Representative",
-    "Technical Sales Consultant",
-    "Technical Service Advisor"
+    "Technical Representative / Salesman",
+    "Technical Sales Consultant / Coordinator / Manager",
+    "Technical Service Advisor / Salesman"
    ],
    "career_slug": "sales-representatives-wholesale-and-manufacturing-technical-and-scientific-products",
    "career_name": "Sales Representatives, Wholesale and Manufacturing, Technical and Scientific Products",
@@ -3792,11 +3685,9 @@
     "ICT Systems Coordinator",
     "ICT Systems Specialist",
     "ICT Systems Strategist",
-    "Internet Consultant",
-    "LAN",
-    "Specialist",
-    "Systems Programmer",
-    "WAN Consultant"
+    "Internet Consultant / Specialist",
+    "LAN / WAN Consultant / Specialist",
+    "Systems Programmer"
    ],
    "career_slug": "computer-systems-analysts",
    "career_name": "Computer Systems Analysts",
@@ -3828,31 +3719,15 @@
    "ofo_code": "251202",
    "title": "Programmer Analyst",
    "aliases": [
-    "Architect ( Applications",
-    "Architect (Enterprise",
-    "Call Centre",
-    "Computing",
-    "Computing (Development",
-    "Content",
+    "Architect ( Applications / Call Centre / Computing / Desktop / Ecommerce)",
+    "Architect (Enterprise / Internet / IT / Network / Software / Unix / Web)",
+    "Computing (Development / Field) Engineer",
     "Cross Enterprise Integrator",
     "Database Designer",
-    "Designer (Hardware - Digital",
-    "Desktop",
-    "Ecommerce)",
+    "Designer (Hardware - Digital / Software)",
     "Education Systems Coordinator",
-    "Engineer (Applications",
-    "Field) Engineer",
-    "IT",
-    "Internet",
-    "Licensing Specialist",
-    "Network",
-    "Software",
-    "Software Configuration",
-    "Software)",
-    "Systems",
-    "Unix",
-    "WAN)",
-    "Web)"
+    "Engineer (Applications / Content / IT / Software / Systems / WAN)",
+    "Software Configuration / Licensing Specialist"
    ],
    "career_slug": "software-quality-assurance-analysts-and-testers",
    "career_name": "Software Quality Assurance Analysts and Testers",
@@ -3874,11 +3749,9 @@
    "ofo_code": "251302",
    "title": "Web Developer",
    "aliases": [
-    "Designer",
-    "Developer",
-    "Html Coder",
+    "Html Coder / Developer",
     "Internet Developer",
-    "Web Editor",
+    "Web Editor / Designer",
     "Web Programmer",
     "Web Publishing Advisor",
     "Website Architect",
@@ -3928,12 +3801,11 @@
    "title": "Systems Administrator",
    "aliases": [
     "Advisor Systems Management",
-    "Computer System Coordinator",
     "Computerised Registry Manager",
     "Content Product Manager",
     "Ecommerce Project Manager",
     "IT Information Systems Administrator",
-    "Network",
+    "Network / Computer System Coordinator",
     "Network Administrator",
     "Systems Administrator (Computers)",
     "Systems Manager"
@@ -3946,16 +3818,14 @@
    "ofo_code": "252301",
    "title": "Computer Network and Systems Engineer",
    "aliases": [
-    "Analyst",
     "Communications Analyst (Computers)",
     "Computer Network Engineer",
-    "Computer Systems",
+    "Computer Systems / Service Engineer",
     "Computer Systems Integrator",
     "ICT Customer Support Officer",
     "Network Engineer",
-    "Network Programmer",
+    "Network Programmer / Analyst",
     "Network Support Engineer",
-    "Service Engineer",
     "Systems Engineer",
     "Systems Integrator"
    ],
@@ -3973,9 +3843,8 @@
     "Network Consultant",
     "Network Designer",
     "Network Planner",
-    "Network Services Consultant (LAN",
-    "Network Strategist",
-    "WAN)"
+    "Network Services Consultant (LAN / WAN)",
+    "Network Strategist"
    ],
    "career_slug": "computer-network-architects",
    "career_name": "Computer Network Architects",
@@ -3993,12 +3862,10 @@
    "ofo_code": "252901",
    "title": "ICT Security Specialist",
    "aliases": [
-    "Consultant",
     "Database Security Expert",
-    "Engineer",
     "ICT Security Architect",
     "Information Technology Security Manager",
-    "Internet Security Architect",
+    "Internet Security Architect / Engineer / Consultant",
     "Security Administrator"
    ],
    "career_slug": "information-security-analysts",
@@ -4009,23 +3876,13 @@
    "ofo_code": "261101",
    "title": "Attorney",
    "aliases": [
-    "Commercial",
     "Commercial Rights Manager",
-    "Competition",
-    "Contracts",
-    "Conveyancing",
-    "Criminal)",
-    "Entertainment",
     "Environmental Law Attorney",
-    "Financial",
-    "Immigration)",
-    "Intellectual Property Lawyer",
-    "Lawyer (Civil",
-    "Lawyer (Employment",
+    "Intellectual Property Lawyer / Practitioner",
+    "Lawyer (Civil / Property / Competition / Contracts / Conveyancing / Criminal)",
+    "Lawyer (Employment/ Entertainment / Financial / Commercial / Immigration)",
     "Marine Law Attorney",
     "Maritime Law Attorney",
-    "Practitioner",
-    "Property",
     "Prosecutor",
     "Solicitor"
    ],
@@ -4164,8 +4021,7 @@
    "ofo_code": "262201",
    "title": "Librarian",
    "aliases": [
-    "Acquisitions Librarian",
-    "Advisor",
+    "Acquisitions Librarian / Advisor",
     "Audio-visual Librarian",
     "Bibliographer",
     "Bibliographic Services Manager",
@@ -4174,14 +4030,13 @@
     "Collection Development Manager",
     "Coordinator Heritage General Collections Management",
     "Corporate Librarian",
-    "Information Scientist",
+    "Information Scientist / Officer",
     "Legal Librarian",
-    "Library Manager",
+    "Library Manager / Advisor",
     "Multicultural Services Librarian",
-    "Officer",
     "Oral History Manager",
     "Parliamentary Librarian",
-    "Reference Librarian",
+    "Reference Librarian / Advisor",
     "Special Librarian",
     "Special Needs Librarian"
    ],
@@ -4328,13 +4183,10 @@
    "aliases": [
     "Clinical Neuropsychologist",
     "Cognitive Behavioural Therapist",
-    "Comparative",
-    "Consultant",
-    "Criminal)",
     "Forensic Psychologist",
     "Health Psychologist",
     "Neuropsychologist",
-    "Psychologist (Child"
+    "Psychologist (Child / Comparative / Consultant / Criminal)"
    ],
    "career_slug": "clinical-and-counseling-psychologists",
    "career_name": "Clinical and Counseling Psychologists",
@@ -4344,8 +4196,8 @@
    "ofo_code": "263402",
    "title": "Educational Psychologist",
    "aliases": [],
-   "career_slug": "school-psychologists",
-   "career_name": "School Psychologists",
+   "career_slug": "clinical-and-counseling-psychologists",
+   "career_name": "Clinical and Counseling Psychologists",
    "match": "crosswalk"
   },
   {
@@ -4407,10 +4259,9 @@
    "ofo_code": "263501",
    "title": "Social Counselling Worker",
    "aliases": [
-    "Aids Counsellor",
     "Bereavement Counsellor",
     "Genetic Counsellor",
-    "HIV",
+    "HIV / Aids Counsellor",
     "Trauma Counsellor",
     "Wellness Counsellor",
     "Women's Welfare Organizer"
@@ -4518,7 +4369,6 @@
    "aliases": [
     "Artwork Editor",
     "Associate Editor",
-    "Blog Editor",
     "Editorial Administrator",
     "Features Editor",
     "Legal Editor",
@@ -4531,7 +4381,7 @@
     "Publications Officer",
     "Subeditor",
     "Technical Editor",
-    "Website"
+    "Website / Blog Editor"
    ],
    "career_slug": "editors",
    "career_name": "Editors",
@@ -4686,8 +4536,7 @@
     "Guitarist",
     "Instrumentalist",
     "Percussionist",
-    "Pianist",
-    "Violinist"
+    "Pianist / Violinist"
    ],
    "career_slug": "musicians-and-singers",
    "career_name": "Musicians and Singers",
@@ -4875,13 +4724,12 @@
    "ofo_code": "311101",
    "title": "Chemistry Technician",
    "aliases": [
-    "Analyst",
     "Biofuels Processing Technicians",
     "Carbide Analyst",
     "Chemical Instrumentation Officer",
     "Chemical Laboratory Analyst",
     "Chemical Laboratory Assistant",
-    "Chemical Laboratory Technician",
+    "Chemical Laboratory Technician / Analyst",
     "Chemical Manufacturing Technician",
     "Chemical Process Analyst",
     "Chemical Technician (Food, Fuel, Gas, Paint, Liquefied Petroleum Gas, Leather)",
@@ -5007,8 +4855,7 @@
     "Agricultural Engineering Technician",
     "Automotive Engineering Technician",
     "Boiler Testing Technician",
-    "Commissioner",
-    "Fire Protection Installer",
+    "Fire Protection Installer / Commissioner",
     "Fuel Cell Technician",
     "Marine Engineering Technician",
     "Mechanical Laboratory Technician",
@@ -5049,7 +4896,7 @@
    "title": "Mining Technician",
    "aliases": [
     "Coal Strata Control Practitioner",
-    "Environmental  Observer",
+    "Environmental Observer",
     "Geographical Engineering Practitioner",
     "Hardrock Mining Simpler",
     "Marine Mining Technician",
@@ -5084,11 +4931,10 @@
     "Industrial Radiographer",
     "Magnetic Testing Technician",
     "Metallurgy Laboratory Technician",
-    "Mineral Analyst",
+    "Mineral Analyst / Spectroscopist",
     "Mineral Spectroscopist",
     "Non Destructive Testing Technician",
     "Pressure Testing Technician",
-    "Spectroscopist",
     "Ultrasound Technician"
    ],
    "career_slug": "non-destructive-testing-specialists",
@@ -5191,14 +5037,13 @@
    "aliases": [
     "Beverage Laboratory Technician",
     "Brewery Technician",
-    "Brewmaster",
+    "Brewmaster / Master Brewer",
     "Dairy Laboratory Technician",
     "Distillery Technician",
     "Fermentation Technician",
     "Food Laboratory Technician",
     "Food Science Technician",
     "Gas Chromatographic",
-    "Master Brewer",
     "Milling Laboratory Technician",
     "Sugar Laboratory Technician"
    ],
@@ -5297,22 +5142,6 @@
    "match": "crosswalk"
   },
   {
-   "ofo_code": "312202",
-   "title": "Maintenance Planner",
-   "aliases": [
-    "Coordinator",
-    "Engineering Planner",
-    "Maintenance Scheduler",
-    "Marine Maintenance Planner",
-    "Mine Equipment Planner",
-    "Planner",
-    "Shutdown Coordinator"
-   ],
-   "career_slug": "meeting-convention-and-event-planners",
-   "career_name": "Meeting, Convention, and Event Planners",
-   "match": "title"
-  },
-  {
    "ofo_code": "312301",
    "title": "Building Associate",
    "aliases": [
@@ -5327,14 +5156,12 @@
    "ofo_code": "313102",
    "title": "Fossil Power Plant Process Controller",
    "aliases": [
-    "Bagase Boiler",
+    "Bagase Boiler / Turbine Plant Controller",
     "Biomass Plant Technicians",
     "Fossil Power Plant Process Operator",
     "Fossil Power Plant Process Technician",
     "Geothermal Power Generation Technician",
-    "Landfill Gas Generation System Technicians",
-    "Methane",
-    "Turbine Plant Controller"
+    "Methane/Landfill Gas Generation System Technicians"
    ],
    "career_slug": "power-plant-operators",
    "career_name": "Power Plant Operators",
@@ -5579,10 +5406,9 @@
     "Harbour Pilot",
     "Hovercraft Operator",
     "Hydrofoil Captain",
-    "Jet Boat Driver",
+    "Jet Boat Driver / Operator",
     "Launch Master",
     "Master Mariner",
-    "Operator",
     "Ship's Pilot",
     "Tug Master"
    ],
@@ -5595,9 +5421,8 @@
    "title": "Ship's Officer",
    "aliases": [
     "Deck Officer",
-    "Officer",
     "Ship's Navigating Officer",
-    "Ships Mate"
+    "Ships Mate / Officer"
    ],
    "career_slug": "captains-mates-and-pilots-of-water-vessels",
    "career_name": "Captains, Mates, and Pilots of Water Vessels",
@@ -5635,8 +5460,8 @@
     "Attack Helicopter Pilot",
     "Chopper Pilot"
    ],
-   "career_slug": "airline-pilots-copilots-and-flight-engineers",
-   "career_name": "Airline Pilots, Copilots, and Flight Engineers",
+   "career_slug": "commercial-pilots",
+   "career_name": "Commercial Pilots",
    "match": "crosswalk"
   },
   {
@@ -5663,10 +5488,9 @@
    "ofo_code": "321101",
    "title": "Medical Diagnostic Radiographer",
    "aliases": [
-    "Diagnostic Radiation Technologist",
     "Magnetic Resonance Technologist",
     "Mammographer",
-    "Medical",
+    "Medical / Diagnostic Radiation Technologist",
     "Medical Imaging Technologist",
     "Radiographer",
     "X-Ray Darkroom Technician",
@@ -5681,9 +5505,8 @@
    "title": "Medical Radiation Therapist",
    "aliases": [
     "Medical X-Ray Technician",
-    "Radiation Technologist",
-    "Radiotherapist",
-    "Therapist"
+    "Radiation Technologist / Therapist",
+    "Radiotherapist"
    ],
    "career_slug": "radiation-therapists",
    "career_name": "Radiation Therapists",
@@ -5695,8 +5518,7 @@
    "aliases": [
     "Nuclear Radiographer",
     "Radiochemist",
-    "Radioisotope Technician",
-    "Technologist"
+    "Radioisotope Technician / Technologist"
    ],
    "career_slug": "nuclear-medicine-technologists",
    "career_name": "Nuclear Medicine Technologists",
@@ -5742,9 +5564,8 @@
    "aliases": [
     "Artificial Limb Fitter Technician",
     "Artificial Limb Maker",
-    "Orthopaedic Appliance Maker",
-    "Orthotist Tradesman",
-    "Repairer"
+    "Orthopaedic Appliance Maker / Repairer",
+    "Orthotist Tradesman"
    ],
    "career_slug": "orthotists-and-prosthetists",
    "career_name": "Orthotists and Prosthetists",
@@ -6037,8 +5858,8 @@
     "Clinical Assistant",
     "Ophthalmic Assistant"
    ],
-   "career_slug": "ophthalmic-medical-technicians",
-   "career_name": "Ophthalmic Medical Technicians",
+   "career_slug": "medical-assistants",
+   "career_name": "Medical Assistants",
    "match": "crosswalk"
   },
   {
@@ -6081,11 +5902,10 @@
    "ofo_code": "325705",
    "title": "Safety Inspector",
    "aliases": [
-    "Accident Prevention Consultant",
+    "Accident Prevention Consultant / Inspector",
     "Bridge Inspector",
     "Factory Inspector",
     "Housing Inspector",
-    "Inspector",
     "Lift Inspector",
     "Lifting Machinery Inspector",
     "Lighthouse Inspector",
@@ -6116,9 +5936,8 @@
    "ofo_code": "325801",
    "title": "Ambulance Officer",
    "aliases": [
-    "Ambulance Man",
-    "Patient Transport Officer",
-    "Woman"
+    "Ambulance Man / Woman",
+    "Patient Transport Officer"
    ],
    "career_slug": "ambulance-drivers-and-attendants-except-emergency-medical-technicians",
    "career_name": "Ambulance Drivers and Attendants, Except Emergency Medical Technicians",
@@ -6147,8 +5966,8 @@
    "ofo_code": "331101",
    "title": "Securities Dealer",
    "aliases": [
-    "Bond Dealer",
-    "Derivatives Dealer",
+    "Bond Dealer / Trader",
+    "Derivatives Dealer / Trader",
     "Equity Dealer",
     "Financial Market Dealer",
     "Financial Marketer",
@@ -6159,7 +5978,6 @@
     "Safex Trader",
     "Securities Broker",
     "Securities Trader",
-    "Trader",
     "Yield-X Trader"
    ],
    "career_slug": "securities-commodities-and-financial-services-sales-agents",
@@ -6170,23 +5988,20 @@
    "ofo_code": "331201",
    "title": "Credit or Loans Officer",
    "aliases": [
-    "Administrator",
     "Brokerage Clerk",
     "Budgeting and Reporting Officer",
-    "Control Officer",
-    "Credit Analyst",
+    "Credit Analyst / Control Officer",
     "Credit Clerk",
     "Credit Controller",
-    "Finance Clerk",
+    "Finance Clerk / Officer",
     "Finance Systems Assistant",
     "Finance and Insurance Consultant",
     "Financial Accounting Plan Officer",
-    "Insolvency Officer",
+    "Insolvency Officer / Administrator",
     "Lending Consultant",
     "Loans Consultant",
     "Loans Officer",
-    "Mortgage Clerk",
-    "Officer",
+    "Mortgage Clerk / Officer",
     "Treasury Officer"
    ],
    "career_slug": "loan-officers",
@@ -6244,26 +6059,6 @@
    "match": "crosswalk"
   },
   {
-   "ofo_code": "331501",
-   "title": "Valuer",
-   "aliases": [
-    "Analyst",
-    "Asset Protection Manager",
-    "Commercial Valuer",
-    "Farm",
-    "Land Appraiser",
-    "Municipal Property Assessor",
-    "Officer",
-    "Plant and Machinery Valuer",
-    "Property Valuer",
-    "Real Estate Valuer",
-    "Valuation Advisor"
-   ],
-   "career_slug": "appraisers-and-assessors-of-real-estate",
-   "career_name": "Appraisers and Assessors of Real Estate",
-   "match": "crosswalk"
-  },
-  {
    "ofo_code": "331502",
    "title": "Insurance Investigator",
    "aliases": [
@@ -6300,14 +6095,12 @@
    "ofo_code": "332101",
    "title": "Insurance Agent",
    "aliases": [
-    "Advisor",
     "Commercial Underwriter",
     "Insurance Client Services Agent",
-    "Insurance Representative",
+    "Insurance Representative / Salesman / Advisor",
     "Insurance Sales Consultant",
     "Insurance Underwriter",
-    "Life Assurance Representative",
-    "Salesman"
+    "Life Assurance Representative"
    ],
    "career_slug": "insurance-sales-agents",
    "career_name": "Insurance Sales Agents",
@@ -6403,10 +6196,9 @@
    "ofo_code": "332208",
    "title": "Pharmacy Sales Assistant",
    "aliases": [
-    "Pharmacy Assistant",
     "Pharmacy Cosmetics Salesperson",
     "Pharmacy Salesperson",
-    "Retail Dispensary"
+    "Retail Dispensary / Pharmacy Assistant"
    ],
    "career_slug": "sales-representatives-wholesale-and-manufacturing-technical-and-scientific-products",
    "career_name": "Sales Representatives, Wholesale and Manufacturing, Technical and Scientific Products",
@@ -6416,8 +6208,7 @@
    "ofo_code": "332301",
    "title": "Retail Buyer",
    "aliases": [
-    "Company Buyer",
-    "General",
+    "General / Company Buyer",
     "Merchandise Planner"
    ],
    "career_slug": "wholesale-and-retail-buyers-except-farm-products",
@@ -6428,17 +6219,11 @@
    "ofo_code": "332302",
    "title": "Purchasing Officer",
    "aliases": [
-    "Assistant",
-    "Buyer",
-    "Clerk",
-    "Controller",
-    "Coordinator",
     "Feed Ingredient Buyer",
-    "Officer",
-    "Procurement Administrator",
+    "Procurement Administrator / Coordinator / Officer",
     "Procurement Clerk",
     "Procurement Officer (Consumer Sensitive Consumables)",
-    "Purchasing Agent",
+    "Purchasing Agent / Assistant / Buyer / Clerk / Controller",
     "Purchasing Merchandiser",
     "Purchasing Stores Officer",
     "Purchasing and Logistics Officer",
@@ -6454,17 +6239,14 @@
    "aliases": [
     "Agricultural Procurer",
     "Agricultural Produce Buyer",
-    "Buyer",
     "Commodities Broker",
     "Grain Buyer",
     "Livestock Trader",
     "Media Buyer",
     "Mineral Broker",
     "Skin Buyer",
-    "Tobacco Trader",
-    "Trader",
-    "Valuator",
-    "Wool Broker"
+    "Tobacco Trader / Valuator",
+    "Wool Broker / Buyer / Trader"
    ],
    "career_slug": "securities-commodities-and-financial-services-sales-agents",
    "career_name": "Securities, Commodities, and Financial Services Sales Agents",
@@ -6511,9 +6293,8 @@
     "Exhibition Organiser",
     "Function Planner",
     "Functions Manager",
-    "Life Cycle Coordinator",
     "Marketing Campaign Organiser",
-    "Social",
+    "Social/Life Cycle Coordinator",
     "Trade Fair Manager",
     "Wedding Planner"
    ],
@@ -6547,16 +6328,13 @@
     "Body Corporate Manager",
     "Building Manager",
     "Commercial Property Manager",
-    "Contracts",
-    "Development Manager",
     "Facility Manager",
     "Property Administrator",
     "Property Business Support Manager",
-    "Property Clearance",
+    "Property Clearance / Contracts / Development Manager",
     "Property Leasing Manager",
-    "Property Manager (Services",
-    "Property Technical Officer (Ministry of Foreign Affairs and Trade)",
-    "Standards)"
+    "Property Manager (Services / Standards)",
+    "Property Technical Officer (Ministry of Foreign Affairs and Trade)"
    ],
    "career_slug": "property-real-estate-and-community-association-managers",
    "career_name": "Property, Real Estate, and Community Association Managers",
@@ -6575,15 +6353,11 @@
     "Commercial Sales Agent",
     "Commercial Sales Broker",
     "Commercial Sales Consultant",
-    "Consultant",
-    "Dealer",
-    "Developer",
     "Leasing Agent",
     "Leasing Agent (Buildings)",
     "Leasing Broker",
     "Leasing Consultant",
-    "Planner",
-    "Property Analyst",
+    "Property Analyst / Consultant / Dealer / Developer / Planner",
     "Real Estate Consultant",
     "Real Estate Practitioner",
     "Real Estate Referral Coordinator",
@@ -6732,6 +6506,16 @@
    "match": "crosswalk"
   },
   {
+   "ofo_code": "334103",
+   "title": "Call Centre Team Leader",
+   "aliases": [
+    "Contact/Call Centre Supervisor"
+   ],
+   "career_slug": "first-line-supervisors-of-office-and-administrative-support-workers",
+   "career_name": "First-Line Supervisors of Office and Administrative Support Workers",
+   "match": "reviewed"
+  },
+  {
    "ofo_code": "334201",
    "title": "Legal Secretary",
    "aliases": [
@@ -6777,21 +6561,16 @@
    "ofo_code": "335101",
    "title": "Customs Officer",
    "aliases": [
-    "Administrator",
     "Coastwatch Officer",
-    "Customs Advisory Officer",
-    "Customs Bond Officer",
+    "Customs Advisory Officer / Administrator",
+    "Customs Bond Officer / Dog Handler / Examiner / Operator",
     "Customs Inspector",
     "Customs Investigator",
-    "Customs Liaison Officer",
+    "Customs Liaison Officer / Prevention Officer",
     "Customs Overseas Representative",
     "Customs Ship Servicing Officer",
     "Customs Technical Unit Officer",
     "Customs and Excise Officer",
-    "Dog Handler",
-    "Examiner",
-    "Operator",
-    "Prevention Officer",
     "Valuation and Origin Industry Complaints Officers"
    ],
    "career_slug": "customs-and-border-protection-officers",
@@ -6824,13 +6603,11 @@
    "ofo_code": "335402",
    "title": "Import-export Administrator",
    "aliases": [
-    "Agent",
-    "Bond Clerk",
+    "Bond Clerk / Agent",
     "Certification Clerk",
-    "Clerk",
-    "Customs Agent",
+    "Customs Agent / Clerk",
     "Customs Broker",
-    "Export Agent",
+    "Export Agent / Clerk",
     "Export Documentation Officer",
     "Shipping Tally Clerk",
     "Tally Clerk",
@@ -6969,10 +6746,7 @@
     "Court Escort",
     "Court Officer",
     "Court Usher",
-    "Family",
-    "High",
-    "Local",
-    "Satellite Court Manager"
+    "Family / Local / High / Satellite Court Manager"
    ],
    "career_slug": "bailiffs",
    "career_name": "Bailiffs",
@@ -6982,13 +6756,11 @@
    "ofo_code": "341107",
    "title": "Law Clerk",
    "aliases": [
-    "Associate",
     "Inland Revenue Technical Advisor",
-    "Legal Annotator",
+    "Legal Annotator / Associate",
     "Legal Clerk",
     "Litigation Support Officer",
-    "Prosecutions Clerk",
-    "Support Officer",
+    "Prosecutions Clerk / Support Officer",
     "Title Searcher"
    ],
    "career_slug": "judicial-law-clerks",
@@ -7200,17 +6972,15 @@
     "Aerobics Instructor",
     "Aquarobics Instructor",
     "Fitness Centre Worker",
-    "Fitness Consultant",
-    "Gym Instructor",
+    "Fitness Consultant / Trainer / Instructor",
+    "Gym Instructor / Trainer",
     "Gymnasium Attendant",
     "Health and Fitness Instructor",
-    "Instructor",
     "Personal Trainer",
     "Physical Activity Coordinator",
     "Physical Education Officer",
     "Physical Fitness Trainer",
-    "Physical Training Instructor",
-    "Trainer"
+    "Physical Training Instructor"
    ],
    "career_slug": "exercise-trainers-and-group-fitness-instructors",
    "career_name": "Exercise Trainers and Group Fitness Instructors",
@@ -7226,11 +6996,10 @@
     "Landscape Photographer",
     "Medical Photographer",
     "News Photographer",
-    "Photo Finish",
+    "Photo Finish / Post Production Photographer",
     "Photographer and Image Recording Equipment Operator",
     "Photojournalist",
     "Portrait Photographer",
-    "Post Production Photographer",
     "Sports Photographer",
     "Technical Photographer"
    ],
@@ -7389,17 +7158,12 @@
    "ofo_code": "351302",
    "title": "Geographic Information Systems Technicians",
    "aliases": [
-    "Consultant",
-    "GIS Assistant",
+    "GIS Assistant / Consultant / Officer /Operator / Specialist / Technician",
     "Geographic Information Systems Analyst",
     "Geographic Information Systems Coordinator",
     "Geographic Information Systems Specialist",
-    "Officer",
-    "Operator",
     "Remote Sensing Scientists and Technologists",
-    "Specialist",
-    "Technical Support Specialist",
-    "Technician"
+    "Technical Support Specialist"
    ],
    "career_slug": "geographic-information-systems-technologists-and-technicians",
    "career_name": "Geographic Information Systems Technologists and Technicians",
@@ -7450,13 +7214,9 @@
     "Audio Technician",
     "Dubbing Machine Operator",
     "Dubbing Projectionist (Sound Mixing)",
-    "Mixer",
-    "Operator",
     "Re-recording Mixer",
-    "Recordist",
-    "Sound Editor",
+    "Sound Editor / Mixer / Recordist / Operator / Specialist",
     "Sound Effects Person",
-    "Specialist",
     "Video and Sound Recorder"
    ],
    "career_slug": "sound-engineering-technicians",
@@ -7490,36 +7250,27 @@
    "ofo_code": "411101",
    "title": "General Clerk",
    "aliases": [
-    "Accident",
-    "Administration Clerk",
+    "Accident / Committee / Fingerprint Clerk",
+    "Administration Clerk / Officer",
     "Administrative Assistant",
     "Advisory Officer Clerical",
     "Buying Clerk",
-    "Clerical Assistant",
+    "Clerical Assistant / Officer",
     "Client Services Administrator",
-    "Committee",
     "Community Services Clerk",
-    "Counter",
-    "Field Assistant",
-    "Fingerprint Clerk",
-    "Fingerprint Officer",
+    "Counter / Licensing / Veterinary / Warrants Clerk",
     "Girl Friday",
     "Lab Administrator",
-    "Licensing",
     "Logistic clerk",
-    "Office",
-    "Officer",
-    "Operation Services",
+    "Office / Field Assistant",
+    "Operation Services / Support Officer",
     "Planning Support Officer",
     "Recording Clerk",
     "Social Security Administrator",
-    "Support Officer",
     "Survey Information Officer",
     "Tender Evaluation Coordinator",
-    "Veterinary",
     "Victims Court Assistant",
-    "Visa",
-    "Warrants Clerk"
+    "Visa / Fingerprint Officer"
    ],
    "career_slug": "office-clerks-general",
    "career_name": "Office Clerks, General",
@@ -7554,21 +7305,15 @@
    "ofo_code": "413201",
    "title": "Data Entry Operator",
    "aliases": [
-    "Cati Specialist",
     "Computer Clerk",
     "Data Capturer",
-    "Data Compiler",
-    "Data Control",
+    "Data Compiler / Enterer / Officer / Operator",
+    "Data Control / Input Clerk",
     "Data Processing Operator",
-    "Data Specifier",
+    "Data Specifier /Programmer / Cati Specialist",
     "Electronic Data Processor (EDP)",
-    "Enterer",
     "Flexowriter Printer",
-    "Input Clerk",
     "Internal Affairs Computing Officer",
-    "Officer",
-    "Operator",
-    "Programmer",
     "Punched Card Machine Operator",
     "Visual Display Unit Operator"
    ],
@@ -7580,20 +7325,8 @@
    "ofo_code": "421101",
    "title": "Bank Teller",
    "aliases": [
-    "Bank Clerk",
-    "Officer",
+    "Bank Clerk / Officer",
     "Settlements Clerk Banking",
-    "Teller"
-   ],
-   "career_slug": "tellers",
-   "career_name": "Tellers",
-   "match": "crosswalk"
-  },
-  {
-   "ofo_code": "421103",
-   "title": "Currency Exchange Officer",
-   "aliases": [
-    "Foreign Exchange Officer",
     "Teller"
    ],
    "career_slug": "tellers",
@@ -7627,11 +7360,10 @@
    "ofo_code": "421202",
    "title": "Gaming Worker",
    "aliases": [
-    "Casino",
+    "Casino / Gaming Dealer",
     "Casino Gaming Inspector",
     "Casino Surveillance Operator",
     "Croupier",
-    "Gaming Dealer",
     "Gaming Inspector",
     "Gaming Operator",
     "Gaming Pit Boss",
@@ -7692,15 +7424,61 @@
    "match": "crosswalk"
   },
   {
+   "ofo_code": "422201",
+   "title": "Inbound Contact Centre Consultant",
+   "aliases": [
+    "Inbound Call Centre Customer Service Representative",
+    "Inbound Contact Centre Team Leader"
+   ],
+   "career_slug": "customer-service-representatives",
+   "career_name": "Customer Service Representatives",
+   "match": "reviewed"
+  },
+  {
+   "ofo_code": "422202",
+   "title": "Outbound Contact Centre Consultant",
+   "aliases": [
+    "Call Centre Customer Service Representative (Outbound)",
+    "Call or Contact Centre Sales Agent / Consultant",
+    "Collections Consultant (Contact Centre)",
+    "Outbound Contact Centre Team Leader"
+   ],
+   "career_slug": "customer-service-representatives",
+   "career_name": "Customer Service Representatives",
+   "match": "reviewed"
+  },
+  {
+   "ofo_code": "422203",
+   "title": "Contact Centre Real Time Advisor",
+   "aliases": [
+    "Bridge Controller",
+    "Real Time Administrator",
+    "Real Time Analyst",
+    "Real Time Monitor",
+    "Real Time Tracker",
+    "Resource Controller"
+   ],
+   "career_slug": "customer-service-representatives",
+   "career_name": "Customer Service Representatives",
+   "match": "reviewed"
+  },
+  {
+   "ofo_code": "422206",
+   "title": "Call or Contact Centre Agent",
+   "aliases": [],
+   "career_slug": "customer-service-representatives",
+   "career_name": "Customer Service Representatives",
+   "match": "reviewed"
+  },
+  {
    "ofo_code": "422301",
    "title": "Switchboard Operator",
    "aliases": [
-    "Attendant",
     "PABX Operator",
     "Phone Centre Operator",
     "Shift Telephonist",
     "Telecom Operator",
-    "Telephone Operator"
+    "Telephone Operator / Attendant"
    ],
    "career_slug": "switchboard-operators-including-answering-service",
    "career_name": "Switchboard Operators, Including Answering Service",
@@ -7718,29 +7496,22 @@
    "ofo_code": "422501",
    "title": "Enquiry Clerk",
    "aliases": [
-    "Advisor",
-    "Assistant",
-    "Clerk",
     "Client Liaison Officer",
     "Client Support Officer",
     "Communications Assistant",
     "Complaints Clerk",
     "Consumer Safety Advisor",
-    "Corporate",
+    "Corporate / Front Office Receptionist",
     "Customer Centre Support Officer",
-    "Customer Services Clerk",
+    "Customer Services Clerk / Officer / Reception Officer",
     "Dealer Support Consultant",
     "Enquiry Officer",
-    "Front Office Receptionist",
     "Helpline Advisor",
     "Info Centre Administrator",
-    "Information Clerk",
+    "Information Clerk / Officer / Advisor / Assistant",
     "Information Express Officer",
-    "Officer",
-    "Public Counter Assistant",
-    "Public Foyer Attendant",
-    "Reception Officer",
-    "Receptionist"
+    "Public Counter Assistant / Clerk / Receptionist",
+    "Public Foyer Attendant"
    ],
    "career_slug": "receptionists-and-information-clerks",
    "career_name": "Receptionists and Information Clerks",
@@ -7774,18 +7545,14 @@
    "title": "Survey Interviewer",
    "aliases": [
     "Clerical Field Officer",
-    "Coordinator",
     "Enumerator",
-    "Field Assistant",
+    "Field Assistant / Coordinator",
     "Field Worker",
     "Interviewer",
     "Market Research Interviewer",
     "Market Research Reporter",
-    "Poll Interviewer",
-    "Research",
-    "Survey",
-    "Surveyor",
-    "Telephone Researcher"
+    "Research / Survey / Poll Interviewer",
+    "Telephone Researcher / Surveyor"
    ],
    "career_slug": "interviewers-except-eligibility-and-loan",
    "career_name": "Interviewers, Except Eligibility and Loan",
@@ -7806,22 +7573,18 @@
    "ofo_code": "431101",
    "title": "Accounts Clerk",
    "aliases": [
-    "Account Coordinator",
+    "Account Coordinator / Controller",
     "Accounting Clerk",
     "Accounts Payable or Receivable Clerk",
-    "Assets Clerk",
+    "Assets Clerk / Coordinator",
     "Audit Clerk",
-    "Billing Administrator",
-    "Controller",
+    "Billing Administrator / Representative / Officer",
     "Controller debtors",
-    "Coordinator",
     "Creditors Clerk",
     "Creditors controller",
     "Debtors Clerk",
     "Ledger Clerk",
-    "Officer",
-    "Representative",
-    "Settlement Clerk"
+    "Settlement Clerk / Officer"
    ],
    "career_slug": "bookkeeping-accounting-and-auditing-clerks",
    "career_name": "Bookkeeping, Accounting, and Auditing Clerks",
@@ -7831,14 +7594,12 @@
    "ofo_code": "431102",
    "title": "Cost Clerk",
    "aliases": [
-    "Analyst",
     "Costing Clerk",
     "Costing Estimator",
-    "Estimator",
-    "Pricing Clerk"
+    "Pricing Clerk / Analyst / Estimator"
    ],
-   "career_slug": "billing-and-posting-clerks",
-   "career_name": "Billing and Posting Clerks",
+   "career_slug": "bookkeeping-accounting-and-auditing-clerks",
+   "career_name": "Bookkeeping, Accounting, and Auditing Clerks",
    "match": "crosswalk"
   },
   {
@@ -7853,12 +7614,10 @@
    "ofo_code": "431201",
    "title": "Insurance Administrator",
    "aliases": [
-    "Assistant",
     "Health Insurance Assessor",
-    "Insurance Brokering Clerk",
-    "Insurance Clerk",
+    "Insurance Brokering Clerk / Assistant",
+    "Insurance Clerk / Officer",
     "Insurance Underwriting Clerk",
-    "Officer",
     "Superannuation Fund Clerk"
    ],
    "career_slug": "insurance-claims-and-policy-processing-clerks",
@@ -7875,13 +7634,12 @@
     "Census Processing Manager",
     "Clerk Field Collections",
     "Data Match Officer",
-    "Officer",
-    "Statistical Coordinator",
+    "Statistical Coordinator / Officer",
     "Statistical Field Worker",
     "Survey Statistician"
    ],
-   "career_slug": "credit-authorizers-checkers-and-clerks",
-   "career_name": "Credit Authorizers, Checkers, and Clerks",
+   "career_slug": "brokerage-clerks",
+   "career_name": "Brokerage Clerks",
    "match": "crosswalk"
   },
   {
@@ -7918,29 +7676,24 @@
    "ofo_code": "432101",
    "title": "Stock Clerk / Officer",
    "aliases": [
-    "Administrator",
     "Aisle Controller",
-    "Assistant",
-    "Controller",
-    "Exhibits Clerk",
+    "Exhibits Clerk / Officer",
     "Feed Additives Stores Person",
-    "Inventory Clerk",
+    "Inventory Clerk / Controller / Administrator",
     "Lost and Found Property Clerk",
     "Micro Nutrients Stores Persons",
-    "Officer",
     "Packaging Material Stores Clerk-Perishable Produce",
     "Purchasing and Inventory Officer",
     "Quartermaster Ship",
-    "Scheduler",
     "Ships Provider",
     "Stock Control Clerk",
     "Storekeeping Officer",
-    "Stores Clerk",
+    "Stores Clerk / Officer",
     "Stores Controller",
     "Stores Coordinator",
     "Stores Maintenance Clerk",
     "Stores Works Property Officer",
-    "Supply Clerk"
+    "Supply Clerk / Assistant / Officer / Scheduler"
    ],
    "career_slug": "shipping-receiving-and-inventory-clerks",
    "career_name": "Shipping, Receiving, and Inventory Clerks",
@@ -7950,20 +7703,15 @@
    "ofo_code": "432102",
    "title": "Dispatching and Receiving Clerk / Officer",
    "aliases": [
-    "Agent",
-    "Assistant",
     "Carton and Label Controller",
-    "Dispatch Clerk",
+    "Dispatch Clerk / Officer / Operator / Assistant / Worker",
     "Distribution Officer",
-    "Freight Clerk",
+    "Freight Clerk / Agent",
     "Goods Receiving Clerk",
     "Inwards Goods Clerk",
-    "Officer",
-    "Operator",
     "Packed Fresh Produce Dispatch Clerk",
     "Receiving Clerk",
     "Shipping and Receiving Clerk",
-    "Worker",
     "Workshop Clerk"
    ],
    "career_slug": "shipping-receiving-and-inventory-clerks",
@@ -7985,14 +7733,11 @@
    "ofo_code": "432104",
    "title": "Warehouse Administrator / Clerk",
    "aliases": [
-    "Ca",
-    "Controller (Perishable Produce)",
-    "Manager",
-    "Ra Storage Manager",
+    "Ca / Ra Storage Manager / Controller (Perishable Produce)",
     "Seed Dispatch Manager",
     "Seed Receiving Manager",
     "Seed Warehouse Manager",
-    "Wool Storage Controller"
+    "Wool Storage Controller / Manager"
    ],
    "career_slug": "shipping-receiving-and-inventory-clerks",
    "career_name": "Shipping, Receiving, and Inventory Clerks",
@@ -8002,30 +7747,24 @@
    "ofo_code": "432201",
    "title": "Production Coordinator",
    "aliases": [
-    "Assistant",
-    "Controller",
-    "Coordinator",
     "Delivery Clerk",
     "Distribution Controller",
     "Fresh Produce Dispatch Controller",
     "Fresh Produce Receiving Coordinator",
-    "Logistics Clerk",
+    "Logistics Clerk / Assistant / Controller / Coordinator / Planner / Officer",
     "Manufacturing Distributor",
     "Material and Production Planning Clerk",
-    "Officer",
     "Parts Warehouse Clerk",
-    "Planner",
     "Planning and Liaison Officer",
     "Printing Coordinator",
     "Production Clerk",
     "Production Foreman",
     "Production Leader",
-    "Production Planner",
+    "Production Planner / Officer",
     "Production Planning Officer",
-    "Production Recorder",
+    "Production Recorder / Scheduler",
     "Quota Controller",
     "Schedule Clerk",
-    "Scheduler",
     "Seed Harvesting Leader",
     "Shift Controller"
    ],
@@ -8041,16 +7780,12 @@
     "Boat Dispatcher",
     "Clerical Controller (Transport Service)",
     "Clerical Dispatcher (Transport Service)",
-    "Controller",
-    "Coordinator",
-    "Dispatcher",
-    "Fleet Contracts Manager",
-    "Fleet Maintainer",
+    "Fleet Contracts Manager / Controller / Coordinator",
+    "Fleet Maintainer / Supply Officer",
     "Railway Checker",
     "Railway Traffic Dispatcher",
     "Road Traffic Controller",
-    "Supply Officer",
-    "Transport Coordinator",
+    "Transport Coordinator / Dispatcher",
     "Truck Dispatcher",
     "Wharfinger"
    ],
@@ -8063,7 +7798,7 @@
    "title": "Library Assistant",
    "aliases": [
     "Archive Assistant",
-    "Cataloguing Clerk",
+    "Cataloguing Clerk / Officer",
     "Circulation Assistant",
     "Document Services Coordinator",
     "Documentation Officer",
@@ -8074,17 +7809,15 @@
     "Interloans Assistant",
     "Knowledge Online Coordinator",
     "Library Attendant",
-    "Library Clerk",
-    "Library Shelver",
+    "Library Clerk / Officer",
+    "Library Shelver / Retrieval Assistant",
     "Manuscripts Assistant",
-    "Officer",
-    "Records Coordinator",
-    "Reference Assistant",
-    "Repository Assistant",
-    "Retrieval Assistant"
+    "Records Coordinator / Officer",
+    "Reference Assistant / Officer",
+    "Repository Assistant"
    ],
-   "career_slug": "library-assistants-clerical",
-   "career_name": "Library Assistants, Clerical",
+   "career_slug": "library-technicians",
+   "career_name": "Library Technicians",
    "match": "crosswalk"
   },
   {
@@ -8108,8 +7841,7 @@
     "Mail Delivery Contractor",
     "Messenger",
     "Post Carrier",
-    "Postman",
-    "Postwoman"
+    "Postman / Postwoman"
    ],
    "career_slug": "postal-service-mail-carriers",
    "career_name": "Postal Service Mail Carriers",
@@ -8119,7 +7851,6 @@
    "ofo_code": "441203",
    "title": "Mail Clerk",
    "aliases": [
-    "Clerk",
     "Mail Assistant",
     "Mail Centre Coordinator",
     "Mail Controller",
@@ -8128,7 +7859,7 @@
     "Mail Officer",
     "Mail Processing Officer",
     "Mail Sorting Clerk",
-    "Mailroom Assistant",
+    "Mailroom Assistant / Clerk",
     "Parcel Post Officer",
     "Post Office Mail Sorter",
     "Postal Sorting Officer"
@@ -8153,19 +7884,17 @@
    "title": "Filing or Registry Clerk",
    "aliases": [
     "Clerical Retrieval Assistant",
-    "Coordinator",
     "Directory Compiler",
     "Document Control Officer",
-    "Documentation Clerk",
+    "Documentation Clerk / Officer",
     "File Management Officer",
     "Index Clerk",
     "Information Centre Support Officer",
     "Information Services Assistant",
-    "Information and Records Manager",
+    "Information and Records Manager / Coordinator",
     "Listing Clerk",
-    "Officer",
     "Records Centre Advisor",
-    "Records Clerk",
+    "Records Clerk / Coordinator",
     "Registry Office Keeper"
    ],
    "career_slug": "file-clerks",
@@ -8178,15 +7907,12 @@
    "aliases": [
     "Addressing Machine Operator",
     "Copying Services Officer",
-    "Document Shredder",
     "Duplicating Machinist",
     "Office Assistant Photocopying",
     "Office Machinist",
-    "Photocopier Operator",
-    "Photocopyist",
+    "Photocopier Operator / Photocopyist / Record Officer",
     "Photographic Machine Operator",
-    "Record Officer",
-    "Shredder Operator",
+    "Shredder Operator / Document Shredder",
     "Telex Operator",
     "Xerox Operator"
    ],
@@ -8205,8 +7931,7 @@
     "Inland Revenue Pay and Personnel Officer",
     "Overpayments Officer",
     "Personnel Records Clerk",
-    "Recruiting",
-    "Recruitment Clerk",
+    "Recruiting / Recruitment Clerk",
     "Roster Clerk"
    ],
    "career_slug": "human-resources-assistants-except-payroll-and-timekeeping",
@@ -8241,16 +7966,13 @@
     "Administration Officer",
     "Administrator",
     "Assistant Secretary of The Cabinet",
-    "Clerk",
-    "Consents Officer",
-    "Coordinator",
+    "Consents Officer / Clerk",
     "Course Coordinator",
-    "Leader",
-    "Programme",
-    "Project Advisor",
+    "Programme / Project Coordinator",
+    "Project Advisor / Leader",
     "Project Controller",
     "Project Coordinator",
-    "Project Corrections Operations Advisor",
+    "Project Corrections Operations Advisor / Coordinator",
     "Project Planner",
     "Project Programme Specialist",
     "Senior Officer",
@@ -8265,8 +7987,7 @@
    "ofo_code": "441905",
    "title": "Account Clerk (Public Relations / Communication)",
    "aliases": [
-    "Assistant",
-    "Communication Clerk"
+    "Communication Clerk / Assistant"
    ],
    "career_slug": "new-accounts-clerks",
    "career_name": "New Accounts Clerks",
@@ -8278,8 +7999,7 @@
    "aliases": [
     "Air Hostess",
     "Airport Attendants",
-    "Attendant (Aircraft)",
-    "Cabin Steward",
+    "Cabin Steward / Attendant (Aircraft)",
     "Crew Attendant",
     "Flight Purser",
     "Ground Hostess"
@@ -8289,28 +8009,14 @@
    "match": "crosswalk"
   },
   {
-   "ofo_code": "511103",
-   "title": "Marine Steward",
-   "aliases": [
-    "Ships Cabin Attendant",
-    "Ships Purser",
-    "Ships Steward",
-    "Stewardess"
-   ],
-   "career_slug": "first-line-supervisors-of-passenger-attendants",
-   "career_name": "First-Line Supervisors of Passenger Attendants",
-   "match": "crosswalk"
-  },
-  {
    "ofo_code": "511201",
    "title": "Transport Conductor",
    "aliases": [
-    "Bus",
+    "Bus / Train Ticket Inspector",
     "Cable Car Conductor",
     "Railway Sleeping Car Conductor",
     "Ticket Inspector (Public Transport)",
     "Train Conductor",
-    "Train Ticket Inspector",
     "Tram Conductor"
    ],
    "career_slug": "railroad-conductors-and-yardmasters",
@@ -8338,8 +8044,8 @@
    "ofo_code": "512101",
    "title": "Cook",
    "aliases": [],
-   "career_slug": "cooks-short-order",
-   "career_name": "Cooks, Short Order",
+   "career_slug": "cooks-private-household",
+   "career_name": "Cooks, Private Household",
    "match": "crosswalk"
   },
   {
@@ -8367,13 +8073,12 @@
    "ofo_code": "513201",
    "title": "Bar Attendant",
    "aliases": [
-    "Bar Hostess",
+    "Bar Hostess / Maid",
     "Bar Operator",
     "Bar Steward",
     "Barperson Waiter",
     "Bartender",
-    "Club Steward",
-    "Maid"
+    "Club Steward"
    ],
    "career_slug": "bartenders",
    "career_name": "Bartenders",
@@ -8409,15 +8114,14 @@
     "Beauty Therapist",
     "Cosmetologist",
     "Facial Therapist",
-    "Intense Pulsed Light (IPL",
-    "Laser) Skin Technician",
+    "Intense Pulsed Light (IPL / Laser) Skin Technician",
     "Make-up Artist",
     "Medical Aesthetician",
     "Permanent Make-up Artist",
     "Skin Peeling and Dermabrasion"
    ],
-   "career_slug": "hairdressers-hairstylists-and-cosmetologists",
-   "career_name": "Hairdressers, Hairstylists, and Cosmetologists",
+   "career_slug": "skincare-specialists",
+   "career_name": "Skincare Specialists",
    "match": "crosswalk"
   },
   {
@@ -8426,8 +8130,7 @@
    "aliases": [
     "Electrologist",
     "Eyelash and Brow Technician",
-    "Intense Pulsed Light (IPL",
-    "Laser) Hair Technician",
+    "Intense Pulsed Light (IPL / Laser) Hair Technician",
     "Waxing Technician"
    ],
    "career_slug": "skincare-specialists",
@@ -8503,8 +8206,7 @@
     "Bar Manager",
     "Commissionaire Porter",
     "Front Office Manager (Hotel)",
-    "Front Office Porter (Hotel)",
-    "Head",
+    "Head / Front Office Porter (Hotel)",
     "Head Housekeeper",
     "Hotel Chief Steward",
     "Hotel Concierge",
@@ -8557,8 +8259,7 @@
     "Dormitory Warden",
     "Hut Warden Conservation",
     "Janitor",
-    "Landlady",
-    "Landlord",
+    "Landlord / Landlady",
     "Maintenance Officer",
     "Property Officer",
     "Sexton",
@@ -8589,8 +8290,8 @@
     "Mortician",
     "Undertaker"
    ],
-   "career_slug": "morticians-undertakers-and-funeral-arrangers",
-   "career_name": "Morticians, Undertakers, and Funeral Arrangers",
+   "career_slug": "funeral-attendants",
+   "career_name": "Funeral Attendants",
    "match": "crosswalk"
   },
   {
@@ -8614,17 +8315,16 @@
     "SPCA Worker",
     "Shearer"
    ],
-   "career_slug": "animal-trainers",
-   "career_name": "Animal Trainers",
+   "career_slug": "animal-caretakers",
+   "career_name": "Animal Caretakers",
    "match": "crosswalk"
   },
   {
    "ofo_code": "516402",
    "title": "Animal Trainer",
    "aliases": [
-    "Breaker",
     "Dog Handler",
-    "Horse Trainer"
+    "Horse Trainer / Breaker"
    ],
    "career_slug": "animal-trainers",
    "career_name": "Animal Trainers",
@@ -8698,27 +8398,24 @@
    "title": "Sales Assistant (General)",
    "aliases": [
     "Clothing Sales Assistant",
-    "Consultant",
     "Cosmetic Sales Assistant",
     "Counterhand",
-    "Fast Food Assistant",
+    "Fast Food Assistant / Operator",
     "Food Demonstrator",
     "Foodmarket Worker",
     "Hardware Sales Assistant",
-    "Operator",
     "Pawnbroker",
     "Perishable Sales Worker",
     "Retail Assistant",
-    "Sales Person",
+    "Sales Person / Consultant",
     "Shop Assistant",
-    "Supermarket Assistant",
+    "Supermarket Assistant / Worker",
     "Swimming Pool Salesperson",
-    "Telephone Salesperson",
-    "Worker"
+    "Telephone Salesperson"
    ],
-   "career_slug": "retail-salespersons",
-   "career_name": "Retail Salespersons",
-   "match": "crosswalk"
+   "career_slug": "advertising-sales-agents",
+   "career_name": "Advertising Sales Agents",
+   "match": "title"
   },
   {
    "ofo_code": "522302",
@@ -8897,10 +8594,9 @@
    "ofo_code": "531101",
    "title": "Child Care Worker",
    "aliases": [
-    "Attendant",
     "Child Care Aide",
     "Child Minder",
-    "Children's Nursery Assistant",
+    "Children's Nursery Assistant / Attendant",
     "Crèche Attendant",
     "Daymother",
     "Nursemaid",
@@ -9011,7 +8707,6 @@
    "ofo_code": "532905",
    "title": "Therapy Aide",
    "aliases": [
-    "Assistant",
     "Associate Professional (Health Therapy)",
     "Audiologist Assistant",
     "Chiropractic Assistant",
@@ -9020,7 +8715,7 @@
     "Osteopath's Assistant",
     "Physiotherapist's Assistant",
     "Podiatrist Assistant",
-    "Psychiatrist's Aide"
+    "Psychiatrist's Aide / Assistant"
    ],
    "career_slug": "occupational-therapy-aides",
    "career_name": "Occupational Therapy Aides",
@@ -9059,18 +8754,16 @@
    "aliases": [
     "Constable City Traffic",
     "Driver Testing Officer",
-    "Officer",
     "Police Patrol Officer",
     "Road Safety Officer",
     "Traffic Constable",
     "Traffic Coordinator",
     "Traffic Enquiry Constable",
-    "Traffic Pointsman",
-    "Traffic Safety Coordinator",
+    "Traffic Pointsman / Woman",
+    "Traffic Safety Coordinator / Officer",
     "Traffic Sergeant",
     "Traffic Warden",
-    "Transportation Vehicle, Equipment and Systems Inspectors",
-    "Woman"
+    "Transportation Vehicle, Equipment and Systems Inspectors"
    ],
    "career_slug": "police-and-sheriffs-patrol-officers",
    "career_name": "Police and Sheriff's Patrol Officers",
@@ -9082,33 +8775,29 @@
    "aliases": [
     "Bomb Squad Officer",
     "Constable (SAPS)",
-    "Crime Scene Coordinator",
+    "Crime Scene Coordinator / Officer",
     "Crime Services Manager",
     "Gang Intelligence Officer",
     "Incident Response Constable",
-    "Inquests Constable",
+    "Inquests Constable / Officer",
     "Law enforcement officer",
     "Metro Police Officer",
     "Motor Vehicle Crime Coordinator",
     "Mounted Police Officer",
     "Neighbourhood Support Coordinator",
-    "Officer",
     "Police Community Officer",
     "Police Dog Training Instructor",
-    "Police Patrolman",
+    "Police Patrolman / Woman",
     "Police Station Control Manager",
     "Police Station Sergeant",
     "Police Surveillance Officer",
-    "Prosecutions Constable",
-    "Public Reception Constable",
+    "Prosecutions Constable / Officer / Sergeant",
     "Relief Sergeant",
     "Rural Sergeant",
     "Search and Rescue Officer",
-    "Sergeant",
-    "Services Desk Officer",
+    "Services Desk Officer / Public Reception Constable",
     "Tactical Response Group Officer",
-    "Threat Assessment Officer",
-    "Woman"
+    "Threat Assessment Officer"
    ],
    "career_slug": "police-and-sheriffs-patrol-officers",
    "career_name": "Police and Sheriff's Patrol Officers",
@@ -9146,8 +8835,7 @@
    "ofo_code": "541401",
    "title": "Security Officer",
    "aliases": [
-    "Beach Guard",
-    "Beach Patrol Officer",
+    "Beach Patrol Officer / Beach Guard",
     "Coastguard",
     "Guard",
     "Mobile Patrol Officer",
@@ -9158,8 +8846,8 @@
     "Security Services Coordinator",
     "Watchman"
    ],
-   "career_slug": "security-guards",
-   "career_name": "Security Guards",
+   "career_slug": "transportation-security-screeners",
+   "career_name": "Transportation Security Screeners",
    "match": "crosswalk"
   },
   {
@@ -9284,14 +8972,13 @@
     "Garden Contractor",
     "Gardener",
     "Gardening Contractor",
-    "Groundsman",
+    "Groundsman / Woman",
     "Hard landscaping contractor",
     "Landscape installer",
     "Landscaper",
     "Landscaping supervisor",
     "Parks Caretaker",
-    "Turf Layer",
-    "Woman"
+    "Turf Layer"
    ],
    "career_slug": "first-line-supervisors-of-landscaping-lawn-service-and-groundskeeping-workers",
    "career_name": "First-Line Supervisors of Landscaping, Lawn Service, and Groundskeeping Workers",
@@ -9410,12 +9097,11 @@
    "title": "Mixed Crop and Livestock Farmer",
    "aliases": [
     "Biodynamic Farmer",
-    "Farm Foreman",
+    "Biodynamic Farmer/ Farm Foreman / Production Supervisor",
     "Farmer and Grazier",
     "Mixed Crop and Livestock Farm Foreman",
     "Mixed Crop and Livestock Production Supervisor",
-    "Mixed Livestock Farmer",
-    "Production Supervisor"
+    "Mixed Livestock Farmer"
    ],
    "career_slug": "farmers-ranchers-and-other-agricultural-managers",
    "career_name": "Farmers, Ranchers, and Other Agricultural Managers",
@@ -9465,8 +9151,7 @@
    "ofo_code": "622102",
    "title": "Mariculture Farmer",
    "aliases": [
-    "Aquatic Stock)",
-    "Hatchery Manager (Marine Fish",
+    "Hatchery Manager (Marine Fish / Aquatic Stock)",
     "Mariculture Farm Foreman",
     "Mariculture Production Supervisor"
    ],
@@ -9510,7 +9195,7 @@
    "aliases": [
     "Arch Builder",
     "Blocklayer",
-    "Bricklayer (Refractory And",
+    "Bricklayer (Refractory And/Or Chemical)",
     "Bricklayer (Refractory)",
     "Bricklayer and Plasterer",
     "Bricklaying Contractor",
@@ -9519,7 +9204,6 @@
     "Chimney Builder",
     "Chimney Repairman",
     "Kiln Builder",
-    "Or Chemical)",
     "Retort Setter (Bricklaying)",
     "Tuckpointer"
    ],
@@ -9532,14 +9216,12 @@
    "title": "Stonemason",
    "aliases": [
     "Construction Stonemason",
-    "Cutter",
     "Headstone Maker",
     "Marble Mason",
-    "Masonry Carver",
+    "Masonry Carver / Cutter / Setter Monumental",
     "Masonry Fixer",
     "Monument Installer",
-    "Monumental Mason",
-    "Setter Monumental",
+    "Monumental Mason / Stonemason",
     "Stone Masonry Setter",
     "Terrazzo Worker"
    ],
@@ -9609,23 +9291,6 @@
    "match": "crosswalk"
   },
   {
-   "ofo_code": "642201",
-   "title": "Wall and Floor Tiler",
-   "aliases": [
-    "Ceramic",
-    "Layer",
-    "Mosaic",
-    "Setter",
-    "Slate",
-    "Stone tiler",
-    "Tile Installer",
-    "Tiling Contractor"
-   ],
-   "career_slug": "floor-layers-except-carpet-wood-and-hard-tiles",
-   "career_name": "Floor Layers, Except Carpet, Wood, and Hard Tiles",
-   "match": "crosswalk"
-  },
-  {
    "ofo_code": "642202",
    "title": "Floor Finisher",
    "aliases": [
@@ -9633,11 +9298,8 @@
     "Carpet Layer",
     "Floor Installer",
     "Floor Sander",
-    "Flooring Contractor",
-    "Installer",
-    "Layer",
-    "Parquetry Layer",
-    "Specialist"
+    "Flooring Contractor / Installer / Layer / Specialist",
+    "Parquetry Layer"
    ],
    "career_slug": "floor-sanders-and-finishers",
    "career_name": "Floor Sanders and Finishers",
@@ -9651,8 +9313,7 @@
     "Dry Wall Plasterer",
     "Exterior Plasterer",
     "Fibrous Plaster Wallboard Installer",
-    "Plasterboard Fixer",
-    "Stopper"
+    "Plasterboard Fixer / Stopper"
    ],
    "career_slug": "plasterers-and-stucco-masons",
    "career_name": "Plasterers and Stucco Masons",
@@ -9662,14 +9323,12 @@
    "ofo_code": "642302",
    "title": "Plasterer",
    "aliases": [
-    "Cement Plasterer",
-    "Concrete",
+    "Concrete / Cement Plasterer",
     "Interior Plasterer",
-    "Ornamental",
+    "Ornamental / Stucco Plasterer",
     "Plasterer and tiler",
     "Plastering Contractor",
-    "Solid Plasterer",
-    "Stucco Plasterer"
+    "Solid Plasterer"
    ],
    "career_slug": "plasterers-and-stucco-masons",
    "career_name": "Plasterers and Stucco Masons",
@@ -9713,8 +9372,7 @@
    "aliases": [
     "Drain Technician",
     "Drainage Contractor",
-    "Drainer",
-    "Drainlayer",
+    "Drainer / Drainlayer",
     "Hot Water System Installer",
     "Maintenance Plumber",
     "Plumbing Contractor",
@@ -9799,21 +9457,17 @@
    "ofo_code": "642702",
    "title": "Refrigeration Mechanic",
    "aliases": [
-    "Air-conditioning",
+    "Air-conditioning / Cooling / Heating / Ventilation Mechanic",
+    "Air-conditioning / Cooling / Heating / Ventilation Systems Installer",
     "Air-conditioning and Refrigeration Electrician",
     "Cold Storage Maintenance Serviceman",
-    "Cooling",
     "Electrical Mechanic",
-    "Fitter",
-    "HVAC Control Technician",
-    "Heating",
+    "HVAC Control Technician / Fitter",
     "Heating Control Mechanic",
     "Refrigeration Fitter",
     "Refrigeration Mechanic (Commercial)",
     "Refrigeration Mechanic (Industrial)",
-    "Refrigeration Mechanician",
-    "Ventilation Mechanic",
-    "Ventilation Systems Installer"
+    "Refrigeration Mechanician"
    ],
    "career_slug": "heating-air-conditioning-and-refrigeration-mechanics-and-installers",
    "career_name": "Heating, Air Conditioning, and Refrigeration Mechanics and Installers",
@@ -9849,15 +9503,10 @@
    "ofo_code": "643202",
    "title": "Vehicle Painter",
    "aliases": [
-    "Aircraft Painter",
-    "Aircraft Spraypainter",
-    "Automotive",
-    "Boat",
-    "Car",
-    "Coach",
+    "Aircraft Painter / Aircraft Spraypainter",
+    "Automotive / Boat / Car / Coach / Ship Painter",
+    "Automotive / Car / Ship Spraypainter",
     "Primer Sprayer",
-    "Ship Painter",
-    "Ship Spraypainter",
     "Spraypainter",
     "Vehicle Spraypainter"
    ],
@@ -9875,8 +9524,8 @@
     "Metal Casting Moulder",
     "Metal Mould Maker"
    ],
-   "career_slug": "foundry-mold-and-coremakers",
-   "career_name": "Foundry Mold and Coremakers",
+   "career_slug": "molding-coremaking-and-casting-machine-setters-operators-and-tenders-metal-and-plastic",
+   "career_name": "Molding, Coremaking, and Casting Machine Setters, Operators, and Tenders, Metal and Plastic",
    "match": "crosswalk"
   },
   {
@@ -9923,18 +9572,15 @@
    "title": "Sheet Metal Worker",
    "aliases": [
     "Aircraft Body Maker",
-    "Aluminium",
+    "Aluminium / Stainless Steel Fabricator",
     "Boilersmith",
     "Brassmith",
     "Coppersmith",
     "Duct Erector",
-    "Installer",
     "Machine Riveter",
-    "Metal Spinner",
-    "Sheet Metal Marker",
+    "Metal Spinner / Sheeter",
+    "Sheet Metal Marker / Installer",
     "Sheet Metal Plumber",
-    "Sheeter",
-    "Stainless Steel Fabricator",
     "Tinsmith"
    ],
    "career_slug": "sheet-metal-workers",
@@ -10007,12 +9653,10 @@
    "ofo_code": "651501",
    "title": "Rigger",
    "aliases": [
-    "Construction Cable Layer",
+    "Construction Cable Layer / Puller",
     "Construction Rigger",
-    "Forest",
+    "Forest / Logging Rigger",
     "Hoisting Equipment Rigger",
-    "Logging Rigger",
-    "Puller",
     "Rigger (Metal Engineering)",
     "Rigger Ropesman",
     "Rigger Scaffolder",
@@ -10115,7 +9759,7 @@
     "Cabling technician",
     "Fitter-machinist",
     "Jig Borer",
-    "Lathe Operator",
+    "Lathe Operator / Setter / Tradesperson",
     "Machine Setter",
     "Machine Tool Fitter",
     "Machine Tool Mechanician",
@@ -10125,9 +9769,7 @@
     "Metal Machine Setter",
     "Milling Machinist",
     "Roll Turner",
-    "Setter",
     "Tooling Mechanician",
-    "Tradesperson",
     "Turner (Metal)",
     "Turner Machinist",
     "Turner Machinist (Automotive)",
@@ -10186,23 +9828,20 @@
    "title": "Automotive Motor Mechanic",
    "aliases": [
     "Air Conditioning Technician (Automotive)",
-    "Auto Engineer",
+    "Auto Engineer / Mechanic",
     "Automatic Transmission Mechanic",
     "Automotive Fitter",
     "Automotive Mechanic",
     "Automotive Mechanician",
     "Automotive Surveyor",
-    "Brake and Clutch Mechanic",
+    "Brake and Clutch Mechanic / Repairer / Fitter",
     "Engine Management and Fuel Injection System Mechanic",
-    "Fitter",
     "Fuel Injection Mechanic",
     "Fuel Injection Pump Mechanic",
     "Garage Mechanic",
-    "Mechanic",
     "Mechanical Service Advisor (Vehicles)",
     "Motor Mechanic",
     "Patrol Officer Automobile Association",
-    "Repairer",
     "Service Mechanic",
     "Vehicle Mechanic",
     "Vehicle Radiator Mechanic"
@@ -10215,8 +9854,7 @@
    "ofo_code": "653103",
    "title": "Motorcycle Mechanic",
    "aliases": [
-    "Motorbike Technician",
-    "Motorcycle",
+    "Motorcycle / Motorbike Technician",
     "Motorcycle and Scooter Mechanic",
     "Scooter Mechanic"
    ],
@@ -10230,8 +9868,8 @@
    "aliases": [
     "Automotive Engine Fitter"
    ],
-   "career_slug": "outdoor-power-equipment-and-other-small-engine-mechanics",
-   "career_name": "Outdoor Power Equipment and Other Small Engine Mechanics",
+   "career_slug": "bus-and-truck-mechanics-and-diesel-engine-specialists",
+   "career_name": "Bus and Truck Mechanics and Diesel Engine Specialists",
    "match": "crosswalk"
   },
   {
@@ -10240,8 +9878,8 @@
    "aliases": [
     "Aircraft Engine Fitter",
     "Aircraft Engine Maintenance Technician",
-    "Aircraft Engineering Serviceman",
-    "Aircraft Examiner",
+    "Aircraft Engineering Serviceman / Tradesperson",
+    "Aircraft Examiner / Inspector",
     "Aircraft Maintenance Engineer (Engines)",
     "Aircraft Mechanic",
     "Aircraft Service Technician",
@@ -10249,12 +9887,10 @@
     "Aircraft Technician (Defence)",
     "Aviation Maintenance Technician",
     "Helicopter Mechanic",
-    "Inspector",
     "Jet Engine Mechanic",
     "Pneudraulic Systems Mechanic (Aircraft)",
     "Powerplant Mechanic (Aircraft)",
-    "Rocket Engine Component Mechanic",
-    "Tradesperson"
+    "Rocket Engine Component Mechanic"
    ],
    "career_slug": "aircraft-mechanics-and-service-technicians",
    "career_name": "Aircraft Mechanics and Service Technicians",
@@ -10325,9 +9961,8 @@
    "aliases": [
     "Chainsaw Mechanic",
     "Garden Machinery Repairer",
-    "Inboard",
+    "Inboard / Outboard Engine Mechanic",
     "Lawnmower Mechanic",
-    "Outboard Engine Mechanic",
     "Outboard Motor Mechanic"
    ],
    "career_slug": "outdoor-power-equipment-and-other-small-engine-mechanics",
@@ -10499,10 +10134,8 @@
    "ofo_code": "661702",
    "title": "Carver",
    "aliases": [
-    "Carver (Bone",
-    "Stone",
-    "Wood Carver",
-    "Wood)"
+    "Carver (Bone / Stone / Wood)",
+    "Wood Carver"
    ],
    "career_slug": "stone-cutters-and-carvers-manufacturing",
    "career_name": "Stone Cutters and Carvers, Manufacturing",
@@ -10679,13 +10312,12 @@
    "aliases": [
     "Elevator Fitter",
     "Elevator Repair Person",
-    "Installer",
     "Lift Electrician",
-    "Lift Fitter",
+    "Lift Fitter / Installer",
     "Lift Service Technician"
    ],
-   "career_slug": "first-line-supervisors-of-mechanics-installers-and-repairers",
-   "career_name": "First-Line Supervisors of Mechanics, Installers, and Repairers",
+   "career_slug": "outdoor-power-equipment-and-other-small-engine-mechanics",
+   "career_name": "Outdoor Power Equipment and Other Small Engine Mechanics",
    "match": "crosswalk"
   },
   {
@@ -10734,17 +10366,15 @@
    "ofo_code": "671301",
    "title": "Electrical Line Mechanic",
    "aliases": [
-    "Electric Cable Layer",
-    "Electric Power Lines Faultsman",
+    "Electric Cable Layer / Puller",
+    "Electric Power Lines Faultsman / Serviceman",
     "Electrical Inspector Lines",
     "Electrical Line Mechanic (Distribution)",
     "Electrical Line Mechanic (Transmission)",
     "Electrical Line Worker",
     "Lines Inspector",
     "Linesman",
-    "Puller",
     "Railway Traction Line Worker",
-    "Serviceman",
     "Signals and Electric Line Inspector"
    ],
    "career_slug": "electrical-power-line-installers-and-repairers",
@@ -10777,17 +10407,15 @@
    "aliases": [
     "Aircraft Mechanic (Radar)",
     "Electronic Fitter (Radar)",
-    "Electronic Fitter (Radio",
+    "Electronic Fitter (Radio/Radar) Ships",
     "Electronician (Radar)",
-    "Radar",
+    "Radar / Radiotrician (Aircraft)",
     "Radar Fitter and Repairer",
     "Radar Mechanician (Aircraft)",
     "Radar Technician",
     "Radar Technician (Aircraft)",
-    "Radar) Ships",
     "Radartrician",
-    "Radartrician (Aircraft)",
-    "Radiotrician (Aircraft)"
+    "Radartrician (Aircraft)"
    ],
    "career_slug": "first-line-supervisors-of-mechanics-installers-and-repairers",
    "career_name": "First-Line Supervisors of Mechanics, Installers, and Repairers",
@@ -10810,28 +10438,24 @@
    "ofo_code": "672104",
    "title": "Electronic Equipment Mechanician",
    "aliases": [
-    "Aerial Installer",
+    "Aerial Installer / Technician",
     "Autoteller Mechanic",
     "Domestic Radio Mechanician",
     "Domestic Radio Serviceman",
     "Domestic Radio and Television Mechanician",
-    "Electronic Adjuster",
+    "Electronic Adjuster / Fitter / Serviceman",
     "Electronic Equipment Assemblers",
     "Electronic Fitter",
     "Electronic Fitter (Machinery Ships)",
     "Electronic Fitter (Machinery Submarines)",
     "Electronic Fitter (Medical)",
-    "Fitter",
     "Radio And television Mechanician",
-    "Radio and Television Fitter",
-    "Repairer",
-    "Security System Installer",
-    "Serviceman",
-    "Slot Machine Serviceman",
-    "Technician"
+    "Radio and Television Fitter / Repairer",
+    "Security System Installer / Technician",
+    "Slot Machine Serviceman / Technician"
    ],
-   "career_slug": "electronic-equipment-installers-and-repairers-motor-vehicles",
-   "career_name": "Electronic Equipment Installers and Repairers, Motor Vehicles",
+   "career_slug": "electrical-and-electronics-repairers-commercial-and-industrial-equipment",
+   "career_name": "Electrical and Electronics Repairers, Commercial and Industrial Equipment",
    "match": "crosswalk"
   },
   {
@@ -10845,7 +10469,7 @@
     "Electronic Repair Technician",
     "Electronic Service Technician",
     "Electronic Technician (Navy)",
-    "Industrial Instrument Maker",
+    "Industrial Instrument Maker / Repairer / Serviceman",
     "Instrument Fitter",
     "Instrument Maker",
     "Instrument Mechanic",
@@ -10854,17 +10478,13 @@
     "Instrument Mechanician (Process Control Systems)",
     "Instrument Mechanician (Process Control)",
     "Instrument and Control Service Person",
-    "Maker",
-    "Manufacturer",
     "Medical Instrument Repairer",
     "Meteorological Instrument Maker",
-    "Repairer",
     "Scale Mechanic Weights and Measures",
     "Scalemaker",
     "Scientific Instrument Maker and Repairer",
-    "Serviceman",
-    "Surgical Instrument Maker",
-    "Survey Instrument"
+    "Surgical Instrument Maker / Repairer",
+    "Survey Instrument / Maker / Repairer / Manufacturer"
    ],
    "career_slug": "electrical-and-electronics-repairers-commercial-and-industrial-equipment",
    "career_name": "Electrical and Electronics Repairers, Commercial and Industrial Equipment",
@@ -10896,10 +10516,9 @@
     "Electronician (Communications)",
     "Radio Communications Technician",
     "Technical Communications Manager",
-    "Technician",
     "Telecommunication Mechanician",
     "Telecommunications Technician Quality Controller",
-    "Telephone Equipment Serviceman",
+    "Telephone Equipment Serviceman / Technician",
     "Telephone Installer",
     "Telephone Technician"
    ],
@@ -10941,18 +10560,6 @@
    "match": "crosswalk"
   },
   {
-   "ofo_code": "681102",
-   "title": "Red Meat De-boner",
-   "aliases": [
-    "Abattoir Process Worker",
-    "Meat Cutter",
-    "Trimmer"
-   ],
-   "career_slug": "butchers-and-meat-cutters",
-   "career_name": "Butchers and Meat Cutters",
-   "match": "crosswalk"
-  },
-  {
    "ofo_code": "681103",
    "title": "Butcher",
    "aliases": [
@@ -10971,15 +10578,13 @@
    "title": "Fishmonger",
    "aliases": [
     "Abalone Sheller",
-    "Canner",
-    "Cutter",
-    "Fish Boner",
+    "Fish Boner / Cutter",
     "Fish Dehydrator",
     "Fish Filleter",
     "Fish Preserver",
     "Mussel Marinator",
     "Mussel Opener",
-    "Oyster Opener"
+    "Oyster Opener / Canner"
    ],
    "career_slug": "meat-poultry-and-fish-cutters-and-trimmers",
    "career_name": "Meat, Poultry, and Fish Cutters and Trimmers",
@@ -11004,8 +10609,7 @@
    "ofo_code": "681201",
    "title": "Confectionary Baker",
    "aliases": [
-    "Bread Baker",
-    "Cake",
+    "Cake / Bread Baker",
     "Dough Maker"
    ],
    "career_slug": "bakers",
@@ -11217,10 +10821,8 @@
    "ofo_code": "683503",
    "title": "Pelt Grader",
    "aliases": [
-    "Hide",
-    "Pelt Classer",
-    "Skin",
-    "Skin Grader"
+    "Hide / Skin / Pelt Classer",
+    "Hide / Skin Grader"
    ],
    "career_slug": "graders-and-sorters-agricultural-products",
    "career_name": "Graders and Sorters, Agricultural Products",
@@ -11230,12 +10832,11 @@
    "ofo_code": "683601",
    "title": "Shoemaker",
    "aliases": [
-    "Boot Repairer",
     "Cobbler",
     "Footwear Repairer",
     "Handlacer",
     "Medical Grade Shoemaker",
-    "Shoe"
+    "Shoe / Boot Repairer"
    ],
    "career_slug": "shoe-and-leather-workers-and-repairers",
    "career_name": "Shoe and Leather Workers and Repairers",
@@ -11267,8 +10868,7 @@
    "title": "Mining Blaster",
    "aliases": [
     "Blasting Assistant",
-    "Mining",
-    "Quarrying Blaster",
+    "Mining/Quarrying Blaster",
     "Seismograph Shooter",
     "Surface Blaster",
     "Underground Coal Blaster",
@@ -11381,7 +10981,7 @@
     "Leaching Plant Operator",
     "Lime Miller",
     "Machine Operator (Stone Cutting or Processing)",
-    "Marble Cutter",
+    "Marble Cutter / Polisher / Processor / Sawyer / Splitter",
     "Material Handling Plant Operator",
     "Metallurgical Plant Operator",
     "Milling Machine Operator (Minerals)",
@@ -11391,18 +10991,14 @@
     "Mineral Plant Operator",
     "Plant Monitor",
     "Plant Operator",
-    "Polisher",
     "Process Operator",
-    "Processor",
     "Pumping Plant Operator",
     "Recovery Plant Operator",
-    "Sawyer",
     "Screening Plant Operator",
     "Senior Process Operator",
     "Separation Plant Operator",
     "Smelting Plant Operator",
-    "Splitter",
-    "Stone Cutter",
+    "Stone Cutter / Polisher / Processor / Sawyer / Splitter",
     "Stone Turner Lathe",
     "Tailings Plant Operator",
     "Thickening Plant Operator"
@@ -11513,16 +11109,15 @@
    "ofo_code": "712101",
    "title": "Metal Processing Plant Operator",
    "aliases": [
-    "Extruder",
     "Ladle Pourer",
-    "Metal Drawer",
+    "Metal Drawer / Extruder",
     "Metal Extrusion Plant Operator",
     "Metal Heat Treating Operator",
     "Metal Production Plant Operator",
     "Steel Roller"
    ],
-   "career_slug": "rolling-machine-setters-operators-and-tenders-metal-and-plastic",
-   "career_name": "Rolling Machine Setters, Operators, and Tenders, Metal and Plastic",
+   "career_slug": "pourers-and-casters-metal",
+   "career_name": "Pourers and Casters, Metal",
    "match": "crosswalk"
   },
   {
@@ -11558,65 +11153,52 @@
    "title": "Chemical Production Machine Operator",
    "aliases": [
     "Abrasive Glass and Ceramics Mixer",
-    "Ammunition",
-    "Battery Maker",
-    "Blender",
-    "Bullet",
+    "Battery Maker / Reconditioner",
+    "Bullet / Ammunition / Explosives Maker",
     "Candle Production Machine Operator",
-    "Chemical Crusher",
-    "Chemical Extractor",
+    "Chemical Crusher / Grinder",
+    "Chemical Extractor / Reactor / Still Operator",
     "Chemical Production Sampler",
     "Cleaning Materials Machine Operator",
     "Cosmetics Machine Operator",
     "Distillation Operator",
     "Explosive Products Machine Operator",
-    "Explosives Maker",
     "Explosives Mixer Operator",
     "Filter Press Operator",
-    "Grinder",
-    "Mixer",
     "Nitrocellulose Maker",
-    "Paint Tinter",
-    "Petroleum and Natural Gas Refining (Ethyl) Operator",
-    "Petroleum and Natural Gas Refining Machine Operator",
+    "Paint Tinter / Mixer",
+    "Petroleum and Natural Gas Refining (Ethyl) Operator / Blender",
     "Pharmaceutical Products Machine Operator",
     "Radioactive Waste Material Treatment Operator",
-    "Reactor",
-    "Reconditioner",
-    "Still",
-    "Still Operator",
+    "Still / Petroleum and Natural Gas Refining Machine Operator",
     "Tablet Making Machine Operator",
     "Toiletry Products Machine Operators"
    ],
-   "career_slug": "chemical-equipment-operators-and-tenders",
-   "career_name": "Chemical Equipment Operators and Tenders",
+   "career_slug": "separating-filtering-clarifying-precipitating-and-still-machine-setters-operators-and-tenders",
+   "career_name": "Separating, Filtering, Clarifying, Precipitating, and Still Machine Setters, Operators, and Tenders",
    "match": "crosswalk"
   },
   {
    "ofo_code": "713201",
    "title": "Photographic Developer and Printer",
    "aliases": [
-    "Colour Developer",
     "Copy Camera Operator",
-    "Dark Room Attendant",
+    "Dark Room Attendant / Technician",
     "Developing Machine Operator (Photography)",
     "Digital Photographic Printer",
     "Enlarging Machine Operator (Photography)",
-    "Film",
-    "Film Printer",
+    "Film Printer / Processor",
     "Film Process Operator",
+    "Film/Colour Developer",
     "Minilab Operator",
     "Photo Lab Operator",
     "Photograph Enlarger",
     "Photograph Printer",
     "Photographic Technician",
     "Photographic-film Machine Operator",
-    "Photography (Colour) Machine Operator",
-    "Printing",
-    "Processor",
+    "Printing/Photography (Colour) Machine Operator",
     "Silver Recovery Operator",
-    "Slide Developer",
-    "Technician"
+    "Slide Developer"
    ],
    "career_slug": "photographic-process-workers-and-processing-machine-operators",
    "career_name": "Photographic Process Workers and Processing Machine Operators",
@@ -11630,22 +11212,21 @@
     "Optic Fibre Drawer",
     "Wire Drawer ( Plastics)"
    ],
-   "career_slug": "drilling-and-boring-machine-tool-setters-operators-and-tenders-metal-and-plastic",
-   "career_name": "Drilling and Boring Machine Tool Setters, Operators, and Tenders, Metal and Plastic",
+   "career_slug": "plating-machine-setters-operators-and-tenders-metal-and-plastic",
+   "career_name": "Plating Machine Setters, Operators, and Tenders, Metal and Plastic",
    "match": "crosswalk"
   },
   {
    "ofo_code": "714202",
    "title": "Plastic Compounding and Reclamation Machine Operator",
    "aliases": [
-    "Granulator Operator",
     "Pelletising Extruder Operator",
     "Plastics Mixing Plant Operator",
     "Powder Hand (Plastics)",
-    "Shredder"
+    "Shredder / Granulator Operator"
    ],
-   "career_slug": "forging-machine-setters-operators-and-tenders-metal-and-plastic",
-   "career_name": "Forging Machine Setters, Operators, and Tenders, Metal and Plastic",
+   "career_slug": "plating-machine-setters-operators-and-tenders-metal-and-plastic",
+   "career_name": "Plating Machine Setters, Operators, and Tenders, Metal and Plastic",
    "match": "crosswalk"
   },
   {
@@ -11670,8 +11251,8 @@
    "aliases": [
     "Vacuum Forming Machine Operator"
    ],
-   "career_slug": "forging-machine-setters-operators-and-tenders-metal-and-plastic",
-   "career_name": "Forging Machine Setters, Operators, and Tenders, Metal and Plastic",
+   "career_slug": "lathe-and-turning-machine-tool-setters-operators-and-tenders-metal-and-plastic",
+   "career_name": "Lathe and Turning Machine Tool Setters, Operators, and Tenders, Metal and Plastic",
    "match": "crosswalk"
   },
   {
@@ -11683,8 +11264,8 @@
     "Plastics Die Setter",
     "Plastics Mould Setter"
    ],
-   "career_slug": "forging-machine-setters-operators-and-tenders-metal-and-plastic",
-   "career_name": "Forging Machine Setters, Operators, and Tenders, Metal and Plastic",
+   "career_slug": "plating-machine-setters-operators-and-tenders-metal-and-plastic",
+   "career_name": "Plating Machine Setters, Operators, and Tenders, Metal and Plastic",
    "match": "crosswalk"
   },
   {
@@ -11697,7 +11278,7 @@
     "Machine Operator (Envelope and Paper Bag Production)",
     "Machine Operator (Paper Box Production)",
     "Paper Bag Making Machinist",
-    "Paper Cutting and Creasing  Machine Operator",
+    "Paper Cutting and Creasing Machine Operator",
     "Paper Mache Moulder"
    ],
    "career_slug": "paper-goods-machine-setters-operators-and-tenders",
@@ -11772,9 +11353,7 @@
     "Embroidery Machine Operator",
     "Home Textile Production Machine Operator",
     "Industrial Presser",
-    "Leather",
-    "Material Cutting Machine Operator",
-    "Textile",
+    "Textile / Leather / Material Cutting Machine Operator",
     "Upholstery Machinist"
    ],
    "career_slug": "sewing-machine-operators",
@@ -11788,7 +11367,7 @@
     "Beading Operator",
     "Shoe Folding Operator",
     "Skiver",
-    "Toe Puff  Operator"
+    "Toe Puff Operator"
    ],
    "career_slug": "shoe-machine-operators-and-tenders",
    "career_name": "Shoe Machine Operators and Tenders",
@@ -11813,14 +11392,11 @@
    "title": "Milling Process Machine Operator",
    "aliases": [
     "Animal Feed Mill Worker",
-    "Crusher",
-    "Dryer",
     "Flourmill Kilnman",
-    "Grain Cleaner",
+    "Grain Cleaner / Dryer / Crusher",
     "Grain Mill Worker",
     "Lucerne Pellets Maker",
-    "Mill Worker",
-    "Mill hand"
+    "Mill hand / Mill Worker"
    ],
    "career_slug": "milling-and-planing-machine-setters-operators-and-tenders-metal-and-plastic",
    "career_name": "Milling and Planing Machine Setters, Operators, and Tenders, Metal and Plastic",
@@ -11842,14 +11418,11 @@
    "title": "Meat Processing Machine Operator",
    "aliases": [
     "Meat Canning Process Worker",
-    "Meat Dehydrator",
+    "Meat Dehydrator / Preserver / Processor / Worker",
     "Meat Processor",
     "Meat Smoker",
-    "Preserver",
-    "Processor",
     "Quality Controller of Meat Canning Process Workers",
-    "Sausage Casing Maker",
-    "Worker"
+    "Sausage Casing Maker"
    ],
    "career_slug": "food-and-tobacco-roasting-baking-and-drying-machine-operators-and-tenders",
    "career_name": "Food and Tobacco Roasting, Baking, and Drying Machine Operators and Tenders",
@@ -11860,14 +11433,12 @@
    "title": "Paper and Pulp Mill Operator",
    "aliases": [
     "Bleach Plant Operator",
-    "Box",
-    "Cardboard",
+    "Cardboard / Paperboard Machine Operator",
     "Carton Making Machine Operator",
     "Dryerman (Paper Mill)",
-    "Envelope) Maker",
     "Fourdrinier Machine Operator",
     "Inverform Machine Operator",
-    "Paper (Bag",
+    "Paper (Bag / Box / Envelope) Maker",
     "Paper Folding Machine Operator",
     "Paper Making Machine Operator",
     "Paper Mill Machinist",
@@ -11889,17 +11460,14 @@
     "Beam Saw Operator",
     "Cant Gang Sawyer",
     "Docking Saw Operator",
-    "Grader",
-    "Processor",
     "Ripsaw Operator",
     "Saw Operator",
     "Sawmill Machine Operator",
     "Sawmill Moulder Operator",
     "Sawmill Process Worker",
     "Sawyer (Wood)",
-    "Sorter",
     "Timber Machinist",
-    "Timber Stripper",
+    "Timber Stripper / Processor / Sorter / Grader",
     "Veneer Production Machine Operator",
     "Work Panel Production Worker"
    ],
@@ -11917,9 +11485,8 @@
     "Clay Mixing Machine Operator",
     "Kiln Operator (Brick and Tile)",
     "Kiln Operator (Pottery and Porcelain)",
-    "Porcelain Mould Maker",
     "Porcelain Turner",
-    "Pottery",
+    "Pottery / Porcelain Mould Maker",
     "Slip Caster",
     "Tile Maker"
    ],
@@ -11950,12 +11517,10 @@
    "title": "Boiler or Engine Operator",
    "aliases": [
     "Air Compressor Operator",
-    "Air-conditioning",
+    "Air-conditioning / Refrigeration Plant Operator",
     "Boiler Tender",
     "Marine Engine Driver",
-    "Motorman",
-    "Motorwoman (Fluids Drilling)",
-    "Refrigeration Plant Operator",
+    "Motorman / Motorwoman (Fluids Drilling)",
     "Ship's Boiler Operator",
     "Steam Boilerman Fireman",
     "Steam Engine Operator",
@@ -11992,7 +11557,7 @@
     "Automated Filling Line Operator",
     "Bottle Filler",
     "Bottling Attendant",
-    "Can",
+    "Can / Tin / Tube / Tray Filler",
     "Canister Viewer",
     "Cannery Worker",
     "Canning and Bottling Process Worker",
@@ -12002,10 +11567,7 @@
     "Milk Bottler",
     "Pressurised Container Filler",
     "Sack or Bag Filler",
-    "Sealing and Capping Machine Operator",
-    "Tin",
-    "Tray Filler",
-    "Tube"
+    "Sealing and Capping Machine Operator"
    ],
    "career_slug": "packaging-and-filling-machine-operators-and-tenders",
    "career_name": "Packaging and Filling Machine Operators and Tenders",
@@ -12055,9 +11617,8 @@
    "ofo_code": "718913",
    "title": "Motion Picture Projectionist",
    "aliases": [
-    "Cinema",
-    "Cinetape Operator",
-    "Film Projectionist"
+    "Cinema / Film Projectionist",
+    "Cinetape Operator"
    ],
    "career_slug": "motion-picture-projectionists",
    "career_name": "Motion Picture Projectionists",
@@ -12073,8 +11634,8 @@
     "Turbine Assembler",
     "Vehicle Assembler"
    ],
-   "career_slug": "engine-and-other-machine-assemblers",
-   "career_name": "Engine and Other Machine Assemblers",
+   "career_slug": "aircraft-structure-surfaces-rigging-and-systems-assemblers",
+   "career_name": "Aircraft Structure, Surfaces, Rigging, and Systems Assemblers",
    "match": "crosswalk"
   },
   {
@@ -12156,10 +11717,9 @@
    "title": "Railway Signal Operator",
    "aliases": [
     "Functional Yard Operator",
-    "Operator",
     "Railway Shunter",
     "Railway Switching and Signalling Operator",
-    "Railway Traffic Assistant",
+    "Railway Traffic Assistant / Operator",
     "Railway Yard Assistant"
    ],
    "career_slug": "railroad-brake-signal-and-switch-operators-and-locomotive-firers",
@@ -12241,6 +11801,14 @@
    "match": "crosswalk"
   },
   {
+   "ofo_code": "733103",
+   "title": "Passenger Coach Driver",
+   "aliases": [],
+   "career_slug": "bus-drivers-transit-and-intercity",
+   "career_name": "Bus Drivers, Transit and Intercity",
+   "match": "reviewed"
+  },
+  {
    "ofo_code": "733201",
    "title": "Truck Driver (General)",
    "aliases": [
@@ -12285,15 +11853,13 @@
    "ofo_code": "734101",
    "title": "Agricultural Mobile Plant (Equipment) Operator",
    "aliases": [
-    "Agrichemical Spraying",
+    "Agrichemical Spraying / Dusting Operator",
     "Agricultural Machine and Equipment Operator",
     "Agricultural Mobile Equipment Operator",
     "Chemical Applicator",
     "Cotton Picking Machine Operator",
-    "Dusting Operator",
-    "Farm Equipment",
+    "Farm Equipment / Machinery Operator",
     "Harvester Operator",
-    "Machinery Operator",
     "Rotary Hoe Operator",
     "Tractor Driver"
    ],
@@ -12414,19 +11980,6 @@
    "match": "crosswalk"
   },
   {
-   "ofo_code": "734214",
-   "title": "Dump Truck Operator",
-   "aliases": [
-    "Dump Truck Driver",
-    "Haul Truck Operator",
-    "Operator",
-    "Underground Dump Truck Driver"
-   ],
-   "career_slug": "heavy-and-tractor-trailer-truck-drivers",
-   "career_name": "Heavy and Tractor-Trailer Truck Drivers",
-   "match": "title"
-  },
-  {
    "ofo_code": "734301",
    "title": "Crane or Hoist Operator",
    "aliases": [
@@ -12478,9 +12031,8 @@
     "Fork Truck Operator",
     "Forklift Operator",
     "Hoist Truck Operator",
-    "Lumber",
-    "Reach Truck Operator",
-    "Timber Carrier Operator"
+    "Lumber / Timber Carrier Operator",
+    "Reach Truck Operator"
    ],
    "career_slug": "industrial-truck-and-tractor-operators",
    "career_name": "Industrial Truck and Tractor Operators",
@@ -12500,8 +12052,7 @@
    "aliases": [
     "Able Seaman",
     "Barge Hand",
-    "Boatswain",
-    "Bosun",
+    "Boatswain / Bosun",
     "Ferry Hand",
     "Launchman",
     "Mariner",
@@ -12519,8 +12070,7 @@
    "title": "Domestic Cleaner",
    "aliases": [
     "Char (Domestic)",
-    "Home",
-    "House Cleaner"
+    "Home / House Cleaner"
    ],
    "career_slug": "maids-and-housekeeping-cleaners",
    "career_name": "Maids and Housekeeping Cleaners",
@@ -12530,16 +12080,13 @@
    "ofo_code": "811201",
    "title": "Commercial Cleaner",
    "aliases": [
-    "Building Exterior",
+    "Building Exterior / Interior Cleaner",
     "Cleaner (Non-domestic)",
-    "Factory Cleaner",
+    "Factory Cleaner / Sweeper",
     "High Pressure Water Jetting Operators",
-    "Hotel",
-    "Interior Cleaner",
-    "Motel Cleaner",
+    "Hotel / Motel Cleaner",
     "Office Cleaner",
     "School Cleaner",
-    "Sweeper",
     "Waterblaster",
     "Workshop Cleaner"
    ],
@@ -12556,8 +12103,8 @@
     "Medium Risk Area Cleaner",
     "Ward Cleaner"
    ],
-   "career_slug": "maids-and-housekeeping-cleaners",
-   "career_name": "Maids and Housekeeping Cleaners",
+   "career_slug": "janitors-and-cleaners-except-maids-and-housekeeping-cleaners",
+   "career_name": "Janitors and Cleaners, Except Maids and Housekeeping Cleaners",
    "match": "crosswalk"
   },
   {
@@ -12574,8 +12121,7 @@
    "aliases": [
     "Garment Cleaner",
     "Laundry Maid",
-    "Linen Sorter",
-    "Maid",
+    "Linen Sorter / Maid",
     "Starcher"
    ],
    "career_slug": "laundry-and-dry-cleaning-workers",
@@ -12605,17 +12151,15 @@
    "ofo_code": "812201",
    "title": "Vehicle Detailer (Valet Servicer)",
    "aliases": [
-    "Aircraft Cabin",
+    "Aircraft Cabin / Interior Cleaner",
     "Aircraft Cleaner",
-    "Bus",
+    "Bus / Coach Cleaner",
     "Car Cleaner",
     "Car Detailer",
     "Car Polisher",
     "Car Valet",
     "Car Wash Attendant",
     "Car Washer",
-    "Coach Cleaner",
-    "Interior Cleaner",
     "Locomotive and Train Cleaner",
     "Utility Vehicle Appearance Reconditioner",
     "Wash bay Attendant"
@@ -12662,9 +12206,8 @@
     "Grape Picker",
     "Haymaker",
     "Hops or Tea Picker",
-    "Mushroom Harvester",
+    "Mushroom Harvester / Picker",
     "Nut Picker",
-    "Picker",
     "Picker Quality Controller",
     "Vegetable Picker"
    ],
@@ -12737,33 +12280,16 @@
    "match": "crosswalk"
   },
   {
-   "ofo_code": "821402",
-   "title": "Ornamental Horticultural or Nursery Assistant",
-   "aliases": [
-    "Compost Maker",
-    "Greenhouse Worker Nursery",
-    "Horticultural",
-    "Nursery Hand (Horticulture)",
-    "Nursery Production Person",
-    "Nursery Worker"
-   ],
-   "career_slug": "farmworkers-and-laborers-crop-nursery-and-greenhouse",
-   "career_name": "Farmworkers and Laborers, Crop, Nursery, and Greenhouse",
-   "match": "crosswalk"
-  },
-  {
    "ofo_code": "821501",
    "title": "Forestry Worker",
    "aliases": [
     "Bush Clearing Contractor",
     "Fire Lookout",
     "Firewood Cutter",
-    "Forest Labourer",
+    "Forest Labourer / Hand / Pruner",
     "Forestry Contractor",
     "Forestry Protection Officer",
-    "Hand",
     "Harvesting Forestry Worker",
-    "Pruner",
     "Quality Controller of Forestry Contractors",
     "Silviculture Forestry Worker",
     "Skiddy Forest",
@@ -12781,8 +12307,7 @@
    "aliases": [
     "Axeman Forest",
     "Bush Clearer Cutter",
-    "Chokerman",
-    "Chokerwoman",
+    "Chokerman / Chokerwoman",
     "Hauling Engine Contractor Logging",
     "Log Assessor",
     "Log Hauler Bush",
@@ -12822,9 +12347,8 @@
    "ofo_code": "821602",
    "title": "Aquaculture Farm Worker / Assistant",
    "aliases": [
-    "Fresh Fish Farm",
-    "Fresh Fish Hatchery Worker",
-    "Hatchery Worker"
+    "Fresh Fish Farm / Hatchery Worker",
+    "Fresh Fish Hatchery Worker"
    ],
    "career_slug": "farmworkers-farm-ranch-and-aquacultural-animals",
    "career_name": "Farmworkers, Farm, Ranch, and Aquacultural Animals",
@@ -12834,15 +12358,13 @@
    "ofo_code": "831101",
    "title": "Mining Worker",
    "aliases": [
-    "Acclimatisation Chamber Operator",
+    "Acclimatisation Chamber Operator/ Heat Tolerance Screening (HTS) Attendant",
     "Air Quality Monitor",
-    "Battery Bay Attendant",
-    "Battery and Lamp Repairer",
+    "Battery Bay Attendant/ Battery and Lamp Repairer",
     "Coal Hewer",
     "Conveyor Belt Attendant",
     "Gravel Worker",
-    "Heat Tolerance Screening (HTS) Attendant",
-    "Mine Sampler",
+    "Mine Sampler / Worker",
     "Mine Stage Assistant",
     "Mine Survey Recorder",
     "Mineral Ore Processing Labourer",
@@ -12851,7 +12373,7 @@
     "Onsetter Helper",
     "Pit Crew Support Worker",
     "Pump Attendant",
-    "Quarry Hand",
+    "Quarry Hand / Worker",
     "Radiation Protection Monitor",
     "Roughneck",
     "Roustabout",
@@ -12860,8 +12382,7 @@
     "Shaft Sinking Assistant",
     "Shaft Timberman Assistant",
     "Sorter (Mining)",
-    "Stoping Worker",
-    "Worker"
+    "Stoping Worker"
    ],
    "career_slug": "helpers--extraction-workers",
    "career_name": "Helpers--Extraction Workers",
@@ -12871,18 +12392,14 @@
    "ofo_code": "831102",
    "title": "Driller's Assistant",
    "aliases": [
-    "Cementer",
-    "Derrick Hand",
-    "Derrickman",
+    "Derrick Hand / Worker",
     "Drill Rig Assistant",
     "Driller's Offsider",
     "Oil Rig Floorman",
-    "Oil and Gas Caser",
+    "Oil and Gas Caser / Cementer / Derrickman",
     "Roustabout (Oil and Gas)",
-    "Treatment Offsider",
-    "Well Caser",
-    "Well Treatment Offsider",
-    "Worker"
+    "Well Caser / Treatment Offsider",
+    "Well Treatment Offsider"
    ],
    "career_slug": "helpers--extraction-workers",
    "career_name": "Helpers--Extraction Workers",
@@ -12902,13 +12419,12 @@
    "aliases": [
     "Cement Finisher Worker",
     "Concrete Finisher",
-    "Concrete Layer",
-    "Concrete Processing Worker",
-    "Placer"
+    "Concrete Layer / Placer",
+    "Concrete Processing Worker"
    ],
-   "career_slug": "construction-laborers",
-   "career_name": "Construction Laborers",
-   "match": "crosswalk"
+   "career_slug": "cement-masons-and-concrete-finishers",
+   "career_name": "Cement Masons and Concrete Finishers",
+   "match": "title"
   },
   {
    "ofo_code": "831306",
@@ -12966,48 +12482,15 @@
    "match": "crosswalk"
   },
   {
-   "ofo_code": "832905",
-   "title": "Footwear and Leather Factory Worker",
-   "aliases": [
-    "Assistant",
-    "Cementer",
-    "Fellmongery Hand",
-    "Fitter",
-    "Flesher Hand",
-    "Folder",
-    "Footwear Bench Worker",
-    "Footwear General Worker",
-    "Footwear Machine Attendant",
-    "Footwear Production Chargehand",
-    "Footwear Skiver",
-    "Footwear Table Hand",
-    "Grader",
-    "Laster",
-    "Leather Processing Factory Worker",
-    "Preparer",
-    "Rounder",
-    "Soles Channeller",
-    "Sorter",
-    "Tannery Hand",
-    "Toggler",
-    "Upper Burnisher",
-    "Worker"
-   ],
-   "career_slug": "laborers-and-freight-stock-and-material-movers-hand",
-   "career_name": "Laborers and Freight, Stock, and Material Movers, Hand",
-   "match": "crosswalk"
-  },
-  {
    "ofo_code": "832907",
    "title": "Chemical Plant Worker",
    "aliases": [
     "Charcoal Burner",
-    "Chemical Tester (Physical",
+    "Chemical Tester (Physical/ Routine)",
     "Gas Plant Labourer",
     "Grease Press Hand",
     "Munitions Factory Hand",
     "Paint Factory Hand",
-    "Routine)",
     "Utilities Operator"
    ],
    "career_slug": "chemical-plant-and-system-operators",
@@ -13057,13 +12540,12 @@
    "title": "Waterside Worker",
    "aliases": [
     "Boat and Ship Cargo Loader",
-    "Cargo Handler",
+    "Cargo Handler / Worker",
     "Docker Wharf",
     "Harbour Board Worker",
     "Longshoreman",
     "Stevedore",
-    "Wharf Labourer",
-    "Worker"
+    "Wharf Labourer"
    ],
    "career_slug": "laborers-and-freight-stock-and-material-movers-hand",
    "career_name": "Laborers and Freight, Stock, and Material Movers, Hand",
@@ -13074,10 +12556,9 @@
    "title": "Shelf Filler",
    "aliases": [
     "Shelf Stacker",
-    "Shelver",
     "Stacker Textiles",
-    "Storeperson Packer",
-    "Warehouse Worker"
+    "Storeperson Packer / Shelver",
+    "Warehouse Worker / Shelver"
    ],
    "career_slug": "stockers-and-order-fillers",
    "career_name": "Stockers and Order Fillers",
@@ -13087,10 +12568,9 @@
    "ofo_code": "833402",
    "title": "Store Person",
    "aliases": [
-    "Assembler",
     "Chiller Hand",
     "Manufacturing Storeperson",
-    "Order Picker",
+    "Order Picker / Assembler",
     "Stores Assistant",
     "Supply Operator (Army)",
     "Warehouse Assistant"
@@ -13104,10 +12584,9 @@
    "title": "Fast Food Cook",
    "aliases": [
     "Burger Maker",
-    "Chicken",
+    "Chicken / Fish Fryer",
     "Chips Maker",
     "Fast Food Assistant",
-    "Fish Fryer",
     "Grill Cook",
     "Pizza Maker",
     "Short Order Cook",
@@ -13126,8 +12605,7 @@
     "Kitchen Assistant (Non-domestic)",
     "Kitchen Steward",
     "Pantry Attendant",
-    "Salad Preparer",
-    "Sandwich"
+    "Sandwich / Salad Preparer"
    ],
    "career_slug": "dishwashers",
    "career_name": "Dishwashers",
@@ -13335,6 +12813,7 @@
   "132407 Airport or Harbour Manager",
   "132408 Grain Depot Manager",
   "132410 Maritime Search and Rescue Mission Coordinator",
+  "133102 ICT Project Manager",
   "133104 Application Development Manager",
   "134205 Health Service Specialised Clinic Manager",
   "134206 Sport Science Manager",
@@ -13430,6 +12909,7 @@
   "226905 Biokineticist",
   "226906 Rheumatologist",
   "231102 University Tutor",
+  "235401 Private Tuition Music Teacher",
   "235501 Private Tuition Art Teacher",
   "235503 Private Tuition Drama Teacher",
   "235901 Private Tuition Dressmaking Teacher",
@@ -13491,6 +12971,7 @@
   "311502 Pressure Equipment  Inspector",
   "311910 Food Laboratory Analyst",
   "312101 Mining Production Supervisor",
+  "312202 Maintenance Planner",
   "313105 Wind Turbine Power Plant Process Controller",
   "313106 Concentrated Solar Power (CSP) Plant Process Controller",
   "313108 Weatherisation Installers and Technicians",
@@ -13549,6 +13030,7 @@
   "331105 Asset Swap Administrator",
   "331106 Financial Markets Settlement Officer",
   "331204 False Worker",
+  "331501 Valuer",
   "331504 Insurance Risk Surveyor",
   "331505 Vehicle Damage Quantifier",
   "333302 Labour Recruitment Consultant: Permanent Employment Agency (PEA)",
@@ -13558,7 +13040,6 @@
   "333907 Property Portfolio and Asset Manager",
   "333909 Bid Assistant",
   "333911 Physical Asset Practitioner",
-  "334103 Call Centre Team Leader",
   "334301 Secretary Bargaining Council",
   "335301 Social Security Assessor",
   "335401 Driving license examiner",
@@ -13601,6 +13082,7 @@
   "411103 Parole Board Clerk",
   "413102 Machine Shorthand Reporter",
   "421102 Bank Worker",
+  "421103 Currency Exchange Officer",
   "421104 Banknote Processor",
   "421203 Betting Agency Counter Clerk",
   "421204 Bookmaker's Clerk",
@@ -13608,12 +13090,8 @@
   "421207 Lotto Operator",
   "421301 Pawnbrokers and Money-lenders",
   "422101 Tourist Information Officer",
-  "422201 Inbound Contact Centre Consultant",
-  "422202 Outbound Contact Centre Consultant",
-  "422203 Contact Centre Real Time Advisor",
   "422204 Contact Centre Resource Planner",
   "422205 Contact Centre Forecast Analyst",
-  "422206 Call or Contact Centre Agent",
   "422902 Ship's Purser",
   "431202 Securities Services Administrative Officer",
   "432105 Lampman",
@@ -13624,6 +13102,7 @@
   "441605 Academic Administrative Officer",
   "441902 Contract Administrator",
   "511102 Bus Hostess",
+  "511103 Marine Steward",
   "511104 Railway Steward",
   "511301 Gallery or Museum Guide",
   "513102 Cafe Worker",
@@ -13688,6 +13167,7 @@
   "641902 Scaffolder",
   "642102 Roof Plumber",
   "642103 Roof Thatcher",
+  "642201 Wall and Floor Tiler",
   "642606 Heat Pump Installer",
   "643302 Chimney Cleaner",
   "651201 Pressure Welder",
@@ -13740,6 +13220,7 @@
   "672201 Data and Telecommunications Cabler",
   "672202 Telecommunications Cable Jointer",
   "672203 Computer Engineering Mechanic / Service Person",
+  "681102 Red Meat De-boner",
   "681203 Confectionery Maker",
   "681401 Fruit or Vegetable Preserver",
   "681402 Oil Expeller",
@@ -13833,7 +13314,6 @@
   "731202 Train Controller",
   "732102 Delivery Driver (Motorcycle)",
   "732204 Oversize Load Pilot / Escort",
-  "733103 Passenger Coach Driver",
   "733202 Aircraft Refueller",
   "733203 Furniture Removalist",
   "733206 Armoured Personnel Carrier Operator",
@@ -13846,6 +13326,7 @@
   "734207 Mulcher Operator",
   "734209 Mobile Explosives Manufacturing Unit (MEMU) Operator",
   "734212 Railway Track Master",
+  "734214 Dump Truck Operator",
   "734302 Cable Ferry Operator",
   "735102 Jetty Operator",
   "811203 Tea Attendant",
@@ -13856,6 +13337,7 @@
   "821102 Irrigationist",
   "821204 Poultry, Ratites or Avian Farm Worker / Assistant",
   "821205 Wool Handler",
+  "821402 Ornamental Horticultural or Nursery Assistant",
   "821403 Indoor Plant Worker",
   "831103 Mineral Beneficiation Plant Worker",
   "831104 Mining Spotter Controller",
@@ -13873,6 +13355,7 @@
   "832902 Plastics, Composites and Rubber Factory Worker",
   "832903 Timber and Wood Process Worker",
   "832904 Food and Beverage Factory Worker",
+  "832905 Footwear and Leather Factory Worker",
   "832906 Glass Processing Worker",
   "832908 Clay Processing Factory Worker",
   "832910 Component Fitter",

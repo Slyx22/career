@@ -63,12 +63,20 @@ jobs:
           python -c "import json;r=json.load(open('scripts/last_import_report.json'));print('::notice::Written', r['careers_written'], 'skipped', r['careers_skipped_too_few_rated_skills'], 'unmapped', list(r['unmapped_onet_elements'])[:15])"
           rm -f import.log
 
+      - name: Relink South African job titles and refresh the website's fallback list
+        working-directory: python-engine
+        run: |
+          pip install -q openpyxl xlrd
+          python scripts/build_sa_occupations.py
+          python scripts/export_careers_json.py
+
       - name: Commit the regenerated files
         run: |
           rm -rf onet onet.zip
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A python-engine/app/data/career_models python-engine/scripts/last_import_report.json
+          git add -A python-engine/app/data/career_models python-engine/scripts/last_import_report.json \
+            python-engine/app/data/sa_occupations.json frontend/public/data/careers.json
           if git diff --cached --quiet; then echo "No changes"; exit 0; fi
           git commit -m "Regenerate career models from O*NET ${ONET_VERSION} with exact skill mapping"
           git push

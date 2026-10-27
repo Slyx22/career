@@ -8,9 +8,6 @@ name: Fetch South African occupation sources
 
 on:
   workflow_dispatch:
-  push:
-    branches: [feat/sa-occupations]
-    paths: [".github/workflows/fetch-sa-sources.yml"]
 
 permissions:
   contents: write
