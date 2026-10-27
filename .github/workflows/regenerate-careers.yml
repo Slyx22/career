@@ -29,21 +29,42 @@ jobs:
 
       - name: Find and download the latest O*NET text database
         run: |
-          set -euo pipefail
-          page=$(curl -fsSL https://www.onetcenter.org/database.html)
-          file=$(printf '%s' "$page" | grep -oE 'db_[0-9]+_[0-9]+_text\.zip' | sort -uV | tail -1)
-          if [ -z "$file" ]; then echo "Could not find the O*NET text download link"; exit 1; fi
-          echo "Downloading $file"
-          curl -fsSL -o onet.zip "https://www.onetcenter.org/dl_files/database/$file"
-          unzip -q onet.zip -d onet
-          dir=$(dirname "$(find onet -name 'Occupation Data.txt' | head -1)")
+          set -uo pipefail
+          UA="Mozilla/5.0 (career-readiness-analyzer data refresh; github actions)"
+          base="https://www.onetcenter.org/dl_files/database"
+          candidates=""
+          page=$(curl -fsSL -A "$UA" https://www.onetcenter.org/database.html || true)
+          if [ -n "$page" ]; then
+            candidates=$(printf '%s' "$page" | grep -oE 'db_[0-9]+_[0-9]+_text\.zip' | sort -uV -r || true)
+          else
+            echo "::warning::Could not read the O*NET database page; trying known file names"
+          fi
+          # Fallback: probe recent release names, newest first.
+          for major in 32 31 30 29; do for minor in 3 2 1 0; do
+            candidates="$candidates db_${major}_${minor}_text.zip"
+          done; done
+          file=""
+          for f in $candidates; do
+            if curl -fsSL -A "$UA" -o onet.zip "$base/$f"; then file="$f"; break; fi
+          done
+          if [ -z "$file" ]; then echo "::error::Could not download any O*NET text database from $base"; exit 1; fi
+          echo "::notice::Downloaded O*NET $file ($(du -h onet.zip | cut -f1))"
+          unzip -q onet.zip -d onet || { echo "::error::Downloaded $file but could not unzip it"; exit 1; }
+          occ=$(find onet -name 'Occupation Data.txt' | head -1)
+          if [ -z "$occ" ]; then echo "::error::No 'Occupation Data.txt' in $file. Files: $(find onet -name '*.txt' | head -20 | tr '\n' ' ')"; exit 1; fi
+          dir=$(dirname "$occ")
+          echo "::notice::Files in $file: $(ls "$dir" | tr '\n' ',' | head -c 900)"
           echo "ONET_DIR=$dir" >> "$GITHUB_ENV"
           echo "ONET_VERSION=${file%_text.zip}" >> "$GITHUB_ENV"
-          ls "$dir" | head -50
 
       - name: Rebuild career files
         working-directory: python-engine
-        run: python scripts/onet_bulk_import.py --db-dir "$GITHUB_WORKSPACE/$ONET_DIR" --import-all
+        run: |
+          set -o pipefail
+          python scripts/onet_bulk_import.py --db-dir "$GITHUB_WORKSPACE/$ONET_DIR" --import-all 2>&1 | tee import.log || {
+            echo "::error::Import failed: $(tail -5 import.log | tr '\n' ' ')"; exit 1; }
+          python -c "import json;r=json.load(open('scripts/last_import_report.json'));print('::notice::Written', r['careers_written'], 'skipped', r['careers_skipped_too_few_rated_skills'], 'unmapped', list(r['unmapped_onet_elements'])[:15])"
+          rm -f import.log
 
       - name: Commit the regenerated files
         run: |
