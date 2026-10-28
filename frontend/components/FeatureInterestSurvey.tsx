@@ -93,10 +93,9 @@ export function FeatureInterestSurvey({ analysisId }: Props) {
 
   if (submitted) {
     return (
-      <div className="rounded-lg border border-line bg-panel/50 px-6 py-8 text-center">
-        <p className="text-2xl">🎉</p>
-        <p className="mt-3 font-display text-lg text-slate-700">Thank you!</p>
-        <p className="mt-2 font-body text-sm text-slate-600">
+      <div className="glass-sheet p-6 text-center sm:p-8">
+        <p className="font-display text-lg font-semibold">Thanks, noted</p>
+        <p className="mt-2 text-sm text-slate">
           We'll prioritize the features you selected. Check back soon!
         </p>
       </div>
@@ -104,11 +103,11 @@ export function FeatureInterestSurvey({ analysisId }: Props) {
   }
 
   return (
-    <div className="rounded-lg border border-line bg-panel/50 px-6 py-8">
-      <h3 className="font-display text-lg text-slate-700">
+    <div className="glass-sheet p-6 sm:p-8">
+      <h3 className="font-display text-xl font-semibold tracking-tight">
         What would you like to do next?
       </h3>
-      <p className="mt-2 font-body text-sm text-slate-600">
+      <p className="mt-1 text-sm text-slate">
         These features are coming soon. Select what interests you most to help
         us prioritize.
       </p>
@@ -119,31 +118,31 @@ export function FeatureInterestSurvey({ analysisId }: Props) {
             key={feature.key}
             onClick={() => handleClick(feature.key)}
             className={`
-              group relative rounded-lg border px-4 py-3 text-left transition-all
+              focus-ring group relative rounded-2xl border px-4 py-3 text-left transition-colors
               ${
                 selected.has(feature.key)
-                  ? "border-brass bg-brass/10"
-                  : "border-line bg-paper hover:border-brass/50 hover:bg-panel"
+                  ? "border-jacaranda/50 bg-jacaranda/10"
+                  : "border-white/70 bg-white/50 hover:bg-white/75"
               }
             `}
           >
             <div className="flex items-start gap-3">
               <span className="text-xl">{feature.icon}</span>
               <div className="flex-1">
-                <div className="flex items-center gap-2">
-                  <p className="font-body text-sm font-medium text-slate-700">
+                <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                  <p className="text-sm font-medium">
                     {feature.label}
                   </p>
-                  <span className="rounded bg-brass/20 px-1.5 py-0.5 font-body text-[10px] uppercase tracking-wide text-brass-dark">
-                    Beta
+                  <span className="whitespace-nowrap rounded-full bg-brass/15 px-2 py-0.5 text-[11px] font-medium text-brass-dark">
+                    Coming soon
                   </span>
                 </div>
-                <p className="mt-1 font-body text-xs text-slate-600">
+                <p className="mt-1 text-xs text-slate">
                   {feature.description}
                 </p>
               </div>
               {selected.has(feature.key) && (
-                <span className="text-brass-dark">✓</span>
+                <span className="text-jacaranda-dark">✓</span>
               )}
             </div>
           </button>
@@ -154,7 +153,7 @@ export function FeatureInterestSurvey({ analysisId }: Props) {
         <button
           onClick={handleNotifyMe}
           disabled={submitting}
-          className="focus-ring mt-6 w-full rounded bg-ink px-6 py-3 font-body text-sm font-medium text-paper transition-colors hover:bg-brass-dark disabled:cursor-not-allowed disabled:opacity-60"
+          className="btn-primary mt-6 w-full"
         >
           {submitting ? "Saving..." : "Notify me when these launch"}
         </button>

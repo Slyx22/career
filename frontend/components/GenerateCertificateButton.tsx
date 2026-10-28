@@ -53,32 +53,26 @@ export function GenerateCertificateButton({
 
   if (needsSignUp && isClerkConfigured) {
     return (
-      <div className="rounded border border-line bg-paper px-4 py-4">
-        <p className="font-body text-sm text-slate-700">
+      <div>
+        <p className="text-sm text-slate">
           Certificates are free, but generating one needs a free account
           (so you can find it again later on your dashboard).
         </p>
         <div className="mt-3 flex flex-wrap items-center gap-3">
           <SignUpButton mode="modal">
-            <button className="focus-ring rounded bg-ink px-5 py-2.5 font-body text-sm font-medium text-paper transition-colors hover:bg-brass-dark">
-              Sign up free
-            </button>
+            <button className="btn-primary">Sign up free</button>
           </SignUpButton>
           <SignInButton mode="modal">
-            <button className="focus-ring rounded border border-line px-5 py-2.5 font-body text-sm font-medium text-slate-700 transition-colors hover:border-slate">
-              Already have an account? Sign in
-            </button>
+            <button className="glass btn-glass">I already have an account</button>
           </SignInButton>
         </div>
-        <p className="mt-3 font-body text-xs text-slate-600">
-          Once you&apos;re signed in, click &quot;Generate My Certificate&quot; again.
-        </p>
+        <p className="mt-3 text-xs text-slate">Once you&apos;re signed in, tap &ldquo;Get my certificate&rdquo; again.</p>
         <button
           onClick={handleClick}
           disabled={loading}
-          className="focus-ring mt-3 rounded bg-ink px-6 py-3 font-body text-sm font-medium text-paper transition-colors hover:bg-brass-dark disabled:cursor-not-allowed disabled:opacity-60"
+          className="glass btn-glass mt-3"
         >
-          {loading ? "Checking\u2026" : "Generate My Certificate"}
+          {loading ? "Checking\u2026" : "Get my certificate"}
         </button>
       </div>
     );
@@ -89,16 +83,16 @@ export function GenerateCertificateButton({
       <button
         onClick={handleClick}
         disabled={loading}
-        className="focus-ring rounded bg-ink px-6 py-3 font-body text-sm font-medium text-paper transition-colors hover:bg-brass-dark disabled:cursor-not-allowed disabled:opacity-60"
+        className="btn-primary w-full sm:w-auto"
       >
-        {loading ? "Generating\u2026" : "Generate My Certificate"}
+        {loading ? "Creating your certificate\u2026" : "Get my certificate"}
       </button>
-      <p className="mt-2 font-body text-xs text-slate-600">
-        Certificates are completely free.
-        {isClerkConfigured ? " A free account is required so you can find it again later." : ""}
+      <p className="mt-2 text-xs text-slate">
+        Free, and shareable on LinkedIn and WhatsApp.
+        {isClerkConfigured ? " You'll need a free account so you can find it again later." : ""}
       </p>
       {error && (
-        <p className="mt-3 rounded border border-brass bg-brass/10 px-3 py-2 font-body text-sm text-brass-dark" role="alert">
+        <p className="mt-3 rounded-2xl border border-brass/40 bg-brass/10 px-4 py-3 text-sm text-brass-dark" role="alert">
           {error}
         </p>
       )}

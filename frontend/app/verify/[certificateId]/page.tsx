@@ -43,62 +43,62 @@ export default async function VerifyPage({
   const cert = await fetchVerification(params.certificateId);
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="min-h-screen">
       <Header />
-      <main className="flex-1">
-        <section className="mx-auto max-w-xl px-6 py-20">
+      <main className="page-top">
+        <section className="mx-auto max-w-xl px-4 sm:px-6">
           {cert.verified ? (
-            <div className="border border-line bg-panel px-8 py-10">
-              <p className="font-body text-sm font-medium text-brass-dark">
+            <div className="glass-sheet p-6 sm:p-8">
+              <p className="inline-flex items-center gap-2 rounded-full bg-jacaranda/15 px-3 py-1 text-sm font-medium text-jacaranda-dark">
                 {cert.expired
                   ? "Genuine certificate — validity period has ended"
                   : "✓ Certificate Verified"}
               </p>
-              <h1 className="mt-2 font-display text-2xl text-ink">
+              <h1 className="mt-3 font-display text-2xl font-semibold tracking-tight">
                 Career Readiness Assessment
               </h1>
 
-              <dl className="mt-8 space-y-4 font-body text-sm">
+              <dl className="mt-6 grid grid-cols-1 gap-x-6 gap-y-4 text-sm sm:grid-cols-2">
                 <div>
-                  <dt className="text-slate-600">Name (as entered by the holder)</dt>
-                  <dd className="text-ink">
+                  <dt className="text-xs text-slate">Name (as entered by the holder)</dt>
+                  <dd className="mt-0.5 font-medium">
                     {cert.first_name} {cert.surname}
                   </dd>
                 </div>
                 <div>
-                  <dt className="text-slate-600">Career</dt>
-                  <dd className="text-ink">{cert.career}</dd>
+                  <dt className="text-xs text-slate">Career</dt>
+                  <dd className="mt-0.5 font-medium">{cert.career}</dd>
                 </div>
                 <div>
-                  <dt className="text-slate-600">Readiness Score</dt>
-                  <dd className="text-ink">{cert.score} / 100</dd>
+                  <dt className="text-xs text-slate">Readiness Score</dt>
+                  <dd className="mt-0.5 font-medium">{cert.score} / 100</dd>
                 </div>
                 <div>
-                  <dt className="text-slate-600">Issued</dt>
-                  <dd className="text-ink">
+                  <dt className="text-xs text-slate">Issued</dt>
+                  <dd className="mt-0.5 font-medium">
                     {cert.issued_at ? formatDate(cert.issued_at) : ""}
                   </dd>
                 </div>
                 {cert.valid_until && (
                   <div>
-                    <dt className="text-slate-600">Valid until</dt>
-                    <dd className="text-ink">{formatDate(cert.valid_until)}</dd>
+                    <dt className="text-xs text-slate">Valid until</dt>
+                    <dd className="mt-0.5 font-medium">{formatDate(cert.valid_until)}</dd>
                   </div>
                 )}
                 <div>
-                  <dt className="text-slate-600">Certificate ID</dt>
-                  <dd className="text-ink">{cert.certificate_id}</dd>
+                  <dt className="text-xs text-slate">Certificate ID</dt>
+                  <dd className="mt-0.5 font-medium">{cert.certificate_id}</dd>
                 </div>
                 <div>
-                  <dt className="text-slate-600">Status</dt>
-                  <dd className="text-ink">
+                  <dt className="text-xs text-slate">Status</dt>
+                  <dd className="mt-0.5 font-medium">
                     {cert.expired ? "Expired (issued genuinely, now out of date)" : "Valid"}
                   </dd>
                 </div>
                 {cert.issuer && (
                   <div>
-                    <dt className="text-slate-600">Issued by</dt>
-                    <dd className="text-ink">
+                    <dt className="text-xs text-slate">Issued by</dt>
+                    <dd className="mt-0.5 font-medium">
                       {cert.issuer}
                       {cert.method_version ? ` · method ${cert.method_version}` : ""}
                     </dd>
@@ -106,7 +106,7 @@ export default async function VerifyPage({
                 )}
               </dl>
 
-              <div className="mt-8 border-t border-line pt-6 font-body text-xs leading-relaxed text-slate-600">
+              <div className="mt-8 border-t border-ink/[0.08] pt-6 text-xs leading-relaxed text-slate">
                 <p>
                   <strong className="text-ink">What this certificate means.</strong>{" "}
                   The score is an automated comparison between the skills
@@ -135,11 +135,11 @@ export default async function VerifyPage({
               </div>
             </div>
           ) : (
-            <div className="border border-line bg-panel px-8 py-10 text-center">
-              <h1 className="font-display text-2xl text-ink">
+            <div className="glass-sheet p-8 text-center">
+              <h1 className="font-display text-2xl font-semibold">
                 Certificate Not Found
               </h1>
-              <p className="mt-3 font-body text-sm text-slate-600">
+              <p className="mt-3 text-sm text-slate">
                 We couldn&apos;t find a certificate with this ID. Please
                 double-check the verification link.
               </p>

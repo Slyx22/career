@@ -6,15 +6,16 @@ import { LEGAL_LAST_UPDATED, MINIMUM_AGE, SITE_NAME, SITE_URL } from "@/lib/site
 
 export const metadata = { title: `Privacy Policy - ${SITE_NAME}` };
 
-const h2 = "mt-8 font-display text-xl text-ink";
+const h2 = "mt-9 font-display text-xl font-semibold tracking-tight";
 
 export default function PrivacyPage() {
   return (
-    <div className="min-h-screen bg-paper">
+    <div className="min-h-screen">
       <Header />
-      <main className="mx-auto max-w-2xl px-6 py-16 font-body text-sm leading-relaxed text-ink">
-        <h1 className="font-display text-3xl text-ink">Privacy Policy</h1>
-        <p className="mt-2 text-xs text-ink">Last updated: {LEGAL_LAST_UPDATED}</p>
+      <main className="page-top mx-auto max-w-3xl px-4 sm:px-6">
+        <article className="glass-sheet p-6 text-[15px] leading-relaxed sm:p-10">
+        <h1 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">Privacy Policy</h1>
+        <p className="mt-2 text-sm text-slate">Last updated: {LEGAL_LAST_UPDATED}</p>
 
         <p className="mt-6">
           This policy explains what personal information {SITE_NAME} (&quot;we&quot;,
@@ -232,6 +233,7 @@ export default function PrivacyPage() {
           </Link>
           .
         </p>
+        </article>
       </main>
       <Footer />
     </div>

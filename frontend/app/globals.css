@@ -2,31 +2,251 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ------------------------------------------------------------------
+   Liquid glass design system
+   - Wallpaper: "Highveld dawn" (jacaranda violet, morning amber, sky)
+     fixed behind everything, so glass panels have colour to refract.
+   - .glass        : controls and bars (pills, header, tab bar)
+   - .glass-sheet  : reading panels (more opaque, for legible text)
+   - .glass-field  : inputs
+   - .lens         : the selected item inside a glass bar
+   ------------------------------------------------------------------ */
+
 :root {
-  --color-void: #0a0a0c;
-  --color-ink: #0f1014;
-  --color-paper: #ffffff;
-  --color-brass: #b8801f;
+  --ink: #141a2e;
+  --glass-tint: 255, 255, 255;
+  --glass-a: 0.52;
+  --sheet-a: 0.64;
+  --blur: 22px;
+  --rim: rgba(255, 255, 255, 0.9);
+  --glass-shadow: 0 12px 32px -14px rgba(48, 36, 110, 0.32), 0 1px 2px rgba(20, 26, 46, 0.06);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-top: env(safe-area-inset-top, 0px);
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background-color: #ffffff;
-  color: #0f1014;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background-color: #eef0f7;
+  color: var(--ink);
   -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
 }
 
-::selection { background: rgba(184,128,31,0.25); color: #fff; }
-
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
+/* Wallpaper. A fixed pseudo-element (not background-attachment: fixed,
+   which iOS Safari ignores) so it stays put while content scrolls. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: -10vmax;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(38vmax 34vmax at 12% 8%, rgba(124, 107, 224, 0.7), transparent 70%),
+    radial-gradient(34vmax 30vmax at 88% 14%, rgba(242, 180, 90, 0.66), transparent 70%),
+    radial-gradient(42vmax 36vmax at 78% 82%, rgba(127, 196, 232, 0.66), transparent 70%),
+    radial-gradient(30vmax 26vmax at 18% 88%, rgba(243, 167, 181, 0.55), transparent 70%),
+    linear-gradient(180deg, #f3f1fb 0%, #eef3f8 100%);
 }
 
-.animate-fade-in-up {
-  animation: fadeInUp 0.9s ease-out both;
+::selection {
+  background: rgba(124, 107, 224, 0.28);
+  color: var(--ink);
 }
 
-.delay-100 { animation-delay: 0.1s; }
-.delay-200 { animation-delay: 0.2s; }
-.delay-300 { animation-delay: 0.3s; }
+@layer components {
+  .glass,
+  .glass-sheet {
+    position: relative;
+    isolation: isolate;
+    -webkit-backdrop-filter: blur(var(--blur)) saturate(180%);
+    backdrop-filter: blur(var(--blur)) saturate(180%);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.85),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.2),
+      var(--glass-shadow);
+  }
+  .glass {
+    background: linear-gradient(
+      180deg,
+      rgba(var(--glass-tint), calc(var(--glass-a) + 0.1)),
+      rgba(var(--glass-tint), var(--glass-a))
+    );
+  }
+  .glass-sheet {
+    border-radius: 28px;
+    background: linear-gradient(
+      180deg,
+      rgba(var(--glass-tint), calc(var(--sheet-a) + 0.06)),
+      rgba(var(--glass-tint), var(--sheet-a))
+    );
+  }
+
+  /* The glossy rim: a 1px gradient border, brightest top-left, like light
+     catching the edge of a curved glass pane. */
+  .glass::before,
+  .glass-sheet::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      140deg,
+      var(--rim),
+      rgba(255, 255, 255, 0.18) 32%,
+      rgba(255, 255, 255, 0) 58%,
+      rgba(255, 255, 255, 0.55)
+    );
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Selected item inside a glass bar: a brighter lens. */
+  .lens {
+    background: rgba(255, 255, 255, 0.75);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 1),
+      0 4px 14px -6px rgba(48, 36, 110, 0.35);
+  }
+
+  .glass-field {
+    width: 100%;
+    border-radius: 14px;
+    border: 1px solid rgba(20, 26, 46, 0.1);
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: inset 0 1px 2px rgba(20, 26, 46, 0.06);
+    color: var(--ink);
+    transition: border-color 0.15s, background-color 0.15s;
+  }
+  .glass-field:hover {
+    border-color: rgba(124, 107, 224, 0.45);
+  }
+  .glass-field:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.85);
+    border-color: #7c6be0;
+    box-shadow: 0 0 0 4px rgba(124, 107, 224, 0.2);
+  }
+
+  /* Solid primary action: ink with a soft glass sheen on top. */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    border-radius: 999px;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(180deg, #2a3150 0%, #141a2e 55%);
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.22),
+      0 10px 24px -10px rgba(20, 26, 46, 0.55);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .btn-primary:hover {
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.28),
+      0 14px 28px -10px rgba(20, 26, 46, 0.6);
+  }
+  .btn-primary:active {
+    transform: scale(0.98);
+  }
+  .btn-primary:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+
+  /* Secondary action: a glass pill. */
+  .btn-glass {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    border-radius: 999px;
+    padding: 0.7rem 1.25rem;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    color: var(--ink);
+    transition: transform 0.15s ease, background-color 0.15s ease;
+  }
+  .btn-glass:active {
+    transform: scale(0.98);
+  }
+
+  .focus-ring:focus-visible,
+  .btn-primary:focus-visible,
+  .btn-glass:focus-visible {
+    outline: 3px solid rgba(124, 107, 224, 0.6);
+    outline-offset: 2px;
+  }
+
+  /* Leaves room for the fixed header, and for the tab bar on phones. */
+  .page-top {
+    padding-top: calc(6.5rem + var(--safe-top));
+  }
+  .page-bottom {
+    padding-bottom: calc(7.5rem + var(--safe-bottom));
+  }
+  @media (min-width: 768px) {
+    .page-bottom {
+      padding-bottom: 4rem;
+    }
+  }
+}
+
+/* Browsers without backdrop-filter: make glass opaque so text stays readable. */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  :root {
+    --glass-a: 0.9;
+    --sheet-a: 0.95;
+  }
+}
+
+/* People who ask their device for less transparency get solid panels. */
+@media (prefers-reduced-transparency: reduce) {
+  :root {
+    --glass-a: 0.96;
+    --sheet-a: 0.98;
+    --blur: 0px;
+  }
+}
+
+/* The one load animation: the score ring filling in on the home page. */
+@keyframes ring-fill {
+  from {
+    stroke-dashoffset: var(--ring-len);
+  }
+}
+.ring-animate {
+  animation: ring-fill 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ring-animate {
+    animation: none;
+  }
+  * {
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  body::before {
+    display: none;
+  }
+  body {
+    background: #fff;
+  }
+}

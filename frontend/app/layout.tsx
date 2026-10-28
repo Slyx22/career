@@ -1,13 +1,13 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+import "@fontsource-variable/bricolage-grotesque";
+import "@fontsource/instrument-sans/400.css";
+import "@fontsource/instrument-sans/500.css";
+import "@fontsource/instrument-sans/600.css";
 import "./globals.css";
 import AuthProvider from "@/components/AuthProvider";
+import { MobileTabBar } from "@/components/MobileTabBar";
 
-// Fonts are loaded via CSS (see globals.css) rather than next/font/google.
-// next/font/google requires build-time network access to
-// fonts.googleapis.com, which is not guaranteed in every environment
-// (e.g. sandboxed CI, offline dev). Loading via a <link> tag with solid
-// system-font fallbacks keeps local builds reliable everywhere while still
-// getting the intended typefaces wherever the network is available.
+// Fonts are self-hosted via @fontsource (no request to Google, works offline).
 
 export const metadata: Metadata = {
   // Makes share-preview image links absolute (needed by LinkedIn/WhatsApp).
@@ -17,6 +17,13 @@ export const metadata: Metadata = {
     "Upload your CV and discover how closely your skills match the requirements of your target career.",
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover", // lets the glass tab bar sit above the iPhone home indicator
+  themeColor: "#eef0f7",
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -24,14 +31,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
-        />
-      </head>
-      <body className="font-body antialiased">
-        <AuthProvider>{children}</AuthProvider>
+      <body className="font-body text-ink antialiased">
+        <AuthProvider>
+          {children}
+          <MobileTabBar />
+        </AuthProvider>
       </body>
     </html>
   );

@@ -14,9 +14,8 @@ import {
 } from "@/lib/certificate";
 
 const btn =
-  "focus-ring inline-flex items-center justify-center gap-2 rounded border border-line bg-white px-4 py-2.5 font-body text-sm text-ink transition-colors hover:border-ink";
-const primary =
-  "focus-ring inline-flex items-center justify-center gap-2 rounded bg-ink px-4 py-2.5 font-body text-sm font-medium text-paper transition-colors hover:bg-brass-dark";
+  "focus-ring inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full border border-white/70 bg-white/55 px-4 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-white/80";
+const primary = "btn-primary";
 
 export function ShareCertificate({ cert }: { cert: CertificateVerification }) {
   const id = cert.certificate_id ?? "";
@@ -48,9 +47,9 @@ export function ShareCertificate({ cert }: { cert: CertificateVerification }) {
   }, []);
 
   return (
-    <div className="rounded border border-line bg-panel px-5 py-6">
-      <h2 className="font-display text-xl text-ink">Share your certificate</h2>
-      <p className="mt-1 font-body text-xs text-slate-600">
+    <div className="glass-sheet p-6 sm:p-8">
+      <h2 className="font-display text-xl font-semibold tracking-tight">Share your certificate</h2>
+      <p className="mt-1 text-sm text-slate">
         Anyone with the link can check it&apos;s genuine. It shows your name, the career, your score and the dates,
         never your CV.
       </p>
@@ -81,7 +80,7 @@ export function ShareCertificate({ cert }: { cert: CertificateVerification }) {
         )}
       </div>
 
-      <h3 className="mt-6 font-body text-xs uppercase tracking-normal text-slate-600">Download</h3>
+      <h3 className="mt-7 text-sm font-semibold text-slate">Download</h3>
       <div className="mt-2 flex flex-wrap gap-3">
         <a className={btn} href={`/api/certificate/${encodeURIComponent(id)}/pdf`}>
           PDF certificate
@@ -93,7 +92,7 @@ export function ShareCertificate({ cert }: { cert: CertificateVerification }) {
           Wide image
         </a>
       </div>
-      <p className="mt-4 font-body text-[11px] text-slate-500">
+      <p className="mt-5 text-xs text-slate">
         Tip: on LinkedIn, &ldquo;Add to profile&rdquo; puts it under Licenses &amp; certifications with a link back to
         this verification page.
       </p>

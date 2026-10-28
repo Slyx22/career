@@ -193,14 +193,14 @@ export function CareerPicker({ id, careers, saTitles, value, onChange, loading }
             e.target.select();
           }}
           onKeyDown={onKeyDown}
-          className="focus-ring mt-1.5 w-full rounded-xl border border-line bg-white px-4 py-3 pr-10 font-body text-sm text-ink shadow-sm transition placeholder:text-slate-400 hover:border-brass"
+          className="glass-field mt-1.5 px-4 py-3 pr-11 text-base placeholder:text-slate-light"
         />
         <button
           type="button"
           tabIndex={-1}
           aria-label={open ? "Close career list" : "Show all careers"}
           onClick={() => setOpen((o) => !o)}
-          className="absolute right-2 top-1/2 mt-[3px] -translate-y-1/2 rounded p-1.5 text-slate-500 hover:text-ink"
+          className="absolute right-2 top-1/2 mt-[3px] flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full text-slate hover:bg-white/70 hover:text-ink"
         >
           <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
             <path d="M5.3 7.3a1 1 0 0 1 1.4 0L10 10.6l3.3-3.3a1 1 0 1 1 1.4 1.4l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 0 1 0-1.4z" />
@@ -209,13 +209,13 @@ export function CareerPicker({ id, careers, saTitles, value, onChange, loading }
       </div>
 
       {open && !loading && (
-        <div className="absolute z-20 mt-1 w-full overflow-hidden rounded-xl border border-line bg-white shadow-lg">
+        <div className="absolute z-30 mt-2 w-full overflow-hidden rounded-[20px] border border-white/70 bg-white/90 shadow-[0_20px_40px_-16px_rgba(48,36,110,0.45)] backdrop-blur-2xl">
           {results.items.length === 0 ? (
-            <p className="px-4 py-3 font-body text-sm text-slate-600">
+            <p className="px-4 py-3 text-sm text-slate">
               No career matches &ldquo;{query}&rdquo;. Try a shorter word, like &ldquo;nurse&rdquo; or &ldquo;clerk&rdquo;.
             </p>
           ) : (
-            <ul ref={listRef} id={listId} role="listbox" className="max-h-80 overflow-y-auto py-1">
+            <ul ref={listRef} id={listId} role="listbox" className="max-h-[min(20rem,50vh)] overflow-y-auto overscroll-contain p-1.5">
               {results.items.map(({ o, via }, i) => (
                 <li
                   key={o.key}
@@ -225,12 +225,12 @@ export function CareerPicker({ id, careers, saTitles, value, onChange, loading }
                   onMouseEnter={() => setActive(i)}
                   onMouseDown={(e) => e.preventDefault()}
                   onClick={() => choose(o)}
-                  className={`cursor-pointer px-4 py-2 font-body ${i === active ? "bg-brass/15" : ""}`}
+                  className={`cursor-pointer rounded-xl px-3 py-2.5 ${i === active ? "bg-jacaranda/10" : ""}`}
                 >
                   <span className={`block text-sm text-ink ${selected?.key === o.key ? "font-medium" : ""}`}>
                     {o.label}
                   </span>
-                  <span className="block text-xs text-slate-500">
+                  <span className="block text-xs text-slate">
                     {o.saTitle
                       ? `South Africa${via ? ` · also called ${via}` : ""} · skills of ${o.careerName}`
                       : "International (O*NET) occupation"}
@@ -240,7 +240,7 @@ export function CareerPicker({ id, careers, saTitles, value, onChange, loading }
             </ul>
           )}
           {results.total > results.items.length && (
-            <p className="border-t border-line px-4 py-2 font-body text-xs text-slate-500">
+            <p className="border-t border-ink/[0.07] px-4 py-2 text-xs text-slate">
               Showing {results.items.length} of {results.total}. Keep typing to narrow it down.
             </p>
           )}
