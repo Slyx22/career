@@ -2,6 +2,7 @@ import { ImageResponse } from "next/og";
 import { CertificateVerification } from "@/lib/types";
 import { formatCertDate, fullName } from "@/lib/certificate";
 import { SITE_NAME } from "@/lib/site";
+import { bandFor } from "@/lib/bands";
 
 const INK = "#141A2E";
 const BRASS = "#B8801F";
@@ -137,6 +138,21 @@ export function renderCertificateImage(cert: CertificateVerification, shape: Ima
               <div style={{ display: "flex", fontSize: careerSize, color: BRASS_DARK, marginTop: 18, lineHeight: 1.25 }}>
                 {career}
               </div>
+              {bandFor(cert.score).seal && (
+                <div
+                  style={{
+                    display: "flex",
+                    marginTop: 22,
+                    padding: "10px 22px",
+                    borderRadius: 999,
+                    background: BRASS,
+                    color: "#FFFFFF",
+                    fontSize: square ? 28 : 24,
+                  }}
+                >
+                  {bandFor(cert.score).label} · 70+
+                </div>
+              )}
             </div>
             <ScoreRing score={cert.score ?? 0} size={square ? 300 : 250} />
           </div>

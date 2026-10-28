@@ -12,6 +12,7 @@ from app.scoring.career_model import CareerModel, get_career_model
 from app.scoring.scorer import ScoringResult, score_career_readiness
 from app.scoring.sa_requirements import sa_requirements_for
 from app.scoring.sa_titles import resolve_sa_title
+from app.scoring.bands import band_for, points_to_seal
 from app.db.interface import Repository
 
 GENERIC_BENCHMARK_DISCLAIMER = (
@@ -162,6 +163,9 @@ def run_analysis(
         benchmark_disclaimer=GENERIC_BENCHMARK_DISCLAIMER,
         onet_source=onet_source,
         sa_requirements=sa_requirements,
+        band=band_for(result.overall_score)[0],
+        band_label=band_for(result.overall_score)[1],
+        points_to_seal=points_to_seal(result.overall_score),
         created_at=created_at,
     )
 
@@ -188,5 +192,8 @@ def get_analysis_response(*, store: Repository, analysis_id: str) -> AnalysisRes
         benchmark_disclaimer=GENERIC_BENCHMARK_DISCLAIMER,
         onet_source=OnetSourceInfo(**onet_source_raw) if onet_source_raw else None,
         sa_requirements=payload.get("sa_requirements", []),
+        band=band_for(record["score"])[0],
+        band_label=band_for(record["score"])[1],
+        points_to_seal=points_to_seal(record["score"]),
         created_at=record["created_at"],
     )

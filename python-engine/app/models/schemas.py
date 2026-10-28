@@ -50,6 +50,9 @@ class AnalysisResponse(BaseModel):
     benchmark_disclaimer: str
     onet_source: Optional[OnetSourceInfo] = None
     sa_requirements: List[SaRequirement] = []
+    band: str = ""  # "excellent" | "strong" | "developing" | "early"
+    band_label: str = ""
+    points_to_seal: int = 0  # points still needed for a 70+ "Strong match" certificate
     created_at: str
 
 
@@ -90,6 +93,9 @@ class CertificateVerifyResponse(BaseModel):
     expired: Optional[bool] = None
     issuer: Optional[str] = None
     method_version: Optional[str] = None
+    band: Optional[str] = None
+    band_label: Optional[str] = None
+    seal: Optional[bool] = None
 
 
 class CertificateListResponse(BaseModel):

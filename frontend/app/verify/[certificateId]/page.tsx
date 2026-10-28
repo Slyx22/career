@@ -71,7 +71,9 @@ export default async function VerifyPage({
                 </div>
                 <div>
                   <dt className="text-xs text-slate">Readiness Score</dt>
-                  <dd className="mt-0.5 font-medium">{cert.score} / 100</dd>
+                  <dd className="mt-0.5 font-medium">
+                    {cert.score} / 100{cert.band_label ? ` \u00b7 ${cert.band_label}` : ""}
+                  </dd>
                 </div>
                 <div>
                   <dt className="text-xs text-slate">Issued</dt>

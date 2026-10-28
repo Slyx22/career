@@ -29,11 +29,25 @@ CURRENT_YEAR = 2026
 
 # Verbs/phrases that suggest the skill was actually *applied*, not just listed.
 STRONG_EVIDENCE_PATTERNS = [
+    # Building and delivering
     r"\bbuilt\b", r"\bbuild\b", r"\bbuilding\b", r"\bdeveloped\b", r"\bdeploy(ed|ing)?\b",
-    r"\bimplemented\b", r"\bdesigned\b", r"\barchitected\b", r"\bled\b", r"\btrained\b",
-    r"\boptimi[sz]ed\b", r"\bshipped\b", r"\bdelivered\b", r"\bcreated\b", r"\bmaintained\b",
-    r"\bautomated\b", r"\bscaled\b", r"\bowned\b", r"\bproduction\b", r"\brefactored\b",
-    r"\bintegrated\b", r"\blaunched\b",
+    r"\bimplemented\b", r"\bdesigned\b", r"\barchitected\b", r"\bcreated\b", r"\bshipped\b",
+    r"\bdelivered\b", r"\blaunched\b", r"\bintegrated\b", r"\brefactored\b", r"\bautomated\b",
+    r"\bscaled\b", r"\bproduction\b", r"\boptimi[sz]ed\b", r"\bimproved\b", r"\bachieved\b",
+    r"\bexceeded\b", r"\bcompleted\b",
+    # Leading and owning
+    r"\bled\b", r"\bowned\b", r"\bmanaged\b", r"\bsupervised\b", r"\bcoordinated\b",
+    r"\bplanned\b", r"\borgani[sz]ed\b", r"\bran\b", r"\bmentored\b", r"\btrained\b",
+    r"\btaught\b",
+    # Doing the work (common in service, health, trade and admin CVs)
+    r"\bmaintained\b", r"\bhandled\b", r"\bprovided\b", r"\bmonitored\b", r"\bprocessed\b",
+    r"\bprepared\b", r"\bresolved\b", r"\binstalled\b", r"\brepaired\b", r"\bserviced\b",
+    r"\bpatrolled\b", r"\bdrove\b", r"\bwrote\b", r"\badministered\b", r"\bcounsell?ed\b",
+    r"\badvised\b", r"\bsold\b", r"\bnegotiated\b", r"\bserved\b", r"\bconducted\b",
+    r"\bcaptured\b", r"\banswered\b", r"\bassisted\b", r"\bresponded\b", r"\binspected\b",
+    r"\bissued\b", r"\bordered\b", r"\bcontrolled\b", r"\bexplained\b",
+    # Measurable results: "30 patients", "85%", "R2 million", "120 employees"
+    r"\b\d+(\.\d+)?\s?%", r"\br\s?\d", r"\b\d{2,}\+?\s+[a-z]",
 ]
 
 # Phrases that suggest weak / superficial exposure only.
@@ -270,4 +284,28 @@ def extract_skill_evidence(cv: ExtractedCV) -> Dict[str, SkillEvidence]:
 
         results[skill.slug] = evidence
 
+    _credit_language_of_cv(text, results)
     return results
+
+
+_ENGLISH_WORDS = re.compile(r"\b(the|and|with|for|of|to|in|on|at|my|our|a|an)\b", re.IGNORECASE)
+
+
+def _credit_language_of_cv(text: str, results: Dict[str, SkillEvidence]) -> None:
+    """A CV written in clear English is itself evidence of English, even
+    when it doesn't list "English" as a language. Only for CVs with enough
+    real sentences; only ever raises the evidence, never lowers it."""
+    ev = results.get("english_language")
+    if ev is None:
+        return
+    words = re.findall(r"[A-Za-z']+", text)
+    if len(words) < 120 or len(_ENGLISH_WORDS.findall(text)) < 15:
+        return
+    if not ev.present or ev.evidence_score < 0.65:
+        ev.present = True
+        ev.mentions = max(ev.mentions, 1)
+        ev.depth_score = max(ev.depth_score, 0.6)
+        ev.recency_score = max(ev.recency_score, 0.8)
+        ev.evidence_score = max(ev.evidence_score, 0.65)
+        if not ev.snippets:
+            ev.snippets.append("(CV written in English)")

@@ -1,5 +1,6 @@
 import { CertificateVerification } from "@/lib/types";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
+import { bandFor } from "@/lib/bands";
 
 /** Public page anyone can open to check the certificate. This is the link people share. */
 export function verifyUrl(certificateId: string) {
@@ -25,7 +26,8 @@ export function shareTitle(cert: CertificateVerification) {
 
 export function shareText(cert: CertificateVerification) {
   return (
-    `I scored ${cert.score}/100 for career readiness as a ${cert.career} on ${SITE_NAME}. ` +
+    `I scored ${cert.score}/100 for career readiness as a ${cert.career} on ${SITE_NAME}` +
+    (bandFor(cert.score).seal ? ` (${bandFor(cert.score).label}). ` : ". ") +
     `Verify my certificate: ${verifyUrl(cert.certificate_id ?? "")}`
   );
 }
@@ -39,7 +41,9 @@ export function linkedInAddToProfileUrl(cert: CertificateVerification) {
   const expires = cert.valid_until ? new Date(cert.valid_until) : null;
   const params = new URLSearchParams({
     startTask: "CERTIFICATION_NAME",
-    name: `Career Readiness Certificate - ${cert.career} (${cert.score}/100)`,
+    name: `Career Readiness Certificate - ${cert.career} (${cert.score}/100${
+      bandFor(cert.score).seal ? `, ${bandFor(cert.score).label}` : ""
+    })`,
     organizationName: SITE_NAME,
     certUrl: verifyUrl(cert.certificate_id ?? ""),
     certId: cert.certificate_id ?? "",

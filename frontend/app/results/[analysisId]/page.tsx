@@ -2,6 +2,8 @@ import Link from "next/link";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ScoreRing } from "@/components/ScoreRing";
+import { Seal } from "@/components/Seal";
+import { bandFor } from "@/lib/bands";
 import { SkillBar } from "@/components/SkillBar";
 import { GenerateCertificateButton } from "@/components/GenerateCertificateButton";
 import { FeatureInterestSurvey } from "@/components/FeatureInterestSurvey";
@@ -59,6 +61,7 @@ export default async function ResultsPage({
   const grouped = groupByCategory(analysis.skill_breakdown);
 
   const reqs = analysis.sa_requirements ?? [];
+  const band = bandFor(analysis.score);
 
   return (
     <div className="min-h-screen">
@@ -67,7 +70,7 @@ export default async function ResultsPage({
         <section className="glass-sheet p-6 sm:p-8">
           <div className="flex flex-col items-center gap-6 text-center sm:flex-row sm:text-left">
             <ScoreRing score={analysis.score} size={148} animate id="result" />
-            <div className="min-w-0">
+            <div className="min-w-0 flex-1">
               <p className="text-sm text-slate">Career readiness for</p>
               <h1 className="mt-1 font-display text-2xl font-semibold leading-tight tracking-tight sm:text-3xl">
                 {analysis.career}
@@ -78,8 +81,44 @@ export default async function ResultsPage({
                   the closest match to this South African job title.
                 </p>
               )}
+              <p
+                className={`mt-3 inline-flex rounded-full px-3 py-1 text-sm font-medium ${
+                  band.seal ? "bg-brass/15 text-brass-dark" : "bg-jacaranda/10 text-jacaranda-dark"
+                }`}
+              >
+                {band.label}
+              </p>
             </div>
+            <Seal score={analysis.score} size={96} />
           </div>
+
+          {band.seal ? (
+            <p className="mt-6 rounded-2xl bg-brass/10 px-4 py-3 text-sm leading-relaxed">
+              <strong>Your certificate carries the {band.label} seal.</strong> It shows anyone who checks it that your
+              CV scored 70 or more for this job.
+            </p>
+          ) : (
+            <div className="mt-6 rounded-2xl bg-white/55 px-4 py-3.5">
+              <div className="flex items-baseline justify-between gap-3 text-sm">
+                <strong>
+                  {band.pointsToSeal} {band.pointsToSeal === 1 ? "point" : "points"} to a Strong match certificate
+                </strong>
+                <span className="shrink-0 text-xs text-slate">
+                  {analysis.score} / 70
+                </span>
+              </div>
+              <div className="mt-2 h-2 rounded-full bg-ink/[0.07]">
+                <div
+                  className="h-full rounded-full bg-gradient-to-r from-jacaranda to-brass-light"
+                  style={{ width: `${Math.min(100, (analysis.score / 70) * 100)}%` }}
+                />
+              </div>
+              <p className="mt-2 text-xs leading-relaxed text-slate">
+                Work through your next steps below, update your CV and check it again. Certificates that score 70+ carry
+                the Strong match seal.
+              </p>
+            </div>
+          )}
           <div className="mt-6 border-t border-ink/[0.07] pt-6">
             <GenerateCertificateButton
               analysisId={analysis.analysis_id}

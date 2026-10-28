@@ -17,6 +17,7 @@ from reportlab.graphics.shapes import Drawing
 
 from app.db.interface import Repository
 from app.models.schemas import CertificateResponse, CertificateVerifyResponse
+from app.scoring.bands import band_for, has_seal
 
 _ID_ALPHABET = string.ascii_uppercase + string.digits
 
@@ -24,7 +25,7 @@ _ID_ALPHABET = string.ascii_uppercase + string.digits
 # personal names. Bump METHOD_VERSION whenever the scoring method or the
 # career data changes, so old and new certificates can be told apart.
 ISSUER_NAME = os.environ.get("CERTIFICATE_ISSUER_NAME", "Career Readiness Analyzer")
-METHOD_VERSION = "2.1"
+METHOD_VERSION = "2.2"
 CERTIFICATE_VALID_DAYS = 365
 
 
@@ -136,6 +137,9 @@ def verify_certificate(*, store: Repository, certificate_id: str) -> Certificate
         expired=datetime.now(timezone.utc) > valid_until,
         issuer=ISSUER_NAME,
         method_version=METHOD_VERSION,
+        band=band_for(cert["score"])[0],
+        band_label=band_for(cert["score"])[1],
+        seal=has_seal(cert["score"]),
         certificate_id=cert["certificate_id"],
         first_name=cert["first_name"],
         surname=cert["surname"],
@@ -247,6 +251,23 @@ def render_certificate_pdf(*, store: Repository, certificate_id: str) -> Optiona
     c.drawCentredString(ring_cx, ring_cy - 7 * mm, "out of 100")
     c.setFont("Helvetica", 10)
     c.drawCentredString(center_x, ring_cy + ring_r + 4.5 * mm, "Career Readiness Score")
+
+    # Recognition seal for 70+: "Strong match" / "Excellent match".
+    if has_seal(score):
+        seal_label = band_for(score)[1].upper()
+        sx, sy, sr = ring_cx + 42 * mm, ring_cy, 11 * mm
+        c.setFillColor(colors.HexColor("#B8801F"))
+        c.circle(sx, sy, sr, stroke=0, fill=1)
+        c.setStrokeColor(colors.HexColor("#F3E3C0"))
+        c.setLineWidth(0.8)
+        c.circle(sx, sy, sr - 1.6 * mm, stroke=1, fill=0)
+        c.setFillColor(colors.white)
+        words = seal_label.split(" ")
+        c.setFont("Helvetica-Bold", 6.6)
+        c.drawCentredString(sx, sy + 1.2 * mm, words[0])
+        c.drawCentredString(sx, sy - 2.2 * mm, " ".join(words[1:]))
+        c.setFont("Helvetica", 5.5)
+        c.drawCentredString(sx, sy - 5.6 * mm, "70+")
 
     # Issue / validity section. No personal signature: a handwritten
     # signature image in a public repo can be copied, and the certificate's

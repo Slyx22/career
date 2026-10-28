@@ -1,0 +1,26 @@
+{
+  "comparison_careers": [
+    "bookkeeping-accounting-and-auditing-clerks",
+    "registered-nurses",
+    "software-developers",
+    "electricians",
+    "elementary-school-teachers-except-special-education",
+    "customer-service-representatives",
+    "retail-salespersons",
+    "security-guards",
+    "heavy-and-tractor-trailer-truck-drivers",
+    "chefs-and-head-cooks"
+  ],
+  "jobs": [
+    {"id": "accounts_clerk", "career": "bookkeeping-accounting-and-auditing-clerks"},
+    {"id": "nurse", "career": "registered-nurses"},
+    {"id": "developer", "career": "software-developers"},
+    {"id": "electrician", "career": "electricians"},
+    {"id": "teacher", "career": "elementary-school-teachers-except-special-education"},
+    {"id": "call_centre", "career": "customer-service-representatives"},
+    {"id": "retail", "career": "retail-salespersons"},
+    {"id": "security", "career": "security-guards"},
+    {"id": "truck_driver", "career": "heavy-and-tractor-trailer-truck-drivers"},
+    {"id": "chef", "career": "chefs-and-head-cooks"}
+  ]
+}

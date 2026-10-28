@@ -3,6 +3,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { PrintButton } from "@/components/PrintButton";
 import { ScoreRing } from "@/components/ScoreRing";
+import { Seal } from "@/components/Seal";
 import { ShareCertificate } from "@/components/ShareCertificate";
 import { fetchVerification } from "@/lib/serverApi";
 import { formatCertDate, fullName, shareTitle, verifyUrl } from "@/lib/certificate";
@@ -66,7 +67,10 @@ export default async function CertificatePage({ params }: { params: { certificat
                   <p className="mt-3 text-sm text-slate-600">has been assessed for career readiness as</p>
                   <p className="mt-1 font-display text-xl text-brass-dark">{cert.career}</p>
                 </div>
-                <ScoreRing score={cert.score ?? 0} size={140} id="cert" />
+                <div className="flex items-center gap-4">
+                  <ScoreRing score={cert.score ?? 0} size={140} id="cert" />
+                  <Seal score={cert.score ?? 0} size={92} />
+                </div>
               </div>
 
               <div className="mt-10 grid grid-cols-2 gap-4 border-t border-line pt-5 text-xs text-slate-600 sm:grid-cols-4">

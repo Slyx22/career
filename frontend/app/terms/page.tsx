@@ -78,6 +78,15 @@ export default function TermsPage() {
             your CV mentions an item; it does not check that you hold it.
           </li>
           <li>
+            Scores are grouped into bands: Excellent match (85+), Strong match
+            (70&ndash;84), Developing (50&ndash;69) and Early stage (below 50).
+            Certificates scoring 70 or more show a &ldquo;Strong match&rdquo; or
+            &ldquo;Excellent match&rdquo; seal. A band or seal describes how well
+            your CV matched the occupation&apos;s skills on that date. It is our
+            assessment, not an endorsement by any employer, and it does not mean
+            an employer has seen or approved your certificate.
+          </li>
+          <li>
             Scoring methods improve over time. A certificate records the score
             and method version on the date issued; a new analysis may give a
             different score.

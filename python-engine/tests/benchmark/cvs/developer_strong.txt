@@ -1,0 +1,23 @@
+Rayn Miles
+Software Developer | Cape Town | github.com/raynmiles
+
+Profile
+Software developer with three years of experience building web applications and APIs for e-commerce and fintech clients.
+
+Experience
+Software Developer, Yoco, Cape Town, 2023 - 2026
+- Built and maintained REST APIs in Python and Java serving 50,000 merchants.
+- Designed PostgreSQL database schemas and wrote complex SQL queries for reporting.
+- Developed React and TypeScript front ends with HTML and CSS; improved page load time by 40%.
+- Wrote unit tests, set up CI/CD pipelines with GitHub Actions and deployed services with Docker on AWS.
+- Debugged production issues, analysed system performance and evaluated new tools for the team.
+- Worked with customers and product managers to gather requirements and design solutions.
+
+Junior Developer, Small agency, 2022
+- Built websites in JavaScript and maintained Linux servers.
+
+Education
+BSc Computer Science and Mathematics, University of Cape Town, 2021
+
+Skills
+Python, Java, JavaScript, TypeScript, SQL, Git, Linux, Docker, AWS, C#, problem solving, system design

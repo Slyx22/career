@@ -43,6 +43,9 @@ export interface AnalysisResult {
   recommendations: string[];
   benchmark_disclaimer: string;
   sa_requirements?: SaRequirement[];
+  band?: string;
+  band_label?: string;
+  points_to_seal?: number;
   created_at: string;
 }
 
@@ -68,6 +71,9 @@ export interface CertificateVerification {
   expired?: boolean;
   issuer?: string;
   method_version?: string;
+  band?: string;
+  band_label?: string;
+  seal?: boolean;
 }
 
 export interface ApiError {
