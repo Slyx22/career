@@ -1,49 +1,55 @@
 "use client";
+
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { AuthSection } from "@/components/AuthSection";
+import { usePathname } from "next/navigation";
+import { AccountButton, WhenSignedIn } from "@/components/AuthSection";
+import { MarkIcon } from "@/components/Icons";
 
+const NAV = [
+  { href: "/analyze", label: "Check my CV", signedInOnly: false },
+  { href: "/dashboard", label: "My certificates", signedInOnly: true },
+];
+
+/**
+ * Floating glass bar. On phones it holds just the logo and the account
+ * button; the main navigation moves to the tab bar at the bottom.
+ */
 export function Header() {
-  const [visible, setVisible] = useState(true);
-  const [lastY, setLastY] = useState(0);
-
-  useEffect(() => {
-    const onScroll = () => {
-      const y = window.scrollY;
-      if (y < 50) {
-        // At top: always show the header
-        setVisible(true);
-        setLastY(y);
-        return;
-      }
-      if (y > lastY) {
-        // Scrolling down → hide
-        setVisible(false);
-      } else {
-        // Scrolling up → show
-        setVisible(true);
-      }
-      setLastY(y);
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [lastY]);
+  const pathname = usePathname() || "/";
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 mx-auto max-w-full bg-white/80 backdrop-blur-2xl border-b border-black/5 shadow-[0_1px_0_rgba(0,0,0,0.02)] transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-        visible ? "translate-y-0" : "-translate-y-full"
-      }`}
+      className="fixed inset-x-0 z-50 px-3 print:hidden sm:px-6"
+      style={{ top: "calc(0.75rem + env(safe-area-inset-top, 0px))" }}
     >
-      <div className="mx-auto max-w-6xl px-6 py-4 flex items-center justify-between gap-8">
-        <Link href="/" className="shrink-0 flex items-baseline gap-3">
-          <span className="font-display text-2xl italic text-ink tracking-tight">Readiness</span>
-          <span className="font-body text-sm text-slate hidden sm:inline">Career Readiness Analyzer</span>
+      <div className="glass mx-auto flex h-14 max-w-5xl items-center gap-2 rounded-full pl-3 pr-2.5 sm:pl-4">
+        <Link href="/" className="focus-ring flex shrink-0 items-center gap-2 rounded-full pr-2" aria-label="Home">
+          <MarkIcon />
+          <span className="font-display text-lg font-semibold tracking-tight text-ink">Readiness</span>
         </Link>
-        <nav className="flex items-center gap-8 font-body text-sm text-ink ml-auto">
-          <Link href="/analyze" className="hover:text-brass transition-colors whitespace-nowrap">Check my readiness</Link>
-          <div className="shrink-0"><AuthSection /></div>
+
+        <nav className="ml-auto hidden items-center gap-1 md:flex" aria-label="Main">
+          {NAV.map((item) => {
+            const active = pathname.startsWith(item.href);
+            const link = (
+              <Link
+                key={item.href}
+                href={item.href}
+                aria-current={active ? "page" : undefined}
+                className={`focus-ring rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+                  active ? "lens text-ink" : "text-slate hover:text-ink"
+                }`}
+              >
+                {item.label}
+              </Link>
+            );
+            return item.signedInOnly ? <WhenSignedIn key={item.href}>{link}</WhenSignedIn> : link;
+          })}
         </nav>
+
+        <div className="ml-auto flex items-center pl-1 md:ml-2">
+          <AccountButton />
+        </div>
       </div>
     </header>
   );

@@ -7,28 +7,34 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        paper: "#F4F6F4",
+        paper: "#F7F7FB",
         ink: "#141A2E",
         slate: {
-          DEFAULT: "#5B6472",
-          light: "#8891A0",
+          DEFAULT: "#4B5468",
+          light: "#7D8598",
         },
         brass: {
           DEFAULT: "#B8801F",
           light: "#E3A94A",
           dark: "#8F6317",
         },
-        line: "#D8DCD6",
-        panel: "#FFFFFF",
+        jacaranda: {
+          DEFAULT: "#7C6BE0",
+          light: "#B9AEF5",
+          dark: "#5646B8",
+        },
+        line: "rgba(20, 26, 46, 0.10)",
+        panel: "rgba(255, 255, 255, 0.62)",
       },
       fontFamily: {
-        display: ["Newsreader", "Georgia", "serif"],
-        body: ["IBM Plex Sans", "Helvetica", "Arial", "sans-serif"],
+        display: ["Bricolage Grotesque Variable", "Bricolage Grotesque", "ui-sans-serif", "system-ui", "-apple-system", "sans-serif"],
+        body: ["Instrument Sans", "ui-sans-serif", "system-ui", "-apple-system", "Segoe UI", "sans-serif"],
       },
       borderRadius: {
-        DEFAULT: "3px",
-        sm: "2px",
-        md: "4px",
+        DEFAULT: "12px",
+        sm: "8px",
+        md: "14px",
+        sheet: "28px",
       },
     },
   },

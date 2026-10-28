@@ -24,16 +24,17 @@ type Certificate = {
 export default async function DashboardPage() {
   if (!isClerkConfigured) {
     return (
-      <div className="min-h-screen bg-paper">
+      <div className="min-h-screen">
         <Header />
-        <main className="mx-auto max-w-2xl px-6 py-16">
-          <h1 className="font-display text-2xl text-ink">Dashboard not available yet</h1>
-          <p className="mt-3 font-body text-slate-600">
-            Clerk isn&apos;t configured in this environment, so accounts aren&apos;t
-            enabled. Set <code className="text-sm">NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY</code>{" "}
-            and <code className="text-sm">CLERK_SECRET_KEY</code> to turn this on - see the
-            README&apos;s &quot;Integrating Clerk&quot; section.
-          </p>
+        <main className="page-top mx-auto max-w-2xl px-4 sm:px-6">
+          {/* Developers: accounts turn on when the Clerk keys are set (see README, "Integrating Clerk"). */}
+          <div className="glass-sheet p-6 text-center sm:p-8">
+            <h1 className="font-display text-2xl font-semibold">Sign-in isn&apos;t available right now</h1>
+            <p className="mt-2 text-sm text-slate">You can still check your CV and see your results.</p>
+            <Link href="/analyze" className="btn-primary mt-5">
+              Check my CV
+            </Link>
+          </div>
         </main>
         <Footer />
       </div>
@@ -63,44 +64,44 @@ export default async function DashboardPage() {
   }
 
   return (
-    <div className="min-h-screen bg-paper">
+    <div className="min-h-screen">
       <Header />
-      <main className="mx-auto max-w-2xl px-6 py-16">
-        <h1 className="font-display text-2xl text-ink">
+      <main className="page-top mx-auto max-w-2xl px-4 sm:px-6">
+        <h1 className="px-1 font-display text-3xl font-semibold tracking-tight">
           Welcome{user?.firstName ? `, ${user.firstName}` : ""}
         </h1>
-        <p className="mt-3 font-body text-slate-600">
-          Certificates you&apos;ve generated while signed in show up here.
+        <p className="mt-2 px-1 text-slate">
+          Your certificates. Open one to share it or download it.
         </p>
 
         <div className="mt-8">
           {loadError && (
-            <p className="rounded border border-brass bg-brass/10 px-3 py-2 font-body text-sm text-brass-dark">
+            <p className="rounded-2xl border border-brass/40 bg-brass/10 px-4 py-3 text-sm text-brass-dark">
               {loadError}
             </p>
           )}
 
           {!loadError && certificates.length === 0 && (
-            <div className="rounded border border-line bg-white px-5 py-6 font-body text-sm text-slate-600">
-              No certificates yet.{" "}
-              <Link href="/analyze" className="underline hover:text-ink">
-                Run an analysis
-              </Link>{" "}
-              to generate your first one.
+            <div className="glass-sheet p-6 text-center sm:p-8">
+              <p className="font-display text-lg font-semibold">No certificates yet</p>
+              <p className="mt-1 text-sm text-slate">Check your CV, then tap &ldquo;Get my certificate&rdquo; on your results.</p>
+              <Link href="/analyze" className="btn-primary mt-5">
+                Check my CV
+              </Link>
             </div>
           )}
 
           {!loadError && certificates.length > 0 && (
-            <ul className="flex flex-col gap-3">
+            <ul className="glass-sheet divide-y divide-ink/[0.07] p-2">
               {certificates.map((cert) => (
                 <li
                   key={cert.certificate_id}
-                  className="flex items-center justify-between rounded border border-line bg-white px-5 py-4"
+                  className="flex items-center justify-between gap-3 px-4 py-4"
                 >
                   <div>
-                    <p className="font-body text-sm font-medium text-ink">{cert.career}</p>
-                    <p className="font-body text-xs text-slate-600">
-                      {cert.score}/100 · {new Date(cert.issued_at).toLocaleDateString("en-US", {
+                    <p className="font-medium">{cert.career}</p>
+                    <p className="mt-0.5 text-xs text-slate">
+                      {cert.score}/100 · {new Date(cert.issued_at).toLocaleDateString("en-ZA", {
                         day: "numeric",
                         month: "long",
                         year: "numeric",
@@ -110,7 +111,7 @@ export default async function DashboardPage() {
                   </div>
                   <Link
                     href={`/certificate/${cert.certificate_id}`}
-                    className="focus-ring rounded border border-line px-4 py-2 font-body text-xs font-medium text-ink hover:border-slate"
+                    className="btn-glass shrink-0 border border-white/70 bg-white/60 px-4 text-sm"
                   >
                     View
                   </Link>
