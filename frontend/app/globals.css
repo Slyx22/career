@@ -128,7 +128,9 @@ body::before {
   /* Liquid tab bar (phones). Its own GPU layer so the blur never has to
      be recomputed from scratch while the page scrolls underneath. */
   .liquid-bar {
-    touch-action: none;
+    /* Vertical swipes scroll the page as normal; only sideways ones are
+       ours. With "none" a scroll that started on the bar moved the lens. */
+    touch-action: pan-y;
     transform-origin: 50% 100%;
     will-change: transform;
     -webkit-user-select: none;

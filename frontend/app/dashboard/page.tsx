@@ -4,6 +4,7 @@ import { isClerkConfigured } from "@/lib/clerk";
 import { engineFetch } from "@/lib/config";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { SignInPrompt } from "@/components/SignInPrompt";
 
 type Certificate = {
   certificate_id: string;
@@ -50,17 +51,17 @@ export default async function DashboardPage() {
       <Header />
       <main className="page-top mx-auto max-w-2xl px-4 sm:px-6">
         <h1 className="px-1 font-display text-3xl font-semibold tracking-tight">
-          Welcome{user?.firstName ? `, ${user.firstName}` : ""}
+          {user ? `Welcome${user.firstName ? `, ${user.firstName}` : ""}` : "My certificates"}
         </h1>
         <p className="mt-2 px-1 text-slate">
-          Your certificates. Open one to share it or download it.
+          {user ? "Your certificates. Open one to share it or download it." : "Check your CV, get your certificate, and find it here any time."}
         </p>
 
         <div className="mt-8">
           {/* The page shows at once; the list streams in when the engine
               answers, so a sleeping engine never freezes the whole page. */}
           <Suspense fallback={<CertificatesSkeleton />}>
-            {user ? <CertificateList userId={user.id} /> : <EmptyState />}
+            {user ? <CertificateList userId={user.id} /> : <SignInPrompt />}
           </Suspense>
         </div>
       </main>
