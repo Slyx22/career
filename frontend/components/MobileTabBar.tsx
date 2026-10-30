@@ -44,7 +44,18 @@ function mix(a: number[], b: number[], t: number) {
 export function MobileTabBar() {
   const pathname = usePathname() || "/";
   const router = useRouter();
-  const activeIndex = Math.max(0, TABS.findIndex((t) => t.match(pathname)));
+  // -1 on pages without a tab (Privacy, Terms...): the lens hides there.
+  const matched = TABS.findIndex((t) => t.match(pathname));
+  const activeIndex = Math.max(0, matched);
+  const noTab = matched === -1;
+  // Always the CURRENT page. Listeners set up once (resize) read this, not a
+  // value captured when the bar first mounted: phones fire "resize" on every
+  // scroll as the address bar slides, which used to snap the lens back to
+  // whichever page the site was first opened on.
+  const activeRef = useRef(activeIndex);
+  activeRef.current = activeIndex;
+  const hiddenRef = useRef(noTab);
+  hiddenRef.current = noTab;
 
   const barRef = useRef<HTMLDivElement>(null);
   const lensRef = useRef<HTMLDivElement>(null);
@@ -95,6 +106,7 @@ export function MobileTabBar() {
     lens.style.width = `${st.w}px`;
     lens.style.transform = `translate3d(${st.x}px,0,0) scale(${sx},${sy})`;
     lens.style.setProperty("--lift", String(st.press));
+    lens.style.opacity = hiddenRef.current ? "0" : "1";
 
     bar.style.transform = `scale(${1 + st.press * 0.035})`;
 
@@ -104,7 +116,7 @@ export function MobileTabBar() {
       const box = tabBox(i);
       if (!tab || !box) return;
       const d = Math.abs(centre - (box.left + box.width / 2)) / box.width;
-      tab.style.color = mix(IDLE, ACTIVE, Math.max(0, 1 - d * 1.4));
+      tab.style.color = hiddenRef.current ? mix(IDLE, ACTIVE, 0) : mix(IDLE, ACTIVE, Math.max(0, 1 - d * 1.4));
     });
   }, [tabBox]);
 
@@ -183,7 +195,8 @@ export function MobileTabBar() {
   // Follow the current page.
   useEffect(() => {
     moveTo(activeIndex);
-  }, [activeIndex, moveTo]);
+    if (noTab) paint();
+  }, [activeIndex, noTab, moveTo, paint]);
 
   // First layout, resizes, and reduced-motion preference.
   useEffect(() => {
@@ -191,8 +204,12 @@ export function MobileTabBar() {
     s.current.reduced = mq.matches;
     const onMq = () => (s.current.reduced = mq.matches);
     mq.addEventListener?.("change", onMq);
-    moveTo(activeIndex, true);
-    const onResize = () => moveTo(activeIndex, true);
+    moveTo(activeRef.current, true);
+    const onResize = () => {
+      // Ignore resizes during a drag, and always snap to the page we're on now.
+      if (s.current.pointerId !== -1) return;
+      moveTo(activeRef.current, true);
+    };
     window.addEventListener("resize", onResize);
     return () => {
       window.removeEventListener("resize", onResize);
@@ -315,7 +332,7 @@ export function MobileTabBar() {
       >
         <div ref={lensRef} aria-hidden className="liquid-lens" />
         {TABS.map(({ href, label, Icon }, i) => {
-          const active = i === activeIndex;
+          const active = !noTab && i === activeIndex;
           return (
             <Link
               key={href}
