@@ -77,12 +77,29 @@ export default function TermsPage() {
             page shows which occupation was used.
           </li>
           <li>
-            The &ldquo;Required in South Africa&rdquo; checklist and recommended
-            next steps are general information to help you, not legal,
-            professional or career advice. Registration and licensing rules can
-            change and may not be complete; always confirm with the relevant
-            council, authority or employer. The checklist only shows whether
-            your CV mentions an item; it does not check that you hold it.
+            The &ldquo;Required in South Africa&rdquo; and &ldquo;Employers
+            usually ask for&rdquo; checklists, the CV basics and the
+            recommended next steps are general information to help you, not
+            legal, professional or career advice. &ldquo;Employers usually ask
+            for&rdquo; describes what is common in job adverts, not a legal
+            requirement, and any one employer may ask for more or less.
+            Registration and licensing rules can change and may not be complete;
+            always confirm with the relevant council, authority or employer. The
+            checklists only show whether your CV mentions an item; they do not
+            check that you hold it.
+          </li>
+          <li>
+            Next steps and checks are produced automatically by fixed rules from
+            the text of your CV. They can miss things your CV does say (for
+            example if its layout is hard to read) or flag things it doesn&apos;t
+            need, so use your own judgement about what to change. Following them
+            does not guarantee a higher score, an interview or a job.
+          </li>
+          <li>
+            If your CV seems to include personal details such as an ID number,
+            date of birth, race, religion, marital status or health, we point
+            this out so you can decide whether to remove them. This is a privacy
+            suggestion, not legal advice; whether to include them is your choice.
           </li>
           <li>
             Scoring methods improve over time. A certificate records the score

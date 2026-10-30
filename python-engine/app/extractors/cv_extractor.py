@@ -44,11 +44,19 @@ SUPPORTED_FORMATS_TEXT = "PDF, Word (.docx or .doc), OpenDocument (.odt), RTF or
 MAX_XML_PART_BYTES = 25 * 1024 * 1024
 
 SECTION_HEADINGS = {
-    "experience": ["experience", "work experience", "employment history", "professional experience"],
-    "education": ["education", "academic background", "qualifications"],
-    "projects": ["projects", "personal projects", "portfolio"],
-    "skills": ["skills", "technical skills", "core competencies", "technologies"],
-    "summary": ["summary", "profile", "about", "objective"],
+    "experience": ["experience", "work experience", "employment history", "professional experience",
+                   "work history", "career history", "employment", "relevant experience", "experience summary",
+                   "internships", "volunteer experience", "volunteering", "practical experience"],
+    "education": ["education", "academic background", "qualifications", "education and training",
+                  "academic qualifications", "educational background", "tertiary education", "schooling",
+                  "certifications", "certificates", "courses", "training"],
+    "projects": ["projects", "personal projects", "portfolio", "key projects", "academic projects"],
+    "skills": ["skills", "technical skills", "core competencies", "technologies", "key skills",
+               "skills and abilities", "skills & abilities", "competencies", "computer skills",
+               "skills and competencies", "skills & competencies", "areas of expertise", "key competencies",
+               "soft skills", "tools"],
+    "summary": ["summary", "profile", "about", "objective", "professional summary", "career objective",
+                "personal profile", "about me", "career summary"],
 }
 
 

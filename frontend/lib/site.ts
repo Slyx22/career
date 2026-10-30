@@ -9,7 +9,7 @@ export const SITE_URL = "https://srmaps.co.za";
 export const CONTACT_EMAIL = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "";
 
 // Update this date whenever the Privacy Policy or Terms change.
-export const LEGAL_LAST_UPDATED = "30 October 2026";
+export const LEGAL_LAST_UPDATED = "31 October 2026";
 
 // Minimum age to use the service without a parent or guardian's consent.
 export const MINIMUM_AGE = 18;

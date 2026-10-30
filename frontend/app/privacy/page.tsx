@@ -46,10 +46,19 @@ export default function PrivacyPage() {
           <li>
             <strong>The career you choose</strong> (a South African job title or
             an international one) and your <strong>results</strong>: your score,
-            which skills were found or missing, recommended next steps, and
-            whether your CV mentions registrations or licences usually required
-            in South Africa for that job (for example SANC or a trade test). We
-            keep these results, not the wording of your CV.
+            which skills were found or missing, recommended next steps, whether
+            your CV mentions registrations, licences or other things South African
+            employers usually ask for in that job (for example SANC, a trade
+            test or matric), and whether it has basic parts such as a Skills
+            section or dates. We keep these results, not the wording of your CV.
+          </li>
+          <li>
+            <strong>Which kinds of personal details your CV includes</strong>, if
+            any: for example that it contains an ID number, a date of birth or a
+            race. We check for these only so we can suggest you consider
+            removing them. We record only the kind of detail found, never the
+            detail itself: your actual ID number, birth date or other values are
+            not saved and are not shown back to you.
           </li>
           <li>
             <strong>Account details</strong> (such as your email address), only
@@ -89,6 +98,11 @@ export default function PrivacyPage() {
         <h2 className={h2}>3. Why we use it</h2>
         <ul className="mt-2 list-disc space-y-1 pl-5">
           <li>To score your CV against the career you chose and show your results.</li>
+          <li>
+            To point out things you could add or change on your CV, and personal
+            details you might prefer not to share. This is done by fixed rules on
+            our own server; your CV is not sent to any AI service.
+          </li>
           <li>To create your certificate and let others check it is genuine.</li>
           <li>To keep your account working, if you have one.</li>
           <li>To fix problems, prevent misuse, and improve the service using overall, non-identifying statistics.</li>
