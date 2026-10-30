@@ -1,5 +1,5 @@
 /**
- * Anonymous usage tracking for the founder's /admin dashboard.
+ * Anonymous usage tracking for the founder's analytics dashboard (in Claude).
  *
  * Records which step someone reached and the career involved. Never sends
  * a name, email, CV text or account ID. The only identifier is a random ID

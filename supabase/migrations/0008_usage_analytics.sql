@@ -1,4 +1,5 @@
--- Anonymous usage analytics for the founder's /admin dashboard.
+-- Anonymous usage analytics for the founder's dashboard (a Claude dashboard
+-- that reads these tables through the Supabase connector).
 --
 -- What we record: which step someone reached (opened the check page,
 -- picked a career, chose a file, finished a check, clicked "Get my

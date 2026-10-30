@@ -213,8 +213,6 @@ authoritative, commented list. Summary:
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | No | Safe to expose to the browser. |
 | `SUPABASE_SERVICE_ROLE_KEY` | No | **Server-side only. Never expose to the browser.** |
 | `AI_API_KEY` | No | Optional; only used to rephrase recommendations. |
-| `ADMIN_EMAILS` | No | Comma-separated verified emails allowed to open the founder dashboard at `/admin`. Anyone else gets a 404. |
-| `ADMIN_USER_IDS` | No | Same as above, using Clerk user IDs instead of emails. |
 
 **Python engine (`python-engine/.env`)**
 | Variable | Required locally? | Notes |
@@ -409,21 +407,21 @@ launch anything.
    frontend only once you build the optional "create an account to save
    your results" feature — the core flow doesn't require it.
 
-### Founder analytics dashboard (`/admin`)
+### Usage analytics
 
 `supabase/migrations/0008_usage_analytics.sql` adds an anonymous
-`usage_events` table and an `admin_usage_stats(days)` function. The site
-records which step someone reached (opened the check page, picked a
-career, chose a file, got a score, clicked "Get my certificate", shared)
-with the career and file type, via `frontend/lib/track.ts` and
-`POST /api/events`. No names, emails, account IDs or CV text are stored;
-unique people are counted with a random ID in the browser's local storage
-(disclosed in the Privacy Policy). Events are deleted after 12 months.
+`usage_events` table. The site records which step someone reached (opened
+the check page, picked a career, chose a file, got a score, clicked "Get my
+certificate", shared) with the career and file type, via
+`frontend/lib/track.ts` and `POST /api/events`. No names, emails, account
+IDs or CV text are stored; unique people are counted with a random ID in
+the browser's local storage (disclosed in the Privacy Policy). Events are
+deleted after 12 months.
 
-`/admin` needs Clerk, `SUPABASE_SERVICE_ROLE_KEY` and your email in
-`ADMIN_EMAILS`. It shows progress to 500 sign-ups (from Clerk), the
-step-by-step click-through, a daily chart, a per-career table, why checks
-fail, where people share, and feature votes.
+The founder reads these numbers in a Claude dashboard that queries
+Supabase directly; there is no analytics page inside the app. The
+migration's `admin_usage_stats(days)` function returns the same numbers in
+one call, for any future in-app use.
 
 ## 10. Configuring Netlify later
 

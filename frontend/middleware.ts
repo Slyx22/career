@@ -15,7 +15,7 @@ import { isClerkConfigured } from "@/lib/clerk";
  * /dashboard becomes auth-protected automatically.
  */
 
-const isProtectedRoute = createRouteMatcher(["/dashboard(.*)", "/admin(.*)"]);
+const isProtectedRoute = createRouteMatcher(["/dashboard(.*)"]);
 
 const middleware = isClerkConfigured
   ? clerkMiddleware(async (auth, req) => {
