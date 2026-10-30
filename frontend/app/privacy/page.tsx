@@ -28,8 +28,12 @@ export default function PrivacyPage() {
         <h2 className={h2}>1. Who is responsible for your information</h2>
         <p className="mt-2">
           {SITE_NAME} is an independent, early-stage service run in South
-          Africa. For any privacy question or request, including reaching
-          our Information Officer, email <ContactEmail />.
+          Africa. It is not yet a registered company: the responsible party
+          under POPIA is the individual who runs {SITE_NAME}, who also acts as
+          its Information Officer. For any privacy question or request, or if
+          you need the responsible party&apos;s full name and address for a
+          complaint or legal request, email <ContactEmail /> and we will give
+          them to you.
         </p>
 
         <h2 className={h2}>2. What we collect</h2>
@@ -120,6 +124,14 @@ export default function PrivacyPage() {
           this doesn&apos;t affect processing that already happened.
         </p>
 
+        <p className="mt-2">
+          <strong>Automated scoring.</strong> Your score is worked out
+          automatically by fixed rules. It is given to you, for you to use as
+          you choose. We do not make any decision about you based on it, such as
+          whether you get a job. If you think a score is wrong, email us and a
+          person will look at it.
+        </p>
+
         <h2 className={h2}>4. What we never do</h2>
         <ul className="mt-2 list-disc space-y-1 pl-5">
           <li>We do not sell your personal information.</li>
@@ -156,6 +168,13 @@ export default function PrivacyPage() {
           this.
         </p>
         <p className="mt-2">
+          <strong>Your results link.</strong> Your results page has a long,
+          random link that only you are given. Anyone you give that link to can
+          see the name you typed, the career and your results, so keep it
+          private unless you want to share them. Results pages are not listed
+          by search engines. To have your results deleted, email us the link.
+        </p>
+        <p className="mt-2">
           <strong>Sharing is your choice.</strong> If you use the share buttons
           (LinkedIn, WhatsApp, Facebook, X) or download and post an image, you
           are sharing through that platform, under its own terms and privacy
@@ -171,10 +190,10 @@ export default function PrivacyPage() {
           to us:
         </p>
         <ul className="mt-2 list-disc space-y-1 pl-5">
-          <li><strong>Vercel</strong>: hosts the website.</li>
+          <li><strong>Vercel</strong>: hosts the website (United States, with servers worldwide).</li>
           <li><strong>Render</strong>: runs the analysis engine that reads your CV (United States).</li>
           <li><strong>Supabase</strong>: our database, which stores analysis results, certificates, feedback and usage statistics (Ireland, EU).</li>
-          <li><strong>Clerk</strong>: sign-in and accounts.</li>
+          <li><strong>Clerk</strong>: sign-in and accounts (United States).</li>
         </ul>
         <p className="mt-2">
           These providers store or process data outside South Africa (in the

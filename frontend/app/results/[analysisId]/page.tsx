@@ -29,6 +29,9 @@ function groupByCategory(items: SkillBreakdownItem[]) {
   return Array.from(groups.entries()).sort((a, b) => rank(a[0]) - rank(b[0]));
 }
 
+// Results include the name typed in, so keep them out of search engines.
+export const metadata = { robots: { index: false, follow: false } };
+
 export default async function ResultsPage({
   params,
 }: {
