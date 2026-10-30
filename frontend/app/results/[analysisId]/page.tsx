@@ -5,6 +5,7 @@ import { ScoreRing } from "@/components/ScoreRing";
 import { SkillBar } from "@/components/SkillBar";
 import { GenerateCertificateButton } from "@/components/GenerateCertificateButton";
 import { FeatureInterestSurvey } from "@/components/FeatureInterestSurvey";
+import { TrackView } from "@/components/TrackView";
 import { fetchAnalysis } from "@/lib/serverApi";
 import { SkillBreakdownItem } from "@/lib/types";
 
@@ -64,6 +65,12 @@ export default async function ResultsPage({
     <div className="min-h-screen">
       <Header />
       <main className="page-top mx-auto max-w-3xl space-y-5 px-4 sm:px-6">
+        <TrackView
+          event="results_view"
+          career={analysis.career_slug}
+          careerLabel={analysis.career}
+          detail={analysis.score >= 70 ? "score_70_plus" : "score_below_70"}
+        />
         <section className="glass-sheet p-6 sm:p-8">
           <div className="flex flex-col items-center gap-6 text-center sm:flex-row sm:text-left">
             <ScoreRing score={analysis.score} size={148} animate id="result" />
@@ -85,6 +92,8 @@ export default async function ResultsPage({
               analysisId={analysis.analysis_id}
               firstName={analysis.first_name}
               surname={analysis.surname}
+              careerSlug={analysis.career_slug}
+              careerLabel={analysis.career}
             />
           </div>
         </section>

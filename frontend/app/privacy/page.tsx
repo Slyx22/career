@@ -39,7 +39,7 @@ export default function PrivacyPage() {
             analysis form. We use what you type, not the name in your CV.
           </li>
           <li>
-            <strong>Your CV</strong> (PDF or DOCX). We read the text to work
+            <strong>Your CV</strong> (PDF, Word, OpenDocument, RTF or text file). We read the text to work
             out which skills it shows. See section 5 for what happens to the
             file.
           </li>
@@ -65,6 +65,16 @@ export default function PrivacyPage() {
             features interest you.
           </li>
           <li>
+            <strong>Usage statistics</strong>: which steps of the site are used,
+            for example opening the check page, picking a career, choosing a file,
+            getting a score, tapping &ldquo;Get my certificate&rdquo; or a share
+            button, the career involved, the type of file (for example
+            &ldquo;docx&rdquo;) and, if a check fails, the general reason. To count
+            unique visitors we store a random ID in your browser (section 10).
+            These statistics do not include your name, email address, account ID
+            or anything from your CV, and we only look at them as totals.
+          </li>
+          <li>
             <strong>Basic technical data</strong> our hosting providers record
             automatically, such as IP address and browser type in server logs,
             used to keep the service running and secure.
@@ -82,6 +92,12 @@ export default function PrivacyPage() {
           <li>To create your certificate and let others check it is genuine.</li>
           <li>To keep your account working, if you have one.</li>
           <li>To fix problems, prevent misuse, and improve the service using overall, non-identifying statistics.</li>
+          <li>
+            To understand how the site is used, for example which careers people
+            check most and where they get stuck, so we can decide what to build
+            next. Only the person running {SITE_NAME} can see these totals, on a
+            private dashboard.
+          </li>
         </ul>
         <p className="mt-2">
           We rely on your consent, which you give when you tick the box before
@@ -143,7 +159,7 @@ export default function PrivacyPage() {
         <ul className="mt-2 list-disc space-y-1 pl-5">
           <li><strong>Vercel</strong>: hosts the website.</li>
           <li><strong>Render</strong>: runs the analysis engine that reads your CV (United States).</li>
-          <li><strong>Supabase</strong>: our database, which stores analysis results, certificates and feedback (Ireland, EU).</li>
+          <li><strong>Supabase</strong>: our database, which stores analysis results, certificates, feedback and usage statistics (Ireland, EU).</li>
           <li><strong>Clerk</strong>: sign-in and accounts.</li>
         </ul>
         <p className="mt-2">
@@ -167,6 +183,7 @@ export default function PrivacyPage() {
             deleted 24 months after it expires.
           </li>
           <li>Feedback about future features: deleted after 24 months.</li>
+          <li>Usage statistics: deleted after 12 months.</li>
           <li>Account details: kept until you delete your account with our sign-in provider.</li>
         </ul>
         <p className="mt-2">
@@ -207,10 +224,18 @@ export default function PrivacyPage() {
           requires.
         </p>
 
-        <h2 className={h2}>10. Cookies</h2>
+        <h2 className={h2}>10. Cookies and browser storage</h2>
         <p className="mt-2">
           We use only cookies needed to run the site, such as keeping you
-          signed in. We don&apos;t use advertising or tracking cookies.
+          signed in. We don&apos;t use advertising cookies, and we don&apos;t
+          use third-party analytics or tracking services.
+        </p>
+        <p className="mt-2">
+          For our own usage statistics (section 2), the site keeps a random ID
+          in your browser&apos;s local storage so we can tell how many different
+          people use the site, rather than counting the same person twice. It
+          is not linked to your name, email or account, and it is never shared
+          with anyone else. Clearing your browser&apos;s site data removes it.
         </p>
 
         <h2 className={h2}>11. Children</h2>

@@ -29,11 +29,18 @@ export default function TermsPage() {
 
         <h2 className={h2}>1. What the service does</h2>
         <p className="mt-2">
-          You upload a CV and choose a career. The service compares the skills
+          You upload a CV (as a PDF, Word, OpenDocument, RTF or plain text
+          file) and choose a career. The service compares the skills
           your CV shows with the skills that matter for that career and gives
           you a Career Readiness Score out of 100, a skills breakdown and
           suggestions. You can also create a Career Readiness Certificate.
-          The service is currently free.
+          The service is free for job seekers.
+        </p>
+        <p className="mt-2">
+          The service can only read typed text. A photo or scan of a CV, or a
+          password-protected file, can&apos;t be scored. If your CV&apos;s layout
+          makes some text hard to read, your score may be lower than it should
+          be, so check that your results match what your CV says.
         </p>
 
         <h2 className={h2}>2. What the score and certificate are, and are not</h2>
@@ -125,6 +132,13 @@ export default function TermsPage() {
         <p className="mt-2">
           Your CV stays yours. You let us process it only to give you your
           results and certificate, as described in the Privacy Policy.
+        </p>
+        <p className="mt-2">
+          We also record anonymous usage statistics, such as which careers are
+          picked and which steps of the site are used, to understand and
+          improve the service. These never include your name, contact details
+          or CV, and are only looked at as totals. The Privacy Policy explains
+          what is recorded and how long it is kept.
         </p>
 
         <h2 className={h2}>7. Our content</h2>

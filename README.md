@@ -71,7 +71,7 @@ required to run it locally.
 ## 2. What's built (Phase 1 + Phase 2 accounts scaffold)
 
 - Landing page with the required headline/CTA, no fake testimonials/stats.
-- Analysis form: first name, surname, target career, CV upload (PDF or DOCX).
+- Analysis form: first name, surname, target career, CV upload (PDF, DOCX, DOC, ODT, RTF or TXT; the type is detected from the file's content, so misnamed or extension-less files work).
 - **Four careers today** - ML Engineer, Data Scientist, Software Engineer,
   and English Teacher - each mapped to a real O*NET-SOC occupation code
   (see "Careers & O*NET sourcing" below). Adding another career is a
@@ -406,6 +406,22 @@ launch anything.
 4. Set `NEXT_PUBLIC_SUPABASE_URL` / `NEXT_PUBLIC_SUPABASE_ANON_KEY` on the
    frontend only once you build the optional "create an account to save
    your results" feature — the core flow doesn't require it.
+
+### Usage analytics
+
+`supabase/migrations/0008_usage_analytics.sql` adds an anonymous
+`usage_events` table. The site records which step someone reached (opened
+the check page, picked a career, chose a file, got a score, clicked "Get my
+certificate", shared) with the career and file type, via
+`frontend/lib/track.ts` and `POST /api/events`. No names, emails, account
+IDs or CV text are stored; unique people are counted with a random ID in
+the browser's local storage (disclosed in the Privacy Policy). Events are
+deleted after 12 months.
+
+The founder reads these numbers in a Claude dashboard that queries
+Supabase directly; there is no analytics page inside the app. The
+migration's `admin_usage_stats(days)` function returns the same numbers in
+one call, for any future in-app use.
 
 ## 10. Configuring Netlify later
 

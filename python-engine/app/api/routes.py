@@ -28,7 +28,6 @@ from app.services.certificate_service import (
 router = APIRouter()
 
 MAX_UPLOAD_BYTES = 10 * 1024 * 1024  # 10MB
-ALLOWED_EXTENSIONS = (".pdf", ".docx")
 
 
 def get_repository() -> Repository:
@@ -54,20 +53,19 @@ async def analyze_endpoint(
     file: UploadFile = File(...),
     store: Repository = Depends(get_repository),
 ):
-    if not file.filename or not file.filename.lower().endswith(ALLOWED_EXTENSIONS):
-        raise HTTPException(
-            status_code=400,
-            detail="Unsupported file format. Please upload a PDF or DOCX file.",
-        )
-
-    file_bytes = await file.read()
+    # The file type is worked out from the file's content (see
+    # extractors/cv_extractor.py), not its name: phones often save CVs with
+    # the wrong extension or none at all.
+    file_bytes = await file.read(MAX_UPLOAD_BYTES + 1)
     if len(file_bytes) > MAX_UPLOAD_BYTES:
         raise HTTPException(status_code=400, detail="File is too large (10MB limit).")
+    if not file_bytes:
+        raise HTTPException(status_code=400, detail="The uploaded file is empty.")
 
     try:
         result = run_analysis(
             store=store,
-            filename=file.filename,
+            filename=file.filename or "",
             file_bytes=file_bytes,
             first_name=first_name,
             surname=surname,

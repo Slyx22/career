@@ -95,7 +95,7 @@ def run_analysis(
     if cv.is_empty:
         raise AnalysisError(
             "The uploaded CV appears to be empty or unreadable. Please upload a "
-            "text-based PDF or DOCX file."
+            "typed CV as a PDF or Word file."
         )
 
     evidence = extract_skill_evidence(cv)

@@ -4,6 +4,7 @@ import { Footer } from "@/components/Footer";
 import { PrintButton } from "@/components/PrintButton";
 import { ScoreRing } from "@/components/ScoreRing";
 import { ShareCertificate } from "@/components/ShareCertificate";
+import { TrackView } from "@/components/TrackView";
 import { fetchVerification } from "@/lib/serverApi";
 import { formatCertDate, fullName, shareTitle, verifyUrl } from "@/lib/certificate";
 import { SITE_NAME } from "@/lib/site";
@@ -101,6 +102,7 @@ export default async function CertificatePage({ params }: { params: { certificat
           </div>
 
           <div className="mt-8 print:hidden">
+            <TrackView event="certificate_view" careerLabel={cert.career} />
             <ShareCertificate cert={cert} />
           </div>
 

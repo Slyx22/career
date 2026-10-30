@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { SignInButton, SignUpButton, useAuth } from "@clerk/nextjs";
 import { isClerkConfigured } from "@/lib/clerk";
+import { track } from "@/lib/track";
 
 // Remembers "this person was about to get a certificate" across the
 // sign-up step, including sign-ups that leave the page (e.g. Google).
@@ -47,10 +48,14 @@ export function GenerateCertificateButton({
   analysisId,
   firstName,
   surname,
+  careerSlug,
+  careerLabel,
 }: {
   analysisId: string;
   firstName: string;
   surname: string;
+  careerSlug?: string;
+  careerLabel?: string;
 }) {
   const router = useRouter();
   const pathname = usePathname() || "/";
@@ -92,6 +97,13 @@ export function GenerateCertificateButton({
     }
   }, [analysisId, firstName, surname, router]);
 
+  // Counted only when the person taps a button, not when the certificate
+  // is created automatically after they sign in.
+  const tapButton = () => {
+    track("certificate_clicked", { career: careerSlug, careerLabel });
+    void handleClick();
+  };
+
   const autoContinue = isClerkConfigured ? (
     <ContinueAfterSignIn analysisId={analysisId} onReady={handleClick} />
   ) : null;
@@ -117,7 +129,7 @@ export function GenerateCertificateButton({
         ) : (
           <p className="mt-3 text-xs text-slate">
             Your certificate will be created as soon as you&apos;re signed in.{" "}
-            <button onClick={handleClick} className="underline underline-offset-2 hover:text-ink">
+            <button onClick={tapButton} className="underline underline-offset-2 hover:text-ink">
               Already signed in?
             </button>
           </p>
@@ -135,7 +147,7 @@ export function GenerateCertificateButton({
     <div>
       {autoContinue}
       <button
-        onClick={handleClick}
+        onClick={tapButton}
         disabled={loading}
         className="btn-primary w-full sm:w-auto"
       >
