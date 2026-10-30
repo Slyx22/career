@@ -8,8 +8,21 @@ import Link from "next/link";
 import { Career, SaTitle } from "@/lib/types";
 import { CareerChoice, CareerPicker } from "@/components/CareerPicker";
 import { MINIMUM_AGE } from "@/lib/site";
+import { failureReason, fileKind, track } from "@/lib/track";
 
-const ACCEPTED_FORMATS = ".pdf,.docx";
+// Extensions AND MIME types: phone file pickers (Android especially) filter
+// by MIME type and grey out Word files when only extensions are listed.
+// The engine works out the real type from the file's content, so a file
+// with the wrong extension or none (e.g. a WhatsApp download) still works.
+const ACCEPTED_FORMATS = [
+  ".pdf", ".docx", ".doc", ".odt", ".rtf", ".txt",
+  "application/pdf",
+  "application/msword",
+  "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  "application/vnd.oasis.opendocument.text",
+  "application/rtf", "text/rtf", "text/plain",
+].join(",");
+const MAX_FILE_BYTES = 10 * 1024 * 1024;
 
 export default function AnalyzePage() {
   const router = useRouter();
@@ -22,6 +35,33 @@ export default function AnalyzePage() {
   const [consent, setConsent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    track("analyze_view");
+  }, []);
+
+  // The job title the person actually sees: the SA title they picked, or
+  // the international career name.
+  function careerLabel(choice: CareerChoice | null): string | null {
+    if (!choice) return null;
+    return choice.title || careers.find((c) => c.slug === choice.slug)?.name || choice.slug;
+  }
+
+  function chooseCareer(choice: CareerChoice | null) {
+    setCareer(choice);
+    if (choice) track("career_selected", { career: choice.slug, careerLabel: careerLabel(choice) });
+  }
+
+  function chooseFile(chosen: File | null) {
+    setError(null);
+    if (chosen && chosen.size > MAX_FILE_BYTES) {
+      setFile(null);
+      setError("That file is bigger than 10 MB. Please upload a smaller copy of your CV.");
+      return;
+    }
+    setFile(chosen);
+    if (chosen) track("file_chosen", { detail: fileKind(chosen.name) });
+  }
 
   useEffect(() => {
     let cancelled = false;
@@ -60,7 +100,7 @@ export default function AnalyzePage() {
       return;
     }
     if (!file) {
-      setError("Please upload your CV as a PDF or DOCX file.");
+      setError("Please upload your CV as a PDF or Word file.");
       return;
     }
 
@@ -77,17 +117,23 @@ export default function AnalyzePage() {
     formData.append("file", file);
     formData.append("consent", "yes");
 
+    const tracked = { career: career.slug, careerLabel: careerLabel(career) };
+    const kind = fileKind(file.name);
+    track("check_submitted", { ...tracked, detail: kind });
     setSubmitting(true);
     try {
       const res = await fetch("/api/analyze", { method: "POST", body: formData });
-      const data = await res.json();
+      const data = await res.json().catch(() => ({}));
       if (!res.ok) {
+        track("check_failed", { ...tracked, detail: `${failureReason(res.status, data.error)}:${kind}` });
         setError(data.error || "Analysis failed. Please try again.");
         setSubmitting(false);
         return;
       }
+      track("check_completed", { ...tracked, detail: kind });
       router.push(`/results/${data.analysis_id}`);
     } catch {
+      track("check_failed", { ...tracked, detail: `network:${kind}` });
       setError("Something went wrong reaching the analysis engine. Please try again.");
       setSubmitting(false);
     }
@@ -145,7 +191,7 @@ export default function AnalyzePage() {
               careers={careers}
               saTitles={saTitles}
               value={career}
-              onChange={setCareer}
+              onChange={chooseCareer}
               loading={careers.length === 0 && !error}
             />
             <p className="mt-1.5 text-xs text-slate">
@@ -166,12 +212,12 @@ export default function AnalyzePage() {
               onDrop={(e) => {
                 e.preventDefault();
                 const dropped = e.dataTransfer.files?.[0];
-                if (dropped) setFile(dropped);
+                if (dropped) chooseFile(dropped);
               }}
             >
               <span className="font-medium">{file ? file.name : "Choose a PDF or Word file"}</span>
               <span className="text-xs text-slate">
-                {file ? "Tap to choose a different file" : "or drag it here · up to 10 MB"}
+                {file ? "Tap to choose a different file" : "Word, PDF, OpenDocument, RTF or text · up to 10 MB"}
               </span>
               <input
                 id="cv"
@@ -179,7 +225,7 @@ export default function AnalyzePage() {
                 required
                 aria-labelledby="cv-label"
                 accept={ACCEPTED_FORMATS}
-                onChange={(e) => setFile(e.target.files?.[0] ?? null)}
+                onChange={(e) => chooseFile(e.target.files?.[0] ?? null)}
                 className="sr-only"
               />
             </label>

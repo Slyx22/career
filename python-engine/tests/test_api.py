@@ -186,3 +186,14 @@ def test_certificate_without_clerk_user_id_still_works_by_default():
         json={"analysis_id": analysis["analysis_id"], "first_name": "Grace", "surname": "Hopper"},
     )
     assert cert_resp.status_code == 200
+
+
+def test_analyze_accepts_word_file_with_no_extension():
+    """Phones (e.g. WhatsApp downloads) often save CVs with no extension."""
+    resp = client.post(
+        "/api/analyze",
+        data={"first_name": "Ada", "surname": "Lovelace", "career": "ml-engineer"},
+        files={"file": ("DOC-20261030-WA0004", _make_docx_bytes(STRONG_CV_TEXT), "application/octet-stream")},
+    )
+    assert resp.status_code == 200, resp.text
+    assert resp.json()["score"] > 0
