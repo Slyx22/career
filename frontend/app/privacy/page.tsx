@@ -237,6 +237,13 @@ export default function PrivacyPage() {
           is not linked to your name, email or account, and it is never shared
           with anyone else. Clearing your browser&apos;s site data removes it.
         </p>
+        <p className="mt-2">
+          While you fill in the check form, your browser also keeps the name,
+          surname and career you&apos;ve typed, so they aren&apos;t lost if you
+          open another page and come back. This stays on your device, is never
+          sent to us until you press &ldquo;Check my CV&rdquo;, and is cleared
+          when you close the tab or finish the check.
+        </p>
 
         <h2 className={h2}>11. Children</h2>
         <p className="mt-2">

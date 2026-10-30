@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Suspense } from "react";
 import { isClerkConfigured } from "@/lib/clerk";
 import { engineFetch } from "@/lib/config";
 import { Header } from "@/components/Header";
@@ -44,25 +45,6 @@ export default async function DashboardPage() {
   const { currentUser } = await import("@clerk/nextjs/server");
   const user = await currentUser();
 
-  let certificates: Certificate[] = [];
-  let loadError: string | null = null;
-
-  if (user) {
-    try {
-      const res = await engineFetch(`/api/certificates?clerk_user_id=${encodeURIComponent(user.id)}`,
-        { cache: "no-store" }
-      );
-      if (res.ok) {
-        const data = await res.json();
-        certificates = data.certificates ?? [];
-      } else {
-        loadError = "Could not load your certificates right now.";
-      }
-    } catch {
-      loadError = "The analysis engine is unavailable right now.";
-    }
-  }
-
   return (
     <div className="min-h-screen">
       <Header />
@@ -75,53 +57,106 @@ export default async function DashboardPage() {
         </p>
 
         <div className="mt-8">
-          {loadError && (
-            <p className="rounded-2xl border border-brass/40 bg-brass/10 px-4 py-3 text-sm text-brass-dark">
-              {loadError}
-            </p>
-          )}
-
-          {!loadError && certificates.length === 0 && (
-            <div className="glass-sheet p-6 text-center sm:p-8">
-              <p className="font-display text-lg font-semibold">No certificates yet</p>
-              <p className="mt-1 text-sm text-slate">Check your CV, then tap &ldquo;Get my certificate&rdquo; on your results.</p>
-              <Link href="/analyze" className="btn-primary mt-5">
-                Check my CV
-              </Link>
-            </div>
-          )}
-
-          {!loadError && certificates.length > 0 && (
-            <ul className="glass-sheet divide-y divide-ink/[0.07] p-2">
-              {certificates.map((cert) => (
-                <li
-                  key={cert.certificate_id}
-                  className="flex items-center justify-between gap-3 px-4 py-4"
-                >
-                  <div>
-                    <p className="font-medium">{cert.career}</p>
-                    <p className="mt-0.5 text-xs text-slate">
-                      {cert.score}/100 · {new Date(cert.issued_at).toLocaleDateString("en-ZA", {
-                        day: "numeric",
-                        month: "long",
-                        year: "numeric",
-                      })}{" "}
-                      · {cert.certificate_id}
-                    </p>
-                  </div>
-                  <Link
-                    href={`/certificate/${cert.certificate_id}`}
-                    className="btn-glass shrink-0 border border-white/70 bg-white/60 px-4 text-sm"
-                  >
-                    View
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          )}
+          {/* The page shows at once; the list streams in when the engine
+              answers, so a sleeping engine never freezes the whole page. */}
+          <Suspense fallback={<CertificatesSkeleton />}>
+            {user ? <CertificateList userId={user.id} /> : <EmptyState />}
+          </Suspense>
         </div>
       </main>
       <Footer />
     </div>
+  );
+}
+
+function CertificatesSkeleton() {
+  return (
+    <div className="glass-sheet space-y-2 p-2" aria-busy="true">
+      {[0, 1].map((i) => (
+        <div key={i} className="flex items-center justify-between gap-3 px-4 py-4">
+          <div className="w-full space-y-2">
+            <div className="skeleton h-4 w-1/2" />
+            <div className="skeleton h-3 w-2/3" />
+          </div>
+          <div className="skeleton h-10 w-16 shrink-0 rounded-full" />
+        </div>
+      ))}
+      <p className="px-4 pb-3 text-center text-xs text-slate" role="status">
+        Loading your certificates. This can take up to a minute after a quiet spell.
+      </p>
+    </div>
+  );
+}
+
+function EmptyState() {
+  return (
+    <div className="glass-sheet p-6 text-center sm:p-8">
+      <p className="font-display text-lg font-semibold">No certificates yet</p>
+      <p className="mt-1 text-sm text-slate">Check your CV, then tap &ldquo;Get my certificate&rdquo; on your results.</p>
+      <Link href="/analyze" className="btn-primary mt-5">
+        Check my CV
+      </Link>
+    </div>
+  );
+}
+
+async function CertificateList({ userId }: { userId: string }) {
+  let certificates: Certificate[] = [];
+  let loadError: string | null = null;
+
+  try {
+    const res = await engineFetch(`/api/certificates?clerk_user_id=${encodeURIComponent(userId)}`, {
+      cache: "no-store",
+      // A sleeping engine can take ~50s to wake; don't wait forever.
+      signal: AbortSignal.timeout(55_000),
+    });
+    if (res.ok) {
+      const data = await res.json();
+      certificates = data.certificates ?? [];
+    } else {
+      loadError = "Could not load your certificates right now.";
+    }
+  } catch {
+    loadError = "Our engine is taking a while to wake up. Please try again in a minute.";
+  }
+
+  if (loadError) {
+    return (
+      <div className="rounded-2xl border border-brass/40 bg-brass/10 px-4 py-3 text-sm text-brass-dark">
+        <p>{loadError}</p>
+        <Link href="/dashboard" className="mt-2 inline-block font-medium underline underline-offset-2">
+          Try again
+        </Link>
+      </div>
+    );
+  }
+
+  if (certificates.length === 0) return <EmptyState />;
+
+  return (
+    <ul className="glass-sheet divide-y divide-ink/[0.07] p-2">
+      {certificates.map((cert) => (
+        <li key={cert.certificate_id} className="flex items-center justify-between gap-3 px-4 py-4">
+          <div>
+            <p className="font-medium">{cert.career}</p>
+            <p className="mt-0.5 text-xs text-slate">
+              {cert.score}/100 ·{" "}
+              {new Date(cert.issued_at).toLocaleDateString("en-ZA", {
+                day: "numeric",
+                month: "long",
+                year: "numeric",
+              })}{" "}
+              · {cert.certificate_id}
+            </p>
+          </div>
+          <Link
+            href={`/certificate/${cert.certificate_id}`}
+            className="btn-glass shrink-0 border border-white/70 bg-white/60 px-4 text-sm"
+          >
+            View
+          </Link>
+        </li>
+      ))}
+    </ul>
   );
 }
