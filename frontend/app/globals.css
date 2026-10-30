@@ -275,6 +275,31 @@ body::before {
   }
 }
 
+/* Page change: each page's content eases in instead of cutting in hard.
+   Only opacity and a small lift on <main>, so the fixed header and tab bar
+   stay perfectly still. */
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+main {
+  animation: page-in 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Placeholder blocks shown while a page's data loads. */
+@keyframes skeleton-pulse {
+  50% {
+    opacity: 0.45;
+  }
+}
+.skeleton {
+  border-radius: 12px;
+  background: rgba(20, 26, 46, 0.08);
+  animation: skeleton-pulse 1.4s ease-in-out infinite;
+}
+
 /* The one load animation: the score ring filling in on the home page. */
 @keyframes ring-fill {
   from {
@@ -286,7 +311,9 @@ body::before {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ring-animate {
+  .ring-animate,
+  main,
+  .skeleton {
     animation: none;
   }
   * {

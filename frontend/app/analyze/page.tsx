@@ -23,6 +23,7 @@ const ACCEPTED_FORMATS = [
   "application/rtf", "text/rtf", "text/plain",
 ].join(",");
 const MAX_FILE_BYTES = 10 * 1024 * 1024;
+const DRAFT_KEY = "srmaps:check-draft";
 
 export default function AnalyzePage() {
   const router = useRouter();
@@ -39,6 +40,34 @@ export default function AnalyzePage() {
   useEffect(() => {
     track("analyze_view");
   }, []);
+
+  // Keep what's been typed if the person taps away and comes back (in this
+  // tab only; cleared when the tab closes). The CV file can't be kept.
+  const [draftLoaded, setDraftLoaded] = useState(false);
+  useEffect(() => {
+    try {
+      const raw = window.sessionStorage.getItem(DRAFT_KEY);
+      if (raw) {
+        const d = JSON.parse(raw);
+        if (typeof d.firstName === "string") setFirstName(d.firstName);
+        if (typeof d.surname === "string") setSurname(d.surname);
+        if (d.career && typeof d.career.slug === "string") {
+          setCareer({ slug: d.career.slug, title: typeof d.career.title === "string" ? d.career.title : null });
+        }
+      }
+    } catch {
+      /* storage blocked: start empty */
+    }
+    setDraftLoaded(true);
+  }, []);
+  useEffect(() => {
+    if (!draftLoaded) return;
+    try {
+      window.sessionStorage.setItem(DRAFT_KEY, JSON.stringify({ firstName, surname, career }));
+    } catch {
+      /* ignore */
+    }
+  }, [draftLoaded, firstName, surname, career]);
 
   // The job title the person actually sees: the SA title they picked, or
   // the international career name.
@@ -131,6 +160,11 @@ export default function AnalyzePage() {
         return;
       }
       track("check_completed", { ...tracked, detail: kind });
+      try {
+        window.sessionStorage.removeItem(DRAFT_KEY);
+      } catch {
+        /* ignore */
+      }
       router.push(`/results/${data.analysis_id}`);
     } catch {
       track("check_failed", { ...tracked, detail: `network:${kind}` });
