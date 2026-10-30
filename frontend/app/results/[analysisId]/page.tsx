@@ -6,6 +6,7 @@ import { SkillBar } from "@/components/SkillBar";
 import { GenerateCertificateButton } from "@/components/GenerateCertificateButton";
 import { FeatureInterestSurvey } from "@/components/FeatureInterestSurvey";
 import { TrackView } from "@/components/TrackView";
+import { CvBasicsCard, PrivacyNotice, SaChecklist } from "@/components/ResultsGuidance";
 import { fetchAnalysis } from "@/lib/serverApi";
 import { SkillBreakdownItem } from "@/lib/types";
 
@@ -100,7 +101,7 @@ export default async function ResultsPage({
 
         <section className="glass-sheet p-6 sm:p-8">
           <h2 className="font-display text-xl font-semibold tracking-tight">Your next steps</h2>
-          <p className="mt-1 text-sm text-slate">Most valuable first. Each one adds clear evidence to your CV.</p>
+          <p className="mt-1 text-sm text-slate">Most valuable first. Each one is something to add or change on your CV.</p>
           <ol className="mt-5 space-y-3">
             {analysis.recommendations.map((rec, i) => (
               <li key={i} className="flex gap-3 rounded-2xl bg-white/55 p-3.5 text-sm leading-relaxed">
@@ -112,6 +113,8 @@ export default async function ResultsPage({
             ))}
           </ol>
         </section>
+
+        <PrivacyNotice warnings={analysis.privacy_warnings ?? []} advice={analysis.privacy_advice} />
 
         <section className="glass-sheet grid grid-cols-1 gap-8 p-6 sm:p-8 md:grid-cols-2">
           <div>
@@ -146,32 +149,9 @@ export default async function ResultsPage({
           </div>
         </section>
 
-        {reqs.length > 0 && (
-          <section className="glass-sheet p-6 sm:p-8">
-            <h2 className="font-display text-xl font-semibold tracking-tight">Required in South Africa</h2>
-            <p className="mt-1 text-sm text-slate">
-              Employers usually check these for this job. They don&apos;t change your score, but if you have them,
-              make sure your CV says so clearly.
-            </p>
-            <ul className="mt-4 space-y-3">
-              {reqs.map((r) => (
-                <li key={r.key} className="rounded-2xl bg-white/55 p-3.5">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <strong className="text-sm">{r.label}</strong>
-                    <span
-                      className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${
-                        r.found_in_cv ? "bg-jacaranda/15 text-jacaranda-dark" : "bg-ink/[0.06] text-slate"
-                      }`}
-                    >
-                      {r.found_in_cv ? "Mentioned in your CV" : "Not found in your CV"}
-                    </span>
-                  </div>
-                  <p className="mt-1 text-xs leading-relaxed text-slate">{r.detail}</p>
-                </li>
-              ))}
-            </ul>
-          </section>
-        )}
+        <SaChecklist reqs={reqs} />
+
+        <CvBasicsCard basics={analysis.cv_basics ?? []} />
 
         <section className="glass-sheet p-6 sm:p-8">
           <h2 className="font-display text-xl font-semibold tracking-tight">Skill breakdown</h2>

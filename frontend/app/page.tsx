@@ -3,6 +3,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { RotatingText } from "@/components/RotatingText";
 import { ScoreRing } from "@/components/ScoreRing";
+import { AnnotatedCv } from "@/components/AnnotatedCv";
 
 // A sample result, shown in the hero so people see what they get.
 const SAMPLE = {
@@ -72,7 +73,7 @@ export default function HomePage() {
               ))}
             </ul>
             <p className="mt-5 rounded-2xl bg-white/60 px-3.5 py-2.5 text-sm">
-              Next step: add one example of a customer problem you solved.
+              Next step: list customer service under Skills.
             </p>
           </div>
         </section>
@@ -93,6 +94,34 @@ export default function HomePage() {
           <p className="mt-4 px-2 text-sm text-slate">
             Scores use skills data from O*NET, linked to South Africa&apos;s official list of job titles (OFO).
           </p>
+        </section>
+
+        <section className="mx-auto mt-20 max-w-5xl px-4 sm:px-6">
+          <div className="max-w-xl px-2">
+            <h2 className="font-display text-2xl font-semibold tracking-tight sm:text-3xl">
+              Read line by line, the way an employer would
+            </h2>
+            <p className="mt-3 leading-relaxed text-slate">
+              Your result looks at what each line of your CV shows: the skills your job needs, what South African
+              employers ask for, and details you may not want to share.
+            </p>
+          </div>
+          <div className="glass-sheet mt-6 p-3 sm:p-5">
+            <AnnotatedCv />
+          </div>
+          <p className="mt-4 px-2 text-sm text-slate">A made-up example. Your own result is based only on your CV.</p>
+        </section>
+
+        <section className="mx-auto mt-20 max-w-5xl px-4 sm:px-6">
+          <div className="glass-sheet flex flex-col items-start gap-5 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
+            <div>
+              <p className="font-display text-xl font-semibold tracking-tight">Free for job seekers, always.</p>
+              <p className="mt-1 text-sm text-slate">Takes about a minute. Your CV file is never stored.</p>
+            </div>
+            <Link href="/analyze" className="btn-primary shrink-0">
+              Check my CV
+            </Link>
+          </div>
         </section>
       </main>
       <Footer />

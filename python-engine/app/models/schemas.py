@@ -33,6 +33,19 @@ class SaRequirement(BaseModel):
     label: str
     detail: str
     found_in_cv: bool
+    kind: str = "required"  # "required" by law/registration, or "usual" employer ask
+
+
+class PrivacyWarning(BaseModel):
+    key: str
+    label: str
+
+
+class CvBasic(BaseModel):
+    key: str
+    label: str
+    ok: bool
+    fix: str
 
 
 class AnalysisResponse(BaseModel):
@@ -50,6 +63,9 @@ class AnalysisResponse(BaseModel):
     benchmark_disclaimer: str
     onet_source: Optional[OnetSourceInfo] = None
     sa_requirements: List[SaRequirement] = []
+    privacy_warnings: List[PrivacyWarning] = []
+    privacy_advice: Optional[str] = None
+    cv_basics: List[CvBasic] = []
     created_at: str
 
 

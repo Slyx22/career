@@ -47,7 +47,7 @@ export function SkillBar({ item }: { item: SkillBreakdownItem }) {
       </div>
       {(!item.present || weak) && item.tip && (
         <p className="mt-2 text-xs leading-relaxed text-slate">
-          <span className="font-medium text-ink">{weak ? "Make it stronger: " : "How to show it: "}</span>
+          <span className="font-medium text-ink">{weak ? "Make it stronger on your CV: " : "What to add to your CV: "}</span>
           {item.tip}
         </p>
       )}

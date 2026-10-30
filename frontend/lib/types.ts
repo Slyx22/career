@@ -16,6 +16,20 @@ export interface SaRequirement {
   label: string;
   detail: string;
   found_in_cv: boolean;
+  /** "required" by law or registration; "usual" = employers usually ask. Older results have none (required). */
+  kind?: "required" | "usual";
+}
+
+export interface PrivacyWarning {
+  key: string;
+  label: string;
+}
+
+export interface CvBasic {
+  key: string;
+  label: string;
+  ok: boolean;
+  fix: string;
 }
 
 export interface SkillBreakdownItem {
@@ -43,6 +57,9 @@ export interface AnalysisResult {
   recommendations: string[];
   benchmark_disclaimer: string;
   sa_requirements?: SaRequirement[];
+  privacy_warnings?: PrivacyWarning[];
+  privacy_advice?: string | null;
+  cv_basics?: CvBasic[];
   created_at: string;
 }
 

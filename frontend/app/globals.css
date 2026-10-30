@@ -302,6 +302,105 @@ main {
   animation: skeleton-pulse 1.4s ease-in-out infinite;
 }
 
+/* Home page: the sample CV is marked up line by line when it scrolls into
+   view. A highlighter sweeps each marked line, then its note appears, using
+   the score ring's easing. Fully drawn for reduced-motion users. */
+.annotated-paper {
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.9) inset, 0 24px 48px -28px rgba(48, 36, 110, 0.35);
+  padding: 1.5rem 1.25rem;
+}
+@media (min-width: 640px) {
+  .annotated-paper {
+    padding: 2rem 2rem 2rem 2.25rem;
+  }
+}
+.annotated-line {
+  line-height: 1.6;
+}
+.annotated-row {
+  display: grid;
+  gap: 0.35rem;
+  padding: 0.3rem 0;
+}
+@media (min-width: 768px) {
+  .annotated-row {
+    grid-template-columns: minmax(0, 1fr) 15.5rem;
+    gap: 1.5rem;
+    align-items: start;
+  }
+}
+.annotated-hl {
+  --hl: rgba(124, 107, 224, 0.2);
+  background-image: linear-gradient(var(--hl), var(--hl));
+  background-repeat: no-repeat;
+  background-position: 0 85%;
+  background-size: 0% 72%;
+  border-radius: 4px;
+  padding: 0 0.15em;
+  margin: 0 -0.15em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  transition: background-size 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: calc(0.25s + var(--i, 0) * 0.6s);
+}
+.mark-fix .annotated-hl,
+.mark-private .annotated-hl {
+  --hl: rgba(227, 169, 74, 0.32);
+}
+.annotated-redact {
+  filter: blur(3.5px);
+  user-select: none;
+}
+.annotated-note {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: #4b5468;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1), transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: calc(0.7s + var(--i, 0) * 0.6s);
+}
+@media (min-width: 768px) {
+  .annotated-note {
+    border-left: 2px solid rgba(124, 107, 224, 0.35);
+    padding-left: 0.75rem;
+  }
+  .mark-fix .annotated-note,
+  .mark-private .annotated-note {
+    border-left-color: rgba(227, 169, 74, 0.6);
+  }
+}
+.annotated-icon {
+  display: inline-flex;
+  height: 1.15rem;
+  width: 1.15rem;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  background: rgba(124, 107, 224, 0.15);
+  color: #5646b8;
+}
+.mark-fix .annotated-icon,
+.mark-private .annotated-icon {
+  background: rgba(227, 169, 74, 0.2);
+  color: #8f6317;
+}
+.is-playing .annotated-hl {
+  background-size: 100% 72%;
+}
+.is-playing .annotated-note {
+  opacity: 1;
+  transform: none;
+}
+
 /* The one load animation: the score ring filling in on the home page. */
 @keyframes ring-fill {
   from {
@@ -313,6 +412,10 @@ main {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .annotated-hl,
+  .annotated-note {
+    transition-delay: 0s !important;
+  }
   .ring-animate,
   main,
   .skeleton {

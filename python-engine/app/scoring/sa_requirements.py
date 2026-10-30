@@ -26,6 +26,7 @@ class Requirement:
     detail: str
     soc_prefixes: Tuple[str, ...]
     keywords: Tuple[str, ...]
+    kind: str = "required"  # "required" (law or registration) | "usual" (employers usually ask)
 
 
 REQUIREMENTS: Sequence[Requirement] = (
@@ -54,7 +55,8 @@ REQUIREMENTS: Sequence[Requirement] = (
                 "Accountant and auditor roles usually ask for membership or articles with a recognised body, "
                 "such as SAICA (CA(SA)), SAIPA, CIMA or ACCA. Registered auditors must also be registered with IRBA.",
                 ("13-2011",),
-                ("saica", "ca(sa)", "ca (sa)", "saipa", "cima", "acca", "irba", "articles", "training contract",
+                ("saica", "ca(sa)", "ca (sa)", "saipa", "cima", "acca", "irba", "articles of clerkship", "serving articles",
+                 "articled clerk", "trainee accountant", "training contract",
                  "chartered accountant", "professional accountant")),
     Requirement("tax_practitioner", "Registered tax practitioner",
                 "Paid tax work requires registration with SARS through a recognised controlling body (for example SAIT or SAIPA).",
@@ -131,6 +133,63 @@ REQUIREMENTS: Sequence[Requirement] = (
 )
 
 
+# Not legal requirements: what South African employers usually ask for in
+# adverts for these jobs. Shown separately as "Employers usually ask for",
+# so nobody mistakes them for a law. Only careers where the ask is common
+# get an item; most professional and tech roles get none.
+_MATRIC_JOBS = ("31-", "33-", "35-", "37-", "39-", "41-", "43-", "45-", "47-", "49-", "51-", "53-")
+USUAL_ASKS: Sequence[Requirement] = (
+    Requirement("matric", "Matric (Grade 12)",
+                "Most adverts for this kind of job ask for a matric certificate (NSC). If you have it, list it "
+                "under Education with the year.",
+                _MATRIC_JOBS,
+                ("matric", "grade 12", "national senior certificate", "nsc", "senior certificate", "n3",
+                 "national certificate (vocational)", "ncv", "nc(v)"),
+                "usual"),
+    Requirement("accounting_software", "Accounting software",
+                "Bookkeeping and accounts jobs usually ask for experience with software such as Sage Pastel, Xero, "
+                "QuickBooks, SAP or Syspro. If you've used one, name it under Skills.",
+                ("43-3031", "43-3021", "43-3011", "43-3051", "13-2011", "13-2082"),
+                ("pastel", "sage", "xero", "quickbooks", "quick books", "sap", "syspro", "caseware", "accpac"),
+                "usual"),
+    Requirement("computer_literacy", "Computer literacy (MS Office)",
+                "Office and admin jobs usually ask for computer literacy, especially Word, Excel and Outlook. "
+                "List the programs you can use under Skills.",
+                ("43-", "13-1", "11-3011"),
+                ("ms office", "microsoft office", "excel", "ms word", "microsoft word", "outlook", "office 365",
+                 "microsoft 365", "computer literacy", "computer literate", "icdl", "google workspace",
+                 "google sheets"),
+                "usual"),
+    Requirement("food_safety", "Food safety training",
+                "Kitchens and food businesses usually ask for food handler or food safety training "
+                "(R638 or HACCP). If you have it, list it under Certifications.",
+                ("35-1", "35-2", "51-3"),
+                ("food safety", "food handler", "food handling", "haccp", "r638", "r 638", "food hygiene",
+                 "hygiene certificate"),
+                "usual"),
+    Requirement("first_aid", "First aid certificate",
+                "Jobs caring for children, patients or the public usually ask for a first aid certificate. "
+                "If you have one, list it under Certifications with its level and year.",
+                ("39-9011", "25-2011", "39-9031", "39-9032", "31-1", "39-9041", "33-9", "53-3052", "29-2042"),
+                ("first aid", "level 1 first aid", "level 2 first aid", "level 3 first aid", "cpr", "bls",
+                 "basic life support"),
+                "usual"),
+    Requirement("drivers_licence", "Driver's licence",
+                "Jobs that involve travelling to clients or sites usually ask for a valid driver's licence. "
+                "If you have one, list it with its code (e.g. Code 08 / B).",
+                ("41-4", "41-3", "49-20", "49-90", "47-21", "47-2152", "11-9021", "13-1031", "43-5021"),
+                ("driver's licence", "drivers licence", "driver's license", "drivers license", "driving licence",
+                 "code 08", "code 8", "code 10", "code 14", "code b", "code eb", "code c1", "own transport"),
+                "usual"),
+    Requirement("sabpp", "SABPP registration (often preferred)",
+                "HR roles often prefer registration with the South African Board for People Practices. "
+                "If you're registered, add it under Certifications.",
+                ("13-1071", "13-1141", "13-1151", "11-3121", "11-3111", "43-4161"),
+                ("sabpp", "board for people practices", "hr practitioner", "chartered hr"),
+                "usual"),
+)
+
+
 def _mentions(text: str, keywords: Sequence[str]) -> bool:
     for k in keywords:
         if re.search(r"(?<![a-z0-9])" + re.escape(k) + r"(?![a-z0-9])", text):
@@ -144,12 +203,13 @@ def sa_requirements_for(soc_code: Optional[str], cv_text: str) -> List[dict]:
         return []
     text = (cv_text or "").lower()
     out = []
-    for req in REQUIREMENTS:
+    for req in tuple(REQUIREMENTS) + tuple(USUAL_ASKS):
         if any(soc.startswith(p) for p in req.soc_prefixes):
             out.append({
                 "key": req.key,
                 "label": req.label,
                 "detail": req.detail,
                 "found_in_cv": _mentions(text, req.keywords),
+                "kind": req.kind,
             })
     return out
