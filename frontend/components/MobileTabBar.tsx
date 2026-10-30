@@ -66,6 +66,8 @@ export function MobileTabBar() {
     // drag tracking
     pointerId: -1,
     startX: 0,
+    startY: 0,
+    gaveUp: false, // the gesture turned out to be a vertical scroll
     grabOffset: 0,
     dragged: false,
   });
@@ -224,7 +226,9 @@ export function MobileTabBar() {
     const localX = e.clientX - bar.getBoundingClientRect().left;
     st.pointerId = e.pointerId;
     st.startX = e.clientX;
+    st.startY = e.clientY;
     st.dragged = false;
+    st.gaveUp = false;
     // If you grab the lens itself you drag it from where you touched it;
     // otherwise it will centre itself under your finger once you move.
     const onLens = localX >= st.x && localX <= st.x + st.w;
@@ -237,9 +241,23 @@ export function MobileTabBar() {
     const st = s.current;
     const bar = barRef.current;
     if (e.pointerId !== st.pointerId || !bar) return;
-    if (!st.dragged && Math.abs(e.clientX - st.startX) > 6) {
-      st.dragged = true;
-      bar.setPointerCapture?.(e.pointerId);
+    if (!st.dragged) {
+      const dx = Math.abs(e.clientX - st.startX);
+      const dy = Math.abs(e.clientY - st.startY);
+      // Mostly up or down: it's a scroll. Let go and never switch tabs.
+      if (dy > 8 && dy > dx) {
+        st.gaveUp = true;
+        st.pointerId = -1;
+        st.pressTarget = 0;
+        st.target = tabBox(activeIndex)?.left ?? st.target;
+        kick();
+        return;
+      }
+      // Only a clear sideways swipe starts dragging the lens.
+      if (dx > 14 && dx > dy * 1.5) {
+        st.dragged = true;
+        bar.setPointerCapture?.(e.pointerId);
+      }
     }
     if (!st.dragged) return;
     const b = bar.getBoundingClientRect();
@@ -266,11 +284,15 @@ export function MobileTabBar() {
     st.pointerId = -1;
     st.pressTarget = 0;
     if (st.dragged && !cancelled) {
-      // Let a quick flick carry it on a little before choosing the tab.
-      const projected = st.x + st.w / 2 + st.v * 0.08;
-      const i = nearestTab(projected);
-      st.target = tabBox(i)?.left ?? st.target;
-      if (i !== activeIndex) router.push(TABS[i].href);
+      // Change tab only if the lens was actually carried over another tab.
+      const i = nearestTab(st.x + st.w / 2);
+      const travelled = Math.abs(e.clientX - st.startX);
+      if (i !== activeIndex && travelled > 24) {
+        st.target = tabBox(i)?.left ?? st.target;
+        router.push(TABS[i].href);
+      } else {
+        st.target = tabBox(activeIndex)?.left ?? st.target;
+      }
     } else if (cancelled) {
       st.target = tabBox(activeIndex)?.left ?? st.target;
     }
@@ -304,10 +326,12 @@ export function MobileTabBar() {
               aria-current={active ? "page" : undefined}
               draggable={false}
               onClick={(e) => {
-                // A drag already navigated on release; don't also follow the link.
-                if (s.current.dragged) {
+                // A drag already decided on release, and a scroll that began
+                // on the bar must never count as a tap.
+                if (s.current.dragged || s.current.gaveUp) {
                   e.preventDefault();
                   s.current.dragged = false;
+                  s.current.gaveUp = false;
                   return;
                 }
                 // Tap: start the lens flowing straight away, before the page loads.

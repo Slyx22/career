@@ -1,28 +1,21 @@
 import { NextResponse } from "next/server";
-import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
+import { clerkMiddleware } from "@clerk/nextjs/server";
 import { isClerkConfigured } from "@/lib/clerk";
 
 /**
- * Route protection is intentionally narrow: only /dashboard (the
- * optional "save your results" area, see build spec section 24) sits
- * behind auth. Everything else - landing, /analyze, /results,
- * /certificate, /verify - stays public, because the core CV -> score ->
- * certificate flow must never require an account.
+ * Makes the signed-in user available to pages and API routes. No page is
+ * locked behind a redirect: /dashboard shows signed-out visitors our own
+ * sign-in card, and the core CV -> score -> certificate flow never needs an
+ * account.
  *
- * When Clerk isn't configured yet (no clerk1/clerk2 or standard Clerk env vars),
- * this middleware is a harmless no-op passthrough, so the app runs
- * fine before you've connected Clerk. Once you set those two env vars,
- * /dashboard becomes auth-protected automatically.
+ * When Clerk isn't configured yet (no clerk1/clerk2 or standard Clerk env
+ * vars), this middleware is a harmless no-op passthrough.
  */
-
-const isProtectedRoute = createRouteMatcher(["/dashboard(.*)"]);
-
 const middleware = isClerkConfigured
-  ? clerkMiddleware(async (auth, req) => {
-      if (isProtectedRoute(req)) {
-        await auth.protect();
-      }
-    })
+  ? // No route redirects to Clerk's hosted sign-in page: signed-out
+    // visitors to /dashboard see our own sign-in card there instead, the
+    // same one the header's "Sign in" opens, so there's one sign-in look.
+    clerkMiddleware()
   : function noopMiddleware() {
       return NextResponse.next();
     };
