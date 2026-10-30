@@ -4,15 +4,20 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { SignInButton, SignUpButton } from "@clerk/nextjs";
 import { isClerkConfigured } from "@/lib/clerk";
+import { track } from "@/lib/track";
 
 export function GenerateCertificateButton({
   analysisId,
   firstName,
   surname,
+  careerSlug,
+  careerLabel,
 }: {
   analysisId: string;
   firstName: string;
   surname: string;
+  careerSlug?: string;
+  careerLabel?: string;
 }) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
@@ -20,6 +25,7 @@ export function GenerateCertificateButton({
   const [needsSignUp, setNeedsSignUp] = useState(false);
 
   async function handleClick() {
+    track("certificate_clicked", { career: careerSlug, careerLabel });
     setError(null);
     setNeedsSignUp(false);
     setLoading(true);
