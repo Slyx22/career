@@ -23,28 +23,16 @@ const FEATURES: FeatureOption[] = [
     description: "Real job posting data and hiring trends",
   },
   {
-    key: "score_increase_tips",
-    icon: "📈",
-    label: "See how I can increase my score",
-    description: "Detailed actions to boost your readiness",
-  },
-  {
     key: "cv_improvement",
     icon: "📄",
     label: "Improve my CV",
-    description: "AI-powered suggestions to strengthen your CV",
+    description: "Suggested wording to strengthen your CV",
   },
   {
     key: "profile_integration",
     icon: "🔗",
     label: "Connect my professional profiles",
     description: "Link LinkedIn, GitHub, and other profiles",
-  },
-  {
-    key: "download_certificate",
-    icon: "🏆",
-    label: "Download my certificate",
-    description: "Professional certificate of your readiness score",
   },
 ];
 
