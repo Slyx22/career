@@ -10,10 +10,8 @@ const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || process.en
 const ALLOWED_FEATURE_KEYS = new Set([
   "personalized_roadmap",
   "employer_insights",
-  "score_increase_tips",
   "cv_improvement",
   "profile_integration",
-  "download_certificate",
 ]);
 const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
