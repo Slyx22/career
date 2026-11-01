@@ -31,6 +31,48 @@ function mix(a: number[], b: number[], t: number) {
   return `rgb(${a.map((v, i) => Math.round(v + (b[i] - v) * t)).join(",")})`;
 }
 
+// One keyframe per 60fps frame when a glide is handed to the compositor.
+const FRAME = 1 / 60;
+const SUBSTEPS = 4;
+const MAX_FRAMES = 150; // 2.5s, far longer than any real glide
+
+type Motion = { x: number; v: number; target: number; press: number; pv: number; pressTarget: number };
+
+// Advance both springs (lens position, and press/lift) by dt seconds.
+function advance(m: Motion, dt: number) {
+  const a = -STIFFNESS * (m.x - m.target) - DAMPING * m.v;
+  m.v += a * dt;
+  m.x += m.v * dt;
+  const pa = -PRESS_STIFFNESS * (m.press - m.pressTarget) - PRESS_DAMPING * m.pv;
+  m.pv += pa * dt;
+  m.press += m.pv * dt;
+}
+
+function isSettled(m: Motion) {
+  return (
+    Math.abs(m.x - m.target) < 0.3 &&
+    Math.abs(m.v) < 4 &&
+    Math.abs(m.press - m.pressTarget) < 0.002 &&
+    Math.abs(m.pv) < 0.01
+  );
+}
+
+// Stretch along the direction of travel and squash vertically: the faster it
+// moves, the more it flows. Pressing also makes it bigger.
+function lensTransform(x: number, v: number, press: number) {
+  const speed = Math.min(Math.abs(v) / 2600, 1);
+  const sx = 1 + speed * 0.32 + press * 0.12;
+  const sy = 1 - speed * 0.16 + press * 0.1;
+  return `translate3d(${x}px,0,0) scale(${sx},${sy})`;
+}
+
+function barTransform(press: number) {
+  return `scale(${1 + press * 0.035})`;
+}
+
+type Frame = { x: number; v: number; press: number; pv: number };
+type Glide = { anims: Animation[]; frames: Frame[]; target: number; pressTarget: number };
+
 /**
  * iOS-style floating liquid-glass tab bar, phones and small tablets only.
  *
@@ -60,6 +102,9 @@ export function MobileTabBar() {
   const barRef = useRef<HTMLDivElement>(null);
   const lensRef = useRef<HTMLDivElement>(null);
   const tabRefs = useRef<(HTMLAnchorElement | null)[]>([]);
+  // A glide currently playing on the compositor (see `glide` below).
+  const glideRef = useRef<Glide | null>(null);
+  const barWidth = useRef(0);
 
   // Physics state lives in a ref so animation never triggers a render.
   const s = useRef({
@@ -98,17 +143,14 @@ export function MobileTabBar() {
     const bar = barRef.current;
     if (!lens || !bar) return;
 
-    // Stretch along the direction of travel and squash vertically — the
-    // faster it moves, the more it flows. Pressing also makes it bigger.
-    const speed = Math.min(Math.abs(st.v) / 2600, 1);
-    const sx = 1 + speed * 0.32 + st.press * 0.12;
-    const sy = 1 - speed * 0.16 + st.press * 0.1;
     lens.style.width = `${st.w}px`;
-    lens.style.transform = `translate3d(${st.x}px,0,0) scale(${sx},${sy})`;
+    // While a glide plays on the compositor it owns both transforms.
+    if (!glideRef.current) {
+      lens.style.transform = lensTransform(st.x, st.v, st.press);
+      bar.style.transform = barTransform(st.press);
+    }
     lens.style.setProperty("--lift", String(st.press));
     lens.style.opacity = hiddenRef.current ? "0" : "1";
-
-    bar.style.transform = `scale(${1 + st.press * 0.035})`;
 
     // Fade the tab colours with how much the lens covers each tab.
     const centre = st.x + st.w / 2;
@@ -126,24 +168,44 @@ export function MobileTabBar() {
       const dt = Math.min((now - st.last) / 1000, 1 / 30);
       st.last = now;
 
-      if (st.pointerId === -1 || !st.dragged) {
-        // Spring towards the target tab.
-        const a = -STIFFNESS * (st.x - st.target) - DAMPING * st.v;
-        st.v += a * dt;
-        st.x += st.v * dt;
+      const g = glideRef.current;
+      if (g) {
+        // The lens itself is moving on the compositor. Read where it is on
+        // that timeline (so a busy main thread never puts us behind) and
+        // keep the tab colours and glass lift in step with it.
+        const anim = g.anims[0];
+        const t = Number(anim.currentTime ?? 0);
+        const i = Math.floor(t / (FRAME * 1000));
+        const done = anim.playState === "finished" || i >= g.frames.length - 1;
+        Object.assign(st, done ? g.frames[g.frames.length - 1] : g.frames[Math.max(0, i)]);
+        if (done) {
+          glideRef.current = null;
+          st.x = st.target;
+          st.v = 0;
+          st.press = st.pressTarget;
+          st.pv = 0;
+          paint();
+          g.anims.forEach((a) => a.cancel());
+          st.raf = 0;
+          return;
+        }
+        paint();
+        st.raf = requestAnimationFrame(step);
+        return;
       }
-      const pa = -PRESS_STIFFNESS * (st.press - st.pressTarget) - PRESS_DAMPING * st.pv;
-      st.pv += pa * dt;
-      st.press += st.pv * dt;
+
+      if (st.pointerId === -1 || !st.dragged) {
+        advance(st, dt);
+      } else {
+        // Dragging: the finger sets x; only the press spring runs.
+        const pa = -PRESS_STIFFNESS * (st.press - st.pressTarget) - PRESS_DAMPING * st.pv;
+        st.pv += pa * dt;
+        st.press += st.pv * dt;
+      }
 
       paint();
 
-      const settled =
-        Math.abs(st.x - st.target) < 0.3 &&
-        Math.abs(st.v) < 4 &&
-        Math.abs(st.press - st.pressTarget) < 0.002 &&
-        Math.abs(st.pv) < 0.01 &&
-        st.pointerId === -1;
+      const settled = isSettled(st) && st.pointerId === -1;
       if (settled) {
         st.x = st.target;
         st.v = 0;
@@ -158,20 +220,86 @@ export function MobileTabBar() {
     [paint]
   );
 
+  // Stop a compositor glide where it is right now, so physics (or a finger)
+  // can take over from exactly that spot with the same speed.
+  const stopGlide = useCallback(() => {
+    const g = glideRef.current;
+    if (!g) return;
+    const st = s.current;
+    const t = Number(g.anims[0].currentTime ?? 0);
+    const i = Math.min(g.frames.length - 1, Math.max(0, Math.floor(t / (FRAME * 1000))));
+    Object.assign(st, g.frames[i]);
+    glideRef.current = null;
+    paint(); // write the current position inline before dropping the animation
+    g.anims.forEach((a) => a.cancel());
+  }, [paint]);
+
+  const runLoop = useCallback(() => {
+    const st = s.current;
+    if (!st.raf) {
+      st.last = performance.now();
+      st.raf = requestAnimationFrame(step);
+    }
+  }, [step]);
+
+  /**
+   * Play the spring to its target on the compositor (Web Animations API).
+   * The whole path is worked out up front and handed to the browser, so it
+   * stays smooth while the main thread is busy building the next page,
+   * which is exactly when a tap on a tab happens.
+   */
+  const glide = useCallback(() => {
+    const st = s.current;
+    const lens = lensRef.current;
+    const bar = barRef.current;
+    if (!lens || !bar || typeof lens.animate !== "function") return false;
+    const g = glideRef.current;
+    if (g && g.target === st.target && g.pressTarget === st.pressTarget) return true; // already on its way
+    stopGlide();
+
+    const sim: Motion = { x: st.x, v: st.v, target: st.target, press: st.press, pv: st.pv, pressTarget: st.pressTarget };
+    const frames: Frame[] = [];
+    for (let f = 0; f < MAX_FRAMES; f++) {
+      frames.push({ x: sim.x, v: sim.v, press: sim.press, pv: sim.pv });
+      if (f > 0 && isSettled(sim)) break;
+      for (let k = 0; k < SUBSTEPS; k++) advance(sim, FRAME / SUBSTEPS);
+    }
+    const end = { x: st.target, v: 0, press: st.pressTarget, pv: 0 };
+    frames.push(end);
+    if (frames.length <= 2) {
+      Object.assign(st, end);
+      paint();
+      return true;
+    }
+
+    const duration = (frames.length - 1) * FRAME * 1000;
+    const timing: KeyframeAnimationOptions = { duration, easing: "linear" };
+    const anims = [
+      lens.animate(frames.map((f) => ({ transform: lensTransform(f.x, f.v, f.press) })), timing),
+      bar.animate(frames.map((f) => ({ transform: barTransform(f.press) })), timing),
+    ];
+    // Where it rests once the animation ends (animations don't hold their
+    // last frame, the inline style shows through again).
+    lens.style.transform = lensTransform(end.x, 0, end.press);
+    bar.style.transform = barTransform(end.press);
+    glideRef.current = { anims, frames, target: st.target, pressTarget: st.pressTarget };
+    runLoop(); // tab colours and glass lift follow along
+    return true;
+  }, [paint, runLoop, stopGlide]);
+
   const kick = useCallback(() => {
     const st = s.current;
     if (st.reduced) {
+      stopGlide();
       st.x = st.target;
       st.v = 0;
       st.press = 0;
       paint();
       return;
     }
-    if (!st.raf) {
-      st.last = performance.now();
-      st.raf = requestAnimationFrame(step);
-    }
-  }, [paint, step]);
+    // Finger down: follow it frame by frame. Otherwise glide on the compositor.
+    if (st.pointerId !== -1 || !glide()) runLoop();
+  }, [glide, paint, runLoop, stopGlide]);
 
   const moveTo = useCallback(
     (i: number, instant = false) => {
@@ -181,6 +309,7 @@ export function MobileTabBar() {
       st.target = box.left;
       st.w = box.width;
       if (instant || !st.ready) {
+        stopGlide();
         st.x = box.left;
         st.v = 0;
         st.ready = true;
@@ -189,7 +318,7 @@ export function MobileTabBar() {
         kick();
       }
     },
-    [kick, paint, tabBox]
+    [kick, paint, stopGlide, tabBox]
   );
 
   // Follow the current page.
@@ -205,8 +334,15 @@ export function MobileTabBar() {
     const onMq = () => (s.current.reduced = mq.matches);
     mq.addEventListener?.("change", onMq);
     moveTo(activeRef.current, true);
+    barWidth.current = barRef.current?.offsetWidth ?? 0;
     const onResize = () => {
-      // Ignore resizes during a drag, and always snap to the page we're on now.
+      // Phones fire "resize" whenever the address bar slides in or out,
+      // including when a new page scrolls back to the top. Only the height
+      // changes then, and snapping the lens there is what made it skip its
+      // animation. Re-place it only if the bar's width really changed.
+      const w = barRef.current?.offsetWidth ?? 0;
+      if (w === barWidth.current) return;
+      barWidth.current = w;
       if (s.current.pointerId !== -1) return;
       moveTo(activeRef.current, true);
     };
@@ -216,6 +352,8 @@ export function MobileTabBar() {
       mq.removeEventListener?.("change", onMq);
       cancelAnimationFrame(s.current.raf);
       s.current.raf = 0;
+      glideRef.current?.anims.forEach((a) => a.cancel());
+      glideRef.current = null;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -240,6 +378,7 @@ export function MobileTabBar() {
     const st = s.current;
     const bar = barRef.current;
     if (!bar) return;
+    stopGlide();
     const localX = e.clientX - bar.getBoundingClientRect().left;
     st.pointerId = e.pointerId;
     st.startX = e.clientX;
