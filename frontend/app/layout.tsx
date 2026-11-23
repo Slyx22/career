@@ -31,6 +31,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        {/* Impact.com site ownership verification — keep exactly as given. */}
+        <meta
+          name="impact-site-verification"
+          // @ts-expect-error Impact requires the non-standard `value` attribute
+          value="23d30387-b03b-49c0-b76e-22600aff9a68"
+        />
+      </head>
       <body className="font-body text-ink antialiased">
         <AuthProvider>
           {children}
